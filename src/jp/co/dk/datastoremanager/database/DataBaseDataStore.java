@@ -22,12 +22,11 @@ public class DataBaseDataStore implements DataStore {
 	 */
 	DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {
 		this.dataBaseAccessParameter = dataBaseAccessParameter;
-		this.transaction             = Transaction.getTransaction(dataBaseAccessParameter);
 	}
 	
 	@Override
 	public void startTrunsaction() throws DataStoreManagerException {
-		
+		this.transaction = Transaction.getTransaction(dataBaseAccessParameter);
 	}
 
 	@Override

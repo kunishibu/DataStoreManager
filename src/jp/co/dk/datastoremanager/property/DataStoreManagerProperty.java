@@ -2,6 +2,7 @@ package jp.co.dk.datastoremanager.property;
 
 import java.io.File;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 import jp.co.dk.property.AbstractProperty;
 import jp.co.dk.property.exception.PropertyException;
@@ -264,5 +265,13 @@ public class DataStoreManagerProperty extends AbstractProperty {
 	protected DataStoreManagerProperty (File file, String key, String defaltValue) throws PropertyException {
 		super(file, key, defaltValue);
 	}
+	
+	
+	public List<DataStoreParameter> getDataStoreParameters() {
+		List</> dataStoreParmaterList = new ArrayList<DataStoreParameter>();
+		return dataStoreParmaterList;
+	}
+	
+	
 	
 }

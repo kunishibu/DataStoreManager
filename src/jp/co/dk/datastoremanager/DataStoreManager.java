@@ -35,16 +35,39 @@ public class DataStoreManager {
 	/** データストアプロパティ */
 	DataStoreManagerProperty dataStoreManagerProperty;
 	
+	/**
+	 * コンストラクタ<p/>
+	 * 指定のデータストアマネージャプロパティからデータストアマネージャのインスタンスを生成します。<br/>
+	 * 指定されたプロパティがnullだった場合、またはプロパティに不正な値が設定されていた場合、例外が送出される。
+	 * 
+	 * @param dataStoreManagerProperty データストアマネージャプロパティ
+	 * @throws DataStoreManagerException インスタンスの生成に失敗した場合
+	 */
 	public DataStoreManager(DataStoreManagerProperty dataStoreManagerProperty) throws DataStoreManagerException{
 		if (dataStoreManagerProperty == null) throw new DataStoreManagerException(PROPERTY_IS_NOT_SET);
 		this.dataStoreManagerProperty = dataStoreManagerProperty;
+		
 	}
 	
+	/**
+	 * このデータストア管理クラスが管理しているすべてのデータストアに対してトランザクションを開始します。<p/>
+	 * トランザクション開始処理に失敗した場合、例外を送出します。
+	 * 
+	 * @throws DataStoreManagerException トランザクション開始に失敗した場合
+	 */
 	public void startTrunsaction() throws DataStoreManagerException {
 		
 	}
 	
+	
+	/**
+	 * 指定のDAO定義クラスオブジェクトを元にデータアクセスオブジェクトを生成し、返却します。
+	 * @param daoConstants DAO定義クラス
+	 * @return データアクセスオブジェクトのインスタンス
+	 */
 	public DataAccessObject getDataAccessObject(DaoConstants daoConstants) {
+		DataAccessObjectFactory factory = daoConstants.getDataAccessObjectFactory();
+		factory.getDataAccessObject(dataStoreKind, dataBaseDataStore);
 		return null;
 	}
 	
