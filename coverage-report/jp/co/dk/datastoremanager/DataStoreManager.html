@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - DataStoreManager.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>DataStoreManager/src/jp/co/dk/datastoremanager/DataStoreManager.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.datastoremanager;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import jp.co.dk.datastoremanager.property.DataStoreManagerProperty;
+
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * DataStoreManagerは、Oracle、Mysql、PostgreSqlなどのデータストアに対する管理を行うクラスです。&lt;p/>
+ * &lt;br/>
+ * このクラスは指定のデータストアへのトランザクション制御、各種テーブルへのDAOの取得などデータストアへの操作を管理する制御クラスとなります。&lt;br/>
+ * &lt;br/>
+ * 対応しているデータストアは以下の通りとなります。&lt;br/>
+ * 
+ * ===RDB===&lt;br/>
+ * ・Oracle&lt;br/>
+ * ・MySql&lt;br/>
+ * ・PostgreSql&lt;br/>
+ * &lt;br/>
+ * ===ファイル===&lt;br/>
+ * ・csvファイル&lt;br/>
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>26</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class DataStoreManager {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>2</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
+        <span class='covered' onclick="showPath(this,'l28s0 l29s0 l29s1')">A: 2</span>
+        <span class='uncovered' onclick="showPath(this,'l28s0 l29s0 l30s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>28</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l28s0'>	public DataStoreManager(DataStoreManagerProperty dataStoreManagerProperty) throws DataStoreManagerException{</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>29</td><td class='count'>2</td>
+      <td><pre class='prettyprint jmp'>		<span id='l29s0' title='Executions: 2' class='covered'>if (dataStoreManagerProperty == null)</span> <span id='l29s1' title='Executions: 2' class='covered'>throw new DataStoreManagerException(PROPERTY_IS_NOT_SET);</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>30</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l30s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>33</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - DataStoreManagerMessage.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>DataStoreManager/src/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.datastoremanager.message;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import jp.co.dk.message.AbstractMessage;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * DataStoreManagerMessageは、データストアの操作にて使用するメッセージを定義する定数クラスです。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>11</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l11s0'>public class DataStoreManagerMessage extends AbstractMessage{</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>13</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** データストアが生成できませんでした。プロパティが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>14</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l14s0'>	public static final DataStoreManagerMessage PROPERTY_IS_NOT_SET = new DataStoreManagerMessage("E001");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>16</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** データストア種別に設定されている値が不正です。デタストア種別設定値=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>17</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l17s0'>	public static final DataStoreManagerMessage DATASTORE_KIND_VALUE_IS_FAILE = new DataStoreManagerMessage("E002");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>19</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** データストア種別が設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>20</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l20s0'>	public static final DataStoreManagerMessage DATASTORE_PARAMETER_CREATE_FAILE_DATASTOREKIND_IS_NOT_SET = new DataStoreManagerMessage("E003");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>22</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** サーバ名が設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>23</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l23s0'>	public static final DataStoreManagerMessage DATASTORE_PARAMETER_CREATE_FAILE_SERVER_IS_NOT_SET = new DataStoreManagerMessage("E004");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>25</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** SIDが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>26</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l26s0'>	public static final DataStoreManagerMessage DATASTORE_PARAMETER_CREATE_FAILE_SID_IS_NOT_SET = new DataStoreManagerMessage("E005");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>28</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ユーザIDが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>29</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l29s0'>	public static final DataStoreManagerMessage DATASTORE_PARAMETER_CREATE_FAILE_USER_IS_NOT_SET = new DataStoreManagerMessage("E006");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>31</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** パスワードが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>32</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l32s0'>	public static final DataStoreManagerMessage DATASTORE_PARAMETER_CREATE_FAILE_PASSWORD_IS_NOT_SET = new DataStoreManagerMessage("E007");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>34</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected DataStoreManagerMessage(String messageId) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>35</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l35s0'>		super(messageId);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>36</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l36s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>38</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>
