@@ -52,6 +52,9 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** SQLに対してパラメータを設定を行った際に例外が発生しました。 */
 	public static final DataStoreManagerMessage AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL = new DataStoreManagerMessage("E012");
 	
+	/** 対応していないデータストア種別が設定されています。 */
+	public static final DataStoreManagerMessage NO_SUPPORT_DATA_STORE_KIND = new DataStoreManagerMessage("E013");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}

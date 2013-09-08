@@ -1,12 +1,14 @@
 package jp.co.dk.datastoremanager.database;
 
+import jp.co.dk.datastoremanager.DataStoreParameter;
+
 /**
  * DataBaseAccessParameterは、データベースに接続する際に必要なパラメータを保持するクラスです。
  * 
  * @version 1.0
  * @author D.Kanno
  */
-public class DataBaseAccessParameter {
+public class DataBaseAccessParameter extends DataStoreParameter{
 	
 	/** データベースドライバー */
 	private DataBaseDriverConstants driver;

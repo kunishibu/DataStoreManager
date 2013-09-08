@@ -38,6 +38,13 @@ public enum DataStoreKind {
 		this.kind = kind;
 	}
 	
+	/**
+	 * 指定の文字列をデータストアの種別へ変換します。
+	 * 
+	 * @param kind
+	 * @return
+	 * @throws DataStoreManagerException
+	 */
 	public static DataStoreKind convert(String kind) throws DataStoreManagerException {
 		for (DataStoreKind kindObj : DataStoreKind.values()) {
 			if (kindObj.kind.equals(kind)) return kindObj;
@@ -49,3 +56,4 @@ public enum DataStoreKind {
 		}
 	}
 }
+

@@ -7,4 +7,11 @@ public interface DaoConstants {
 	 * @return DAOファクトリクラスオブジェクト
 	 */
 	public DataAccessObjectFactory getDataAccessObjectFactory();
+	
+	/**
+	 * このデータアクセスオブジェクトの名称を取得します。
+	 * 
+	 * @return データアクセスオブジェクトの名称
+	 */
+	public String getName();
 }

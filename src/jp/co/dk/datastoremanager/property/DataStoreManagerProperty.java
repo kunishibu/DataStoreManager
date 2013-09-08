@@ -2,8 +2,8 @@ package jp.co.dk.datastoremanager.property;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
+import jp.co.dk.datastoremanager.DaoConstants;
 import jp.co.dk.property.AbstractProperty;
 import jp.co.dk.property.exception.PropertyException;
 
@@ -15,7 +15,36 @@ import jp.co.dk.property.exception.PropertyException;
  */
 public class DataStoreManagerProperty extends AbstractProperty {
 	
-	public static DataStoreManagerProperty REQUEST_HEADER = new DataStoreManagerProperty("header.request.");
+	/** 接続先データストア種別 */
+	public final static DataStoreManagerProperty DATASTORE_TYPE = new DataStoreManagerProperty("datastore.type");
+	
+	/** ORACLEの接続先URL */
+	public final static DataStoreManagerProperty DATASTORE_ORACLE_URL = new DataStoreManagerProperty("datastore.oracle.url");
+	/** ORACLEの接続先SID */
+	public final static DataStoreManagerProperty DATASTORE_ORACLE_SID = new DataStoreManagerProperty("datastore.oracle.sid");
+	/** ORACLEの接続時のユーザ名 */
+	public final static DataStoreManagerProperty DATASTORE_ORACLE_USER = new DataStoreManagerProperty("datastore.oracle.user");
+	/** ORACLEの接続時のパスワード */
+	public final static DataStoreManagerProperty DATASTORE_ORACLE_PASSWORD = new DataStoreManagerProperty("datastore.oracle.password");
+	
+	/** MYSQLの接続先URL */
+	public final static DataStoreManagerProperty DATASTORE_MYSQL_URL = new DataStoreManagerProperty("datastore.mysql.url");
+	/** MYSQLの接続先SID */
+	public final static DataStoreManagerProperty DATASTORE_MYSQL_SID = new DataStoreManagerProperty("datastore.mysql.sid");
+	/** MYSQLの接続時のユーザ名 */
+	public final static DataStoreManagerProperty DATASTORE_MYSQL_USER = new DataStoreManagerProperty("datastore.mysql.user");
+	/** MYSQLの接続時のパスワード */
+	public final static DataStoreManagerProperty DATASTORE_MYSQL_PASSWORD = new DataStoreManagerProperty("datastore.mysql.password");
+	
+	/** POSTGRESQLの接続先URL */
+	public final static DataStoreManagerProperty DATASTORE_POSTGRESQL_URL = new DataStoreManagerProperty("datastore.postgresql.url");
+	/** POSTGRESQLの接続先SID */
+	public final static DataStoreManagerProperty DATASTORE_POSTGRESQL_SID = new DataStoreManagerProperty("datastore.postgresql.sid");
+	/** POSTGRESQLの接続時のユーザ名 */
+	public final static DataStoreManagerProperty DATASTORE_POSTGRESQL_USER = new DataStoreManagerProperty("datastore.postgresql.user");
+	/** POSTGRESQLの接続時のパスワード */
+	public final static DataStoreManagerProperty DATASTORE_POSTGRESQL_PASSWORD = new DataStoreManagerProperty("datastore.postgresql.password");
+	
 	
 	/**
 	 * コンストラクタ<p>
@@ -25,253 +54,21 @@ public class DataStoreManagerProperty extends AbstractProperty {
 	 * @param key プロパティキー
 	 */
 	protected DataStoreManagerProperty (String key) throws PropertyException {
-		super(key);
+		super(new File("properties/DataStoreManager.properties"), key);
 	}
 	
 	/**
-	 * コンストラクタ<p>
+	 * このプロパティキーをDAO定義オブジェクトの名称で補完した値を返却します。<p/>
+	 * 例えば、"datastore.type"、DaoConstants.getNameの値が"USERS"とした場合、<br/>
+	 * プロパティファイルから"datastore.type.USERS"のキーに設定されている値を取得して返却します。<br/>
+	 * <br/>
+	 * 取得出来なかった場合、nullが返却される。
 	 * 
-	 * 指定されたプロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param key プロパティキー
-	 * @param defaltValue デフォルト値
+	 * @param daoConstants DAO定義オブジェクト 
+	 * @return プロパティ設定値
 	 */
-	protected DataStoreManagerProperty (String key, boolean defaltValue) throws PropertyException {
-		super(key, defaltValue);
+	public String getString(DaoConstants daoConstants) {
+		return this.properties.getString(new StringBuilder(this.getKey()).append('.').append(daoConstants.getName()).toString());
 	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param key プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (String key, byte defaltValue) throws PropertyException {
-		super(key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param key プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (String key, double defaltValue) throws PropertyException {
-		super(key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param key プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (String key, float defaltValue) throws PropertyException {
-		super(key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param key プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (String key, int defaltValue) throws PropertyException {
-		super(key, defaltValue);
-	}
-
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param key プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (String key, long defaltValue) throws PropertyException {
-		super(key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param key プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (String key, short defaltValue) throws PropertyException {
-		super(key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param key プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (String key, BigDecimal defaltValue) throws PropertyException {
-		super(key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param key プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (String key, String defaltValue) throws PropertyException {
-		super(key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティファイルパス、プロパティキーをもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param file プロパティファイルパス
-	 * @param key  プロパティキー
-	 */
-	protected DataStoreManagerProperty (File file, String key) throws PropertyException {
-		super(file, key);
-	}
-	
-
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティファイルパス、プロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param file プロパティファイルパス
-	 * @param key  プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (File file, String key, boolean defaltValue) throws PropertyException {
-		super(file, key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティファイルパス、プロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param file プロパティファイルパス
-	 * @param key  プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (File file, String key, byte defaltValue) throws PropertyException {
-		super(file, key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティファイルパス、プロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param file プロパティファイルパス
-	 * @param key  プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (File file, String key, double defaltValue) throws PropertyException {
-		super(file, key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティファイルパス、プロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param file プロパティファイルパス
-	 * @param key  プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (File file, String key, float defaltValue) throws PropertyException {
-		super(file, key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティファイルパス、プロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param file プロパティファイルパス
-	 * @param key  プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (File file, String key, int defaltValue) throws PropertyException {
-		super(file, key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティファイルパス、プロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param file プロパティファイルパス
-	 * @param key  プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (File file, String key, long defaltValue) throws PropertyException {
-		super(file, key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティファイルパス、プロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param file プロパティファイルパス
-	 * @param key  プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (File file, String key, short defaltValue) throws PropertyException {
-		super(file, key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティファイルパス、プロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param file プロパティファイルパス
-	 * @param key  プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (File file, String key, BigDecimal defaltValue) throws PropertyException {
-		super(file, key, defaltValue);
-	}
-	
-	/**
-	 * コンストラクタ<p>
-	 * 
-	 * 指定されたプロパティファイルパス、プロパティキー、デフォルト値をもとにプロパティ定数クラスを生成します。
-	 * 
-	 * @param file プロパティファイルパス
-	 * @param key  プロパティキー
-	 * @param defaltValue デフォルト値
-	 */
-	protected DataStoreManagerProperty (File file, String key, String defaltValue) throws PropertyException {
-		super(file, key, defaltValue);
-	}
-	
-	
-	public List<DataStoreParameter> getDataStoreParameters() {
-		List</> dataStoreParmaterList = new ArrayList<DataStoreParameter>();
-		return dataStoreParmaterList;
-	}
-	
-	
 	
 }
