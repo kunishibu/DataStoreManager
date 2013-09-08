@@ -55,6 +55,18 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** 対応していないデータストア種別が設定されています。 */
 	public static final DataStoreManagerMessage NO_SUPPORT_DATA_STORE_KIND = new DataStoreManagerMessage("E013");
 	
+	/** 対応していないデータストア種別が設定されています。 */
+	public static final DataStoreManagerMessage NO_SUPPORT_DATA_STORE_KIND = new DataStoreManagerMessage("E013");
+	
+	/** 対応していないデータストア種別が設定されています。 */
+	public static final DataStoreManagerMessage NO_SUPPORT_DATA_STORE_KIND = new DataStoreManagerMessage("E013");
+	
+	/** 対応していないデータストア種別が設定されています。 */
+	public static final DataStoreManagerMessage NO_SUPPORT_DATA_STORE_KIND = new DataStoreManagerMessage("E013");
+	
+	/** 対応していないデータストア種別が設定されています。 */
+	public static final DataStoreManagerMessage NO_SUPPORT_DATA_STORE_KIND = new DataStoreManagerMessage("E013");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}

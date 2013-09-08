@@ -1,8 +1,6 @@
 package jp.co.dk.datastoremanager.property;
 
 import java.io.File;
-import java.math.BigDecimal;
-
 import jp.co.dk.datastoremanager.DaoConstants;
 import jp.co.dk.property.AbstractProperty;
 import jp.co.dk.property.exception.PropertyException;
@@ -62,13 +60,16 @@ public class DataStoreManagerProperty extends AbstractProperty {
 	 * 例えば、"datastore.type"、DaoConstants.getNameの値が"USERS"とした場合、<br/>
 	 * プロパティファイルから"datastore.type.USERS"のキーに設定されている値を取得して返却します。<br/>
 	 * <br/>
-	 * 取得出来なかった場合、nullが返却される。
+	 * 取得出来なかった場合、通常のプロパティ値が取得される。
 	 * 
 	 * @param daoConstants DAO定義オブジェクト 
 	 * @return プロパティ設定値
 	 */
 	public String getString(DaoConstants daoConstants) {
-		return this.properties.getString(new StringBuilder(this.getKey()).append('.').append(daoConstants.getName()).toString());
+		String key = this.getKey();
+		String value = this.properties.getString(new StringBuilder(key).append('.').append(daoConstants.getName()).toString());
+		if (value == null ) value = this.properties.getString(key);
+		return value;
 	}
 	
 }

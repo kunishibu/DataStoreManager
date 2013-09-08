@@ -49,23 +49,23 @@ public class TestDataStoreManagerProperty {
 		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_PASSWORD.getString(FakeDaiConstants.USERS), "userspostgresql");
 		
 		// ＝＝＝＝＝個別設定の取得＝＝＝＝＝
-		// 存在しない接続先データストア種別を取得した場合、nullが返却されること
-		assertNull(DataStoreManagerProperty.DATASTORE_TYPE.getString(FakeDaiConstants.NO_USERS));
-		// 存在しないORACLE接続先を取得した場合、nullが返却されること
-		assertNull(DataStoreManagerProperty.DATASTORE_ORACLE_URL.getString(FakeDaiConstants.NO_USERS));
-		assertNull(DataStoreManagerProperty.DATASTORE_ORACLE_SID.getString(FakeDaiConstants.NO_USERS));
-		assertNull(DataStoreManagerProperty.DATASTORE_ORACLE_USER.getString(FakeDaiConstants.NO_USERS));
-		assertNull(DataStoreManagerProperty.DATASTORE_ORACLE_PASSWORD.getString(FakeDaiConstants.NO_USERS));
-		// 存在しないMYSQL接続先を取得した場合、nullが返却されること
-		assertNull(DataStoreManagerProperty.DATASTORE_MYSQL_URL.getString(FakeDaiConstants.NO_USERS));
-		assertNull(DataStoreManagerProperty.DATASTORE_MYSQL_SID.getString(FakeDaiConstants.NO_USERS));
-		assertNull(DataStoreManagerProperty.DATASTORE_MYSQL_USER.getString(FakeDaiConstants.NO_USERS));
-		assertNull(DataStoreManagerProperty.DATASTORE_MYSQL_PASSWORD.getString(FakeDaiConstants.NO_USERS));
-		// 存在しないPOSTGRESQL接続先を取得した場合、nullが返却されること
-		assertNull(DataStoreManagerProperty.DATASTORE_POSTGRESQL_URL.getString(FakeDaiConstants.NO_USERS));
-		assertNull(DataStoreManagerProperty.DATASTORE_POSTGRESQL_SID.getString(FakeDaiConstants.NO_USERS));
-		assertNull(DataStoreManagerProperty.DATASTORE_POSTGRESQL_USER.getString(FakeDaiConstants.NO_USERS));
-		assertNull(DataStoreManagerProperty.DATASTORE_POSTGRESQL_PASSWORD.getString(FakeDaiConstants.NO_USERS));
+		// 接続先データストア種別を正常に取得できること
+		assertEquals(DataStoreManagerProperty.DATASTORE_TYPE.getString(FakeDaiConstants.NO_USERS), "mysql");
+		// ORACLE接続先を正常に取得できること
+		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_URL.getString(FakeDaiConstants.NO_USERS), "oracleserver:5121");
+		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_SID.getString(FakeDaiConstants.NO_USERS), "oralcesid");
+		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_USER.getString(FakeDaiConstants.NO_USERS), "orausr");
+		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_PASSWORD.getString(FakeDaiConstants.NO_USERS), "oracle");
+		// MYSQL接続先を正常に取得できること
+		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_URL.getString(FakeDaiConstants.NO_USERS), "mysqlserver:5121");
+		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_SID.getString(FakeDaiConstants.NO_USERS), "mysqlsid");
+		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_USER.getString(FakeDaiConstants.NO_USERS), "mysqlusr");
+		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_PASSWORD.getString(FakeDaiConstants.NO_USERS), "mysql");
+		// POSTGRESQL接続先を正常に取得できること
+		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_URL.getString(FakeDaiConstants.NO_USERS), "postgresqlserver:5121");
+		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_SID.getString(FakeDaiConstants.NO_USERS), "postgresqlsid");
+		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_USER.getString(FakeDaiConstants.NO_USERS), "posusr");
+		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_PASSWORD.getString(FakeDaiConstants.NO_USERS), "postgresql");
 		
 	}
 
