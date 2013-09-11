@@ -61,9 +61,9 @@ public class DataStoreManager {
 	 * @throws DataStoreManagerException トランザクション開始に失敗した場合
 	 */
 	public void startTrunsaction() throws DataStoreManagerException {
-		this.defaultDataStore.startTrunsaction();
+		this.defaultDataStore.startTransaction();
 		for (String name : this.dataStores.keySet()) {
-			this.dataStores.get(name).startTrunsaction();
+			this.dataStores.get(name).startTransaction();
 		}
 	}
 	
@@ -88,9 +88,9 @@ public class DataStoreManager {
 	 * @throws DataStoreManagerException トランザクション終了に失敗した場合
 	 */
 	public void finishTrunsaction() throws DataStoreManagerException {
-		this.defaultDataStore.finishTrunsaction();
+		this.defaultDataStore.finishTransaction();
 		for (String name : dataStores.keySet()) {
-			this.dataStores.get(name).finishTrunsaction();
+			this.dataStores.get(name).finishTransaction();
 		}
 	}
 }

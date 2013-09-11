@@ -54,7 +54,7 @@ public class TestDataStoreManager extends TestDataStoreManagerFoundation{
 			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("properties/test/datastoremanager/success/datastoremanager_accessable_001.properties"));
 			target.startTrunsaction();
 			DataBaseDataStore defaultDataBaseDataStore = (DataBaseDataStore)target.defaultDataStore;
-			assertTrue(defaultDataBaseDataStore.isTrunsaction());
+			assertTrue(defaultDataBaseDataStore.isTransaction());
 			assertNotNull(target.dataStores);
 			assertEquals (target.dataStores.size(), 0);
 		} catch (DataStoreManagerException e) {
@@ -67,8 +67,8 @@ public class TestDataStoreManager extends TestDataStoreManagerFoundation{
 			target.startTrunsaction();
 			DataBaseDataStore defaultDataBaseDataStore = (DataBaseDataStore)target.defaultDataStore;
 			DataBaseDataStore usersDataBaseDataStore   = (DataBaseDataStore)target.dataStores.get("USERS");
-			assertTrue(defaultDataBaseDataStore.isTrunsaction());
-			assertTrue(usersDataBaseDataStore.isTrunsaction());
+			assertTrue(defaultDataBaseDataStore.isTransaction());
+			assertTrue(usersDataBaseDataStore.isTransaction());
 		} catch (DataStoreManagerException e) {
 			fail(e);
 		}

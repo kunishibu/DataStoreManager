@@ -1,6 +1,6 @@
 package jp.co.dk.datastoremanager;
 
-import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.DATASTORE_PARAMETER_CREATE_FAILE_DATASTOREKIND_IS_NOT_SET;
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.test.template.TestCaseTemplate;
 
@@ -18,7 +18,7 @@ public class TestDataStoreParameter extends TestCaseTemplate {
 		try {
 			new FakeDataStoreParameter(null);
 		} catch (DataStoreManagerException e) {
-			assertEquals(e.getMessageObj(), DATASTORE_PARAMETER_CREATE_FAILE_DATASTOREKIND_IS_NOT_SET);
+			assertEquals(e.getMessageObj(), DATA_STORE_KIND_IS_NOT_SET);
 		}
 	}
 }

@@ -14,7 +14,7 @@ public interface DataStore {
 	 * このデータストアのトランザクションを開始します。
 	 * @throws DataStoreManagerException トランザクション開始に失敗した場合
 	 */
-	public void startTrunsaction() throws DataStoreManagerException;
+	public void startTransaction() throws DataStoreManagerException;
 	
 	/**
 	 * このデータストアから指定のデータアクセスオブジェクトを取得します。
@@ -29,5 +29,12 @@ public interface DataStore {
 	 * このデータストアのトランザクションを終了します。
 	 * @throws DataStoreManagerException トランザクション終了に失敗した場合
 	 */
-	public void finishTrunsaction() throws DataStoreManagerException;
+	public void finishTransaction() throws DataStoreManagerException;
+	
+	/**
+	 * このデータストアのトランザクションが開始されているか判定する。
+	 * 
+	 * @return true=トランザクションが開始済み、false=トランザクションはまだ開始されていない
+	 */
+	public boolean isTransaction();
 }

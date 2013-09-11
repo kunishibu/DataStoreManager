@@ -66,7 +66,7 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	protected AbstractDataBaseAccessObject(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {
 		if (dataBaseAccessParameter == null) throw new DataStoreManagerException(DATA_ACCESS_OBJECT_IS_NOT_SET);
 		this.dataStore = new DataBaseDataStore(dataBaseAccessParameter);
-		this.dataStore.startTrunsaction();
+		this.dataStore.startTransaction();
 	}
 	
 	/**
@@ -78,7 +78,7 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	 * @throws DataStoreManagerException データストアがデータベース用データストアでなかった場合
 	 */
 	protected AbstractDataBaseAccessObject(DataStore dataStore) throws DataStoreManagerException {
-		if (dataStore instanceof DataBaseDataStore) throw new DataStoreManagerException(FAILE_TO_CAST_DATA_STORE_OBJECT); 
+		if (!(dataStore instanceof DataBaseDataStore)) throw new DataStoreManagerException(FAILE_TO_CAST_DATA_STORE_OBJECT); 
 		this.dataStore = (DataBaseDataStore)dataStore;
 	}
 	

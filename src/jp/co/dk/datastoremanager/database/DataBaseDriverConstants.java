@@ -49,9 +49,6 @@ public enum DataBaseDriverConstants {
 	 * @return 接続先URL
 	 */
 	String getUrl(String servername, String databasename) {
-		System.out.println(this.url);
-		System.out.println(servername);
-		System.out.println(databasename);
 		String result1 = this.url.replaceAll("servername", servername);
 		String result2 = result1.replaceAll("databasename", databasename);
 		return result2;

@@ -31,7 +31,7 @@ public class TestDataStoreKind extends TestDataStoreManagerFoundation{
 	 */
 	@Test
 	public void convert_success03() throws DataStoreManagerException{
-		assertEquals(DataStoreKind.convert("postgressql"), DataStoreKind.POSTGRESQL);
+		assertEquals(DataStoreKind.convert("postgresql"), DataStoreKind.POSTGRESQL);
 	}
 	
 	/**

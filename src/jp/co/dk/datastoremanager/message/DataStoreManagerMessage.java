@@ -85,6 +85,15 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** データアクセスオブジェクトが設定されていません。 */
 	public static final DataStoreManagerMessage DATA_ACCESS_OBJECT_IS_NOT_SET = new DataStoreManagerMessage("E025");
 	
+	/** トランザクションが開始していません。 */
+	public static final DataStoreManagerMessage TRANSACTION_IS_NOT_START = new DataStoreManagerMessage("E026");
+	
+	/** コミットに失敗しました。 */
+	public static final DataStoreManagerMessage FAILE_TO_COMMIT = new DataStoreManagerMessage("E027");
+	
+	/** ロールバックに失敗しました。 */
+	public static final DataStoreManagerMessage FAILE_TO_ROLLBACK = new DataStoreManagerMessage("E028");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}

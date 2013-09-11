@@ -9,17 +9,18 @@ import jp.co.dk.datastoremanager.DataAccessObject;
 import jp.co.dk.datastoremanager.DataStore;
 import jp.co.dk.datastoremanager.DataStoreKind;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 public class DataBaseDataStore implements DataStore {
-	
-	/** トランザクション */
-	protected Transaction transaction;
 	
 	/** データベースアクセスパラメータ */
 	protected DataBaseAccessParameter dataBaseAccessParameter;
 	
+	/** トランザクション */
+	protected Transaction transaction;
+	
 	/** SQLリスト */
-	List<Sql> sqlList = new ArrayList<Sql>();
+	protected List<Sql> sqlList = new ArrayList<Sql>();
 	
 	/**
 	 * コンストラクタ<p/>
@@ -32,23 +33,26 @@ public class DataBaseDataStore implements DataStore {
 	}
 	
 	@Override
-	public void startTrunsaction() throws DataStoreManagerException {
+	public void startTransaction() throws DataStoreManagerException {
 		this.transaction = Transaction.getTransaction(dataBaseAccessParameter);
 	}
 
 	@Override
 	public DataAccessObject getDataAccessObject(DaoConstants daoConstants) throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);
 		DataStoreKind dataStoreKind = this.dataBaseAccessParameter.getDataStoreKind();
-		daoConstants.getDataAccessObjectFactory().getDataAccessObject(dataStoreKind, this);
-		return null;
+		return daoConstants.getDataAccessObjectFactory().getDataAccessObject(dataStoreKind, this);
 	}
 
 	@Override
-	public void finishTrunsaction() throws DataStoreManagerException {
+	public void finishTransaction() throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);
 		this.transaction.commit();
+		this.transaction = null;
 	}
 	
-	public boolean isTrunsaction() {
+	@Override
+	public boolean isTransaction() {
 		if (this.transaction != null) return true;
 		return false;
 	}

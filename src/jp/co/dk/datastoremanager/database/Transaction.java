@@ -25,9 +25,6 @@ public class Transaction {
 	/** パラメータ */
 	private DataBaseAccessParameter dataBaseAccessParameter;
 	
-	/** SQLリスト */
-	private List<Sql> sqlList;
-	
 	/**
 	 * 指定のデータベースアクセスパラメータから呼び出し元のスレッドが保持しているトランザクションを取得する。<p/>
 	 * 呼び出し元のスレッドがトランザクションを保持していない場合、生成し返却する。
@@ -86,11 +83,19 @@ public class Transaction {
 	}
 
 	void commit() throws DataStoreManagerException {
-		
+		try {
+			this.connection.commit();
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(FAILE_TO_COMMIT, e);
+		}
 	}
 	
 	void rollback() throws DataStoreManagerException {
-		
+		try {
+			this.connection.rollback();
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(FAILE_TO_ROLLBACK, e);
+		}
 	}
 	
 	void close() throws DataStoreManagerException {
@@ -106,9 +111,6 @@ public class Transaction {
 		return connection;
 	}
 	
-	List<Sql> getSqlList() {
-		return new ArrayList<Sql>(this.sqlList);
-	}
 }
 
 class TransactionParam {

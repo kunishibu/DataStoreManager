@@ -37,12 +37,12 @@ public enum TestDataStoreDaoConstants implements DaoConstants{
 	
 	@Override
 	public DataAccessObjectFactory getDataAccessObjectFactory() {
-		return null;
+		return this.factory;
 	}
 
 	@Override
 	public String getName() {
-		return null;
+		return this.name;
 	}
 
 }
