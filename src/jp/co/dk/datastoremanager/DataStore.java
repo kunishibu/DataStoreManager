@@ -21,8 +21,9 @@ public interface DataStore {
 	 * 
 	 * @param daoConstants 取得対象のデータアクセスオブジェクト定数
 	 * @return データアクセスオブジェクト
+	 * @throws DataStoreManagerException データアクセスオブジェクトの生成に失敗した場合
 	 */
-	public DataAccessObject getDataAccessObject(DaoConstants daoConstants);
+	public DataAccessObject getDataAccessObject(DaoConstants daoConstants) throws DataStoreManagerException;
 	
 	/**
 	 * このデータストアのトランザクションを終了します。

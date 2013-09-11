@@ -79,6 +79,12 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** データストア種別が設定されていません。 */
 	public static final DataStoreManagerMessage DATA_STORE_KIND_IS_NOT_SET = new DataStoreManagerMessage("E023");
 	
+	/** データストアオブジェクトの変換に失敗しました。 */
+	public static final DataStoreManagerMessage FAILE_TO_CAST_DATA_STORE_OBJECT = new DataStoreManagerMessage("E024");
+	
+	/** データアクセスオブジェクトが設定されていません。 */
+	public static final DataStoreManagerMessage DATA_ACCESS_OBJECT_IS_NOT_SET = new DataStoreManagerMessage("E025");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}

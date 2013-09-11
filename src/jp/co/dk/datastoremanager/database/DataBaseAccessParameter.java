@@ -101,7 +101,7 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	}
 
 	@Override
-	protected DataStore getDataStore() {
+	protected DataStore createDataStore() {
 		return new DataBaseDataStore(this);
 	}
 	

@@ -3,9 +3,6 @@ package jp.co.dk.datastoremanager;
 import java.util.HashMap;
 import java.util.Map;
 
-import jp.co.dk.datastoremanager.database.DataBaseAccessParameter;
-import jp.co.dk.datastoremanager.database.DataBaseDataStore;
-import jp.co.dk.datastoremanager.database.DataBaseDriverConstants;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.property.DataStoreManagerProperty;
 
@@ -31,24 +28,30 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
  */
 public class DataStoreManager {
 	
-	/** データストアプール */
-	protected Map<DataStoreParameter, DataStore> dataStorePool = new HashMap<DataStoreParameter, DataStore>();
+	/** デフォルトのデータストア */
+	protected DataStore defaultDataStore;
+	
+	/** 各種データストア */
+	protected Map<String, DataStore> dataStores = new HashMap<String, DataStore>();
 	
 	/** データストアプロパティ */
-	DataStoreManagerProperty dataStoreManagerProperty;
+	protected DataStoreManagerProperty dataStoreManagerProperty;
 	
 	/**
 	 * コンストラクタ<p/>
-	 * 指定のデータストアマネージャプロパティからデータストアマネージャのインスタンスを生成します。<br/>
-	 * 指定されたプロパティがnullだった場合、またはプロパティに不正な値が設定されていた場合、例外が送出される。
+	 * 
 	 * 
 	 * @param dataStoreManagerProperty データストアマネージャプロパティ
 	 * @throws DataStoreManagerException インスタンスの生成に失敗した場合
 	 */
 	public DataStoreManager(DataStoreManagerProperty dataStoreManagerProperty) throws DataStoreManagerException{
 		if (dataStoreManagerProperty == null) throw new DataStoreManagerException(PROPERTY_IS_NOT_SET);
-		this.dataStoreManagerProperty = dataStoreManagerProperty;
-		
+		this.dataStoreManagerProperty               = dataStoreManagerProperty;
+		this.defaultDataStore                       = dataStoreManagerProperty.getDefaultDataStoreParameter().createDataStore();
+		Map<String, DataStoreParameter> parameterMap = dataStoreManagerProperty.getDataStoreParameters();
+		for (String name : parameterMap.keySet()) {
+			this.dataStores.put(name, parameterMap.get(name).createDataStore());
+		}
 	}
 	
 	/**
@@ -58,9 +61,11 @@ public class DataStoreManager {
 	 * @throws DataStoreManagerException トランザクション開始に失敗した場合
 	 */
 	public void startTrunsaction() throws DataStoreManagerException {
-		
+		this.defaultDataStore.startTrunsaction();
+		for (String name : this.dataStores.keySet()) {
+			this.dataStores.get(name).startTrunsaction();
+		}
 	}
-	
 	
 	/**
 	 * 指定のDAO定義クラスオブジェクトを元にデータアクセスオブジェクトを生成し、返却します。
@@ -69,16 +74,23 @@ public class DataStoreManager {
 	 * @throws DataStoreManagerException データアクセスオブジェクトの生成、または取得に失敗した場合
 	 */
 	public DataAccessObject getDataAccessObject(DaoConstants daoConstants) throws DataStoreManagerException {
-		DataStoreParameter dataStoreParameter = this.getDataStoreParameter(daoConstants);
-		DataStore dataStore = this.dataStorePool.get(dataStoreParameter);
-		if (dataStore == null) { 
-			dataStore = dataStoreParameter.getDataStore();
-			this.dataStorePool.put(dataStoreParameter, dataStore);
+		DataStore dataStore = this.dataStores.get(daoConstants.getName());
+		if (dataStore != null) { 
+			return dataStore.getDataAccessObject(daoConstants);
 		}
-		return daoConstants.getDataAccessObjectFactory().getDataAccessObject(dataStoreParameter.getDataStoreKind());
+		return this.defaultDataStore.getDataAccessObject(daoConstants);
 	}
 	
+	/**
+	 * このデータストア管理クラスが管理しているすべてのデータストアに対してトランザクションを終了します。<p/>
+	 * トランザクション終了処理に失敗した場合、例外を送出します。
+	 * 
+	 * @throws DataStoreManagerException トランザクション終了に失敗した場合
+	 */
 	public void finishTrunsaction() throws DataStoreManagerException {
-		
+		this.defaultDataStore.finishTrunsaction();
+		for (String name : dataStores.keySet()) {
+			this.dataStores.get(name).finishTrunsaction();
+		}
 	}
 }

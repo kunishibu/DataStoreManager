@@ -1,6 +1,5 @@
 package jp.co.dk.datastoremanager.testdbaccessobjects;
 
-import static org.junit.Assert.*;
 import jp.co.dk.datastoremanager.TestDataStoreManagerFoundation;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.testdbaccessobjects.record.UsersRecord;

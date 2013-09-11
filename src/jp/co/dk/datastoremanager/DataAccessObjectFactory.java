@@ -17,5 +17,5 @@ public interface DataAccessObjectFactory {
 	 * @return データアクセスオブジェクト
 	 * @throws DataStoreManagerException データアクセスオブジェクトの生成に失敗した場合
 	 */
-	public DataAccessObject getDataAccessObject(DataStoreParameter dataStoreParameter) throws DataStoreManagerException;
+	public DataAccessObject getDataAccessObject(DataStoreKind dataStoreKind, DataStore dataStore) throws DataStoreManagerException;
 }

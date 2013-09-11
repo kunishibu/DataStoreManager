@@ -19,7 +19,6 @@ public class TestDataStoreParameter extends TestCaseTemplate {
 			new FakeDataStoreParameter(null);
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), DATASTORE_PARAMETER_CREATE_FAILE_DATASTOREKIND_IS_NOT_SET);
-			assertEquals(e.getMessage(), "データストア種別が設定されていません。");
 		}
 	}
 }
@@ -28,6 +27,11 @@ class FakeDataStoreParameter extends DataStoreParameter {
 
 	protected FakeDataStoreParameter(DataStoreKind dataStoreKind) throws DataStoreManagerException {
 		super(dataStoreKind);
+	}
+
+	@Override
+	protected DataStore createDataStore() {
+		return null;
 	}
 	
 }

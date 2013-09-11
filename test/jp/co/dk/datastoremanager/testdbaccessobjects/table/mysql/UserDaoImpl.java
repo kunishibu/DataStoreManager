@@ -1,6 +1,7 @@
 package jp.co.dk.datastoremanager.testdbaccessobjects.table.mysql;
 
-import jp.co.dk.datastoremanager.database.AbstractDataBase;
+import jp.co.dk.datastoremanager.DataStore;
+import jp.co.dk.datastoremanager.database.AbstractDataBaseAccessObject;
 import jp.co.dk.datastoremanager.database.DataBaseAccessParameter;
 import jp.co.dk.datastoremanager.database.DataBaseDriverConstants;
 import jp.co.dk.datastoremanager.database.Sql;
@@ -8,16 +9,16 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.testdbaccessobjects.record.UsersRecord;
 import jp.co.dk.datastoremanager.testdbaccessobjects.table.UsersDao;
 
-public class UserDaoImpl extends AbstractDataBase implements UsersDao{
+public class UserDaoImpl extends AbstractDataBaseAccessObject implements UsersDao{
 
-	protected UserDaoImpl(DataBaseDriverConstants driver, String url, String sid, String user, String password) throws DataStoreManagerException {
-		super(driver, url, sid, user, password);
+	public UserDaoImpl(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {
+		super(dataBaseAccessParameter);
 	}
 	
-	public UserDaoImpl(DataBaseAccessParameter parameter) throws DataStoreManagerException {
-		super(parameter);
+	public UserDaoImpl(DataStore dataStore) throws DataStoreManagerException {
+		super(dataStore);
 	}
-
+	
 	@Override
 	public UsersRecord selectUser(String userid) throws DataStoreManagerException {
 		Sql sql = new Sql("SELECT * FROM USERS WHERE NAME = ?");
