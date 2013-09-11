@@ -2,14 +2,18 @@ package jp.co.dk.datastoremanager.property;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.NO_SUPPORT_DATA_STORE_KIND;
 
-import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import jp.co.dk.datastoremanager.DaoConstants;
 import jp.co.dk.datastoremanager.DataStoreKind;
 import jp.co.dk.datastoremanager.DataStoreParameter;
 import jp.co.dk.datastoremanager.database.DataBaseAccessParameter;
 import jp.co.dk.datastoremanager.database.DataBaseDriverConstants;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
-import jp.co.dk.property.AbstractProperty;
 import jp.co.dk.property.PropertiesFile;
 import jp.co.dk.property.exception.PropertyException;
 
@@ -83,16 +87,52 @@ public class DataStoreManagerProperty extends PropertiesFile {
 	 * 例えば、"datastore.type"、DaoConstants.getNameの値が"USERS"とした場合、<br/>
 	 * プロパティファイルから"datastore.type.USERS"のキーに設定されている値を取得して返却します。<br/>
 	 * <br/>
-	 * 取得出来なかった場合、通常のプロパティ値が取得される。
+	 * 取得出来なかった場合、nullが取得される。
 	 * 
 	 * @param daoConstants DAO定義オブジェクト 
 	 * @return プロパティ設定値
 	 */
 	public String getString(String key, DaoConstants daoConstants) {
-		if (daoConstants == null) return this.getString(key);
-		String value = this.getString(new StringBuilder(key).append('.').append(daoConstants.getName()).toString());
-		if (value == null ) value = this.getString(key);
+		return this.getString(key, daoConstants.getName());
+	}
+	
+	/**
+	 * このプロパティキーを指定の名称で補完した値を返却します。<p/>
+	 * 例えば、"datastore.type"、nameの値が"USERS"とした場合、<br/>
+	 * プロパティファイルから"datastore.type.USERS"のキーに設定されている値を取得して返却します。<br/>
+	 * <br/>
+	 * 取得出来なかった場合、nullが取得される。
+	 * 
+	 * @param key プロパティキー
+	 * @param name 名称
+	 * @return プロパティ設定値
+	 */
+	public String getString(String key, String name) {
+		if (name == null) return null;
+		String value = this.getString(new StringBuilder(key).append('.').append(name).toString());
+		if (value == null ) return null;
 		return value;
+	}
+	
+	public Map<String, DataStoreParameter> getDataStoreParameters() {
+		Map<String, DataStoreParameter> configurationMap = new HashMap<String, DataStoreParameter>();
+		Iterator<String> keys = this.getKeys("datastore.type.");
+		while(keys.hasNext()) {
+			System.out.println(keys.next());
+		}
+		return configurationMap;
+	}
+	
+	protected List<String> getNameList(String key) {
+		List<String> list = new ArrayList<String>();
+		if (key == null) return list; 
+		StringBuilder sb = new StringBuilder(key).append('.');
+		Iterator<String> keys = this.getKeys(sb.toString());
+		while(keys.hasNext()) {
+			String getKey = keys.next();
+			if (!getKey.equals(key)) list.add(getKey.replaceFirst(sb.toString(), "")); 
+		}
+		return list;
 	}
 	
 	/**

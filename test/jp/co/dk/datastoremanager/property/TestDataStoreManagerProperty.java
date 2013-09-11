@@ -1,6 +1,9 @@
 package jp.co.dk.datastoremanager.property;
 
 import static org.junit.Assert.*;
+
+import java.util.List;
+
 import jp.co.dk.datastoremanager.DaoConstants;
 import jp.co.dk.datastoremanager.DataAccessObjectFactory;
 import jp.co.dk.datastoremanager.DataStoreKind;
@@ -282,6 +285,38 @@ public class TestDataStoreManagerProperty extends TestDataStoreManagerFoundation
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), DataStoreManagerMessage.PASSWORD_IS_NOT_SET); 
 		}
+	}
+	
+	@Test
+	public void getDataStoreParameters() {
+		DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/oracle.properties");
+		dataStoreManagerProperty.getDataStoreParameters();
+		
+	}
+	
+	@Test
+	public void getNameList() {
+		DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/getnamelist.properties");
+		
+		// 引数に指定された名称がnullの場合、空のリストを返却すること。
+		assertEquals(dataStoreManagerProperty.getNameList(null).size(), 0);
+		
+		// 引数に指定された名称がプロパティに存在しないキーの場合、空のリストを返却すること。
+		assertEquals(dataStoreManagerProperty.getNameList("property_has_not_key").size(), 0);
+		
+		// 引数に指定されたキーに続く名称がプロパティファイルに存在しなかった場合、空のリストを返却すること。
+		assertEquals(dataStoreManagerProperty.getNameList("getnamelist_non").size(), 0);
+		
+		// 引数に指定されたキーに続く名称がプロパティファイルに存在しなかった場合、空のリストを返却すること。
+		List<String> result01 = dataStoreManagerProperty.getNameList("getnamelist_single");
+		assertEquals(result01.size(), 1);
+		assertEquals(result01.get(0), "NAME01");
+		
+		// 引数に指定されたキーに続く名称がプロパティファイルに存在しなかった場合、空のリストを返却すること。
+		List<String> result02 = dataStoreManagerProperty.getNameList("getnamelist_multi");
+		assertEquals(result02.size(), 2);
+		assertEquals(result02.get(0), "NAME01");
+		assertEquals(result02.get(1), "NAME02");
 	}
 }
 
