@@ -19,7 +19,7 @@ public enum DataStoreKind {
 	MYSQL("mysql"),
 	
 	/** POSTGRESSQL */
-	POSTGRESSQL("postgressql"),
+	POSTGRESQL("postgresql"),
 	
 	/** CSV */
 	CSV("csv"),

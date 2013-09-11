@@ -1,5 +1,11 @@
 package jp.co.dk.datastoremanager;
 
+/**
+ * DaoConstantsは、すべてのデータアクセスオブジェクトを定義するEnumクラスが実装するインターフェースです。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */
 public interface DaoConstants {
 	
 	/**
@@ -14,4 +20,5 @@ public interface DaoConstants {
 	 * @return データアクセスオブジェクトの名称
 	 */
 	public String getName();
+	
 }

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jp.co.dk.datastoremanager.database.DataBaseAccessParameter;
+import jp.co.dk.datastoremanager.database.DataBaseDataStore;
 import jp.co.dk.datastoremanager.database.DataBaseDriverConstants;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.property.DataStoreManagerProperty;
@@ -65,47 +66,19 @@ public class DataStoreManager {
 	 * 指定のDAO定義クラスオブジェクトを元にデータアクセスオブジェクトを生成し、返却します。
 	 * @param daoConstants DAO定義クラス
 	 * @return データアクセスオブジェクトのインスタンス
+	 * @throws DataStoreManagerException データアクセスオブジェクトの生成、または取得に失敗した場合
 	 */
-	public DataAccessObject getDataAccessObject(DaoConstants daoConstants) {
+	public DataAccessObject getDataAccessObject(DaoConstants daoConstants) throws DataStoreManagerException {
 		DataStoreParameter dataStoreParameter = this.getDataStoreParameter(daoConstants);
 		DataStore dataStore = this.dataStorePool.get(dataStoreParameter);
 		if (dataStore == null) { 
-			
+			dataStore = dataStoreParameter.getDataStore();
+			this.dataStorePool.put(dataStoreParameter, dataStore);
 		}
-		return daoConstants.getDataAccessObjectFactory().getDataAccessObject(dataStoreKind, dataBaseDataStore);
+		return daoConstants.getDataAccessObjectFactory().getDataAccessObject(dataStoreParameter.getDataStoreKind());
 	}
 	
 	public void finishTrunsaction() throws DataStoreManagerException {
 		
-	}
-	
-	@SuppressWarnings("static-access")
-	protected DataStoreParameter getDataStoreParameter(DaoConstants daoConstants) throws DataStoreManagerException {
-		DataStoreKind dataStoreKind = DataStoreKind.convert(this.dataStoreManagerProperty.DATASTORE_TYPE.getString());
-		switch (dataStoreKind) {
-			case ORACLE:
-				String oracleurl      = this.dataStoreManagerProperty.DATASTORE_ORACLE_URL.getString(daoConstants);
-				String oraclesid      = this.dataStoreManagerProperty.DATASTORE_ORACLE_SID.getString(daoConstants);
-				String oracleuser     = this.dataStoreManagerProperty.DATASTORE_ORACLE_USER.getString(daoConstants);
-				String oraclepassword = this.dataStoreManagerProperty.DATASTORE_ORACLE_PASSWORD.getString(daoConstants);
-				return new DataBaseAccessParameter(DataBaseDriverConstants.ORACLE, oracleurl, oraclesid, oracleuser, oraclepassword);
-				
-			case MYSQL:
-				String mysqlurl      = this.dataStoreManagerProperty.DATASTORE_MYSQL_URL.getString(daoConstants);
-				String mysqlsid      = this.dataStoreManagerProperty.DATASTORE_MYSQL_SID.getString(daoConstants);
-				String mysqluser     = this.dataStoreManagerProperty.DATASTORE_MYSQL_USER.getString(daoConstants);
-				String mysqlpassword = this.dataStoreManagerProperty.DATASTORE_MYSQL_PASSWORD.getString(daoConstants);
-				return new DataBaseAccessParameter(DataBaseDriverConstants.MYSQL, mysqlurl, mysqlsid, mysqluser, mysqlpassword);
-				
-			case POSTGRESSQL:
-				String postgresqlurl      = this.dataStoreManagerProperty.DATASTORE_POSTGRESQL_URL.getString(daoConstants);
-				String postgresqlsid      = this.dataStoreManagerProperty.DATASTORE_POSTGRESQL_SID.getString(daoConstants);
-				String postgresqluser     = this.dataStoreManagerProperty.DATASTORE_POSTGRESQL_USER.getString(daoConstants);
-				String postgresqlpassword = this.dataStoreManagerProperty.DATASTORE_POSTGRESQL_PASSWORD.getString(daoConstants);
-				return new DataBaseAccessParameter(DataBaseDriverConstants.POSTGRESSQL, postgresqlurl, postgresqlsid, postgresqluser, postgresqlpassword);
-				
-			default :
-				throw new DataStoreManagerException(NO_SUPPORT_DATA_STORE_KIND);
-		}
 	}
 }

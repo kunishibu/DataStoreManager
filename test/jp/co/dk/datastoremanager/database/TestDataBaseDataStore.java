@@ -1,5 +1,7 @@
 package jp.co.dk.datastoremanager.database;
 
-public class TestDataBaseDataStore {
+import jp.co.dk.datastoremanager.TestDataStoreManagerFoundation;
+
+public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 
 }

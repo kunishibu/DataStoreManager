@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
-public class TestDataStoreKind extends TestCaseTemplate{
+public class TestDataStoreKind extends TestDataStoreManagerFoundation{
 	
 	/**
 	 * convertに"oracle"を渡した場合、DataStoreKindが返却されること。
@@ -31,7 +31,7 @@ public class TestDataStoreKind extends TestCaseTemplate{
 	 */
 	@Test
 	public void convert_success03() throws DataStoreManagerException{
-		assertEquals(DataStoreKind.convert("postgressql"), DataStoreKind.POSTGRESSQL);
+		assertEquals(DataStoreKind.convert("postgressql"), DataStoreKind.POSTGRESQL);
 	}
 	
 	/**

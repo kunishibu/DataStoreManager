@@ -1,6 +1,6 @@
 package jp.co.dk.datastoremanager;
 
-import jp.co.dk.datastoremanager.database.DataBaseDataStore;
+import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 
 /**
  * DataStoreObjectFactoryは、データアクセスオブジェクトを生成するデータアクセスオブジェクトファクトリクラスが実装するインターフェースです。
@@ -11,11 +11,11 @@ import jp.co.dk.datastoremanager.database.DataBaseDataStore;
 public interface DataAccessObjectFactory {
 	
 	/**
-	 * 指定のデータストア種別、データベースデータストアからデータアクセスオブジェクトを取得します。
+	 * 指定のデータベースデータストアパラメータからデータアクセスオブジェクトを取得します。
 	 * 
 	 * @param dataStoreKind     データストア種別
-	 * @param dataBaseDataStore データベースデータストア
 	 * @return データアクセスオブジェクト
+	 * @throws DataStoreManagerException データアクセスオブジェクトの生成に失敗した場合
 	 */
-	public DataAccessObject getDataAccessObject(DataStoreKind dataStoreKind, DataBaseDataStore dataBaseDataStore);
+	public DataAccessObject getDataAccessObject(DataStoreParameter dataStoreParameter) throws DataStoreManagerException;
 }

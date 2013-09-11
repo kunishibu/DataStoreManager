@@ -1,7 +1,11 @@
 package jp.co.dk.datastoremanager.database;
 
+import jp.co.dk.datastoremanager.DataStore;
+import jp.co.dk.datastoremanager.DataStoreKind;
 import jp.co.dk.datastoremanager.DataStoreParameter;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 /**
  * DataBaseAccessParameterは、データベースに接続する際に必要なパラメータを保持するクラスです。
@@ -31,18 +35,20 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	 * 指定のドライバー、接続先URL、SID、ユーザ名、パスワードからデータベースアクセスに必要なパラメータを生成します。<br/>
 	 * いづれかの値にnullまたは空文字が設定されていた場合、例外を送出する。
 	 * 
-	 * @param driver   データベースドライバー
-	 * @param url      接続先URL
-	 * @param sid      接続先SID
-	 * @param user     ユーザ
-	 * @param password パスワード
+	 * @param dataStoreKind データストア種別
+	 * @param driver        データベースドライバー
+	 * @param url           接続先URL
+	 * @param sid           接続先SID
+	 * @param user          ユーザ
+	 * @param password      パスワード
 	 */
-	public DataBaseAccessParameter(DataBaseDriverConstants driver, String url, String sid, String user, String password) throws DataStoreManagerException {
-		if (driver   == null) throw new DataStoreManaerException();
-		if (url      == null || url.equals("")) throw new DataStoreManaerException();
-		if (sid      == null || sid.equals("")) throw new DataStoreManaerException();
-		if (user     == null || user.equals("")) throw new DataStoreManaerException();
-		if (password == null || password.equals("")) throw new DataStoreManaerException();
+	public DataBaseAccessParameter(DataStoreKind dataStoreKind, DataBaseDriverConstants driver, String url, String sid, String user, String password) throws DataStoreManagerException {
+		super(dataStoreKind);
+		if (driver   == null) throw new DataStoreManagerException(DRIVER_IS_NOT_SET);
+		if (url      == null || url.equals("")) throw new DataStoreManagerException(URL_IS_NOT_SET);
+		if (sid      == null || sid.equals("")) throw new DataStoreManagerException(SID_IS_NOT_SET);
+		if (user     == null || user.equals("")) throw new DataStoreManagerException(USER_IS_NOT_SET);
+		if (password == null || password.equals("")) throw new DataStoreManagerException(PASSWORD_IS_NOT_SET);
 		this.driver   = driver;
 		this.url      = url;
 		this.sid      = sid;
@@ -93,6 +99,10 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	public String getPassword() {
 		return password;
 	}
-	
+
+	@Override
+	protected DataStore getDataStore() {
+		return new DataBaseDataStore(this);
+	}
 	
 }

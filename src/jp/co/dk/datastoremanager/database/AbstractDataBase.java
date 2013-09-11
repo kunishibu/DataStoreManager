@@ -5,12 +5,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.co.dk.datastoremanager.DataAccessObject;
 import jp.co.dk.datastoremanager.DataConvertable;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
-public abstract class AbstractDataBase<E> {
+public abstract class AbstractDataBase implements DataAccessObject{
 	
 	/** トランザクションオブジェクト */
 	protected Transaction transaction;
@@ -19,7 +20,7 @@ public abstract class AbstractDataBase<E> {
 	protected DataBaseAccessParameter parameter;
 	
 	protected AbstractDataBase(DataBaseDriverConstants driver, String url, String sid, String user, String password) throws DataStoreManagerException {
-		this(new DataBaseAccessParameter(driver, url, sid, user, password));
+		this(new DataBaseAccessParameter(driver.getDataStoreKind(), driver, url, sid, user, password));
 	}
 	
 	protected AbstractDataBase(DataBaseAccessParameter parameter) throws DataStoreManagerException {

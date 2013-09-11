@@ -3,6 +3,7 @@ package jp.co.dk.datastoremanager.exception;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.co.dk.datastoremanager.TestDataStoreManagerFoundation;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.test.template.TestCaseTemplate;
 
@@ -10,7 +11,7 @@ import org.junit.Test;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
-public class TestDataStoreManagerException extends TestCaseTemplate{
+public class TestDataStoreManagerException extends TestDataStoreManagerFoundation{
 
 	@Test
 	public void constractor() {

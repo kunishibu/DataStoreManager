@@ -11,11 +11,11 @@ import jp.co.dk.datastoremanager.DataStoreKind;
 public enum DataBaseDriverConstants {
 	
 	/** ORACLE */
-	ORACLE("jdbc:oracle:thin:@${servername}:${databasename}", "oracle.jdbc.driver.OracleDriver", DataStoreKind.ORACLE),
+	ORACLE("jdbc:oracle:thin:@servername:databasename", "oracle.jdbc.driver.OracleDriver", DataStoreKind.ORACLE),
 	/** MYSQL */
-	MYSQL("jdbc:mysql://${servername}/${databasename}", "com.mysql.jdbc.Driver", DataStoreKind.MYSQL),
+	MYSQL("jdbc:mysql://servername/databasename", "com.mysql.jdbc.Driver", DataStoreKind.MYSQL),
 	/** POSTGRESSQL */
-	POSTGRESSQL("jdbc:postgresql://${servername}/${databasename}", "org.postgresql.Driver", DataStoreKind.POSTGRESSQL),
+	POSTGRESSQL("jdbc:postgresql://servername/databasename", "org.postgresql.Driver", DataStoreKind.POSTGRESQL),
 	;
 	
 	/** URL */
@@ -49,7 +49,12 @@ public enum DataBaseDriverConstants {
 	 * @return 接続先URL
 	 */
 	String getUrl(String servername, String databasename) {
-		return this.url.replaceAll("${servername}", servername).replaceAll("${databasename}", databasename);
+		System.out.println(this.url);
+		System.out.println(servername);
+		System.out.println(databasename);
+		String result1 = this.url.replaceAll("servername", servername);
+		String result2 = result1.replaceAll("databasename", databasename);
+		return result2;
 	}
 	
 	/**

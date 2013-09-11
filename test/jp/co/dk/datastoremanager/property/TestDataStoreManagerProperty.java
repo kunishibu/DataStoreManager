@@ -3,72 +3,286 @@ package jp.co.dk.datastoremanager.property;
 import static org.junit.Assert.*;
 import jp.co.dk.datastoremanager.DaoConstants;
 import jp.co.dk.datastoremanager.DataAccessObjectFactory;
+import jp.co.dk.datastoremanager.DataStoreKind;
+import jp.co.dk.datastoremanager.DataStoreParameter;
+import jp.co.dk.datastoremanager.TestDataStoreManagerFoundation;
+import jp.co.dk.datastoremanager.database.DataBaseAccessParameter;
+import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import jp.co.dk.datastoremanager.message.DataStoreManagerMessage;
 
 import org.junit.Test;
 
-public class TestDataStoreManagerProperty {
+public class TestDataStoreManagerProperty extends TestDataStoreManagerFoundation{
 
 	@Test
-	public void getString() {
-		// ＝＝＝＝＝共通設定の取得＝＝＝＝＝
-		// 接続先データストア種別を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_TYPE.getString(), "mysql");
-		// ORACLE接続先を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_URL.getString(), "oracleserver:5121");
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_SID.getString(), "oralcesid");
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_USER.getString(), "orausr");
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_PASSWORD.getString(), "oracle");
-		// MYSQL接続先を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_URL.getString(), "mysqlserver:5121");
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_SID.getString(), "mysqlsid");
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_USER.getString(), "mysqlusr");
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_PASSWORD.getString(), "mysql");
-		// POSTGRESQL接続先を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_URL.getString(), "postgresqlserver:5121");
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_SID.getString(), "postgresqlsid");
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_USER.getString(), "posusr");
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_PASSWORD.getString(), "postgresql");
+	public void getDataStoreParameter_success() {
+		// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝指定のDAOの設定の取得＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+		// ORACLEの設定値を正常に取得できること
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/oracle.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.USERS);
+			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
+			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
+			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.ORACLE);
+			assertEquals(dataBaseAccessParameter.getUrl()     , "users_db_server");
+			assertEquals(dataBaseAccessParameter.getSid()     , "users_sid");
+			assertEquals(dataBaseAccessParameter.getUser()    , "users_user");
+			assertEquals(dataBaseAccessParameter.getPassword(), "users_password");
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
 		
-		// ＝＝＝＝＝個別設定の取得＝＝＝＝＝
-		// 接続先データストア種別を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_TYPE.getString(FakeDaiConstants.USERS), "mysql");
-		// ORACLE接続先を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_URL.getString(FakeDaiConstants.USERS), "usersoracleserver:5121");
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_SID.getString(FakeDaiConstants.USERS), "usersoralcesid");
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_USER.getString(FakeDaiConstants.USERS), "usersorausr");
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_PASSWORD.getString(FakeDaiConstants.USERS), "usersoracle");
-		// MYSQL接続先を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_URL.getString(FakeDaiConstants.USERS), "usersmysqlserver:5121");
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_SID.getString(FakeDaiConstants.USERS), "usersmysqlsid");
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_USER.getString(FakeDaiConstants.USERS), "usersmysqlusr");
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_PASSWORD.getString(FakeDaiConstants.USERS), "usersmysql");
-		// POSTGRESQL接続先を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_URL.getString(FakeDaiConstants.USERS), "userspostgresqlserver:5121");
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_SID.getString(FakeDaiConstants.USERS), "userspostgresqlsid");
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_USER.getString(FakeDaiConstants.USERS), "usersposusr");
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_PASSWORD.getString(FakeDaiConstants.USERS), "userspostgresql");
+		// MYSQLの設定値を正常に取得できること
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/mysql.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.USERS);
+			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
+			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
+			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.MYSQL);
+			assertEquals(dataBaseAccessParameter.getUrl()     , "users_db_server");
+			assertEquals(dataBaseAccessParameter.getSid()     , "users_sid");
+			assertEquals(dataBaseAccessParameter.getUser()    , "users_user");
+			assertEquals(dataBaseAccessParameter.getPassword(), "users_password");
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
 		
-		// ＝＝＝＝＝個別設定の取得＝＝＝＝＝
-		// 接続先データストア種別を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_TYPE.getString(FakeDaiConstants.NO_USERS), "mysql");
-		// ORACLE接続先を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_URL.getString(FakeDaiConstants.NO_USERS), "oracleserver:5121");
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_SID.getString(FakeDaiConstants.NO_USERS), "oralcesid");
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_USER.getString(FakeDaiConstants.NO_USERS), "orausr");
-		assertEquals(DataStoreManagerProperty.DATASTORE_ORACLE_PASSWORD.getString(FakeDaiConstants.NO_USERS), "oracle");
-		// MYSQL接続先を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_URL.getString(FakeDaiConstants.NO_USERS), "mysqlserver:5121");
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_SID.getString(FakeDaiConstants.NO_USERS), "mysqlsid");
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_USER.getString(FakeDaiConstants.NO_USERS), "mysqlusr");
-		assertEquals(DataStoreManagerProperty.DATASTORE_MYSQL_PASSWORD.getString(FakeDaiConstants.NO_USERS), "mysql");
-		// POSTGRESQL接続先を正常に取得できること
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_URL.getString(FakeDaiConstants.NO_USERS), "postgresqlserver:5121");
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_SID.getString(FakeDaiConstants.NO_USERS), "postgresqlsid");
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_USER.getString(FakeDaiConstants.NO_USERS), "posusr");
-		assertEquals(DataStoreManagerProperty.DATASTORE_POSTGRESQL_PASSWORD.getString(FakeDaiConstants.NO_USERS), "postgresql");
+		// POSTGRESQLの設定値を正常に取得できること
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/postgresql.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.USERS);
+			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
+			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
+			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.POSTGRESQL);
+			assertEquals(dataBaseAccessParameter.getUrl()     , "users_db_server");
+			assertEquals(dataBaseAccessParameter.getSid()     , "users_sid");
+			assertEquals(dataBaseAccessParameter.getUser()    , "users_user");
+			assertEquals(dataBaseAccessParameter.getPassword(), "users_password");
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
 		
+		// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝共通設定の取得＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+		// 指定のDAO定数を設定しない場合、共通設定が取得できること
+		// ORACLEの設定値を正常に取得できること
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/oracle.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter();
+			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
+			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
+			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.ORACLE);
+			assertEquals(dataBaseAccessParameter.getUrl()     , "default_db_server");
+			assertEquals(dataBaseAccessParameter.getSid()     , "default_sid");
+			assertEquals(dataBaseAccessParameter.getUser()    , "default_user");
+			assertEquals(dataBaseAccessParameter.getPassword(), "default_password");
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
+		
+		// MYSQLの設定値を正常に取得できること
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/mysql.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter();
+			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
+			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
+			assertEquals(dataBaseAccessParameter.getUrl()     , "default_db_server");
+			assertEquals(dataBaseAccessParameter.getSid()     , "default_sid");
+			assertEquals(dataBaseAccessParameter.getUser()    , "default_user");
+			assertEquals(dataBaseAccessParameter.getPassword(), "default_password");
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
+		
+		// POSTGRESQLの設定値を正常に取得できること
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/postgresql.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter();
+			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
+			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
+			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.POSTGRESQL);
+			assertEquals(dataBaseAccessParameter.getUrl()     , "default_db_server");
+			assertEquals(dataBaseAccessParameter.getSid()     , "default_sid");
+			assertEquals(dataBaseAccessParameter.getUser()    , "default_user");
+			assertEquals(dataBaseAccessParameter.getPassword(), "default_password");
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
+		
+		// 指定のDAO定数がプロパティが存在しない場合、共通設定が取得できること
+		// ORACLEの設定値を正常に取得できること
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/oracle.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.NO_USERS);
+			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
+			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
+			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.ORACLE);
+			assertEquals(dataBaseAccessParameter.getUrl()     , "default_db_server");
+			assertEquals(dataBaseAccessParameter.getSid()     , "default_sid");
+			assertEquals(dataBaseAccessParameter.getUser()    , "default_user");
+			assertEquals(dataBaseAccessParameter.getPassword(), "default_password");
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
+		
+		// MYSQLの設定値を正常に取得できること
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/mysql.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.NO_USERS);
+			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
+			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
+			assertEquals(dataBaseAccessParameter.getUrl()     , "default_db_server");
+			assertEquals(dataBaseAccessParameter.getSid()     , "default_sid");
+			assertEquals(dataBaseAccessParameter.getUser()    , "default_user");
+			assertEquals(dataBaseAccessParameter.getPassword(), "default_password");
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
+		
+		// POSTGRESQLの設定値を正常に取得できること
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/postgresql.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.NO_USERS);
+			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
+			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
+			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.POSTGRESQL);
+			assertEquals(dataBaseAccessParameter.getUrl()     , "default_db_server");
+			assertEquals(dataBaseAccessParameter.getSid()     , "default_sid");
+			assertEquals(dataBaseAccessParameter.getUser()    , "default_user");
+			assertEquals(dataBaseAccessParameter.getPassword(), "default_password");
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
 	}
-
+	
+	@Test
+	public void getDataStoreParameter_error() {
+		// データストア種別が設定されていない場合、例外が発生すること。
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/datastore_type_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.USERS);
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.DATASTORE_KIND_VALUE_IS_FAILE); 
+		}
+		
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/datastore_type_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.NO_USERS);
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.DATASTORE_KIND_VALUE_IS_FAILE); 
+		}
+		
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/datastore_type_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter();
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.DATASTORE_KIND_VALUE_IS_FAILE); 
+		}
+		
+		// URLが設定されていない場合、例外が発生すること。
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/url_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.USERS);
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.URL_IS_NOT_SET); 
+		}
+		
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/url_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.NO_USERS);
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.URL_IS_NOT_SET); 
+		}
+		
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/url_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter();
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.URL_IS_NOT_SET); 
+		}
+		
+		
+		// SIDが設定されていない場合、例外が発生すること。
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/sid_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.USERS);
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.SID_IS_NOT_SET); 
+		}
+		
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/sid_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.NO_USERS);
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.SID_IS_NOT_SET); 
+		}
+		
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/sid_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter();
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.SID_IS_NOT_SET); 
+		}
+		
+		
+		// ユーザが設定されていない場合、例外が発生すること。
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/user_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.USERS);
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.USER_IS_NOT_SET); 
+		}
+		
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/user_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.NO_USERS);
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.USER_IS_NOT_SET); 
+		}
+		
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/user_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter();
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.USER_IS_NOT_SET); 
+		}
+		
+		// パスワードが設定されていない場合、例外が発生すること。
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/password_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.USERS);
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.PASSWORD_IS_NOT_SET); 
+		}
+		
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/password_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter(FakeDaiConstants.NO_USERS);
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.PASSWORD_IS_NOT_SET); 
+		}
+		
+		try {
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/password_not_set.properties");
+			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDataStoreParameter();
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), DataStoreManagerMessage.PASSWORD_IS_NOT_SET); 
+		}
+	}
 }
 
 enum FakeDaiConstants implements DaoConstants{

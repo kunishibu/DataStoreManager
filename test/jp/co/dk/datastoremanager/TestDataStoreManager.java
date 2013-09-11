@@ -7,7 +7,7 @@ import jp.co.dk.test.template.TestCaseTemplate;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
-public class TestDataStoreManager extends TestCaseTemplate{
+public class TestDataStoreManager extends TestDataStoreManagerFoundation{
 	
 	/**
 	 * コンストラクタにnullを指定した場合、例外が送出されること。

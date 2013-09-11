@@ -18,9 +18,8 @@ public class DataBaseDataStore implements DataStore {
 	 * 指定のデータベースアクセスパラメータを基にデータベースデータストアを生成します。
 	 * 
 	 * @param dataBaseAccessParameter データベースアクセスパラメータ
-	 * @throws DataStoreManagerException 
 	 */
-	DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {
+	DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
 		this.dataBaseAccessParameter = dataBaseAccessParameter;
 	}
 	

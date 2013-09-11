@@ -64,8 +64,10 @@ public class Transaction {
 			Class.forName(driver);
 			this.connection = DriverManager.getConnection(url, user, password);
 			this.connection.setAutoCommit(false);
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (ClassNotFoundException e) {
 			throw new DataStoreManagerException(FAILE_TO_READ_DRIVER, e);
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(FAILE_TO_CREATE_CONNECTION, e);
 		}
 	}
 	
@@ -73,8 +75,9 @@ public class Transaction {
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql.toString());
 			List<SqlParameter> sqlPrameterList = sql.getParameterList();
-			for (int index = 1; index <= sqlPrameterList.size(); index++) {
-				sqlPrameterList.get(index-1).set(index, statement);
+			for (int index = 0; index < sqlPrameterList.size(); index++) {
+				int tmpIndex = index + 1;
+				sqlPrameterList.get(index).set(tmpIndex, statement);
 			}
 			return statement.executeQuery();
 		} catch (SQLException e) {

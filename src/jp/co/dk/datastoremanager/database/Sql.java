@@ -37,6 +37,11 @@ public class Sql {
 	List<SqlParameter> getParameterList() {
 		return this.sqlParameter;
 	}
+	
+	@Override
+	public String toString() {
+		return this.sql.toString();
+	}
 }
 
 abstract class SqlParameter {
@@ -51,14 +56,14 @@ class StringSqlParameter extends SqlParameter{
 	
 	StringSqlParameter(String parameter) {
 		this.parameter = parameter;
-	}
+	} 
 
 	@Override
 	void set(int index, PreparedStatement statement) throws DataStoreManagerException {
 		try {
 			statement.setString(index, this.parameter);
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL);
+			throw new DataStoreManagerException(AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL, e);
 		}
 	}
 }
