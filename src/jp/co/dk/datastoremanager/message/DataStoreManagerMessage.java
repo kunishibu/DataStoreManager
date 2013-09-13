@@ -97,6 +97,9 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** SQLオブジェクトの生成に失敗しました。SQL本文が設定されていません。 */
 	public static final DataStoreManagerMessage FAILE_TO_CREATE_SQL_OBJECT = new DataStoreManagerMessage("E029");
 	
+	/** SQLパラメータの値が設定されていません。 */
+	public static final DataStoreManagerMessage SQL_PARAMETER_IS_NOT_SET = new DataStoreManagerMessage("E030");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}

@@ -9,7 +9,7 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 
 class IntSqlParameter extends SqlParameter{
 	
-	private int parameter;
+	protected int parameter;
 	
 	IntSqlParameter(int parameter) {
 		this.parameter = parameter;

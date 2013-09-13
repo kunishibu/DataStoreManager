@@ -1,6 +1,7 @@
 package jp.co.dk.datastoremanager.database;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL;
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.SQL_PARAMETER_IS_NOT_SET;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -11,9 +12,10 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 
 class DateSqlParameter extends SqlParameter{
 	
-	private Date parameter;
+	protected Date parameter;
 	
-	DateSqlParameter(Date parameter) {
+	DateSqlParameter(Date parameter) throws DataStoreManagerException {
+		if (parameter == null) throw new DataStoreManagerException(SQL_PARAMETER_IS_NOT_SET);
 		this.parameter = parameter;
 	}
 

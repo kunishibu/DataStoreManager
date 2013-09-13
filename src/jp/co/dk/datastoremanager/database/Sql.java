@@ -39,9 +39,10 @@ public class Sql {
 	 * 指定の文字列を元に、SQLの？部分にあたる文字列を設定します。<p/>
 	 * データベースに送るときに、ドライバはこれを SQL VARCHAR または LONGVARCHAR 値 (ドライバの VARCHAR 値に関する制限に関する引数のサイズに依存) に変換します。
 	 * @param parameter SQLの？部分にあたる文字列
+	 * @throws DataStoreManagerException 設定されたパラメータがnullまたは空文字の場合
 	 */
-	public void setParameter(String parameter) {
-		sqlParameter.add(new StringSqlParameter(parameter));
+	public void setParameter(String parameter) throws DataStoreManagerException {
+		this.sqlParameter.add(new StringSqlParameter(parameter));
 	}
 	
 	/**
@@ -50,16 +51,17 @@ public class Sql {
 	 * @param parameter SQLの？部分にあたる数値
 	 */
 	public void setParameter(int parameter) {
-		sqlParameter.add(new IntSqlParameter(parameter));
+		this.sqlParameter.add(new IntSqlParameter(parameter));
 	}
 	
 	/**
 	 * 指定の日付を元に、SQLの？部分にあたる日付を設定します。<p/>
 	 * データベースに送るときに、ドライバはこれを SQL DATE 値に変換します。
 	 * @param parameter SQLの？部分にあたる日付
+	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
 	 */
-	public void setParameter(Date parameter) {
-		sqlParameter.add(new DateSqlParameter(parameter));
+	public void setParameter(Date parameter) throws DataStoreManagerException {
+		this.sqlParameter.add(new DateSqlParameter(parameter));
 	}
 	
 	/**
@@ -72,7 +74,7 @@ public class Sql {
 	
 	@Override
 	public int hashCode() { 
-		int hashcode = this.sql.hashCode();
+		int hashcode = this.sql.toString().hashCode();
 		for (SqlParameter param : this.sqlParameter) hashcode *= param.hashCode();
 		return hashcode *17;
 	}
