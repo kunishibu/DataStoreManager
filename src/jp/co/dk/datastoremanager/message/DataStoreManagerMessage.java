@@ -94,6 +94,9 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** ロールバックに失敗しました。 */
 	public static final DataStoreManagerMessage FAILE_TO_ROLLBACK = new DataStoreManagerMessage("E028");
 	
+	/** SQLオブジェクトの生成に失敗しました。SQL本文が設定されていません。 */
+	public static final DataStoreManagerMessage FAILE_TO_CREATE_SQL_OBJECT = new DataStoreManagerMessage("E029");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}
