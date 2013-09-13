@@ -2,7 +2,6 @@ package jp.co.dk.datastoremanager.database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 
 import jp.co.dk.datastoremanager.Record;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
@@ -18,7 +17,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 public class DataBaseRecord implements Record {
 	
 	/** レコードオブジェクト */
-	private ResultSet resultSet;
+	protected ResultSet resultSet;
 	
 	/**
 	 * コンストラクタ<p/>
@@ -41,7 +40,7 @@ public class DataBaseRecord implements Record {
 		try {
 			return this.resultSet.getString(column);
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME);
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);
 		}
 	}
 	
@@ -56,7 +55,7 @@ public class DataBaseRecord implements Record {
 		try {
 			return this.resultSet.getInt(column);
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME);
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);
 		}
 	}
 	
@@ -67,11 +66,11 @@ public class DataBaseRecord implements Record {
 	 * @return 日付
 	 * @throws DataStoreManagerException 値の取得に失敗した場合
 	 */
-	public Date getDate(String column) throws DataStoreManagerException {
+	public java.util.Date getDate(String column) throws DataStoreManagerException {
 		try {
 			return this.resultSet.getDate(column);
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME);
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);
 		}
 	}
 	
@@ -80,7 +79,7 @@ public class DataBaseRecord implements Record {
 		try {
 			return this.resultSet.getString(index);
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX);
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
 		}
 	}
 	
@@ -89,16 +88,16 @@ public class DataBaseRecord implements Record {
 		try {
 			return this.resultSet.getInt(index);
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX);
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
 		}
 	}
 	
 	@Override
-	public Date getDate(int index) throws DataStoreManagerException {
+	public java.util.Date getDate(int index) throws DataStoreManagerException {
 		try {
 			return this.resultSet.getDate(index);
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX);
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
 		}
 	};
 
