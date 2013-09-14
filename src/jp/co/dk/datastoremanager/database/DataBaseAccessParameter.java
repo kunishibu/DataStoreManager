@@ -105,4 +105,31 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 		return new DataBaseDataStore(this);
 	}
 	
+	@Override
+	public int hashCode() {
+		int hashcode = super.hashCode() ;
+		hashcode *= this.driver.hashCode() ;
+		hashcode *= this.url.hashCode() ;
+		hashcode *= this.sid.hashCode() ;
+		hashcode *= this.user.hashCode() ;
+		hashcode *= this.password.hashCode() ;
+		hashcode *= 17;
+		return hashcode; 
+	}
+	
+	@Override
+	public boolean equals(Object object) {
+		if (object == null) return false;
+		if (!(object instanceof DataBaseAccessParameter)) return false;
+		DataBaseAccessParameter thisClassObj = (DataBaseAccessParameter) object;
+		if (this.hashCode() == thisClassObj.hashCode()) return true;
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("DATASTOREPARAMETER=[");
+		return null;
+	}
+	
 }

@@ -43,4 +43,15 @@ public abstract class DataStoreParameter {
 	 * @return データストアインスタンス
 	 */
 	protected abstract DataStore createDataStore();
+	
+	@Override
+	public int hashCode() {
+		return this.dataStoreKind.hashCode() * 17;
+	}
+	
+	@Override
+	public abstract boolean equals(Object object);
+	
+	@Override
+	public abstract String toString();
 }
