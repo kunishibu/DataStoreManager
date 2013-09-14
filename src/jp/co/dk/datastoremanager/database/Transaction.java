@@ -148,4 +148,25 @@ class Transaction {
 		return connection;
 	}
 	
+	@Override
+	public int hashCode() {
+		return this.connection.hashCode() * this.dataBaseAccessParameter.hashCode() * 17;
+	}
+	
+	@Override
+	public boolean equals(Object object) {
+		if (object == null) return false;
+		if (!(object instanceof Transaction)) return false;
+		Transaction thisClassIbj = (Transaction)object;
+		if (thisClassIbj.hashCode() == this.hashCode()) return true;
+		return false;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("CONNECTION_HASH=[").append(this.connection.hashCode()).append(']').append(',');
+		sb.append(this.dataBaseAccessParameter.toString());
+		return sb.toString();
+	}
 }

@@ -83,6 +83,63 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	}
 	
 	/**
+	 * 指定のSQLを実行し、テーブルを作成する。<p/>
+	 * テーブル作成に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @throws DataStoreManagerException テーブル作成に失敗した場合
+	 */
+	public void createTable(Sql sql) throws DataStoreManagerException {
+		this.dataStore.createTable(sql);
+	}
+	
+	/**
+	 * 指定のSQLを実行し、テーブルを削除する。<p/>
+	 * テーブル削除に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @throws DataStoreManagerException テーブル削除に失敗した場合
+	 */
+	public void dropTable(Sql sql) throws DataStoreManagerException {
+		this.dataStore.dropTable(sql);
+	}
+	
+	/**
+	 * 指定のSQLを実行し、レコードを作成する。<p/>
+	 * レコード追加に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @throws DataStoreManagerException レコード追加に失敗した場合
+	 */
+	public void insert(Sql sql) throws DataStoreManagerException {
+		this.dataStore.insert(sql);
+	}
+	
+	/**
+	 * 指定のSQLを実行し、レコードの更新を実行する。<p/>
+	 * レコードの更新に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @return 更新結果の件数
+	 * @throws DataStoreManagerException レコード更新に失敗した場合
+	 */
+	public int update(Sql sql) throws DataStoreManagerException {
+		return this.dataStore.update(sql);
+	}
+	
+	/**
+	 * 指定のSQLを実行し、レコードの削除を実行する。<p/>
+	 * レコードの削除に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @return 削除結果の件数
+	 * @throws DataStoreManagerException レコード削除に失敗した場合
+	 */
+	public int delete(Sql sql) throws DataStoreManagerException {
+		return this.dataStore.delete(sql);
+	}
+	
+	/**
 	 * 指定のSQLを実行し、単一のレコードを取得する。<p/>
 	 * 引数に指定されたSQLを実行し、指定のレコード変換オブジェクトを使用してレコードを変換、返却する。<br/>
 	 * レコードが取得出来なかった場合はnullが返却される。<br/>
@@ -110,9 +167,10 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	 * @return 取得したレコードオブジェクトのリスト
 	 * @throws DataStoreManagerException SQLの実行に失敗した場合
 	 */
+	@SuppressWarnings("unchecked")
 	public <E extends DataConvertable> List<E> selectMulti(Sql sql, E convertable) throws DataStoreManagerException{
 		List<E> resultList = new ArrayList<E>();
-		ResultSet result = this.dataStore.execute(sql);
+		ResultSet result = this.dataStore.select(sql);
 		try {
 			while (result.next()) {
 				resultList.add((E)convertable.convert(new DataBaseRecord(result)));

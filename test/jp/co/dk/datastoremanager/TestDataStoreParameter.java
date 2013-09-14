@@ -33,5 +33,17 @@ class FakeDataStoreParameter extends DataStoreParameter {
 	protected DataStore createDataStore() {
 		return null;
 	}
+
+	@Override
+	public boolean equals(Object object) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

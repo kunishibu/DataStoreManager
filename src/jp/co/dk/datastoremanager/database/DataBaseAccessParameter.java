@@ -16,19 +16,19 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 public class DataBaseAccessParameter extends DataStoreParameter{
 	
 	/** データベースドライバー */
-	private DataBaseDriverConstants driver;
+	protected DataBaseDriverConstants driver;
 	
 	/** 接続先URL */
-	private String url;
+	protected String url;
 	
 	/** 接続先SID */
-	private String sid;
+	protected String sid;
 	
 	/** ユーザ */
-	private String user;
+	protected String user;
 	
 	/** パスワード */
-	private String password;
+	protected String password;
 	
 	/**
 	 * コンストラクタ<p/>
@@ -118,18 +118,13 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	}
 	
 	@Override
-	public boolean equals(Object object) {
-		if (object == null) return false;
-		if (!(object instanceof DataBaseAccessParameter)) return false;
-		DataBaseAccessParameter thisClassObj = (DataBaseAccessParameter) object;
-		if (this.hashCode() == thisClassObj.hashCode()) return true;
-		return false;
-	}
-
-	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder("DATASTOREPARAMETER=[");
-		return null;
+		StringBuilder sb = new StringBuilder("DATASTOREKIND=[").append(this.dataStoreKind.toString()).append(']').append(',');
+		sb.append("DRIVER=[").append(this.driver.getDriverClass()).append(']').append(',');
+		sb.append("URL=[").append(this.driver.getUrl(this.url, this.sid)).append(']').append(',');
+		sb.append("USER=[").append(this.user).append(']').append(',');
+		sb.append("PASSWORD=[").append(this.password).append(']');
+		return sb.toString();
 	}
 	
 }

@@ -1,5 +1,9 @@
 package jp.co.dk.datastoremanager.database;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
 import org.junit.Test;
 
 import jp.co.dk.datastoremanager.TestDataStoreManagerFoundation;
@@ -127,6 +131,51 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 		try {
 			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessFaileDataBaseAccessParameter());
 			assertFalse(dataBaseDataStore.isTransaction());
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
+	}
+	
+	@Test
+	public void test_equals() {
+		try {
+			// トランザクション開始前は同一のパラメータで有るため、hashcode、qualsは一致すること
+			DataBaseDataStore target_01_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameter());
+			DataBaseDataStore target_01_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameter());
+			DataBaseDataStore target_01_03 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameter());
+			List<Object> faileList_01 = new ArrayList<Object>();
+			DataBaseDataStore fail_01_01 = new DataBaseDataStore(super.getAccessFaileDataBaseAccessParameter());
+			faileList_01.add(fail_01_01);
+			testEquals(target_01_01, target_01_02, target_01_03, faileList_01);
+			
+			DataBaseDataStore target_02_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameter());
+			DataBaseDataStore target_02_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameter());
+			target_02_02.startTransaction();
+			assertFalse(target_02_01.equals(target_02_02));
+			
+			DataBaseDataStore target_03_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameter());
+			target_03_01.startTransaction();
+			DataBaseDataStore target_03_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameter());
+			assertFalse(target_03_01.equals(target_03_02));
+			
+			DataBaseDataStore target_04_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameter());
+			target_04_01.startTransaction();
+			DataBaseDataStore target_04_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameter());
+			target_04_02.startTransaction();
+			assertTrue(target_04_01.equals(target_04_01));
+			assertFalse(target_04_01.equals(target_04_02));
+			
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
+	}
+	
+	@Test
+	public void test_tostring() {
+		try {
+			DataBaseAccessParameter param = super.getAccessableDataBaseAccessParameter();
+			DataBaseDataStore target = new DataBaseDataStore(param);
+			assertEquals(target.toString(), "CONNECTION_HASH=[Transaction has not been started]," + param.toString());
 		} catch (DataStoreManagerException e) {
 			fail(e);
 		}

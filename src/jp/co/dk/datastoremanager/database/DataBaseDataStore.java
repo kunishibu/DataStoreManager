@@ -11,6 +11,13 @@ import jp.co.dk.datastoremanager.DataStoreKind;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
+/**
+ * DataBaseDataStoreは、単一のデータベースのデータストアを表すクラスです。<p/>
+ * 単一の接続先に対するトランザクション管理、SQLの実行、実行されたSQLの履歴保持を行う。<br/>
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */
 public class DataBaseDataStore implements DataStore {
 	
 	/** データベースアクセスパラメータ */
@@ -57,9 +64,117 @@ public class DataBaseDataStore implements DataStore {
 		return false;
 	}
 	
-	ResultSet execute(Sql sql) throws DataStoreManagerException {
+	/**
+	 * 指定のSQLを実行し、テーブルを作成する。<p/>
+	 * テーブル作成に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @throws DataStoreManagerException テーブル作成に失敗した場合
+	 */
+	void createTable(Sql sql) throws DataStoreManagerException {
+		this.transaction.createTable(sql);
+		this.sqlList.add(sql);
+	}
+	
+	/**
+	 * 指定のSQLを実行し、テーブルを削除する。<p/>
+	 * テーブル削除に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @throws DataStoreManagerException テーブル削除に失敗した場合
+	 */
+	void dropTable(Sql sql) throws DataStoreManagerException {
+		this.transaction.dropTable(sql);
+		this.sqlList.add(sql);
+	}
+	
+	/**
+	 * 指定のSQLを実行し、レコードを作成する。<p/>
+	 * レコード追加に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @throws DataStoreManagerException レコード追加に失敗した場合
+	 */
+	void insert(Sql sql) throws DataStoreManagerException {
+		this.transaction.insert(sql);
+		this.sqlList.add(sql);
+	}
+	
+	/**
+	 * 指定のSQLを実行し、レコードの更新を実行する。<p/>
+	 * レコードの更新に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @return 更新結果の件数
+	 * @throws DataStoreManagerException レコード更新に失敗した場合
+	 */
+	int update(Sql sql) throws DataStoreManagerException {
+		int result = this.transaction.update(sql);
+		this.sqlList.add(sql);
+		return result;
+	}
+	
+	/**
+	 * 指定のSQLを実行し、レコードの削除を実行する。<p/>
+	 * レコードの削除に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @return 削除結果の件数
+	 * @throws DataStoreManagerException レコード削除に失敗した場合
+	 */
+	int delete(Sql sql) throws DataStoreManagerException {
+		int result = this.transaction.delete(sql);
+		this.sqlList.add(sql);
+		return result;
+	}
+	
+	/**
+	 * 指定のSQLを元に、レコード取得を実施します。<p/>
+	 * SQLの実行に失敗した場合、例外が送出される。<br/>
+	 * 
+	 * @param sql 実行対象のSELECT文 
+	 * @return 実行結果
+	 * @throws DataStoreManagerException SQLの実行に失敗した場合
+	 */
+	ResultSet select(Sql sql) throws DataStoreManagerException {
 		ResultSet result = this.transaction.select(sql);
 		this.sqlList.add(sql);
 		return result;
+	}
+	
+	@Override
+	public int hashCode() {
+		int hashcode = this.dataBaseAccessParameter.hashCode();
+		return hashcode;
+	}
+	
+	@Override
+	public boolean equals(Object object) {
+		if (object == null) return false;
+		if (!(object instanceof DataBaseDataStore)) return false;
+		DataBaseDataStore thisClassObj = (DataBaseDataStore) object;
+		if (this.transaction == null && thisClassObj.transaction == null) {
+			if(thisClassObj.dataBaseAccessParameter.hashCode() == this.dataBaseAccessParameter .hashCode()) return true;
+		} else if (this.transaction == null && thisClassObj.transaction != null) {
+			return false;
+		} else if (this.transaction != null && thisClassObj.transaction == null) {
+			return false;
+		} else {
+			if(thisClassObj.transaction.hashCode() == this.transaction.hashCode()) return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public String toString() {
+		if (this.transaction == null) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("CONNECTION_HASH=[Transaction has not been started]").append(',');
+			sb.append(this.dataBaseAccessParameter.toString());
+			return sb.toString();
+		} else {
+			return this.transaction.toString();
+		}
+		
 	}
 }

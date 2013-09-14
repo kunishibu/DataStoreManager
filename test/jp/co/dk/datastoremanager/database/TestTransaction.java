@@ -3,6 +3,9 @@ package jp.co.dk.datastoremanager.database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
 
 import jp.co.dk.datastoremanager.TestDataStoreManagerFoundation;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
@@ -143,4 +146,16 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 		Sql dropTblSql = new Sql("DROP TABLE TEST_USERS");
 		target_01.dropTable(dropTblSql);
 	}
+	
+	@Test
+	public void test_equals() throws DataStoreManagerException {
+		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameter();
+		Transaction target_01 = new Transaction(param);
+		
+		List<Object> difflist = new ArrayList<Object>();
+		Transaction target_02 = new Transaction(param);
+		difflist.add(target_02);
+		testEquals(target_01, target_01, target_01, difflist);
+	}
+	
 }

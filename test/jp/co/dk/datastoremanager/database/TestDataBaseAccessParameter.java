@@ -1,5 +1,8 @@
 package jp.co.dk.datastoremanager.database;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jp.co.dk.datastoremanager.DataStore;
 import jp.co.dk.datastoremanager.DataStoreKind;
 import jp.co.dk.datastoremanager.TestDataStoreManagerFoundation;
@@ -123,6 +126,36 @@ public class TestDataBaseAccessParameter  extends TestDataStoreManagerFoundation
 			
 			DataStore dataStore = target.createDataStore();
 			assertTrue(dataStore instanceof DataBaseDataStore);
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
+	}
+	
+	@Test
+	public void test_equals() {
+		try {
+			DataBaseAccessParameter target_01 = new DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, "255.255.255.255", "test_db", "test_user", "123456");
+			DataBaseAccessParameter target_02 = new DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, "255.255.255.255", "test_db", "test_user", "123456");
+			DataBaseAccessParameter target_03 = new DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, "255.255.255.255", "test_db", "test_user", "123456");
+			
+			List<Object> diffList = new ArrayList<Object>();
+			diffList.add(new DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.ORACLE, "255.255.255.255", "test_db", "test_user", "123456"));
+			diffList.add(new DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.MYSQL, "255.255.255.255", "test_db", "test_user", "123456"));
+			diffList.add(new DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, "255.255.255.254", "_test_db", "test_user", "123456"));
+			diffList.add(new DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, "255.255.255.255", "test_db", "_test_user", "123456"));
+			diffList.add(new DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, "255.255.255.255", "test_db", "test_user", "_123456"));
+			
+			testEquals(target_01, target_02, target_03, diffList);
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
+	}
+	
+	@Test
+	public void test_tostring() {
+		try {
+			DataBaseAccessParameter target_01 = new DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, "255.255.255.255", "test_db", "test_user", "123456");
+			assertEquals(target_01.toString(), "DATASTOREKIND=[ORACLE],DRIVER=[oracle.jdbc.driver.OracleDriver],URL=[jdbc:oracle:thin:@255.255.255.255:test_db],USER=[test_user],PASSWORD=[123456]");
 		} catch (DataStoreManagerException e) {
 			fail(e);
 		}

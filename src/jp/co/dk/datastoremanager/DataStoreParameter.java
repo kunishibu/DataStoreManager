@@ -13,7 +13,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 public abstract class DataStoreParameter {
 	
 	/** データストア種別 */
-	private DataStoreKind dataStoreKind;
+	protected DataStoreKind dataStoreKind;
 	
 	/**
 	 * コンストラクタ<p/>
@@ -50,7 +50,13 @@ public abstract class DataStoreParameter {
 	}
 	
 	@Override
-	public abstract boolean equals(Object object);
+	public boolean equals(Object object) {
+		if (object == null) return false;
+		if (!(object instanceof DataStoreParameter)) return false;
+		DataStoreParameter thisClassObj = (DataStoreParameter) object;
+		if (this.hashCode() == thisClassObj.hashCode()) return true;
+		return false;
+	}
 	
 	@Override
 	public abstract String toString();
