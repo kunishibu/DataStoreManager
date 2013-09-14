@@ -34,7 +34,7 @@ public class DataBaseDataStore implements DataStore {
 	
 	@Override
 	public void startTransaction() throws DataStoreManagerException {
-		this.transaction = Transaction.getTransaction(dataBaseAccessParameter);
+		this.transaction = new Transaction(dataBaseAccessParameter);
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class DataBaseDataStore implements DataStore {
 	}
 	
 	ResultSet execute(Sql sql) throws DataStoreManagerException {
-		ResultSet result = this.transaction.execute(sql);
+		ResultSet result = this.transaction.select(sql);
 		this.sqlList.add(sql);
 		return result;
 	}

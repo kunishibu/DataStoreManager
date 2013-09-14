@@ -64,6 +64,10 @@ public class Sql {
 		this.sqlParameter.add(new DateSqlParameter(parameter));
 	}
 	
+	public String getSql() {
+		return this.sql.toString();
+	}
+	
 	/**
 	 * このSQLに設定されたSQLに対するパラメータの一覧を取得します。
 	 * @return パラメータの一覧

@@ -5,11 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jp.co.dk.datastoremanager.TestDataStoreManagerFoundation;
-import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 
 import org.junit.Test;
-
-import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 public class TestIntSqlParameter extends TestDataStoreManagerFoundation{
 

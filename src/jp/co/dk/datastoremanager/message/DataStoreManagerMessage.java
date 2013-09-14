@@ -100,6 +100,9 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** SQLパラメータの値が設定されていません。 */
 	public static final DataStoreManagerMessage SQL_PARAMETER_IS_NOT_SET = new DataStoreManagerMessage("E030");
 	
+	/** トランザクションが生成できませんでした。データストアパラメータオブジェクトが設定されていません。 */
+	public static final DataStoreManagerMessage PARAMETER_IS_NOT_SET = new DataStoreManagerMessage("E031");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}
