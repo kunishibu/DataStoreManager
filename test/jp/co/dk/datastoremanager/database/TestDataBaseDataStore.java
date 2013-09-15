@@ -181,7 +181,7 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを取得＝＝＝＝＝＝＝＝
 		// レコードを取得
-		ResultSet resultSet = target01.select(selectSql_1234567890());
+		ResultSet resultSet = target01.select(selectSql_0987654321());
 		
 		// 不正なSQLを実行した場合、例外が発生すること
 		try {
@@ -192,11 +192,11 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを削除＝＝＝＝＝＝＝＝
 		// レコードを削除
-		int deleteResult01 = target01.delete(deleteSql_1234567890());
+		int deleteResult01 = target01.delete(deleteSql_0987654321());
 		assertEquals(deleteResult01, 1);
 		
 		// 再度レコードを削除した場合、更新件数が０件であること
-		int deleteResult02 = target01.delete(deleteSql_1234567890());
+		int deleteResult02 = target01.delete(deleteSql_0987654321());
 		assertEquals(deleteResult02, 0);
 		
 		// 不正なSQLを実行した場合、例外が発生すること
