@@ -175,6 +175,7 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 			while (result.next()) {
 				resultList.add((E)convertable.convert(new DataBaseRecord(result)));
 			}
+			result.close();
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(GET_RECORD_IS_FAILE);
 		}

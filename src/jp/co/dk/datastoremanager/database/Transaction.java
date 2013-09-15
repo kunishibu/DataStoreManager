@@ -49,6 +49,7 @@ class Transaction {
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql.getSql());
 			statement.execute();
+			statement.close();
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, e);
 		}
@@ -63,6 +64,7 @@ class Transaction {
 				sqlPrameterList.get(index).set(tmpIndex, statement);
 			}
 			statement.execute();
+			statement.close();
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, e);
 		}
@@ -76,7 +78,10 @@ class Transaction {
 				int tmpIndex = index + 1;
 				sqlPrameterList.get(index).set(tmpIndex, statement);
 			}
-			return statement.executeUpdate();
+			int result = statement.executeUpdate();
+			statement.executeUpdate();
+			statement.close();
+			return result;
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, e);
 		}
@@ -90,7 +95,10 @@ class Transaction {
 				int tmpIndex = index + 1;
 				sqlPrameterList.get(index).set(tmpIndex, statement);
 			}
-			return statement.executeUpdate();
+			int result = statement.executeUpdate();
+			statement.executeUpdate();
+			statement.close();
+			return result;
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, e);
 		}
@@ -114,6 +122,7 @@ class Transaction {
 		try {
 			PreparedStatement statement = this.connection.prepareStatement(sql.getSql());
 			statement.execute();
+			statement.close();
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, e);
 		}
@@ -136,7 +145,11 @@ class Transaction {
 	}
 	
 	void close() throws DataStoreManagerException {
-		
+		try {
+			this.connection.close();
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(FAILE_TO_CLOSE, e);
+		}
 	}
 	
 	/**

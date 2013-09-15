@@ -103,6 +103,9 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** トランザクションが生成できませんでした。データストアパラメータオブジェクトが設定されていません。 */
 	public static final DataStoreManagerMessage PARAMETER_IS_NOT_SET = new DataStoreManagerMessage("E031");
 	
+	/** コネクションのクローズ処理に失敗しました。 */
+	public static final DataStoreManagerMessage FAILE_TO_CLOSE = new DataStoreManagerMessage("E032");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}
