@@ -254,4 +254,15 @@ class Transaction {
 		sb.append(this.dataBaseAccessParameter.toString());
 		return sb.toString();
 	}
+	
+	@Override
+	public void finalize() {
+		try {
+			if (!(this.connection.isClosed())) {
+				this.connection.close();
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
