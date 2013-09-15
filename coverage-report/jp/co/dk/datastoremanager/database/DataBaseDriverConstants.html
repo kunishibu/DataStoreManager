@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - DataBaseDriverConstants.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseDriverConstants.java</caption>
+    <tr>
+      <td class='line'>1</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l1s0'>package jp.co.dk.datastoremanager.database;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import jp.co.dk.datastoremanager.DataStoreKind;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * DataBaseDriverConstantsは、各種データベースに接続する際のデータベースドライバー、接続先URLを定義する定数クラスです。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>11</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public enum DataBaseDriverConstants {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>13</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ORACLE */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>14</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	ORACLE("jdbc:oracle:thin:@servername:databasename", "oracle.jdbc.driver.OracleDriver", DataStoreKind.ORACLE),</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>15</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** MYSQL */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>16</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	MYSQL("jdbc:mysql://servername/databasename", "com.mysql.jdbc.Driver", DataStoreKind.MYSQL),</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>17</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** POSTGRESSQL */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>18</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	POSTGRESSQL("jdbc:postgresql://servername/databasename", "org.postgresql.Driver", DataStoreKind.POSTGRESQL),</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>19</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>21</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** URL */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>22</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private String url;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>24</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ドライバークラス */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>25</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private String driverClass;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>27</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** データストア種別 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>28</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private DataStoreKind dataStoreKind;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ&lt;p/>
+	 * 指定のデータベース接続時のURL固定部、ドライバークラス名、データストア種別を元に各種データベースに接続する際のデータベースドライバー定数クラスを生成する。
+	 * 
+	 * @param url           データベース接続時のURL固定部
+	 * @param driverClass   ドライバークラス名
+	 * @param dataStoreKind データストア種別
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l38s0'>	private DataBaseDriverConstants(String url, String driverClass, DataStoreKind dataStoreKind) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>39</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l39s0'>		this.url           = url;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>40</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l40s0'>		this.driverClass   = driverClass;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>41</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l41s0'>		this.dataStoreKind = dataStoreKind;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>42</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l42s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定のサーバ名、データベース名を基に接続先URLを取得する。
+	 * 
+	 * @param servername   サーバ名
+	 * @param databasename データベース名称
+	 * @return 接続先URL
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>51</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	String getUrl(String servername, String databasename) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>52</td><td class='count'>58</td>
+      <td><pre class='prettyprint covered' id='l52s0'>		String result1 = this.url.replaceAll("servername", servername);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>53</td><td class='count'>58</td>
+      <td><pre class='prettyprint covered' id='l53s0'>		String result2 = result1.replaceAll("databasename", databasename);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>54</td><td class='count'>58</td>
+      <td><pre class='prettyprint covered' id='l54s0'>		return result2;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>55</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * ドライバークラス名を取得する。
+	 * 
+	 * @return ドライバークラス名
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>62</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	String getDriverClass() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>63</td><td class='count'>59</td>
+      <td><pre class='prettyprint covered' id='l63s0'>		return this.driverClass;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>64</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * データストア種別を取得する。
+	 * 
+	 * @return データストア種別
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>70</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	DataStoreKind getDataStoreKind() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>71</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l71s0'>		return this.dataStoreKind;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>72</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>74</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

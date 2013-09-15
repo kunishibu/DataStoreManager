@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - DataBaseRecord.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.datastoremanager.database;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import jp.co.dk.datastoremanager.Record;
+import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * DataBaseRecordは、単一のデータベースレコードを表すオブジェクトが実装する抽象クラスです。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>17</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class DataBaseRecord implements Record {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>19</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** レコードオブジェクト */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>20</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected ResultSet <span class='instance covered' title='Reads: 12 Writes: 12'>resultSet</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ&lt;p/>
+	 * 指定のレコードオブジェクトを基にデータベースレコードオブジェクトを生成します。
+	 * 
+	 * @param resultSet
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>28</td><td class='count'>12</td>
+      <td><pre class='prettyprint covered' id='l28s0'>	DataBaseRecord(ResultSet resultSet) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>29</td><td class='count'>12</td>
+      <td><pre class='prettyprint covered' id='l29s0'>		this.resultSet = resultSet;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>30</td><td class='count'>12</td>
+      <td><pre class='prettyprint covered' id='l30s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * このレコードから指定のカラム名の文字列を取得します。
+	 * 
+	 * @param column カラム名
+	 * @return 文字列
+	 * @throws DataStoreManagerException 値の取得に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>39</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getString(String column) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>40</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>41</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l41s0'>			return this.resultSet.getString(column);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>42</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l42s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>43</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l43s0'>			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>44</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>45</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * このレコードから指定のカラム名の文字列を取得します。
+	 * 
+	 * @param column カラム名
+	 * @return 数値
+	 * @throws DataStoreManagerException 値の取得に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public int getInt(String column) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>55</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>56</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l56s0'>			return this.resultSet.getInt(column);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>57</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l57s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>58</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l58s0'>			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>59</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>60</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * このレコードから指定のカラム名の文字列を取得します。
+	 * 
+	 * @param column カラム名
+	 * @return 日付
+	 * @throws DataStoreManagerException 値の取得に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>69</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public java.util.Date getDate(String column) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>70</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>71</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l71s0'>			return this.resultSet.getDate(column);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>72</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l72s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>73</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l73s0'>			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>74</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>75</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>77</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>78</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getString(int index) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>79</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>80</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l80s0'>			return this.resultSet.getString(index);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>81</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l81s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>82</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l82s0'>			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>83</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>84</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>86</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>87</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public int getInt(int index) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>88</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>89</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l89s0'>			return this.resultSet.getInt(index);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>90</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l90s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>91</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l91s0'>			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>92</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>93</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>95</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>96</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public java.util.Date getDate(int index) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>97</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>98</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l98s0'>			return this.resultSet.getDate(index);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>99</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l99s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>100</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l100s0'>			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>101</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>102</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	};</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>104</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

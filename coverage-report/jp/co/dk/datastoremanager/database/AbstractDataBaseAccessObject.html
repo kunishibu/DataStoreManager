@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - AbstractDataBaseAccessObject.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>DataStoreManager/src/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.datastoremanager.database;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import jp.co.dk.datastoremanager.DataAccessObject;
+import jp.co.dk.datastoremanager.DataConvertable;
+import jp.co.dk.datastoremanager.DataStore;
+import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * AbstractDataBaseAccessObjectは、データベースにアクセスを行うデータアクセスオブジェクトが実装する基底クラスです。&lt;p/>
+ * 
+ * このクラスはデータストアオブジェクトを内包し、そのデータストアに対してselect、insert、update、deleteを行います。&lt;br/>
+ * 例えば、"ORACLE"の"USERS"テーブルにアクセスする場合、"USERS"テーブルにアクセスするクラスを作成し、本クラスを継承し、その中でSQLオブジェクトを作成、&lt;br/>
+ * このメソッドのアクセスメソッドを使用することでSQLを実行、結果の取得をおこなうことができる。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>25</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public abstract class AbstractDataBaseAccessObject implements DataAccessObject{</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>27</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** データストアオブジェクト */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>28</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected DataBaseDataStore <span class='instance uncovered' title='Reads: 0 Writes: 1'>dataStore</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ&lt;p/>
+	 * 以下のパラメータを元に、データベースアクセスオブジェクトを生成、トランザクションを開始する。&lt;br/>
+	 * &lt;br/>
+	 * パラメータが不足している場合、またはトランザクション開始に失敗した場合、例外が送出される。&lt;br/>
+	 * &lt;br/>
+	 * ・データベースドライバー&lt;br/>
+	 * ・データベース接続先URLまたは、IPアドレス&lt;br/>
+	 * ・接続先データべース名称（ORACLEの場合、SID）&lt;br/>
+	 * ・データベース接続先ユーザ&lt;br/>
+	 * ・データベース接続先パスワード&lt;br/>
+	 * 
+	 * @param driver   データベースドライバー
+	 * @param url      データベース接続先URLまたは、IPアドレス
+	 * @param sid      接続先データべース名称（ORACLEの場合、SID）
+	 * @param user     データベース接続先ユーザ
+	 * @param password データベース接続先パスワード
+	 * @throws DataStoreManagerException パラメータが不足している場合、またはトランザクション開始に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected AbstractDataBaseAccessObject(DataBaseDriverConstants driver, String url, String sid, String user, String password) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>50</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l50s0'>		this(new DataBaseAccessParameter(driver.getDataStoreKind(), driver, url, sid, user, password));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>51</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l51s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ&lt;p/>
+	 * 指定のデータベースアクセスパラメータを元に、データベースアクセスオブジェクトを生成、トランザクションを開始する。&lt;br/>
+	 * &lt;br/>
+	 * パラメータが不足している場合、またはトランザクション開始に失敗した場合、例外が送出される。&lt;br/>
+	 * 
+	 * @param dataBaseAccessParameter データアクセスパラメータ
+	 * @throws DataStoreManagerException パラメータが不足している場合、またはトランザクション開始に失敗した場合
+	 */    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l62s0 l63s0 l63s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l62s0 l63s0 l64s0 l66s0')">B: 0</span>
+      </td>
+    </tr>
+</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>62</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l62s0'>	protected AbstractDataBaseAccessObject(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>63</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l63s0' title='Executions: 0' class='uncovered'>if (dataBaseAccessParameter == null)</span> <span id='l63s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(DATA_ACCESS_OBJECT_IS_NOT_SET);</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>64</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l64s0'>		this.dataStore = new DataBaseDataStore(dataBaseAccessParameter);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>65</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l65s0'>		this.dataStore.startTransaction();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>66</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l66s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ&lt;p/>
+	 * 指定のデータストアオブジェクトを元に、データベースアクセスオブジェクトを生成する。&lt;br/>
+	 * データストアがデータベース用データストアでなかった場合、例外が送出される。&lt;br/>
+	 * &lt;br/>
+	 * @param dataStore データストアオブジェクト
+	 * @throws DataStoreManagerException データストアがデータベース用データストアでなかった場合
+	 */    <tr>
+      <td></td><td class='count'>1</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
+        <span class='uncovered' onclick="showPath(this,'l76s0 l77s0 l77s1')">A: 0</span>
+        <span class='covered' onclick="showPath(this,'l76s0 l77s0 l78s0 l79s0')">B: 1</span>
+      </td>
+    </tr>
+</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>76</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l76s0'>	protected AbstractDataBaseAccessObject(DataStore dataStore) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>77</td><td class='count'>1</td>
+      <td><pre class='prettyprint jmp'>		<span id='l77s0' title='Executions: 1' class='covered'>if (!(dataStore instanceof DataBaseDataStore)) throw new DataStoreManagerException(FAILE_TO_CAST_DATA_STORE_OBJECT);</span> </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>78</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l78s0'>		this.dataStore = (DataBaseDataStore)dataStore;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>79</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l79s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定のSQLを実行し、テーブルを作成する。&lt;p/>
+	 * テーブル作成に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @throws DataStoreManagerException テーブル作成に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>88</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void createTable(Sql sql) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>89</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l89s0'>		this.dataStore.createTable(sql);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>90</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l90s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定のSQLを実行し、テーブルを削除する。&lt;p/>
+	 * テーブル削除に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @throws DataStoreManagerException テーブル削除に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>99</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void dropTable(Sql sql) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>100</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l100s0'>		this.dataStore.dropTable(sql);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>101</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l101s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定のSQLを実行し、レコードを作成する。&lt;p/>
+	 * レコード追加に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @throws DataStoreManagerException レコード追加に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>110</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void insert(Sql sql) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>111</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l111s0'>		this.dataStore.insert(sql);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>112</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l112s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定のSQLを実行し、レコードの更新を実行する。&lt;p/>
+	 * レコードの更新に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @return 更新結果の件数
+	 * @throws DataStoreManagerException レコード更新に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>122</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public int update(Sql sql) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>123</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l123s0'>		return this.dataStore.update(sql);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>124</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定のSQLを実行し、レコードの削除を実行する。&lt;p/>
+	 * レコードの削除に失敗した場合、例外を送出する。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @return 削除結果の件数
+	 * @throws DataStoreManagerException レコード削除に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>134</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public int delete(Sql sql) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>135</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l135s0'>		return this.dataStore.delete(sql);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>136</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定のSQLを実行し、単一のレコードを取得する。&lt;p/>
+	 * 引数に指定されたSQLを実行し、指定のレコード変換オブジェクトを使用してレコードを変換、返却する。&lt;br/>
+	 * レコードが取得出来なかった場合はnullが返却される。&lt;br/>
+	 * レコードが複数取得された、SQLの実行に失敗した場合、例外が送出される。
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @param convertable レコード変換オブジェクト
+	 * @return 取得したレコードオブジェクト
+	 * @throws DataStoreManagerException レコードが複数取得された、SQLの実行に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>149</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public &lt;E extends DataConvertable> E selectSingle(Sql sql, E convertable) throws DataStoreManagerException{</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/3</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l151s0 l151s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l151s0 l152s0 l152s1')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l150s0 l151s0 l152s0 l153s0')">C: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>150</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l150s0'>		List&lt;E> resultList = this.selectMulti(sql, convertable);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>151</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l151s0' title='Executions: 0' class='uncovered'>if (resultList.size() == 0) return null;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>152</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l152s0' title='Executions: 0' class='uncovered'>if (resultList.size() >  1) throw new DataStoreManagerException(GET_RECORD_IS_FAILE, sql.toString());</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>153</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l153s0'>		return resultList.get(0);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>154</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定のSQLを実行し、複数のレコードを取得する。&lt;p/>
+	 * 引数に指定されたSQLを実行し、指定のレコード変換オブジェクトを使用してレコードを変換、返却する。&lt;br/>
+	 * レコードが取得出来なかった場合は空のリストが返却される。SQLの実行に失敗した場合、例外が送出される。&lt;br/>
+	 * 
+	 * @param sql 実行対象のSQLオブジェクト
+	 * @param convertable レコード変換オブジェクト
+	 * @return 取得したレコードオブジェクトのリスト
+	 * @throws DataStoreManagerException SQLの実行に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>166</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@SuppressWarnings("unchecked")</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>167</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public &lt;E extends DataConvertable> List&lt;E> selectMulti(Sql sql, E convertable) throws DataStoreManagerException{</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>168</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l168s0'>		List&lt;E> resultList = new ArrayList&lt;E>();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>169</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l169s0'>		ResultSet result = this.dataStore.select(sql);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>170</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>171</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l171s0'>			while (result.next()) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>172</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l172s0'>				resultList.add((E)convertable.convert(new DataBaseRecord(result)));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>173</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>174</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l174s0'>			result.close();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>175</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l175s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>176</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l176s0'>			throw new DataStoreManagerException(GET_RECORD_IS_FAILE, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>177</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>178</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l178s0'>		return resultList;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>179</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>180</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JMockit Coverage Report - Sql.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../coverage.css'/>
+  <script type='text/javascript' src='../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>DataStoreManager/src/jp/co/dk/datastoremanager/database/Sql.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.datastoremanager.database;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * Sqlは、SQL本文と、そのSQLに対するパラメータを保持し、単一のSQL本文を生成するクラスです。
+ * 
+ * @version 1.0
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>17</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class Sql {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>19</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** SQL本文 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>20</td><td class='count'>71</td>
+      <td><pre class='prettyprint covered' id='l20s0'>	private StringBuilder <span class='instance covered' title='Reads: 573 Writes: 71'>sql</span> = new StringBuilder();</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>22</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** パラメータ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>23</td><td class='count'>71</td>
+      <td><pre class='prettyprint covered' id='l23s0'>	private List&lt;SqlParameter> <span class='instance covered' title='Reads: 624 Writes: 71'>sqlParameter</span> = new ArrayList&lt;SqlParameter>();</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ&lt;p/>
+	 * 指定のSQLを表す文字列を元に、SQLオブジェクトのインスタンスを生成します。&lt;br/>
+	 * SQL本文がnull、または空文字の場合例外を送出します。
+	 * 
+	 * @param sql SQL本文の文字列
+	 * @throws DataStoreManagerException SQLオブジェクトのインスタンス生成に失敗した場合
+	 */    <tr>
+      <td></td><td class='count'>71</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
+        <span class='covered' onclick="showPath(this,'l33s0 l34s0 l34s2')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l33s0 l34s0 l34s1 l34s2')">B: 1</span>
+        <span class='covered' onclick="showPath(this,'l33s0 l34s0 l34s1 l35s0 l36s0')">C: 69</span>
+      </td>
+    </tr>
+</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>33</td><td class='count'>71</td>
+      <td><pre class='prettyprint covered' id='l33s0'>	public Sql(String sql) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>34</td><td class='count'>71</td>
+      <td><pre class='prettyprint jmp'>		<span id='l34s0' title='Executions: 71' class='covered'>if (sql == null</span> || <span id='l34s1' title='Executions: 70' class='covered'>sql.equals("")) throw new DataStoreManagerException(FAILE_TO_CREATE_SQL_OBJECT);</span> </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>35</td><td class='count'>69</td>
+      <td><pre class='prettyprint covered' id='l35s0'>		this.sql.append(sql);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>36</td><td class='count'>69</td>
+      <td><pre class='prettyprint covered' id='l36s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定の文字列を元に、SQLの？部分にあたる文字列を設定します。&lt;p/>
+	 * データベースに送るときに、ドライバはこれを SQL VARCHAR または LONGVARCHAR 値 (ドライバの VARCHAR 値に関する制限に関する引数のサイズに依存) に変換します。
+	 * @param parameter SQLの？部分にあたる文字列
+	 * @throws DataStoreManagerException 設定されたパラメータがnullまたは空文字の場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>44</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void setParameter(String parameter) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>45</td><td class='count'>55</td>
+      <td><pre class='prettyprint covered' id='l45s0'>		this.sqlParameter.add(new StringSqlParameter(parameter));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>46</td><td class='count'>53</td>
+      <td><pre class='prettyprint covered' id='l46s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定の数値を元に、SQLの？部分にあたる数値を設定します。&lt;p/>
+	 * データベースに送るときに、ドライバはこれを SQL INTEGER 値に変換します。
+	 * @param parameter SQLの？部分にあたる数値
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>53</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void setParameter(int parameter) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>54</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l54s0'>		this.sqlParameter.add(new IntSqlParameter(parameter));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>55</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l55s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定の日付を元に、SQLの？部分にあたる日付を設定します。&lt;p/>
+	 * データベースに送るときに、ドライバはこれを SQL DATE 値に変換します。
+	 * @param parameter SQLの？部分にあたる日付
+	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>63</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void setParameter(Date parameter) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>64</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l64s0'>		this.sqlParameter.add(new DateSqlParameter(parameter));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>65</td><td class='count'>23</td>
+      <td><pre class='prettyprint covered' id='l65s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>67</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getSql() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>68</td><td class='count'>45</td>
+      <td><pre class='prettyprint covered' id='l68s0'>		return this.sql.toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>69</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * このSQLに設定されたSQLに対するパラメータの一覧を取得します。
+	 * @return パラメータの一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>75</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	List&lt;SqlParameter> getParameterList() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>76</td><td class='count'>41</td>
+      <td><pre class='prettyprint covered' id='l76s0'>		return new ArrayList&lt;SqlParameter>(this.sqlParameter);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>77</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>79</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>80</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public int hashCode() { </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>81</td><td class='count'>430</td>
+      <td><pre class='prettyprint covered' id='l81s0'>		int hashcode = this.sql.toString().hashCode();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>82</td><td class='count'>430</td>
+      <td><pre class='prettyprint jmp'>		<span id='l82s0' title='Executions: 430' class='covered'>for (SqlParameter param</span> : <span id='l82s1' title='Executions: 1720' class='covered'>this.sqlParameter)</span> </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>83</td><td class='count'>430</td>
+      <td><pre class='prettyprint covered' id='l83s0'>		return hashcode *17;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>84</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>86</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>87</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean equals(Object object) {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>215</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#40bf00' onclick='hidePath()'>Path coverage: 3/4</span>
+        <span class='covered' onclick="showPath(this,'l88s0 l88s1')">A: 3</span>
+        <span class='uncovered' onclick="showPath(this,'l88s0 l89s0 l89s1')">B: 0</span>
+        <span class='covered' onclick="showPath(this,'l88s0 l89s0 l90s0 l91s0 l91s1')">C: 108</span>
+        <span class='covered' onclick="showPath(this,'l88s0 l89s0 l90s0 l91s0 l92s0')">D: 104</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>88</td><td class='count'>215</td>
+      <td><pre class='prettyprint jmp'>		<span id='l88s0' title='Executions: 215' class='covered'>if (object == null)</span> <span id='l88s1' title='Executions: 3' class='covered'>return false;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>89</td><td class='count'>212</td>
+      <td><pre class='prettyprint jmp'>		<span id='l89s0' title='Executions: 212' class='covered'>if (!(object instanceof Sql)) return false;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>90</td><td class='count'>212</td>
+      <td><pre class='prettyprint covered' id='l90s0'>		Sql thisClassObj = (Sql) object;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>91</td><td class='count'>212</td>
+      <td><pre class='prettyprint jmp'>		<span id='l91s0' title='Executions: 212' class='covered'>if (thisClassObj.hashCode() == this.hashCode()) return true;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>92</td><td class='count'>104</td>
+      <td><pre class='prettyprint covered' id='l92s0'>		return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>93</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>95</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>96</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String toString() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>29</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l97s0 l98s0 l99s0 l100s0')">A: 9</span>
+        <span class='covered' onclick="showPath(this,'l97s0 l98s0 l102s0 l103s0 l109s0')">B: 20</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>97</td><td class='count'>29</td>
+      <td><pre class='prettyprint covered' id='l97s0'>		StringBuilder sqlstr = new StringBuilder("SQL=[").append(this.sql).append(']');</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>98</td><td class='count'>29</td>
+      <td><pre class='prettyprint jmp'>		<span id='l98s0' title='Executions: 29' class='covered'>if (sqlParameter.size() == 0) {</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>99</td><td class='count'>9</td>
+      <td><pre class='prettyprint covered' id='l99s0'>			sqlstr.append(" PARAMETER=[NOTHING]");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>100</td><td class='count'>9</td>
+      <td><pre class='prettyprint covered' id='l100s0'>			return sqlstr.toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>101</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>102</td><td class='count'>20</td>
+      <td><pre class='prettyprint covered' id='l102s0'>			sqlstr.append(" PARAMETER=[");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>103</td><td class='count'>84</td>
+      <td><pre class='prettyprint covered' id='l103s0'>			for (SqlParameter param : this.sqlParameter) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>104</td><td class='count'>44</td>
+      <td><pre class='prettyprint covered' id='l104s0'>				sqlstr.append(param.toString()).append(", ");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>105</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>106</td><td class='count'>20</td>
+      <td><pre class='prettyprint covered' id='l106s0'>			int index = sqlstr.length();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>107</td><td class='count'>20</td>
+      <td><pre class='prettyprint covered' id='l107s0'>			sqlstr.delete(index-2, index);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>108</td><td class='count'>20</td>
+      <td><pre class='prettyprint covered' id='l108s0'>			sqlstr.append(']');</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>109</td><td class='count'>20</td>
+      <td><pre class='prettyprint covered' id='l109s0'>			return sqlstr.toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>110</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>111</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>112</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

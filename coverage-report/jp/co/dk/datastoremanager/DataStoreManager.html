@@ -17,7 +17,10 @@
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'></td><td>&nbsp;</td>
-      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.util.HashMap;
+import java.util.Map;
+
+import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.property.DataStoreManagerProperty;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
@@ -31,7 +34,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
  * &lt;br/>
  * このクラスは指定のデータストアへのトランザクション制御、各種テーブルへのDAOの取得などデータストアへの操作を管理する制御クラスとなります。&lt;br/>
  * &lt;br/>
- * 対応しているデータストアは以下の通りとなります。&lt;br/>
+ * 対応しているデータストアは以下の 通りとなります。&lt;br/>
  * 
  * ===RDB===&lt;br/>
  * ・Oracle&lt;br/>
@@ -46,33 +49,207 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
  */</div><span>/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>26</td><td>&nbsp;</td>
+      <td class='line'>29</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>public class DataStoreManager {</pre></td>
     </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td></td><td class='count'>2</td>
+      <td class='line'>31</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** デフォルトのデータストア */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>32</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected DataStore <span class='instance covered' title='Reads: 4 Writes: 6'>defaultDataStore</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>34</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 各種データストア */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>35</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l35s0'>	protected Map&lt;String, DataStore> <span class='instance uncovered' title='Reads: 6 Writes: 7'>dataStores</span> = new HashMap&lt;String, DataStore>();</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>37</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** データストアプロパティ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected DataStoreManagerProperty <span class='instance uncovered' title='Reads: 0 Writes: 6'>dataStoreManagerProperty</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ&lt;p/>
+	 * 
+	 * 
+	 * @param dataStoreManagerProperty データストアマネージャプロパティ
+	 * @throws DataStoreManagerException インスタンスの生成に失敗した場合
+	 */    <tr>
+      <td></td><td class='count'>7</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
-        <span class='covered' onclick="showPath(this,'l28s0 l29s0 l29s1')">A: 2</span>
-        <span class='uncovered' onclick="showPath(this,'l28s0 l29s0 l30s0')">B: 0</span>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l48s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l49s0 l52s0 l55s0')">B: 6</span>
       </td>
     </tr>
+</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>47</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l47s0'>	public DataStoreManager(DataStoreManagerProperty dataStoreManagerProperty) throws DataStoreManagerException{</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>48</td><td class='count'>7</td>
+      <td><pre class='prettyprint jmp'>		<span id='l48s0' title='Executions: 7' class='covered'>if (dataStoreManagerProperty == null)</span> <span id='l48s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(PROPERTY_IS_NOT_SET);</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>49</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l49s0'>		this.dataStoreManagerProperty               = dataStoreManagerProperty;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>50</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l50s0'>		this.defaultDataStore                       = dataStoreManagerProperty.getDefaultDataStoreParameter().createDataStore();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>51</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l51s0'>		Map&lt;String, DataStoreParameter> parameterMap = dataStoreManagerProperty.getDataStoreParameters();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>52</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l52s0'>		for (String name : parameterMap.keySet()) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>53</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l53s0'>			this.dataStores.put(name, parameterMap.get(name).createDataStore());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>55</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l55s0'>	}</pre></td>
+    </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>28</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l28s0'>	public DataStoreManager(DataStoreManagerProperty dataStoreManagerProperty) throws DataStoreManagerException{</pre></td>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * このデータストア管理クラスが管理しているすべてのデータストアに対してトランザクションを開始します。&lt;p/>
+	 * トランザクション開始処理に失敗した場合、例外を送出します。
+	 * 
+	 * @throws DataStoreManagerException トランザクション開始に失敗した場合
+	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td class='count'>2</td>
-      <td><pre class='prettyprint jmp'>		<span id='l29s0' title='Executions: 2' class='covered'>if (dataStoreManagerProperty == null)</span> <span id='l29s1' title='Executions: 2' class='covered'>throw new DataStoreManagerException(PROPERTY_IS_NOT_SET);</span></pre></td>
+      <td class='line'>63</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void startTrunsaction() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l30s0'>	}</pre></td>
+      <td class='line'>64</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l64s0'>		this.defaultDataStore.startTransaction();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>65</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l65s0'>		for (String name : this.dataStores.keySet()) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>66</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l66s0'>			this.dataStores.get(name).startTransaction();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>67</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>68</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l68s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>33</td><td>&nbsp;</td>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定のDAO定義クラスオブジェクトを元にデータアクセスオブジェクトを生成し、返却します。
+	 * @param daoConstants DAO定義クラス
+	 * @return データアクセスオブジェクトのインスタンス
+	 * @throws DataStoreManagerException データアクセスオブジェクトの生成、または取得に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>76</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public DataAccessObject getDataAccessObject(DaoConstants daoConstants) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l77s0 l78s0 l79s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l77s0 l78s0 l81s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>77</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l77s0'>		DataStore dataStore = this.dataStores.get(daoConstants.getName());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>78</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l78s0' title='Executions: 0' class='uncovered'>if (dataStore != null)</span> <span id='l78s1' title='Executions: 0' class='uncovered'>{</span> </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>79</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l79s0'>			return dataStore.getDataAccessObject(daoConstants);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>80</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>81</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l81s0'>		return this.defaultDataStore.getDataAccessObject(daoConstants);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>82</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * このデータストア管理クラスが管理しているすべてのデータストアに対してトランザクションを終了します。&lt;p/>
+	 * トランザクション終了処理に失敗した場合、例外を送出します。
+	 * 
+	 * @throws DataStoreManagerException トランザクション終了に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>90</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void finishTrunsaction() throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>91</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l91s0'>		this.defaultDataStore.finishTransaction();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>92</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l92s0'>		for (String name : dataStores.keySet()) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>93</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l93s0'>			this.dataStores.get(name).finishTransaction();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>94</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>95</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l95s0'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>96</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>

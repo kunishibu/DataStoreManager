@@ -46,7 +46,7 @@
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>16</td><td>&nbsp;</td>
-      <td><pre class='comment'>	/** データストア種別に設定されている値が不正です。デタストア種別設定値=[{0}] */</pre></td>
+      <td><pre class='comment'>	/** データストア種別に設定されている値が不正です。データストア種別設定値=[{0}] */</pre></td>
     </tr>
     <tr>
       <td class='line'>17</td><td class='count'>1</td>
@@ -100,19 +100,253 @@
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>34</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected DataStoreManagerMessage(String messageId) {</pre></td>
+      <td><pre class='comment'>	/** カラムの値の取得に失敗しました。COLUMN=[{0}] */</pre></td>
     </tr>
     <tr>
-      <td class='line'>35</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l35s0'>		super(messageId);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>36</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l36s0'>	}</pre></td>
+      <td class='line'>35</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l35s0'>	public static final DataStoreManagerMessage GET_COLUMN_IS_FAILE_BY_NAME = new DataStoreManagerMessage("E008");</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>38</td><td>&nbsp;</td>
+      <td class='line'>37</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** カラムの値の取得に失敗しました。INDEX=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l38s0'>	public static final DataStoreManagerMessage GET_COLUMN_IS_FAILE_BY_INDEX = new DataStoreManagerMessage("E009");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>40</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** レコードの取得に失敗しました。SQL=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>41</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l41s0'>	public static final DataStoreManagerMessage GET_RECORD_IS_FAILE = new DataStoreManagerMessage("E010");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>43</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 単一のレコード取得を行いましたが、複数レコード取得されました。SQL=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>44</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l44s0'>	public static final DataStoreManagerMessage GET_MORE_THAN_ONE_RECORD = new DataStoreManagerMessage("E011");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>46</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** SQLの実行に失敗しました。SQL=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>47</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l47s0'>	public static final DataStoreManagerMessage FAILE_TO_EXECUTE_SQL = new DataStoreManagerMessage("E012");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ドライバーの読み込みに失敗しました。DRIVER=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>50</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l50s0'>	public static final DataStoreManagerMessage FAILE_TO_READ_DRIVER = new DataStoreManagerMessage("E013");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>52</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** SQLに対してパラメータを設定を行った際に例外が発生しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>53</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l53s0'>	public static final DataStoreManagerMessage AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL = new DataStoreManagerMessage("E014");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>55</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** 対応していないデータストア種別が設定されています。DATASTOREKIND=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>56</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l56s0'>	public static final DataStoreManagerMessage NO_SUPPORT_DATA_STORE_KIND = new DataStoreManagerMessage("E015");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>58</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** URLが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>59</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l59s0'>	public static final DataStoreManagerMessage URL_IS_NOT_SET = new DataStoreManagerMessage("E016");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>61</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** SIDが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>62</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l62s0'>	public static final DataStoreManagerMessage SID_IS_NOT_SET = new DataStoreManagerMessage("E017");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>64</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ユーザが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>65</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l65s0'>	public static final DataStoreManagerMessage USER_IS_NOT_SET = new DataStoreManagerMessage("E018");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>67</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** パスワードが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>68</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l68s0'>	public static final DataStoreManagerMessage PASSWORD_IS_NOT_SET = new DataStoreManagerMessage("E019");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>70</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ドライバーが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>71</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l71s0'>	public static final DataStoreManagerMessage DRIVER_IS_NOT_SET = new DataStoreManagerMessage("E020");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>73</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** データアクセスオブジェクトの生成に失敗しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>74</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l74s0'>	public static final DataStoreManagerMessage FAILE_TO_CREATE_DATA_ACCESS_OBJECT = new DataStoreManagerMessage("E021");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>76</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** コネクションの生成に失敗しました。接続先=[{0}] */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>77</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l77s0'>	public static final DataStoreManagerMessage FAILE_TO_CREATE_CONNECTION = new DataStoreManagerMessage("E022");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>79</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** データストア種別が設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>80</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l80s0'>	public static final DataStoreManagerMessage DATA_STORE_KIND_IS_NOT_SET = new DataStoreManagerMessage("E023");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>82</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** データストアオブジェクトの変換に失敗しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>83</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l83s0'>	public static final DataStoreManagerMessage FAILE_TO_CAST_DATA_STORE_OBJECT = new DataStoreManagerMessage("E024");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>85</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** データアクセスオブジェクトが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>86</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l86s0'>	public static final DataStoreManagerMessage DATA_ACCESS_OBJECT_IS_NOT_SET = new DataStoreManagerMessage("E025");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>88</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** トランザクションが開始していません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>89</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l89s0'>	public static final DataStoreManagerMessage TRANSACTION_IS_NOT_START = new DataStoreManagerMessage("E026");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>91</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** コミットに失敗しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>92</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l92s0'>	public static final DataStoreManagerMessage FAILE_TO_COMMIT = new DataStoreManagerMessage("E027");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>94</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ロールバックに失敗しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>95</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l95s0'>	public static final DataStoreManagerMessage FAILE_TO_ROLLBACK = new DataStoreManagerMessage("E028");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>97</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** SQLオブジェクトの生成に失敗しました。SQL本文が設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>98</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l98s0'>	public static final DataStoreManagerMessage FAILE_TO_CREATE_SQL_OBJECT = new DataStoreManagerMessage("E029");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>100</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** SQLパラメータの値が設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>101</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l101s0'>	public static final DataStoreManagerMessage SQL_PARAMETER_IS_NOT_SET = new DataStoreManagerMessage("E030");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>103</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** トランザクションが生成できませんでした。データストアパラメータオブジェクトが設定されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>104</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l104s0'>	public static final DataStoreManagerMessage PARAMETER_IS_NOT_SET = new DataStoreManagerMessage("E031");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>106</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** コネクションのクローズ処理に失敗しました。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>107</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l107s0'>	public static final DataStoreManagerMessage FAILE_TO_CLOSE = new DataStoreManagerMessage("E032");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>109</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** トランザクションは開始されていません。 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>110</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l110s0'>	public static final DataStoreManagerMessage TRANSACTION_IS_NOT_STARTED = new DataStoreManagerMessage("E033");</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>112</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected DataStoreManagerMessage(String messageId) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>113</td><td class='count'>33</td>
+      <td><pre class='prettyprint covered' id='l113s0'>		super(messageId);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>114</td><td class='count'>33</td>
+      <td><pre class='prettyprint covered' id='l114s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>116</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>

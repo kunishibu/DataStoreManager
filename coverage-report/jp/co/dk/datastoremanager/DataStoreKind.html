@@ -11,8 +11,8 @@
   <table cellpadding='0' cellspacing='1'>
     <caption>DataStoreManager/src/jp/co/dk/datastoremanager/DataStoreKind.java</caption>
     <tr>
-      <td class='line'>1</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l1s0'>package jp.co.dk.datastoremanager;</pre></td>
+      <td class='line'>1</td><td class='count'>34</td>
+      <td><pre class='prettyprint covered' id='l1s0'>package jp.co.dk.datastoremanager;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -61,7 +61,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
     </tr>
     <tr>
       <td class='line'>22</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	POSTGRESSQL("postgressql"),</pre></td>
+      <td><pre class='prettyprint'>	POSTGRESQL("postgresql"),</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -109,56 +109,66 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>41</td><td>&nbsp;</td>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定の文字列をデータストアの種別へ変換します。
+	 * 
+	 * @param kind データストア種別を表す文字列
+	 * @return 指定されたデータストア種別の文字列を変換したデータストア種別オブジェクト
+	 * @throws DataStoreManagerException 変換できないデータストア種別を指定された場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>48</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public static DataStoreKind convert(String kind) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/3</span>
-        <span class='uncovered' onclick="showPath(this,'l42s0 l43s0 l43s1')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l42s0 l43s0 l42s1 l45s0 l46s0')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l42s0 l43s0 l42s1 l45s0 l48s0')">C: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l49s0 l50s0 l50s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l49s0 l50s0 l49s1 l52s0 l53s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l49s0 l50s0 l49s1 l52s0 l55s0')">C: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>42</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l42s0'>		for (DataStoreKind kindObj : DataStoreKind.values()) {</pre></td>
+      <td class='line'>49</td><td class='count'>73</td>
+      <td><pre class='prettyprint covered' id='l49s0'>		for (DataStoreKind kindObj : DataStoreKind.values()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>43</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>			<span id='l43s0' title='Executions: 0' class='uncovered'>if (kindObj.kind.equals(kind)) return kindObj;</span></pre></td>
-    </tr>
-    <tr>
-      <td class='line'>44</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>45</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l45s0' title='Executions: 0' class='uncovered'>if (kind == null)</span> <span id='l45s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
-    </tr>
-    <tr>
-      <td class='line'>46</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l46s0'>			throw new DataStoreManagerException(DATASTORE_KIND_VALUE_IS_FAILE, "null");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>47</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		} else {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>48</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l48s0'>			throw new DataStoreManagerException(DATASTORE_KIND_VALUE_IS_FAILE, kind);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>49</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>50</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td class='line'>50</td><td class='count'>68</td>
+      <td><pre class='prettyprint jmp'>			<span id='l50s0' title='Executions: 68' class='covered'>if (kindObj.kind.equals(kind)) return kindObj;</span></pre></td>
     </tr>
     <tr>
       <td class='line'>51</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>52</td><td class='count'>5</td>
+      <td><pre class='prettyprint jmp'>		<span id='l52s0' title='Executions: 5' class='covered'>if (kind == null)</span> <span id='l52s1' title='Executions: 1' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>53</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l53s0'>			throw new DataStoreManagerException(DATASTORE_KIND_VALUE_IS_FAILE, "null");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>55</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l55s0'>			throw new DataStoreManagerException(DATASTORE_KIND_VALUE_IS_FAILE, kind);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>56</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>57</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>58</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>
