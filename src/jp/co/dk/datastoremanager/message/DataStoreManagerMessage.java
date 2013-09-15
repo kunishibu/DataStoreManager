@@ -106,6 +106,9 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** コネクションのクローズ処理に失敗しました。 */
 	public static final DataStoreManagerMessage FAILE_TO_CLOSE = new DataStoreManagerMessage("E032");
 	
+	/** トランザクションは開始されていません。 */
+	public static final DataStoreManagerMessage TRANSACTION_IS_NOT_STARTED = new DataStoreManagerMessage("E033");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}

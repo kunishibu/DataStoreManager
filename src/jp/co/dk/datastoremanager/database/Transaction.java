@@ -233,15 +233,6 @@ class Transaction {
 		}
 	}
 	
-	/**
-	 * コネクションを取得します。
-	 * 
-	 * @return コネクション
-	 */
-	Connection getConnection() {
-		return connection;
-	}
-	
 	@Override
 	public int hashCode() {
 		return this.connection.hashCode() * this.dataBaseAccessParameter.hashCode() * 17;

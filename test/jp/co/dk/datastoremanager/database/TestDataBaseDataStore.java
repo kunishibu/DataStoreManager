@@ -1,8 +1,9 @@
 package jp.co.dk.datastoremanager.database;
 
+import java.sql.ResultSet;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.junit.Test;
 
@@ -108,8 +109,7 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 			dataBaseDataStore.finishTransaction();
 			fail();
 		} catch (DataStoreManagerException e) {
-			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_START
-					);
+			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_START);
 		}
 	}
 	
@@ -133,6 +133,136 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 			assertFalse(dataBaseDataStore.isTransaction());
 		} catch (DataStoreManagerException e) {
 			fail(e);
+		}
+	}
+	
+	@Test
+	public void test_executeSqls() throws DataStoreManagerException, ParseException {
+		// ==============================正常系==============================
+		DataBaseDataStore target01 = new DataBaseDataStore(this.getAccessableDataBaseAccessParameter());
+		target01.startTransaction();
+		// ＝＝＝＝＝＝＝＝テーブル作成＝＝＝＝＝＝＝＝
+		// テーブルを作成
+		target01.createTable(createTableSql());
+		// 再度同じテーブルを作成しようとした場合、例外が発生すること。
+		try {
+			target01.createTable(createTableSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
+		
+		// ＝＝＝＝＝＝＝＝レコードを追加＝＝＝＝＝＝＝＝
+		// レコードを追加
+		target01.insert(insertSql());
+		// 再度レコードを追加しようとした場合、例外が発生すること。
+		try {
+			target01.insert(insertSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
+		
+		// ＝＝＝＝＝＝＝＝レコードを更新＝＝＝＝＝＝＝＝
+		// レコードを更新
+		int updateCount01 = target01.update(updateSql());
+		assertEquals(updateCount01 , 1);
+		
+		// 再度更新しようした場合、更新件数が０件で有ること
+		int updateCount02 = target01.update(updateSql());
+		assertEquals(updateCount02 , 0);
+		
+		// 不正なSQLを実行した場合、例外が発生すること
+		try {
+			target01.update(updateFaileSql());
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
+		
+		// ＝＝＝＝＝＝＝＝レコードを取得＝＝＝＝＝＝＝＝
+		// レコードを取得
+		ResultSet resultSet = target01.select(selectSql());
+		
+		// 不正なSQLを実行した場合、例外が発生すること
+		try {
+			target01.select(selectFaileSql());
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
+		
+		// ＝＝＝＝＝＝＝＝レコードを削除＝＝＝＝＝＝＝＝
+		// レコードを削除
+		int deleteResult01 = target01.delete(deleteSql());
+		assertEquals(deleteResult01, 1);
+		
+		// 再度レコードを削除した場合、更新件数が０件であること
+		int deleteResult02 = target01.delete(deleteSql());
+		assertEquals(deleteResult02, 0);
+		
+		// 不正なSQLを実行した場合、例外が発生すること
+		try {
+			target01.delete(deleteFaileSql());
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
+		
+		// ＝＝＝＝＝＝＝＝テーブルを削除＝＝＝＝＝＝＝＝
+		// テーブルを削除
+		target01.dropTable(dropTableSql());
+		// 再度同じテーブルを削除しようとした場合、例外が発生すること。
+		try {
+			target01.dropTable(dropTableSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
+		target01.finishTransaction();
+		
+		// ==============================異常系==============================
+		DataBaseDataStore target02 = new DataBaseDataStore(this.getAccessableDataBaseAccessParameter());
+		// ＝＝＝＝＝＝＝＝テーブル作成＝＝＝＝＝＝＝＝
+		try {
+			target02.createTable(createTableSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_STARTED);
+		}
+		// ＝＝＝＝＝＝＝＝レコードを追加＝＝＝＝＝＝＝＝
+		try {
+			target02.insert(insertSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_STARTED);
+		}
+		// ＝＝＝＝＝＝＝＝レコードを更新＝＝＝＝＝＝＝＝
+		try {
+			target02.update(updateSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_STARTED);
+		}
+		
+		// ＝＝＝＝＝＝＝＝レコードを取得＝＝＝＝＝＝＝＝
+		try {
+			target02.select(selectSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_STARTED);
+		}
+		
+		// ＝＝＝＝＝＝＝＝レコードを削除＝＝＝＝＝＝＝＝
+		try {
+			target02.delete(deleteSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_STARTED);
+		}
+		// ＝＝＝＝＝＝＝＝テーブルを削除＝＝＝＝＝＝＝＝
+		try {
+			target02.dropTable(dropTableSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_STARTED);
 		}
 	}
 	

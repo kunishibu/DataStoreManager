@@ -144,6 +144,7 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 	
 	@Test
 	public void commit() throws DataStoreManagerException, ParseException, SQLException {
+		// ==============================正常系==============================
 		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameter();
 		Transaction target_01 = new Transaction(param);
 		Transaction target_02 = new Transaction(param);
@@ -181,6 +182,93 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 		// テーブルを削除
 		target_01.dropTable(dropTableSql());
 		target_01.close();
+		
+		// ==============================異常系==============================
+		// トランザクション開始後、クローズ後、コミットした場合、例外が発生すること。
+		try {
+			Transaction target_04 = new Transaction(param);
+			target_04.close();
+			target_04.commit();
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_COMMIT);
+		}
+		
+	}
+	
+	@Test
+	public void rollback() throws DataStoreManagerException, ParseException, SQLException {
+		// ==============================正常系==============================
+		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameter();
+		Transaction target_01 = new Transaction(param);
+		Transaction target_02 = new Transaction(param);
+		Transaction target_03 = new Transaction(param);
+		
+		// トランザクション０１にてテーブルを作成
+		target_01.createTable(createTableSql());
+		
+		// トランザクション０２でレコードを追加);
+		target_02.insert(insertSql());
+		
+		// トランザクション０２でレコードを取得、同じトランザクションのため、取得できる。
+		ResultSet resultSe02_01 = target_02.select(selectCountSql());
+		int result02_01 = -1;
+		while(resultSe02_01.next()) result02_01 = resultSe02_01.getInt("CNT");
+		assertEquals(result02_01, 1);
+		
+		// トランザクション０３でレコードを取得、異なるトランザクションのため、取得できない。
+		ResultSet resultSe03_01 = target_03.select(selectCountSql());
+		int result03_01 = -1;
+		while(resultSe03_01.next()) result03_01 = resultSe03_01.getInt("CNT");
+		assertEquals(result03_01, 0);
+		
+		// トランザクション０２でロールバックを実施
+		target_02.rollback();
+		
+		// トランザクション０２でレコードを取得、ロールバックしたため、取得できないこと。
+		ResultSet resultSe02_02 = target_02.select(selectCountSql());
+		int result02_02 = -1;
+		while(resultSe02_02.next()) result02_02 = resultSe02_02.getInt("CNT");
+		assertEquals(result02_02, 0);
+		
+		// トランザクション０３でレコードを取得、ロールバックしたため、取得できないこと。
+		ResultSet resultSe03_02 = target_03.select(selectCountSql());
+		int result03_02 = -1;
+		while(resultSe03_02.next()) result03_02 = resultSe03_02.getInt("CNT");
+		assertEquals(result03_02, 0);
+		target_02.close();
+		target_03.close();
+		
+		// テーブルを削除
+		target_01.dropTable(dropTableSql());
+		target_01.close();
+		
+		// ==============================異常系==============================
+		// トランザクション開始後、クローズ後、コミットした場合、例外が発生すること。
+		try {
+			Transaction target_04 = new Transaction(param);
+			target_04.close();
+			target_04.rollback();
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_ROLLBACK);
+		}
+	}
+	
+	@Test
+	public void close() {
+		// ==============================正常系==============================
+		// 正常系はcommit、rollbackにて実施済み
+		
+		// ==============================異常系==============================
+		try {
+			DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameter();
+			Transaction target_01 = new Transaction(param);
+			target_01.close();
+			target_01.close();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_CLOSE);
+		}
 	}
 	
 	@Test

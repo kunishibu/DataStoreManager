@@ -72,6 +72,7 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException テーブル作成に失敗した場合
 	 */
 	void createTable(Sql sql) throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
 		this.transaction.createTable(sql);
 		this.sqlList.add(sql);
 	}
@@ -84,6 +85,7 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException テーブル削除に失敗した場合
 	 */
 	void dropTable(Sql sql) throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
 		this.transaction.dropTable(sql);
 		this.sqlList.add(sql);
 	}
@@ -96,6 +98,7 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException レコード追加に失敗した場合
 	 */
 	void insert(Sql sql) throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
 		this.transaction.insert(sql);
 		this.sqlList.add(sql);
 	}
@@ -109,6 +112,7 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException レコード更新に失敗した場合
 	 */
 	int update(Sql sql) throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
 		int result = this.transaction.update(sql);
 		this.sqlList.add(sql);
 		return result;
@@ -123,6 +127,7 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException レコード削除に失敗した場合
 	 */
 	int delete(Sql sql) throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
 		int result = this.transaction.delete(sql);
 		this.sqlList.add(sql);
 		return result;
@@ -137,6 +142,7 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException SQLの実行に失敗した場合
 	 */
 	ResultSet select(Sql sql) throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
 		ResultSet result = this.transaction.select(sql);
 		this.sqlList.add(sql);
 		return result;
