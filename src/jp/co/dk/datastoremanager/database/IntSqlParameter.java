@@ -20,7 +20,7 @@ class IntSqlParameter extends SqlParameter{
 		try {
 			statement.setInt(index, this.parameter);
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL);
+			throw new DataStoreManagerException(AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL, e);
 		}
 	}
 	

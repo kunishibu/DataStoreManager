@@ -153,7 +153,7 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	public <E extends DataConvertable> E selectSingle(Sql sql, E convertable) throws DataStoreManagerException{
 		List<E> resultList = this.selectMulti(sql, convertable);
 		if (resultList.size() == 0) return null;
-		if (resultList.size() >  1) throw new DataStoreManagerException(GET_RECORD_IS_FAILE);
+		if (resultList.size() >  1) throw new DataStoreManagerException(GET_RECORD_IS_FAILE, sql.toString());
 		return resultList.get(0);
 	}
 	
@@ -177,7 +177,7 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 			}
 			result.close();
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(GET_RECORD_IS_FAILE);
+			throw new DataStoreManagerException(GET_RECORD_IS_FAILE, sql.toString(), e);
 		}
 		return resultList;
 	}

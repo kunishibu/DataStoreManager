@@ -94,7 +94,7 @@ public class DataStoreManagerProperty extends PropertiesFile {
 				return new DataBaseAccessParameter(DataStoreKind.POSTGRESQL, DataBaseDriverConstants.POSTGRESSQL, postgresqlurl, postgresqlsid, postgresqluser, postgresqlpassword);
 				
 			default :
-				throw new DataStoreManagerException(NO_SUPPORT_DATA_STORE_KIND);
+				throw new DataStoreManagerException(NO_SUPPORT_DATA_STORE_KIND, dataStoreKind.toString());
 		}
 	}
 	
@@ -158,7 +158,7 @@ public class DataStoreManagerProperty extends PropertiesFile {
 				return new DataBaseAccessParameter(DataStoreKind.POSTGRESQL, DataBaseDriverConstants.POSTGRESSQL, postgresqlurl, postgresqlsid, postgresqluser, postgresqlpassword);
 				
 			default :
-				throw new DataStoreManagerException(NO_SUPPORT_DATA_STORE_KIND);
+				throw new DataStoreManagerException(NO_SUPPORT_DATA_STORE_KIND, dataStoreKind.toString());
 		}
 	}
 	

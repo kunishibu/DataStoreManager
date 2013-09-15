@@ -29,19 +29,19 @@ class Transaction {
 	Transaction(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException{
 		if (dataBaseAccessParameter == null) throw new DataStoreManagerException(PARAMETER_IS_NOT_SET);
 		this.dataBaseAccessParameter = dataBaseAccessParameter;
+		DataBaseDriverConstants driverConstants = dataBaseAccessParameter.getDriver();
+		String driver   = driverConstants.getDriverClass();
+		String url      = driverConstants.getUrl(dataBaseAccessParameter.getUrl(), dataBaseAccessParameter.getSid());
+		String user     = dataBaseAccessParameter.getUser();
+		String password = dataBaseAccessParameter.getPassword();
 		try {
-			DataBaseDriverConstants driverConstants = dataBaseAccessParameter.getDriver();
-			String driver   = driverConstants.getDriverClass();
-			String url      = driverConstants.getUrl(dataBaseAccessParameter.getUrl(), dataBaseAccessParameter.getSid());
-			String user     = dataBaseAccessParameter.getUser();
-			String password = dataBaseAccessParameter.getPassword();
 			Class.forName(driver);
 			this.connection = DriverManager.getConnection(url, user, password);
 			this.connection.setAutoCommit(false);
 		} catch (ClassNotFoundException e) {
-			throw new DataStoreManagerException(FAILE_TO_READ_DRIVER, e);
+			throw new DataStoreManagerException(FAILE_TO_READ_DRIVER, driverConstants.getDriverClass(), e);
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_CREATE_CONNECTION, e);
+			throw new DataStoreManagerException(FAILE_TO_CREATE_CONNECTION, this.dataBaseAccessParameter.toString(), e);
 		}
 	}
 	
@@ -51,7 +51,7 @@ class Transaction {
 			statement.execute();
 			statement.close();
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, e);
+			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
 		}
 	}
 	
@@ -66,7 +66,7 @@ class Transaction {
 			statement.execute();
 			statement.close();
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, e);
+			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
 		}
 	}
 	
@@ -83,7 +83,7 @@ class Transaction {
 			statement.close();
 			return result;
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, e);
+			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
 		}
 	}
 	
@@ -100,7 +100,7 @@ class Transaction {
 			statement.close();
 			return result;
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, e);
+			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
 		}
 	}
 	
@@ -114,7 +114,7 @@ class Transaction {
 			}
 			return statement.executeQuery();
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, e);
+			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
 		}
 	}
 	
@@ -124,7 +124,7 @@ class Transaction {
 			statement.execute();
 			statement.close();
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, e);
+			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
 		}
 	}
 	
