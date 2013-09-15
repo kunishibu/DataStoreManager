@@ -32,7 +32,7 @@ public class DataBaseRecord implements Record {
 	/**
 	 * このレコードから指定のカラム名の文字列を取得します。
 	 * 
-	 * @param Strung カラム名
+	 * @param column カラム名
 	 * @return 文字列
 	 * @throws DataStoreManagerException 値の取得に失敗した場合
 	 */
@@ -47,7 +47,7 @@ public class DataBaseRecord implements Record {
 	/**
 	 * このレコードから指定のカラム名の文字列を取得します。
 	 * 
-	 * @param Strung カラム名
+	 * @param column カラム名
 	 * @return 数値
 	 * @throws DataStoreManagerException 値の取得に失敗した場合
 	 */
@@ -62,7 +62,7 @@ public class DataBaseRecord implements Record {
 	/**
 	 * このレコードから指定のカラム名の文字列を取得します。
 	 * 
-	 * @param Strung カラム名
+	 * @param column カラム名
 	 * @return 日付
 	 * @throws DataStoreManagerException 値の取得に失敗した場合
 	 */

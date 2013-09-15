@@ -41,9 +41,9 @@ public enum DataStoreKind {
 	/**
 	 * 指定の文字列をデータストアの種別へ変換します。
 	 * 
-	 * @param kind
-	 * @return
-	 * @throws DataStoreManagerException
+	 * @param kind データストア種別を表す文字列
+	 * @return 指定されたデータストア種別の文字列を変換したデータストア種別オブジェクト
+	 * @throws DataStoreManagerException 変換できないデータストア種別を指定された場合
 	 */
 	public static DataStoreKind convert(String kind) throws DataStoreManagerException {
 		for (DataStoreKind kindObj : DataStoreKind.values()) {

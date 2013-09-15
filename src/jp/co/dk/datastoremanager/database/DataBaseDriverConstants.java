@@ -29,7 +29,7 @@ public enum DataBaseDriverConstants {
 	
 	/**
 	 * コンストラクタ<p/>
-	 * 
+	 * 指定のデータベース接続時のURL固定部、ドライバークラス名、データストア種別を元に各種データベースに接続する際のデータベースドライバー定数クラスを生成する。
 	 * 
 	 * @param url           データベース接続時のURL固定部
 	 * @param driverClass   ドライバークラス名

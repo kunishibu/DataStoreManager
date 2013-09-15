@@ -52,15 +52,11 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	
 	/**
 	 * コンストラクタ<p/>
-	 * 以下のデータベースアクセスパラメータを元に、データベースアクセスオブジェクトを生成、トランザクションを開始する。<br/>
+	 * 指定のデータベースアクセスパラメータを元に、データベースアクセスオブジェクトを生成、トランザクションを開始する。<br/>
 	 * <br/>
 	 * パラメータが不足している場合、またはトランザクション開始に失敗した場合、例外が送出される。<br/>
 	 * 
-	 * @param driver   データベースドライバー
-	 * @param url      データベース接続先URLまたは、IPアドレス
-	 * @param sid      接続先データべース名称（ORACLEの場合、SID）
-	 * @param user     データベース接続先ユーザ
-	 * @param password データベース接続先パスワード
+	 * @param dataBaseAccessParameter データアクセスパラメータ
 	 * @throws DataStoreManagerException パラメータが不足している場合、またはトランザクション開始に失敗した場合
 	 */
 	protected AbstractDataBaseAccessObject(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {
