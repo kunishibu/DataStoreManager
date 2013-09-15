@@ -154,10 +154,10 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを追加＝＝＝＝＝＝＝＝
 		// レコードを追加
-		target01.insert(insertSql());
+		target01.insert(insertSql_1234567890());
 		// 再度レコードを追加しようとした場合、例外が発生すること。
 		try {
-			target01.insert(insertSql());
+			target01.insert(insertSql_1234567890());
 			fail();
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
@@ -165,11 +165,11 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを更新＝＝＝＝＝＝＝＝
 		// レコードを更新
-		int updateCount01 = target01.update(updateSql());
+		int updateCount01 = target01.update(updateSql_1234567890_to_0987654321());
 		assertEquals(updateCount01 , 1);
 		
 		// 再度更新しようした場合、更新件数が０件で有ること
-		int updateCount02 = target01.update(updateSql());
+		int updateCount02 = target01.update(updateSql_1234567890_to_0987654321());
 		assertEquals(updateCount02 , 0);
 		
 		// 不正なSQLを実行した場合、例外が発生すること
@@ -181,7 +181,7 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを取得＝＝＝＝＝＝＝＝
 		// レコードを取得
-		ResultSet resultSet = target01.select(selectSql());
+		ResultSet resultSet = target01.select(selectSql_1234567890());
 		
 		// 不正なSQLを実行した場合、例外が発生すること
 		try {
@@ -192,11 +192,11 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを削除＝＝＝＝＝＝＝＝
 		// レコードを削除
-		int deleteResult01 = target01.delete(deleteSql());
+		int deleteResult01 = target01.delete(deleteSql_1234567890());
 		assertEquals(deleteResult01, 1);
 		
 		// 再度レコードを削除した場合、更新件数が０件であること
-		int deleteResult02 = target01.delete(deleteSql());
+		int deleteResult02 = target01.delete(deleteSql_1234567890());
 		assertEquals(deleteResult02, 0);
 		
 		// 不正なSQLを実行した場合、例外が発生すること
@@ -229,14 +229,14 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 		}
 		// ＝＝＝＝＝＝＝＝レコードを追加＝＝＝＝＝＝＝＝
 		try {
-			target02.insert(insertSql());
+			target02.insert(insertSql_1234567890());
 			fail();
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_STARTED);
 		}
 		// ＝＝＝＝＝＝＝＝レコードを更新＝＝＝＝＝＝＝＝
 		try {
-			target02.update(updateSql());
+			target02.update(updateSql_1234567890_to_0987654321());
 			fail();
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_STARTED);
@@ -244,7 +244,7 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを取得＝＝＝＝＝＝＝＝
 		try {
-			target02.select(selectSql());
+			target02.select(selectSql_1234567890());
 			fail();
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_STARTED);
@@ -252,7 +252,7 @@ public class TestDataBaseDataStore extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを削除＝＝＝＝＝＝＝＝
 		try {
-			target02.delete(deleteSql());
+			target02.delete(deleteSql_1234567890());
 			fail();
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), TRANSACTION_IS_NOT_STARTED);

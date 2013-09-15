@@ -76,10 +76,10 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを追加＝＝＝＝＝＝＝＝
 		// レコードを追加
-		target.insert(insertSql());
+		target.insert(insertSql_1234567890());
 		// 再度レコードを追加しようとした場合、例外が発生すること。
 		try {
-			target.insert(insertSql());
+			target.insert(insertSql_1234567890());
 			fail();
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
@@ -87,11 +87,11 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを更新＝＝＝＝＝＝＝＝
 		// レコードを更新
-		int updateCount01 = target.update(updateSql());
+		int updateCount01 = target.update(updateSql_1234567890_to_0987654321());
 		assertEquals(updateCount01 , 1);
 		
 		// 再度更新しようした場合、更新件数が０件で有ること
-		int updateCount02 = target.update(updateSql());
+		int updateCount02 = target.update(updateSql_1234567890_to_0987654321());
 		assertEquals(updateCount02 , 0);
 		
 		// 不正なSQLを実行した場合、例外が発生すること
@@ -103,7 +103,7 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを取得＝＝＝＝＝＝＝＝
 		// レコードを取得
-		ResultSet resultSet = target.select(selectSql());
+		ResultSet resultSet = target.select(selectSql_0987654321());
 		
 		// 不正なSQLを実行した場合、例外が発生すること
 		try {
@@ -114,11 +114,11 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 		
 		// ＝＝＝＝＝＝＝＝レコードを削除＝＝＝＝＝＝＝＝
 		// レコードを削除
-		int deleteResult01 = target.delete(deleteSql());
+		int deleteResult01 = target.delete(deleteSql_0987654321());
 		assertEquals(deleteResult01, 1);
 		
 		// 再度レコードを削除した場合、更新件数が０件であること
-		int deleteResult02 = target.delete(deleteSql());
+		int deleteResult02 = target.delete(deleteSql_0987654321());
 		assertEquals(deleteResult02, 0);
 		
 		// 不正なSQLを実行した場合、例外が発生すること
@@ -145,6 +145,7 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 	@Test
 	public void commit() throws DataStoreManagerException, ParseException, SQLException {
 		// ==============================正常系==============================
+		// ２つのトランザクションの間でSELECTを行った場合、コミットを行った場合に限り、他のトランザクションから参照可能になること
 		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameter();
 		Transaction target_01 = new Transaction(param);
 		Transaction target_02 = new Transaction(param);
@@ -154,28 +155,54 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 		target_01.createTable(createTableSql());
 		
 		// トランザクション０２でレコードを追加);
-		target_02.insert(insertSql());
+		target_02.insert(insertSql_1234567890());
 		
 		// トランザクション０２でレコードを取得、同じトランザクションのため、取得できる。
-		ResultSet resultSe02_01 = target_02.select(selectCountSql());
+		ResultSet resultSe02_01 = target_02.select(selectCountSql_1234567890());
 		int result02_01 = -1;
 		while(resultSe02_01.next()) result02_01 = resultSe02_01.getInt("CNT");
 		assertEquals(result02_01, 1);
 		
-		// トランザクション０３でレコードを取得、異なるトランザクションのため、取得できない。
-		ResultSet resultSe03_01 = target_03.select(selectCountSql());
-		int result03_01 = -1;
-		while(resultSe03_01.next()) result03_01 = resultSe03_01.getInt("CNT");
-		assertEquals(result03_01, 0);
+			// トランザクション０３でレコードを取得、異なるトランザクションのため、取得できない。
+			ResultSet resultSe03_01 = target_03.select(selectCountSql_1234567890());
+			int result03_01 = -1;
+			while(resultSe03_01.next()) result03_01 = resultSe03_01.getInt("CNT");
+			assertEquals(result03_01, 0);
+			
+		// トランザクション０２でコミットを実施
+		target_02.commit();
+		
+			// トランザクション０３でレコードを取得、コミットされたため、異なるトランザクションのでも取得できる。
+			ResultSet resultSe03_02 = target_03.select(selectCountSql_1234567890());
+			int result03_02 = -1;
+			while(resultSe03_02.next()) result03_02 = resultSe03_02.getInt("CNT");
+			assertEquals(result03_02, 1);
+		
+		// コミット後、継続して処理を継続できること
+		// トランザクション０２で削除を実施
+		target_02.delete(deleteSql_1234567890());
+		
+		// トランザクション０２でレコードを取得、同じトランザクションのため、0件が取得される。
+		ResultSet resultSe02_03 = target_02.select(selectCountSql_1234567890());
+		int result02_03 = -1;
+		while(resultSe02_03.next()) result02_03 = resultSe02_03.getInt("CNT");
+		assertEquals(result02_03, 0);
+			
+			// トランザクション０３でレコードを取得、異なるトランザクションのため、取得できること。
+			ResultSet resultSe03_03 = target_03.select(selectCountSql_1234567890());
+			int result03_03 = -1;
+			while(resultSe03_03.next()) result03_03 = resultSe03_03.getInt("CNT");
+			assertEquals(result03_03, 1);
 		
 		// トランザクション０２でコミットを実施
 		target_02.commit();
 		
-		// トランザクション０３でレコードを取得、コミットされたため、異なるトランザクションのでも取得できる。
-		ResultSet resultSe03_02 = target_03.select(selectCountSql());
-		int result03_02 = -1;
-		while(resultSe03_02.next()) result03_02 = resultSe03_02.getInt("CNT");
-		assertEquals(result03_02, 1);
+			// トランザクション０３でレコードを取得、異なるトランザクションのため、取得できること。
+			ResultSet resultSe03_04 = target_03.select(selectCountSql_1234567890());
+			int result03_04 = -1;
+			while(resultSe03_04.next()) result03_04 = resultSe03_04.getInt("CNT");
+			assertEquals(result03_04, 0);
+		
 		target_02.close();
 		target_03.close();
 		
@@ -208,34 +235,35 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 		target_01.createTable(createTableSql());
 		
 		// トランザクション０２でレコードを追加);
-		target_02.insert(insertSql());
+		target_02.insert(insertSql_1234567890());
 		
 		// トランザクション０２でレコードを取得、同じトランザクションのため、取得できる。
-		ResultSet resultSe02_01 = target_02.select(selectCountSql());
+		ResultSet resultSe02_01 = target_02.select(selectCountSql_1234567890());
 		int result02_01 = -1;
 		while(resultSe02_01.next()) result02_01 = resultSe02_01.getInt("CNT");
 		assertEquals(result02_01, 1);
 		
-		// トランザクション０３でレコードを取得、異なるトランザクションのため、取得できない。
-		ResultSet resultSe03_01 = target_03.select(selectCountSql());
-		int result03_01 = -1;
-		while(resultSe03_01.next()) result03_01 = resultSe03_01.getInt("CNT");
-		assertEquals(result03_01, 0);
+			// トランザクション０３でレコードを取得、異なるトランザクションのため、取得できない。
+			ResultSet resultSe03_01 = target_03.select(selectCountSql_1234567890());
+			int result03_01 = -1;
+			while(resultSe03_01.next()) result03_01 = resultSe03_01.getInt("CNT");
+			assertEquals(result03_01, 0);
 		
 		// トランザクション０２でロールバックを実施
 		target_02.rollback();
 		
 		// トランザクション０２でレコードを取得、ロールバックしたため、取得できないこと。
-		ResultSet resultSe02_02 = target_02.select(selectCountSql());
+		ResultSet resultSe02_02 = target_02.select(selectCountSql_1234567890());
 		int result02_02 = -1;
 		while(resultSe02_02.next()) result02_02 = resultSe02_02.getInt("CNT");
 		assertEquals(result02_02, 0);
 		
-		// トランザクション０３でレコードを取得、ロールバックしたため、取得できないこと。
-		ResultSet resultSe03_02 = target_03.select(selectCountSql());
-		int result03_02 = -1;
-		while(resultSe03_02.next()) result03_02 = resultSe03_02.getInt("CNT");
-		assertEquals(result03_02, 0);
+			// トランザクション０３でレコードを取得、ロールバックしたため、取得できないこと。
+			ResultSet resultSe03_02 = target_03.select(selectCountSql_1234567890());
+			int result03_02 = -1;
+			while(resultSe03_02.next()) result03_02 = resultSe03_02.getInt("CNT");
+			assertEquals(result03_02, 0);
+		
 		target_02.close();
 		target_03.close();
 		

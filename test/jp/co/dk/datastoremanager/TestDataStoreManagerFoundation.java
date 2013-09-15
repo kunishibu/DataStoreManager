@@ -36,7 +36,7 @@ public class TestDataStoreManagerFoundation extends TestCaseTemplate{
 		return new Sql("CREATE TABLE TEST_USERS( USERID VARCHAR(10) NOT NULL PRIMARY KEY, AGE INT(3), BIRTHDAY DATE );");
 	}
 	
-	public Sql insertSql() throws DataStoreManagerException, ParseException {
+	public Sql insertSql_1234567890() throws DataStoreManagerException, ParseException {
 		Sql insertSql  = new Sql("INSERT INTO TEST_USERS( USERID, AGE, BIRTHDAY ) VALUES (?, ?, ?)");
 		insertSql.setParameter("1234567890");
 		insertSql.setParameter(20);
@@ -44,7 +44,7 @@ public class TestDataStoreManagerFoundation extends TestCaseTemplate{
 		return insertSql;
 	}
 	
-	public Sql updateSql() throws DataStoreManagerException, ParseException {
+	public Sql updateSql_1234567890_to_0987654321() throws DataStoreManagerException, ParseException {
 		Sql uptedaSql  = new Sql("UPDATE TEST_USERS SET USERID=?, AGE=?, BIRTHDAY=? WHERE USERID=?");
 		uptedaSql.setParameter("0987654321");
 		uptedaSql.setParameter(21);
@@ -62,25 +62,43 @@ public class TestDataStoreManagerFoundation extends TestCaseTemplate{
 		return uptedaSql;
 	}
 	
-	public Sql selectSql() throws DataStoreManagerException {
+	public Sql selectSql_1234567890() throws DataStoreManagerException {
 		Sql selectSql  = new Sql("SELECT * FROM TEST_USERS WHERE USERID=?");
-		selectSql.setParameter("0987654321");
+		selectSql.setParameter("1234567890");
 		return selectSql;
 	}
 	
-	public Sql selectCountSql() throws DataStoreManagerException {
+	public Sql selectCountSql_1234567890() throws DataStoreManagerException {
 		Sql selectSql  = new Sql("SELECT COUNT(*) AS CNT FROM TEST_USERS WHERE USERID=?");
 		selectSql.setParameter("1234567890");
 		return selectSql;
 	}
 	
-	public Sql selectFaileSql() throws DataStoreManagerException {
-		Sql selectSql  = new Sql("SELECT * FROM TEST_USERS_ WHERE USERID=?");
+	public Sql selectSql_0987654321() throws DataStoreManagerException {
+		Sql selectSql  = new Sql("SELECT * FROM TEST_USERS WHERE USERID=?");
 		selectSql.setParameter("0987654321");
 		return selectSql;
 	}
 	
-	public Sql deleteSql() throws DataStoreManagerException {
+	public Sql selectCountSql_0987654321() throws DataStoreManagerException {
+		Sql selectSql  = new Sql("SELECT COUNT(*) AS CNT FROM TEST_USERS WHERE USERID=?");
+		selectSql.setParameter("0987654321");
+		return selectSql;
+	}
+	
+	public Sql selectFaileSql() throws DataStoreManagerException {
+		Sql selectSql  = new Sql("SELECT * FROM TEST_USERS_ WHERE USERID=?");
+		selectSql.setParameter("1234567890");
+		return selectSql;
+	}
+	
+	public Sql deleteSql_1234567890() throws DataStoreManagerException {
+		Sql deleteSql  = new Sql("DELETE FROM TEST_USERS WHERE USERID=?");
+		deleteSql.setParameter("1234567890");
+		return deleteSql;
+	}
+	
+	public Sql deleteSql_0987654321() throws DataStoreManagerException {
 		Sql deleteSql  = new Sql("DELETE FROM TEST_USERS WHERE USERID=?");
 		deleteSql.setParameter("0987654321");
 		return deleteSql;
@@ -88,7 +106,7 @@ public class TestDataStoreManagerFoundation extends TestCaseTemplate{
 	
 	public Sql deleteFaileSql() throws DataStoreManagerException {
 		Sql deleteSql  = new Sql("DELETE FROM TEST_USERS_ WHERE USERID=?");
-		deleteSql.setParameter("0987654321");
+		deleteSql.setParameter("1234567890");
 		return deleteSql;
 	}
 	
