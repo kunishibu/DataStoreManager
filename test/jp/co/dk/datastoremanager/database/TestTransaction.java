@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import jp.co.dk.datastoremanager.TestDataStoreManagerFoundation;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
@@ -15,7 +14,6 @@ import mockit.Expectations;
 import org.junit.Test;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
-import static org.junit.Assert.*;
 
 public class TestTransaction extends TestDataStoreManagerFoundation{
 	
@@ -65,39 +63,83 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 		
 		Transaction target = new Transaction(this.getAccessableDataBaseAccessParameter());
 		
-		// SQLはMYSQL
-		Sql createSql  = new Sql("CREATE TABLE TEST_USERS( USERID VARCHAR(10), AGE INT(3), BIRTHDAY DATE );");
-		target.createTable(createSql);
+		// ＝＝＝＝＝＝＝＝テーブル作成＝＝＝＝＝＝＝＝
+		// テーブルを作成
+		target.createTable(createTableSql());
+		// 再度同じテーブルを作成しようとした場合、例外が発生すること。
+		try {
+			target.createTable(createTableSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
 		
-		Sql insertSql  = new Sql("INSERT INTO TEST_USERS( USERID, AGE, BIRTHDAY ) VALUES (?, ?, ?)");
-		insertSql.setParameter("1234567890");
-		insertSql.setParameter(20);
-		insertSql.setParameter(super.createDateByString("20130101000000"));
-		target.insert(insertSql);
+		// ＝＝＝＝＝＝＝＝レコードを追加＝＝＝＝＝＝＝＝
+		// レコードを追加
+		target.insert(insertSql());
+		// 再度レコードを追加しようとした場合、例外が発生すること。
+		try {
+			target.insert(insertSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
 		
-		Sql uptedaSql  = new Sql("UPDATE TEST_USERS SET USERID=?, AGE=?, BIRTHDAY=? WHERE USERID=?");
-		uptedaSql.setParameter("0987654321");
-		uptedaSql.setParameter(21);
-		uptedaSql.setParameter(super.createDateByString("20130102000000"));
-		uptedaSql.setParameter("1234567890");
-		int updateCount = target.update(uptedaSql);
+		// ＝＝＝＝＝＝＝＝レコードを更新＝＝＝＝＝＝＝＝
+		// レコードを更新
+		int updateCount01 = target.update(updateSql());
+		assertEquals(updateCount01 , 1);
 		
-		Sql selectSql  = new Sql("SELECT * FROM TEST_USERS WHERE USERID=?");
-		selectSql.setParameter("0987654321");
-		ResultSet resultSet = target.select(selectSql);
+		// 再度更新しようした場合、更新件数が０件で有ること
+		int updateCount02 = target.update(updateSql());
+		assertEquals(updateCount02 , 0);
 		
-		Sql deleteSql  = new Sql("DELETE FROM TEST_USERS WHERE USERID=?");
-		deleteSql.setParameter("0987654321");
-		int       deleteResult      = target.delete(deleteSql);
+		// 不正なSQLを実行した場合、例外が発生すること
+		try {
+			target.update(updateFaileSql());
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
 		
-		Sql dropTblSql = new Sql("DROP TABLE TEST_USERS");
-		target.dropTable(dropTblSql);
+		// ＝＝＝＝＝＝＝＝レコードを取得＝＝＝＝＝＝＝＝
+		// レコードを取得
+		ResultSet resultSet = target.select(selectSql());
 		
-		assertEquals(updateCount , 1);
-		assertEquals(deleteResult, 1);
+		// 不正なSQLを実行した場合、例外が発生すること
+		try {
+			target.select(selectFaileSql());
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
+		
+		// ＝＝＝＝＝＝＝＝レコードを削除＝＝＝＝＝＝＝＝
+		// レコードを削除
+		int deleteResult01 = target.delete(deleteSql());
+		assertEquals(deleteResult01, 1);
+		
+		// 再度レコードを削除した場合、更新件数が０件であること
+		int deleteResult02 = target.delete(deleteSql());
+		assertEquals(deleteResult02, 0);
+		
+		// 不正なSQLを実行した場合、例外が発生すること
+		try {
+			target.delete(deleteFaileSql());
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
+		
+		// ＝＝＝＝＝＝＝＝テーブルを削除＝＝＝＝＝＝＝＝
+		// テーブルを削除
+		target.dropTable(dropTableSql());
+		// 再度同じテーブルを削除しようとした場合、例外が発生すること。
+		try {
+			target.dropTable(dropTableSql());
+			fail();
+		} catch (DataStoreManagerException e) {
+			assertEquals(e.getMessageObj(), FAILE_TO_EXECUTE_SQL);
+		}
 		
 		target.close();
-		
 	}
 	
 	@Test
@@ -105,53 +147,40 @@ public class TestTransaction extends TestDataStoreManagerFoundation{
 		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameter();
 		Transaction target_01 = new Transaction(param);
 		Transaction target_02 = new Transaction(param);
+		Transaction target_03 = new Transaction(param);
 		
-		// テーブルを作成
-		Sql createSql  = new Sql("CREATE TABLE TEST_USERS( USERID VARCHAR(10), AGE INT(3), BIRTHDAY DATE );");
-		target_01.createTable(createSql);
+		// トランザクション０１にてテーブルを作成
+		target_01.createTable(createTableSql());
 		
-		// トランザクション０２でレコードを追加
-		Sql insertSql  = new Sql("INSERT INTO TEST_USERS( USERID, AGE, BIRTHDAY ) VALUES (?, ?, ?)");
-		insertSql.setParameter("1234567890");
-		insertSql.setParameter(20);
-		insertSql.setParameter(super.createDateByString("20130101000000"));
-		target_02.insert(insertSql);
+		// トランザクション０２でレコードを追加);
+		target_02.insert(insertSql());
 		
-		// トランザクション０２でレコードを取得
-		Sql selectSql02_01  = new Sql("SELECT COUNT(*) AS CNT FROM TEST_USERS WHERE USERID=?");
-		selectSql02_01.setParameter("1234567890");
-		ResultSet resultSe02_01 = target_02.select(selectSql02_01);
+		// トランザクション０２でレコードを取得、同じトランザクションのため、取得できる。
+		ResultSet resultSe02_01 = target_02.select(selectCountSql());
 		int result02_01 = -1;
 		while(resultSe02_01.next()) result02_01 = resultSe02_01.getInt("CNT");
 		assertEquals(result02_01, 1);
 		
-		// トランザクション０３でレコードを取得
-//		Sql selectSql03_01  = new Sql("SELECT COUNT(*) AS CNT FROM TEST_USERS WHERE USERID=?");
-//		selectSql03_01.setParameter("1234567890");
-//		ResultSet resultSe03_01 = target_03.select(selectSql03_01);
-//		int result03_01 = -1;
-//		while(resultSe03_01.next()) result03_01 = resultSe03_01.getInt("CNT");
-//		assertEquals(result03_01, 0);
+		// トランザクション０３でレコードを取得、異なるトランザクションのため、取得できない。
+		ResultSet resultSe03_01 = target_03.select(selectCountSql());
+		int result03_01 = -1;
+		while(resultSe03_01.next()) result03_01 = resultSe03_01.getInt("CNT");
+		assertEquals(result03_01, 0);
 		
 		// トランザクション０２でコミットを実施
 		target_02.commit();
-		target_02.close();
 		
-		// トランザクション０３でレコードを取得
-		Transaction target_03 = new Transaction(param);
-		Sql selectSql03_02  = new Sql("SELECT COUNT(*) AS CNT FROM TEST_USERS WHERE USERID=?");
-		selectSql03_02.setParameter("1234567890");
-		ResultSet resultSe03_02 = target_03.select(selectSql03_02);
+		// トランザクション０３でレコードを取得、コミットされたため、異なるトランザクションのでも取得できる。
+		ResultSet resultSe03_02 = target_03.select(selectCountSql());
 		int result03_02 = -1;
 		while(resultSe03_02.next()) result03_02 = resultSe03_02.getInt("CNT");
 		assertEquals(result03_02, 1);
+		target_02.close();
 		target_03.close();
 		
 		// テーブルを削除
-		Sql dropTblSql = new Sql("DROP TABLE TEST_USERS");
-		target_01.dropTable(dropTblSql);
+		target_01.dropTable(dropTableSql());
 		target_01.close();
-		
 	}
 	
 	@Test

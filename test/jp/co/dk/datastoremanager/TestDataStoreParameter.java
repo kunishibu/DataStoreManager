@@ -1,6 +1,10 @@
 package jp.co.dk.datastoremanager;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.test.template.TestCaseTemplate;
 
@@ -21,6 +25,24 @@ public class TestDataStoreParameter extends TestCaseTemplate {
 			assertEquals(e.getMessageObj(), DATA_STORE_KIND_IS_NOT_SET);
 		}
 	}
+	
+	@Test
+	public void test_equals() {
+		try {
+			FakeDataStoreParameter target_01 = new FakeDataStoreParameter(DataStoreKind.ORACLE);
+			FakeDataStoreParameter target_02 = new FakeDataStoreParameter(DataStoreKind.ORACLE);
+			FakeDataStoreParameter target_03 = new FakeDataStoreParameter(DataStoreKind.ORACLE);
+			
+			List<Object> faileList = new ArrayList<Object>();
+			faileList.add(new FakeDataStoreParameter(DataStoreKind.MYSQL));
+			faileList.add(new FakeDataStoreParameter(DataStoreKind.POSTGRESQL));
+			faileList.add(new FakeDataStoreParameter(DataStoreKind.CSV));
+			
+			testEquals(target_01, target_02, target_03, faileList);
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
+	}
 }
 
 class FakeDataStoreParameter extends DataStoreParameter {
@@ -35,15 +57,8 @@ class FakeDataStoreParameter extends DataStoreParameter {
 	}
 
 	@Override
-	public boolean equals(Object object) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.dataStoreKind.toString();
 	}
 	
 }
