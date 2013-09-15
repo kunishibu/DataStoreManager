@@ -185,10 +185,6 @@ public class TestSql extends TestDataStoreManagerFoundation{
 			failSql_04.setParameter(super.createDateByString("19900401000001"));
 			falseList.add(failSql_04);
 			
-			System.out.println(sql1.hashCode());
-			System.out.println(sql2.hashCode());
-			System.out.println(sql3.hashCode());
-			
 			super.testEquals(sql1, sql2, sql3, falseList);
 			
 		} catch (DataStoreManagerException e) {

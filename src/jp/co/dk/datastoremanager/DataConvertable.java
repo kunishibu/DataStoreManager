@@ -23,7 +23,7 @@ public interface DataConvertable {
 	/**
 	 * その他のレコードオブエジェクトから取得した単一のレコードを自身のクラスへ設定します。
 	 * 
-	 * @param dataBaseRecord 単一のデータベースレコード
+	 * @param record 単一のデータベースレコード
 	 * @throws DataStoreManagerException 変換に失敗した場合
 	 */
 	public DataConvertable convert(Record record) throws DataStoreManagerException ;
