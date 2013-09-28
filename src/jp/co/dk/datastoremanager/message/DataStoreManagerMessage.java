@@ -109,6 +109,9 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** トランザクションは開始されていません。 */
 	public static final DataStoreManagerMessage TRANSACTION_IS_NOT_STARTED = new DataStoreManagerMessage("E033");
 	
+	/** オブジェクトをバイト配列へ変換を試みましたが、失敗しました。 */
+	public static final DataStoreManagerMessage FAILE_TO_AN_ATTEMPT_WAS_MADE_TO_CONVERT_TO_BYTE_ARRAY = new DataStoreManagerMessage("E034");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}

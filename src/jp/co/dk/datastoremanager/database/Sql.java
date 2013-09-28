@@ -64,6 +64,27 @@ public class Sql {
 		this.sqlParameter.add(new DateSqlParameter(parameter));
 	}
 	
+	/**
+	 * 指定のバイト配列を元に、SQLの？部分にあたるバイトは配列を設定します。<p/>
+	 * データベースに送るときに、ドライバはこれを SQL VARBINARY または LONGVARBINARY (ドライバの VARBINARY 値に関する制限に関する引数のサイズに依存) に変換します。
+	 * @param parameter SQLの？部分にあたるバイト配列
+	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
+	 */
+	public void setParameter(byte[] parameter) throws DataStoreManagerException {
+		this.sqlParameter.add(new BytesSqlParameter(parameter));
+	}
+	
+	/**
+	 * 指定のオブジェクトを元に、SQLの？部分にあたるバイトは配列を設定します。<p/>
+	 * 指定のオブジェクトはバイト配列に変換されて保持されます。<p/>
+	 * データベースに送るときに、ドライバはこれを SQL VARBINARY または LONGVARBINARY (ドライバの VARBINARY 値に関する制限に関する引数のサイズに依存) に変換します。
+	 * @param parameter SQLの？部分にあたるバイト配列
+	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
+	 */
+	public void setParameterConvertToBytes(Object parameter) throws DataStoreManagerException {
+		this.sqlParameter.add(new BytesSqlParameter(parameter));
+	}
+	
 	public String getSql() {
 		return this.sql.toString();
 	}
