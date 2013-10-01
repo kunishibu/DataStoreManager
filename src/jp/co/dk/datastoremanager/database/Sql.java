@@ -72,7 +72,7 @@ public class Sql {
 	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
 	 */
 	public void setParameter(Timestamp parameter) throws DataStoreManagerException {
-		this.sqlParameter.add(new DateSqlParameter(parameter));
+		this.sqlParameter.add(new TimestampSqlParameter(parameter));
 	}
 	
 	/**
