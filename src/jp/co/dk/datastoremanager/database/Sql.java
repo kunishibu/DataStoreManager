@@ -1,5 +1,6 @@
 package jp.co.dk.datastoremanager.database;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -61,6 +62,16 @@ public class Sql {
 	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
 	 */
 	public void setParameter(Date parameter) throws DataStoreManagerException {
+		this.sqlParameter.add(new DateSqlParameter(parameter));
+	}
+	
+	/**
+	 * 指定の日時を元に、SQLの？部分にあたる日付を設定します。<p/>
+	 * データベースに送るときに、ドライバはこれを SQL DATE 値に変換します。
+	 * @param parameter SQLの？部分にあたる日付
+	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
+	 */
+	public void setParameter(Timestamp parameter) throws DataStoreManagerException {
 		this.sqlParameter.add(new DateSqlParameter(parameter));
 	}
 	

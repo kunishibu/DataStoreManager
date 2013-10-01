@@ -2,6 +2,7 @@ package jp.co.dk.datastoremanager.database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import jp.co.dk.datastoremanager.Record;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
@@ -45,7 +46,7 @@ public class DataBaseRecord implements Record {
 	}
 	
 	/**
-	 * このレコードから指定のカラム名の文字列を取得します。
+	 * このレコードから指定のカラム名の数値を取得します。
 	 * 
 	 * @param column カラム名
 	 * @return 数値
@@ -60,7 +61,7 @@ public class DataBaseRecord implements Record {
 	}
 	
 	/**
-	 * このレコードから指定のカラム名の文字列を取得します。
+	 * このレコードから指定のカラム名の日付を取得します。
 	 * 
 	 * @param column カラム名
 	 * @return 日付
@@ -69,6 +70,36 @@ public class DataBaseRecord implements Record {
 	public java.util.Date getDate(String column) throws DataStoreManagerException {
 		try {
 			return this.resultSet.getDate(column);
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);
+		}
+	}
+	
+	/**
+	 * このレコードから指定のカラム名のタイムスタンプを取得します。
+	 * 
+	 * @param column カラム名
+	 * @return タイムスタンプ
+	 * @throws DataStoreManagerException 値の取得に失敗した場合
+	 */
+	public java.util.Date getTimestamp(String column) throws DataStoreManagerException {
+		try {
+			return this.resultSet.getTimestamp(column);
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);
+		}
+	}
+	
+	/**
+	 * このレコードから指定のカラム名のバイト配列を取得します。
+	 * 
+	 * @param column カラム名
+	 * @return バイト配列
+	 * @throws DataStoreManagerException 値の取得に失敗した場合
+	 */
+	public byte[] getBytes(String column) throws DataStoreManagerException {
+		try {
+			return this.resultSet.getBytes(column);
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);
 		}
@@ -99,6 +130,24 @@ public class DataBaseRecord implements Record {
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
 		}
+	}
+
+	@Override
+	public Timestamp getTimestamp(int index) throws DataStoreManagerException {
+		try {
+			return this.resultSet.getTimestamp(index);
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
+		}
 	};
+	
+	@Override
+	public byte[] getBytes(int index) throws DataStoreManagerException {
+		try {
+			return this.resultSet.getBytes(index);
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
+		}
+	}
 
 }

@@ -1,5 +1,6 @@
 package jp.co.dk.datastoremanager;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
@@ -22,7 +23,7 @@ public interface Record {
 	public String getString(int index) throws DataStoreManagerException ;
 	
 	/**
-	 * このレコードから指定のインデックスの文字列を取得します。
+	 * このレコードから指定のインデックスの数値を取得します。
 	 * 
 	 * @param index インデックス
 	 * @return 数値
@@ -31,11 +32,29 @@ public interface Record {
 	public int getInt(int index) throws DataStoreManagerException ;
 	
 	/**
-	 * このレコードから指定のインデックスの文字列を取得します。
+	 * このレコードから指定のインデックスの日付を取得します。
 	 * 
 	 * @param index インデックス
 	 * @return 日付
 	 * @throws DataStoreManagerException 値の取得に失敗した場合
 	 */
 	public Date getDate(int index) throws DataStoreManagerException ;
+	
+	/**
+	 * このレコードから指定のインデックスのタイムスタンプを取得します。
+	 * 
+	 * @param index インデックス
+	 * @return 日付
+	 * @throws DataStoreManagerException 値の取得に失敗した場合
+	 */
+	public Timestamp getTimestamp(int index) throws DataStoreManagerException ;
+	
+	/**
+	 * このレコードから指定のインデックスのバイト配列を取得します。
+	 * 
+	 * @param index インデックス
+	 * @return バイト配列
+	 * @throws DataStoreManagerException 値の取得に失敗した場合
+	 */
+	public byte[] getBytes(int index) throws DataStoreManagerException ;
 }
