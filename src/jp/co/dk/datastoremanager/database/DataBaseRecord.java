@@ -61,6 +61,21 @@ public class DataBaseRecord implements Record {
 	}
 	
 	/**
+	 * このレコードから指定のカラム名の数値を取得します。
+	 * 
+	 * @param column カラム名
+	 * @return 数値
+	 * @throws DataStoreManagerException 値の取得に失敗した場合
+	 */
+	public long getLong(String column) throws DataStoreManagerException {
+		try {
+			return this.resultSet.getLong(column);
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);
+		}
+	}
+	
+	/**
 	 * このレコードから指定のカラム名の日付を取得します。
 	 * 
 	 * @param column カラム名
@@ -118,6 +133,15 @@ public class DataBaseRecord implements Record {
 	public int getInt(int index) throws DataStoreManagerException {
 		try {
 			return this.resultSet.getInt(index);
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
+		}
+	}
+	
+	@Override
+	public long getLong(int index) throws DataStoreManagerException {
+		try {
+			return this.resultSet.getLong(index);
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
 		}

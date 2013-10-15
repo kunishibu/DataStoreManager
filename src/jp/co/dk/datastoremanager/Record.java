@@ -23,13 +23,22 @@ public interface Record {
 	public String getString(int index) throws DataStoreManagerException ;
 	
 	/**
-	 * このレコードから指定のインデックスの数値を取得します。
+	 * このレコードから指定のインデックスの数値をInt型で取得します。
 	 * 
 	 * @param index インデックス
-	 * @return 数値
+	 * @return 数値(Int)
 	 * @throws DataStoreManagerException 値の取得に失敗した場合
 	 */
 	public int getInt(int index) throws DataStoreManagerException ;
+	
+	/**
+	 * このレコードから指定のインデックスの数値をLong型で取得します。
+	 * 
+	 * @param index インデックス
+	 * @return 数値(long)
+	 * @throws DataStoreManagerException 値の取得に失敗した場合
+	 */
+	public long getLong(int index) throws DataStoreManagerException ;
 	
 	/**
 	 * このレコードから指定のインデックスの日付を取得します。

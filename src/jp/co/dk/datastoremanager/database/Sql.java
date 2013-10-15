@@ -49,10 +49,19 @@ public class Sql {
 	/**
 	 * 指定の数値を元に、SQLの？部分にあたる数値を設定します。<p/>
 	 * データベースに送るときに、ドライバはこれを SQL INTEGER 値に変換します。
-	 * @param parameter SQLの？部分にあたる数値
+	 * @param parameter SQLの？部分にあたる数値(int)
 	 */
 	public void setParameter(int parameter) {
 		this.sqlParameter.add(new IntSqlParameter(parameter));
+	}
+	
+	/**
+	 * 指定の数値を元に、SQLの？部分にあたる数値を設定します。<p/>
+	 * データベースに送るときに、ドライバはこれを SQL BIGINT 値に変換します。
+	 * @param parameter SQLの？部分にあたる数値(long)
+	 */
+	public void setParameter(long parameter) {
+		this.sqlParameter.add(new LongSqlParameter(parameter));
 	}
 	
 	/**
