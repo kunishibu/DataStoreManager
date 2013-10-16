@@ -66,4 +66,13 @@ public interface Record {
 	 * @throws DataStoreManagerException 値の取得に失敗した場合
 	 */
 	public byte[] getBytes(int index) throws DataStoreManagerException ;
+	
+	/**
+	 * このレコードから指定のインデックスのオブジェクトを取得します。
+	 * 
+	 * @param index インデックス
+	 * @return オブジェクト
+	 * @throws DataStoreManagerException 値の取得に失敗した場合
+	 */
+	public Object getObject(int index) throws DataStoreManagerException ;
 }

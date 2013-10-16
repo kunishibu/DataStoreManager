@@ -1,5 +1,6 @@
 package jp.co.dk.datastoremanager.database;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -92,6 +93,19 @@ public class Sql {
 	 */
 	public void setParameter(byte[] parameter) throws DataStoreManagerException {
 		this.sqlParameter.add(new BytesSqlParameter(parameter));
+	}
+	
+	/**
+	 * 指定のオブジェクトを元に、SQLの？部分にあたるバイトは配列を設定します。<p/>
+	 * 指定された引数は、データベースに送られる前に、対応する SQL 型に変換されます。<br/>
+	 * このメソッドは、ドライバ固有の Java 型を使用して、データベース固有の抽象データ型を渡すために使用することに注意してください。<br/>
+	 * オブジェクトがインタフェース SQLData を実装するクラスのインスタンスである場合、JDBC ドライバは SQLData.writeSQL メソッドを呼び出して、そのオブジェクトを SQL データストリームへ書き込む必要があります。<br/>
+	 * また、オブジェクトが Ref、Blob、Clob、NClob、Struct、java.net.URL、RowId、SQLXML、または Array を実装するクラスのオブジェクトである場合、ドライバはこのオブジェクトを対応する SQL 型の値としてデータベースに渡す必要があります。  
+	 * @param parameter SQLの？部分にあたるバイト配列
+	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
+	 */
+	public void setParameter(Serializable parameter) throws DataStoreManagerException {
+		this.sqlParameter.add(new ObjectSqlParameter(parameter));
 	}
 	
 	/**

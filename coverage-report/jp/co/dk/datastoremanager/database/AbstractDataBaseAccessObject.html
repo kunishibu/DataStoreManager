@@ -55,7 +55,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
     </tr>
     <tr>
       <td class='line'>28</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected DataBaseDataStore <span class='instance uncovered' title='Reads: 0 Writes: 1'>dataStore</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected DataBaseDataStore <span class='instance covered' title='Reads: 5 Writes: 1'>dataStore</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -104,34 +104,34 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 * @param dataBaseAccessParameter データアクセスパラメータ
 	 * @throws DataStoreManagerException パラメータが不足している場合、またはトランザクション開始に失敗した場合
 	 */    <tr>
-      <td></td><td class='count'>0</td>
+      <td></td><td class='count'>1</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
         <span class='uncovered' onclick="showPath(this,'l62s0 l63s0 l63s1')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l62s0 l63s0 l64s0 l66s0')">B: 0</span>
+        <span class='covered' onclick="showPath(this,'l62s0 l63s0 l64s0 l66s0')">B: 1</span>
       </td>
     </tr>
 </div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>62</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l62s0'>	protected AbstractDataBaseAccessObject(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {</pre></td>
+      <td class='line'>62</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l62s0'>	protected AbstractDataBaseAccessObject(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>63</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l63s0' title='Executions: 0' class='uncovered'>if (dataBaseAccessParameter == null)</span> <span id='l63s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(DATA_ACCESS_OBJECT_IS_NOT_SET);</span></pre></td>
+      <td class='line'>63</td><td class='count'>1</td>
+      <td><pre class='prettyprint jmp'>		<span id='l63s0' title='Executions: 1' class='covered'>if (dataBaseAccessParameter == null)</span> <span id='l63s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(DATA_ACCESS_OBJECT_IS_NOT_SET);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>64</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l64s0'>		this.dataStore = new DataBaseDataStore(dataBaseAccessParameter);</pre></td>
+      <td class='line'>64</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l64s0'>		this.dataStore = new DataBaseDataStore(dataBaseAccessParameter);</pre></td>
     </tr>
     <tr>
-      <td class='line'>65</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l65s0'>		this.dataStore.startTransaction();</pre></td>
+      <td class='line'>65</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l65s0'>		this.dataStore.startTransaction();</pre></td>
     </tr>
     <tr>
-      <td class='line'>66</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l66s0'>	}</pre></td>
+      <td class='line'>66</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l66s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -144,30 +144,30 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 * @param dataStore データストアオブジェクト
 	 * @throws DataStoreManagerException データストアがデータベース用データストアでなかった場合
 	 */    <tr>
-      <td></td><td class='count'>1</td>
+      <td></td><td class='count'>0</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
         <span class='uncovered' onclick="showPath(this,'l76s0 l77s0 l77s1')">A: 0</span>
-        <span class='covered' onclick="showPath(this,'l76s0 l77s0 l78s0 l79s0')">B: 1</span>
+        <span class='uncovered' onclick="showPath(this,'l76s0 l77s0 l78s0 l79s0')">B: 0</span>
       </td>
     </tr>
 </div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>76</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l76s0'>	protected AbstractDataBaseAccessObject(DataStore dataStore) throws DataStoreManagerException {</pre></td>
+      <td class='line'>76</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l76s0'>	protected AbstractDataBaseAccessObject(DataStore dataStore) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>77</td><td class='count'>1</td>
-      <td><pre class='prettyprint jmp'>		<span id='l77s0' title='Executions: 1' class='covered'>if (!(dataStore instanceof DataBaseDataStore)) throw new DataStoreManagerException(FAILE_TO_CAST_DATA_STORE_OBJECT);</span> </pre></td>
+      <td class='line'>77</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l77s0' title='Executions: 0' class='uncovered'>if (!(dataStore instanceof DataBaseDataStore)) throw new DataStoreManagerException(FAILE_TO_CAST_DATA_STORE_OBJECT);</span> </pre></td>
     </tr>
     <tr>
-      <td class='line'>78</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l78s0'>		this.dataStore = (DataBaseDataStore)dataStore;</pre></td>
+      <td class='line'>78</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l78s0'>		this.dataStore = (DataBaseDataStore)dataStore;</pre></td>
     </tr>
     <tr>
-      <td class='line'>79</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l79s0'>	}</pre></td>
+      <td class='line'>79</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l79s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -185,12 +185,12 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public void createTable(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>89</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l89s0'>		this.dataStore.createTable(sql);</pre></td>
+      <td class='line'>89</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l89s0'>		this.dataStore.createTable(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>90</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l90s0'>	}</pre></td>
+      <td class='line'>90</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l90s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -208,12 +208,12 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public void dropTable(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>100</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l100s0'>		this.dataStore.dropTable(sql);</pre></td>
+      <td class='line'>100</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l100s0'>		this.dataStore.dropTable(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>101</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l101s0'>	}</pre></td>
+      <td class='line'>101</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l101s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -231,12 +231,12 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public void insert(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>111</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l111s0'>		this.dataStore.insert(sql);</pre></td>
+      <td class='line'>111</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l111s0'>		this.dataStore.insert(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>112</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l112s0'>	}</pre></td>
+      <td class='line'>112</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l112s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -306,29 +306,29 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public &lt;E extends DataConvertable> E selectSingle(Sql sql, E convertable) throws DataStoreManagerException{</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>0</td>
+      <td></td><td class='count'>1</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/3</span>
+        <span style='cursor:default; background-color:#aa5500' onclick='hidePath()'>Path coverage: 1/3</span>
         <span class='uncovered' onclick="showPath(this,'l150s0 l151s0 l151s1')">A: 0</span>
         <span class='uncovered' onclick="showPath(this,'l150s0 l151s0 l152s0 l152s1')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l150s0 l151s0 l152s0 l153s0')">C: 0</span>
+        <span class='covered' onclick="showPath(this,'l150s0 l151s0 l152s0 l153s0')">C: 1</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>150</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l150s0'>		List&lt;E> resultList = this.selectMulti(sql, convertable);</pre></td>
+      <td class='line'>150</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l150s0'>		List&lt;E> resultList = this.selectMulti(sql, convertable);</pre></td>
     </tr>
     <tr>
-      <td class='line'>151</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l151s0' title='Executions: 0' class='uncovered'>if (resultList.size() == 0) return null;</span></pre></td>
+      <td class='line'>151</td><td class='count'>1</td>
+      <td><pre class='prettyprint jmp'>		<span id='l151s0' title='Executions: 1' class='covered'>if (resultList.size() == 0) return null;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>152</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l152s0' title='Executions: 0' class='uncovered'>if (resultList.size() >  1) throw new DataStoreManagerException(GET_RECORD_IS_FAILE, sql.toString());</span></pre></td>
+      <td class='line'>152</td><td class='count'>1</td>
+      <td><pre class='prettyprint jmp'>		<span id='l152s0' title='Executions: 1' class='covered'>if (resultList.size() >  1) throw new DataStoreManagerException(GET_RECORD_IS_FAILE, sql.toString());</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>153</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l153s0'>		return resultList.get(0);</pre></td>
+      <td class='line'>153</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l153s0'>		return resultList.get(0);</pre></td>
     </tr>
     <tr>
       <td class='line'>154</td><td>&nbsp;</td>
@@ -357,32 +357,32 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public &lt;E extends DataConvertable> List&lt;E> selectMulti(Sql sql, E convertable) throws DataStoreManagerException{</pre></td>
     </tr>
     <tr>
-      <td class='line'>168</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l168s0'>		List&lt;E> resultList = new ArrayList&lt;E>();</pre></td>
+      <td class='line'>168</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l168s0'>		List&lt;E> resultList = new ArrayList&lt;E>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>169</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l169s0'>		ResultSet result = this.dataStore.select(sql);</pre></td>
+      <td class='line'>169</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l169s0'>		ResultSet result = this.dataStore.select(sql);</pre></td>
     </tr>
     <tr>
       <td class='line'>170</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>171</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l171s0'>			while (result.next()) {</pre></td>
+      <td class='line'>171</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l171s0'>			while (result.next()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>172</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l172s0'>				resultList.add((E)convertable.convert(new DataBaseRecord(result)));</pre></td>
+      <td class='line'>172</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l172s0'>				resultList.add((E)convertable.convert(new DataBaseRecord(result)));</pre></td>
     </tr>
     <tr>
       <td class='line'>173</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>174</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l174s0'>			result.close();</pre></td>
+      <td class='line'>174</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l174s0'>			result.close();</pre></td>
     </tr>
     <tr>
       <td class='line'>175</td><td class='count'>0</td>
@@ -397,8 +397,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>178</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l178s0'>		return resultList;</pre></td>
+      <td class='line'>178</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l178s0'>		return resultList;</pre></td>
     </tr>
     <tr>
       <td class='line'>179</td><td>&nbsp;</td>

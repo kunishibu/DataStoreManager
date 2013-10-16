@@ -120,6 +120,21 @@ public class DataBaseRecord implements Record {
 		}
 	}
 	
+	/**
+	 * このレコードから指定のカラム名のオブジェクトを取得します。
+	 * 
+	 * @param column カラム名
+	 * @return オブジェクト
+	 * @throws DataStoreManagerException 値の取得に失敗した場合
+	 */
+	public Object getObject(String column) throws DataStoreManagerException {
+		try {
+			return this.resultSet.getObject(column);
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);
+		}
+	}
+	
 	@Override
 	public String getString(int index) throws DataStoreManagerException {
 		try {
@@ -169,6 +184,15 @@ public class DataBaseRecord implements Record {
 	public byte[] getBytes(int index) throws DataStoreManagerException {
 		try {
 			return this.resultSet.getBytes(index);
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
+		}
+	}
+	
+	@Override
+	public Object getObject(int index) throws DataStoreManagerException {
+		try {
+			return this.resultSet.getObject(index);
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
 		}

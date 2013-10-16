@@ -1,5 +1,8 @@
 package jp.co.dk.datastoremanager.testdbaccessobjects.record;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import jp.co.dk.datastoremanager.DataConvertable;
 import jp.co.dk.datastoremanager.Record;
 import jp.co.dk.datastoremanager.database.DataBaseRecord;
@@ -13,43 +16,80 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
  */
 public class UsersRecord implements DataConvertable {
 	
-	/** 名前 */
-	private String name;
+	protected String stringData;
 	
-	/** 年齢 */
-	private int age;
+	protected int intData;
 	
-	/**
-	 * 名前を取得する。
-	 * 
-	 * @return 名前
-	 */
-	public String getName() {
-		return name;
+	protected long longData;
+	
+	protected Date dateData;
+	
+	protected Date timestampData;
+	
+	protected byte[] bytesData;
+	
+	protected Serializable serializableData;
+	
+	protected Object objectData;
+	
+
+	public String getStringData() {
+		return stringData;
 	}
-	
-	/**
-	 * 年齢を取得する。
-	 * 
-	 * @return 年齢
-	 */
-	public int getAge() {
-		return age;
+
+	public int getIntData() {
+		return intData;
+	}
+
+	public long getLongData() {
+		return longData;
+	}
+
+	public Date getDateData() {
+		return dateData;
+	}
+
+	public Date getTimestampData() {
+		return timestampData;
+	}
+
+	public byte[] getBytesData() {
+		return bytesData;
+	}
+
+	public Serializable getSerializableData() {
+		return serializableData;
+	}
+
+	public Object getObjectData() {
+		return objectData;
 	}
 	
 	@Override
 	public DataConvertable convert(DataBaseRecord dataBaseRecord) throws DataStoreManagerException {
 		UsersRecord usersRecord = new UsersRecord();
-		usersRecord.name   = dataBaseRecord.getString("NAME");
-		usersRecord.age    = dataBaseRecord.getInt("AGE");
+		usersRecord.stringData       = dataBaseRecord.getString("STRING_DATA");
+		usersRecord.intData          = dataBaseRecord.getInt("INT_DATA");
+		usersRecord.longData         = dataBaseRecord.getLong("LONG_DATA");
+		usersRecord.dateData         = dataBaseRecord.getDate("DATE_DATA");
+		usersRecord.timestampData    = dataBaseRecord.getTimestamp("TIMESTAMP_DATA");
+		usersRecord.bytesData        = dataBaseRecord.getBytes("BYTES_DATA");
+		usersRecord.serializableData = (Serializable)dataBaseRecord.getObject("OBJECT_DATA");
+		usersRecord.objectData       = dataBaseRecord.getBytes("CONVERTBYTES_DATA");
 		return usersRecord;
 	}
 
 	@Override
 	public DataConvertable convert(Record record) throws DataStoreManagerException {
 		UsersRecord usersRecord = new UsersRecord();
-		usersRecord.name   = record.getString(0);
-		usersRecord.age    = record.getInt(1);
+		usersRecord.stringData       = record.getString(1);
+		usersRecord.intData          = record.getInt(2);
+		usersRecord.longData         = record.getLong(3);
+		usersRecord.dateData         = record.getDate(4);
+		usersRecord.timestampData    = record.getTimestamp(5);
+		usersRecord.bytesData        = record.getBytes(6);
+		usersRecord.serializableData = (Serializable)record.getObject(7);
+		usersRecord.objectData       = record.getBytes(8);
 		return usersRecord;
 	}
 }

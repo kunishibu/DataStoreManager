@@ -7,6 +7,7 @@ import jp.co.dk.datastoremanager.database.TestDataBaseDriverConstants;
 import jp.co.dk.datastoremanager.database.TestDataBaseRecord;
 import jp.co.dk.datastoremanager.database.TestDateSqlParameter;
 import jp.co.dk.datastoremanager.database.TestIntSqlParameter;
+import jp.co.dk.datastoremanager.database.TestObjectSqlParameter;
 import jp.co.dk.datastoremanager.database.TestSql;
 import jp.co.dk.datastoremanager.database.TestStringSqlParameter;
 import jp.co.dk.datastoremanager.database.TestTimestampSqlParameter;
@@ -32,6 +33,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	TestDateSqlParameter.class,
 	TestIntSqlParameter.class,
 	TestSql.class,
+	TestObjectSqlParameter.class,
 	TestStringSqlParameter.class,
 	TestTimestampSqlParameter.class,
 	TestTransaction.class,

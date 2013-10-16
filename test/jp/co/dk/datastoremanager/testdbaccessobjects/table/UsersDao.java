@@ -1,5 +1,10 @@
 package jp.co.dk.datastoremanager.testdbaccessobjects.table;
 
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.testdbaccessobjects.record.UsersRecord;
 
@@ -11,12 +16,11 @@ import jp.co.dk.datastoremanager.testdbaccessobjects.record.UsersRecord;
  */
 public interface UsersDao {
 	
-	/**
-	 * ユーザIDを元に、ユーザIDレコードを取得する。
-	 * 
-	 * @param userid ユーザID
-	 * @return ユーザIDレコード
-	 * @throws レコードの取得に失敗した場合
-	 */
-	public UsersRecord selectUser(String userid) throws DataStoreManagerException ;
+	public void createTable() throws DataStoreManagerException;
+	
+	public UsersRecord select(String stringData)throws DataStoreManagerException;
+	
+	public void insert(String stringData, int intData, long longData, Date dateData, Timestamp timestampData, byte[] byteDate, Serializable objectData, Object convertByteData)throws DataStoreManagerException;
+	
+	public void dropTable() throws DataStoreManagerException;
 }
