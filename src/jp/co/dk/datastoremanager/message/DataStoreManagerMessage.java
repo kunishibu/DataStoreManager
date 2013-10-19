@@ -112,6 +112,9 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** オブジェクトをバイト配列へ変換を試みましたが、失敗しました。 */
 	public static final DataStoreManagerMessage FAILE_TO_AN_ATTEMPT_WAS_MADE_TO_CONVERT_TO_BYTE_ARRAY = new DataStoreManagerMessage("E034");
 	
+	/** バイト配列をオブジェクトへ変換を試みましたが、失敗しました。 */
+	public static final DataStoreManagerMessage FAILE_TO_AN_ATTEMPT_WAS_MADE_TO_CONVERT_TO_OBJECT = new DataStoreManagerMessage("E035");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}

@@ -597,108 +597,122 @@ Starting audit...
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseDriverConstants.java:65: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseDriverConstants.java:67: Line has trailing spaces.
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseDriverConstants.java:73: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:10: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:12: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:14: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:19: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:19:1: File contains tab characters (this is the first instance).
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:20: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:21:29: 変数 'resultSet' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:13: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:15: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:17: Line has trailing spaces.
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:22: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:22:1: File contains tab characters (this is the first instance).
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:23: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:26: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:29:24: Parameter resultSet should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:29:34: 'resultSet' がフィールドを隠しています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:29:34: 'resultSet' には @param タグが必要です。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:32: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:33: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:24:29: 変数 'resultSet' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:25: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:26: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:29: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:32:24: Parameter resultSet should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:32:34: 'resultSet' がフィールドを隠しています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:32:34: 'resultSet' には @param タグが必要です。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:35: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:40: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:40:9: メソッド 'getString' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:40:33: Parameter column should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:40:55: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:44: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:47: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:48: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:36: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:38: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:43: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:43:9: メソッド 'getString' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:43:33: Parameter column should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:43:55: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:47: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:50: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:55:9: メソッド 'getInt' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:55:27: Parameter column should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:55:49: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:59: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:62: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:63: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:51: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:53: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:58:9: メソッド 'getInt' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:58:27: Parameter column should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:58:49: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:62: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:65: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:70:9: メソッド 'getLong' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:70:29: Parameter column should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:70:51: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:74: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:77: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:78: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:66: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:68: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:73:9: メソッド 'getLong' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:73:29: Parameter column should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:73:51: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:77: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:80: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:85: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:85:9: メソッド 'getDate' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:85:39: Parameter column should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:85:61: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:89: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:92: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:93: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:81: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:83: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:88: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:88:9: メソッド 'getDate' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:88:39: Parameter column should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:88:61: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:92: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:95: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:100: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:100:9: メソッド 'getTimestamp' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:100:44: Parameter column should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:100:66: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:104: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:107: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:108: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:96: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:98: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:103: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:103:9: メソッド 'getTimestamp' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:103:44: Parameter column should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:103:66: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:107: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:110: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:115:9: メソッド 'getBytes' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:115:32: Parameter column should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:115:54: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:119: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:122: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:123: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:111: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:113: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:118:9: メソッド 'getBytes' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:118:32: Parameter column should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:118:54: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:122: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:125: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:130: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:130:9: メソッド 'getObject' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:130:33: Parameter column should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:130:55: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:134: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:137: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:138:9: メソッド 'getString' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:139:33: Parameter index should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:139:51: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:143: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:146: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:147:9: メソッド 'getInt' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:148:27: Parameter index should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:148:45: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:152: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:155: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:156:9: メソッド 'getLong' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:157:29: Parameter index should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:157:47: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:161: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:164: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:165:9: メソッド 'getDate' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:126: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:128: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:133: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:133:9: メソッド 'getObject' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:133:33: Parameter column should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:133:55: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:138: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:142: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:143:9: メソッド 'getString' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:144:33: Parameter index should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:144:51: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:148: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:151: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:152:9: メソッド 'getInt' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:153:27: Parameter index should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:153:45: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:157: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:160: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:161:9: メソッド 'getLong' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:162:29: Parameter index should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:162:47: DataStoreManagerException のクラス情報が取得できません。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:166: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:166:39: Parameter index should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:166:57: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:170: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:174:9: メソッド 'getTimestamp' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:169: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:170:9: メソッド 'getDate' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:171: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:171:39: Parameter index should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:171:57: DataStoreManagerException のクラス情報が取得できません。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:175: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:175:39: Parameter index should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:175:57: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:179: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:182: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:183:9: メソッド 'getBytes' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:184:32: Parameter index should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:184:50: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:188: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:191: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:192:9: メソッド 'getObject' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:193:33: Parameter index should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:193:51: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:197: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:179:9: メソッド 'getTimestamp' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:180: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:180:39: Parameter index should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:180:57: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:184: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:187: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:188:9: メソッド 'getBytes' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:189:32: Parameter index should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:189:50: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:193: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:196: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:197:9: メソッド 'getObject' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:198:33: Parameter index should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:198:51: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:202: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:205: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:206: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:209: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:212:12: @throws タグの 'CrawlerException' のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:214: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:214:9: メソッド 'convertBytesToObject' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:214:47: Parameter bytes should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:214:68: @throws タグの 'DataStoreManagerException' のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:214:68: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:215: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:217: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:218: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:224: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:226: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:0: ファイルが新しい行で終了していません。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:3: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:4: 行が 80 文字を超えています。
@@ -1254,8 +1268,11 @@ Starting audit...
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:112: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:113: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:114: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:115:9: Javadoc コメントがありません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:115:43: Parameter messageId should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:115: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:116: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:117: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:118:9: Javadoc コメントがありません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:118:43: Parameter messageId should be final.
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:0: Missing package-info.java file.
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:3: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:19: 最初の一文はピリオドで終わらなければなりません。

@@ -1,5 +1,8 @@
 package jp.co.dk.datastoremanager.database;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -128,11 +131,13 @@ public class DataBaseRecord implements Record {
 	 * @throws DataStoreManagerException 値の取得に失敗した場合
 	 */
 	public Object getObject(String column) throws DataStoreManagerException {
+		byte[] bytes = null;
 		try {
-			return this.resultSet.getObject(column);
+			bytes = this.resultSet.getBytes(column);
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_NAME, column);
 		}
+		return this.convertBytesToObject(bytes);
 	}
 	
 	@Override
@@ -197,5 +202,28 @@ public class DataBaseRecord implements Record {
 			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
 		}
 	}
-
+	
+	/**
+	 * 指定のバイト配列をインスタンスに変換して返却します。<p/>
+	 * 入出力例外が発生した、バイト配列がインスタンスでなくクラスの変換に失敗した場合、例外を送出します。
+	 * 
+	 * @param bytes バイト配列
+	 * @return インスタンス
+	 * @throws CrawlerException 入出力例外が発生した、クラスの変換に失敗した場合
+	 */
+	protected Object convertBytesToObject(byte[] bytes) throws DataStoreManagerException {
+		if (bytes == null || bytes.length == 0) return null;
+		try {
+			ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+			ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+			Object object = objectInputStream.readObject();
+			objectInputStream.close();
+			byteArrayInputStream.close();
+			return object;
+		} catch (IOException e) {
+			throw new DataStoreManagerException(FAILE_TO_AN_ATTEMPT_WAS_MADE_TO_CONVERT_TO_OBJECT, e);
+		} catch (ClassNotFoundException e) {
+			throw new DataStoreManagerException(FAILE_TO_AN_ATTEMPT_WAS_MADE_TO_CONVERT_TO_OBJECT, e);
+		}
+	}
 }

@@ -343,19 +343,28 @@
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>115</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected DataStoreManagerMessage(String messageId) {</pre></td>
+      <td><pre class='comment'>	/** バイト配列をオブジェクトへ変換を試みましたが、失敗しました。 */</pre></td>
     </tr>
     <tr>
-      <td class='line'>116</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered' id='l116s0'>		super(messageId);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>117</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered' id='l117s0'>	}</pre></td>
+      <td class='line'>116</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l116s0'>	public static final DataStoreManagerMessage FAILE_TO_AN_ATTEMPT_WAS_MADE_TO_CONVERT_TO_OBJECT = new DataStoreManagerMessage("E035");</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>119</td><td>&nbsp;</td>
+      <td class='line'>118</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected DataStoreManagerMessage(String messageId) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>119</td><td class='count'>35</td>
+      <td><pre class='prettyprint covered' id='l119s0'>		super(messageId);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>120</td><td class='count'>35</td>
+      <td><pre class='prettyprint covered' id='l120s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>122</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>

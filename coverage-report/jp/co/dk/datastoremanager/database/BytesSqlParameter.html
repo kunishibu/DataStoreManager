@@ -36,76 +36,76 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>15</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected byte[] <span class='instance covered' title='Reads: 2 Writes: 2'>parameter</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected byte[] <span class='instance covered' title='Reads: 13225 Writes: 14'>parameter</span>;</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>1</td>
+      <td></td><td class='count'>10</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
-        <span class='uncovered' onclick="showPath(this,'l17s0 l18s0 l18s1')">A: 0</span>
-        <span class='covered' onclick="showPath(this,'l17s0 l18s0 l19s0 l20s0')">B: 1</span>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l17s0 l18s0 l18s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l17s0 l18s0 l19s0 l20s0')">B: 9</span>
       </td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>17</td><td class='count'>1</td>
+      <td class='line'>17</td><td class='count'>10</td>
       <td><pre class='prettyprint covered' id='l17s0'>	BytesSqlParameter(byte[] parameter) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>18</td><td class='count'>1</td>
-      <td><pre class='prettyprint jmp'>		<span id='l18s0' title='Executions: 1' class='covered'>if (parameter == null)</span> <span id='l18s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(SQL_PARAMETER_IS_NOT_SET);</span></pre></td>
+      <td class='line'>18</td><td class='count'>10</td>
+      <td><pre class='prettyprint jmp'>		<span id='l18s0' title='Executions: 10' class='covered'>if (parameter == null)</span> <span id='l18s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(SQL_PARAMETER_IS_NOT_SET);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>19</td><td class='count'>1</td>
+      <td class='line'>19</td><td class='count'>9</td>
       <td><pre class='prettyprint covered' id='l19s0'>		this.parameter = parameter;</pre></td>
     </tr>
     <tr>
-      <td class='line'>20</td><td class='count'>1</td>
+      <td class='line'>20</td><td class='count'>9</td>
       <td><pre class='prettyprint covered' id='l20s0'>	} </pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>1</td>
+      <td></td><td class='count'>6</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
-        <span class='uncovered' onclick="showPath(this,'l22s0 l23s0 l23s1')">A: 0</span>
-        <span class='covered' onclick="showPath(this,'l22s0 l23s0 l25s0 l34s0')">B: 1</span>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l22s0 l23s0 l23s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l22s0 l23s0 l25s0 l34s0')">B: 5</span>
       </td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>22</td><td class='count'>1</td>
+      <td class='line'>22</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l22s0'>	BytesSqlParameter(Object parameter) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>23</td><td class='count'>1</td>
-      <td><pre class='prettyprint jmp'>		<span id='l23s0' title='Executions: 1' class='covered'>if (parameter == null)</span> <span id='l23s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(SQL_PARAMETER_IS_NOT_SET);</span></pre></td>
+      <td class='line'>23</td><td class='count'>6</td>
+      <td><pre class='prettyprint jmp'>		<span id='l23s0' title='Executions: 6' class='covered'>if (parameter == null)</span> <span id='l23s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(SQL_PARAMETER_IS_NOT_SET);</span></pre></td>
     </tr>
     <tr>
       <td class='line'>24</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>25</td><td class='count'>1</td>
+      <td class='line'>25</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l25s0'>			ByteArrayOutputStream baos= new ByteArrayOutputStream();  </pre></td>
     </tr>
     <tr>
-      <td class='line'>26</td><td class='count'>1</td>
+      <td class='line'>26</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l26s0'>			ObjectOutputStream oos = new ObjectOutputStream(baos);</pre></td>
     </tr>
     <tr>
-      <td class='line'>27</td><td class='count'>1</td>
+      <td class='line'>27</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l27s0'>			oos.writeObject(parameter);</pre></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td class='count'>1</td>
+      <td class='line'>28</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l28s0'>			this.parameter = baos.toByteArray();</pre></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td class='count'>1</td>
+      <td class='line'>29</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l29s0'>			baos.close();</pre></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td class='count'>1</td>
+      <td class='line'>30</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l30s0'>			oos.close();</pre></td>
     </tr>
     <tr>
@@ -121,7 +121,7 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>34</td><td class='count'>1</td>
+      <td class='line'>34</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l34s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -167,34 +167,34 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>	public boolean equals(Object object) {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>0</td>
+      <td></td><td class='count'>213</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/4</span>
-        <span class='uncovered' onclick="showPath(this,'l47s0 l47s1')">A: 0</span>
+        <span style='cursor:default; background-color:#40bf00' onclick='hidePath()'>Path coverage: 3/4</span>
+        <span class='covered' onclick="showPath(this,'l47s0 l47s1')">A: 3</span>
         <span class='uncovered' onclick="showPath(this,'l47s0 l48s0 l48s1')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l47s0 l48s0 l49s0 l50s0 l50s1')">C: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l47s0 l48s0 l49s0 l50s0 l51s0')">D: 0</span>
+        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l49s0 l50s0 l50s1')">C: 108</span>
+        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l49s0 l50s0 l51s0')">D: 102</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>47</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l47s0' title='Executions: 0' class='uncovered'>if (object == null)</span> <span id='l47s1' title='Executions: 0' class='uncovered'>return false;</span></pre></td>
+      <td class='line'>47</td><td class='count'>213</td>
+      <td><pre class='prettyprint jmp'>		<span id='l47s0' title='Executions: 213' class='covered'>if (object == null)</span> <span id='l47s1' title='Executions: 3' class='covered'>return false;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>48</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l48s0' title='Executions: 0' class='uncovered'>if (!(object instanceof BytesSqlParameter)) return false;</span></pre></td>
+      <td class='line'>48</td><td class='count'>210</td>
+      <td><pre class='prettyprint jmp'>		<span id='l48s0' title='Executions: 210' class='covered'>if (!(object instanceof BytesSqlParameter)) return false;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>49</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l49s0'>		BytesSqlParameter thisClassObj = (BytesSqlParameter) object;</pre></td>
+      <td class='line'>49</td><td class='count'>210</td>
+      <td><pre class='prettyprint covered' id='l49s0'>		BytesSqlParameter thisClassObj = (BytesSqlParameter) object;</pre></td>
     </tr>
     <tr>
-      <td class='line'>50</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l50s0' title='Executions: 0' class='uncovered'>if (thisClassObj.hashCode() == this.hashCode()) return true;</span></pre></td>
+      <td class='line'>50</td><td class='count'>210</td>
+      <td><pre class='prettyprint jmp'>		<span id='l50s0' title='Executions: 210' class='covered'>if (thisClassObj.hashCode() == this.hashCode()) return true;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l51s0'>		return false;</pre></td>
+      <td class='line'>51</td><td class='count'>102</td>
+      <td><pre class='prettyprint covered' id='l51s0'>		return false;</pre></td>
     </tr>
     <tr>
       <td class='line'>52</td><td>&nbsp;</td>
@@ -210,24 +210,24 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>	public int hashCode() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>56</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l56s0'>		int result = 1;</pre></td>
+      <td class='line'>56</td><td class='count'>426</td>
+      <td><pre class='prettyprint covered' id='l56s0'>		int result = 1;</pre></td>
     </tr>
     <tr>
-      <td class='line'>57</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l57s0'>		for (int i=0; i&lt;this.parameter.length; i++) {</pre></td>
+      <td class='line'>57</td><td class='count'>6716</td>
+      <td><pre class='prettyprint covered' id='l57s0'>		for (int i=0; i&lt;this.parameter.length; i++) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l58s0'>			result*=this.parameter[i];</pre></td>
+      <td class='line'>58</td><td class='count'>6290</td>
+      <td><pre class='prettyprint covered' id='l58s0'>			result*=this.parameter[i];</pre></td>
     </tr>
     <tr>
       <td class='line'>59</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>60</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l60s0'>		return result * 17;</pre></td>
+      <td class='line'>60</td><td class='count'>426</td>
+      <td><pre class='prettyprint covered' id='l60s0'>		return result * 17;</pre></td>
     </tr>
     <tr>
       <td class='line'>61</td><td>&nbsp;</td>
@@ -243,32 +243,32 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>	public String toString() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>65</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l65s0'>		StringBuilder sb = new StringBuilder();</pre></td>
+      <td class='line'>65</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l65s0'>		StringBuilder sb = new StringBuilder();</pre></td>
     </tr>
     <tr>
-      <td class='line'>66</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l66s0'>		for (int i = 0; i&lt; this.parameter.length; i++) {</pre></td>
+      <td class='line'>66</td><td class='count'>112</td>
+      <td><pre class='prettyprint covered' id='l66s0'>		for (int i = 0; i&lt; this.parameter.length; i++) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>67</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l67s0'>			sb.append(this.parameter[i]).append(',');</pre></td>
+      <td class='line'>67</td><td class='count'>105</td>
+      <td><pre class='prettyprint covered' id='l67s0'>			sb.append(this.parameter[i]).append(',');</pre></td>
     </tr>
     <tr>
       <td class='line'>68</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>69</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l69s0'>		StringBuilder result = new StringBuilder(sb.substring(0, sb.length()-1));</pre></td>
+      <td class='line'>69</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l69s0'>		StringBuilder result = new StringBuilder(sb.substring(0, sb.length()-1));</pre></td>
     </tr>
     <tr>
-      <td class='line'>70</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l70s0'>		result.append("(byte[])");;</pre></td>
+      <td class='line'>70</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l70s0'>		result.append("(byte[])");;</pre></td>
     </tr>
     <tr>
-      <td class='line'>71</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l71s0'>		return result.toString();</pre></td>
+      <td class='line'>71</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l71s0'>		return result.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>72</td><td>&nbsp;</td>

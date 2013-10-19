@@ -34,31 +34,31 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>13</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected Timestamp <span class='instance covered' title='Reads: 1 Writes: 1'>parameter</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected Timestamp <span class='instance covered' title='Reads: 434 Writes: 8'>parameter</span>;</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>1</td>
+      <td></td><td class='count'>9</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
-        <span class='uncovered' onclick="showPath(this,'l15s0 l16s0 l16s1')">A: 0</span>
-        <span class='covered' onclick="showPath(this,'l15s0 l16s0 l17s0 l18s0')">B: 1</span>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l15s0 l16s0 l16s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l15s0 l16s0 l17s0 l18s0')">B: 8</span>
       </td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>15</td><td class='count'>1</td>
+      <td class='line'>15</td><td class='count'>9</td>
       <td><pre class='prettyprint covered' id='l15s0'>	TimestampSqlParameter(Timestamp parameter) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>16</td><td class='count'>1</td>
-      <td><pre class='prettyprint jmp'>		<span id='l16s0' title='Executions: 1' class='covered'>if (parameter == null)</span> <span id='l16s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(SQL_PARAMETER_IS_NOT_SET);</span></pre></td>
+      <td class='line'>16</td><td class='count'>9</td>
+      <td><pre class='prettyprint jmp'>		<span id='l16s0' title='Executions: 9' class='covered'>if (parameter == null)</span> <span id='l16s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(SQL_PARAMETER_IS_NOT_SET);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>17</td><td class='count'>1</td>
+      <td class='line'>17</td><td class='count'>8</td>
       <td><pre class='prettyprint covered' id='l17s0'>		this.parameter = parameter;</pre></td>
     </tr>
     <tr>
-      <td class='line'>18</td><td class='count'>1</td>
+      <td class='line'>18</td><td class='count'>8</td>
       <td><pre class='prettyprint covered' id='l18s0'>	} </pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -104,34 +104,34 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>	public boolean equals(Object object) {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>0</td>
+      <td></td><td class='count'>213</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/4</span>
-        <span class='uncovered' onclick="showPath(this,'l31s0 l31s1')">A: 0</span>
+        <span style='cursor:default; background-color:#40bf00' onclick='hidePath()'>Path coverage: 3/4</span>
+        <span class='covered' onclick="showPath(this,'l31s0 l31s1')">A: 3</span>
         <span class='uncovered' onclick="showPath(this,'l31s0 l32s0 l32s1')">B: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l31s0 l32s0 l33s0 l34s0 l34s1')">C: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l31s0 l32s0 l33s0 l34s0 l35s0')">D: 0</span>
+        <span class='covered' onclick="showPath(this,'l31s0 l32s0 l33s0 l34s0 l34s1')">C: 108</span>
+        <span class='covered' onclick="showPath(this,'l31s0 l32s0 l33s0 l34s0 l35s0')">D: 102</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>31</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l31s0' title='Executions: 0' class='uncovered'>if (object == null)</span> <span id='l31s1' title='Executions: 0' class='uncovered'>return false;</span></pre></td>
+      <td class='line'>31</td><td class='count'>213</td>
+      <td><pre class='prettyprint jmp'>		<span id='l31s0' title='Executions: 213' class='covered'>if (object == null)</span> <span id='l31s1' title='Executions: 3' class='covered'>return false;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>32</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l32s0' title='Executions: 0' class='uncovered'>if (!(object instanceof TimestampSqlParameter)) return false;</span></pre></td>
+      <td class='line'>32</td><td class='count'>210</td>
+      <td><pre class='prettyprint jmp'>		<span id='l32s0' title='Executions: 210' class='covered'>if (!(object instanceof TimestampSqlParameter)) return false;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>33</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l33s0'>		TimestampSqlParameter thisClassObj = (TimestampSqlParameter) object;</pre></td>
+      <td class='line'>33</td><td class='count'>210</td>
+      <td><pre class='prettyprint covered' id='l33s0'>		TimestampSqlParameter thisClassObj = (TimestampSqlParameter) object;</pre></td>
     </tr>
     <tr>
-      <td class='line'>34</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l34s0' title='Executions: 0' class='uncovered'>if (thisClassObj.hashCode() == this.hashCode()) return true;</span></pre></td>
+      <td class='line'>34</td><td class='count'>210</td>
+      <td><pre class='prettyprint jmp'>		<span id='l34s0' title='Executions: 210' class='covered'>if (thisClassObj.hashCode() == this.hashCode()) return true;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>35</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l35s0'>		return false;</pre></td>
+      <td class='line'>35</td><td class='count'>102</td>
+      <td><pre class='prettyprint covered' id='l35s0'>		return false;</pre></td>
     </tr>
     <tr>
       <td class='line'>36</td><td>&nbsp;</td>
@@ -147,8 +147,8 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>	public int hashCode() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>40</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l40s0'>		return this.parameter.hashCode() * 17;</pre></td>
+      <td class='line'>40</td><td class='count'>426</td>
+      <td><pre class='prettyprint covered' id='l40s0'>		return this.parameter.hashCode() * 17;</pre></td>
     </tr>
     <tr>
       <td class='line'>41</td><td>&nbsp;</td>
@@ -164,16 +164,16 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>	public String toString() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>45</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l45s0'>		StringBuilder sb = new StringBuilder();</pre></td>
+      <td class='line'>45</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l45s0'>		StringBuilder sb = new StringBuilder();</pre></td>
     </tr>
     <tr>
-      <td class='line'>46</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l46s0'>		sb.append(this.parameter).append("(timestamp)");</pre></td>
+      <td class='line'>46</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l46s0'>		sb.append(this.parameter).append("(timestamp)");</pre></td>
     </tr>
     <tr>
-      <td class='line'>47</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l47s0'>		return sb.toString();</pre></td>
+      <td class='line'>47</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l47s0'>		return sb.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>48</td><td>&nbsp;</td>

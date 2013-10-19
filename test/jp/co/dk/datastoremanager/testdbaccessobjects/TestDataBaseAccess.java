@@ -1,9 +1,11 @@
 package jp.co.dk.datastoremanager.testdbaccessobjects;
 
-import java.io.Serializable;
+import static org.junit.Assert.*;
+
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import jp.co.dk.datastoremanager.TestDataStoreManagerFoundation;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
@@ -18,7 +20,9 @@ public class TestDataBaseAccess extends TestDataStoreManagerFoundation{
 	public void access() throws DataStoreManagerException {
 		UserDaoImpl UserDaoImpl = new UserDaoImpl(super.getAccessableDataBaseAccessParameter());
 		try {
+			//テーブルを作成 
 			UserDaoImpl.createTable();
+			
 			// =========================================================
 			// INSERTデータ定義
 			String stringData                  = "1234567890";
@@ -47,14 +51,16 @@ public class TestDataBaseAccess extends TestDataStoreManagerFoundation{
 			assertEquals(userRecord.getLongData()     , longData);
 			assertEquals(super.getStringByDate_YYYYMMDD(userRecord.getDateData()), super.getStringByDate_YYYYMMDD(dateData));
 			assertEquals(super.getStringByDate_YYYYMMDDHH24MMDD(userRecord.getTimestampData()), super.getStringByDate_YYYYMMDDHH24MMDD(timestampData));
-			for (int i=0; i<bytesData.length; i++) {
-				assertEquals(userRecord.getBytesData()[i], bytesData[i]);
-			}
-			Serializable object = (Serializable)userRecord.getObjectData();
-			if (object instanceof ArrayList.class);
-			 
-			assertEquals(userRecord.getBytesData()    , convertBytesData);
+			assertEquals(userRecord.getBytesData(), bytesData);
+			List object1 = (ArrayList)userRecord.getSerializableData();
+			assertTrue(object1 instanceof ArrayList); 
+			assertEquals(object1, objectData);
+			List object2 = (ArrayList)userRecord.getObjectData();
+			assertTrue(object2 instanceof ArrayList); 
+			assertEquals(object2, convertBytesData);
 		} finally {
+			
+			// DROP TABLEを実行
 			try {
 				UserDaoImpl.dropTable();
 			} catch (DataStoreManagerException e) {	}

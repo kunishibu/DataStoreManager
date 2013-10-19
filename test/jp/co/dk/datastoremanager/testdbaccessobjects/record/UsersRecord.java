@@ -28,7 +28,7 @@ public class UsersRecord implements DataConvertable {
 	
 	protected byte[] bytesData;
 	
-	protected Serializable serializableData;
+	protected Object serializableData;
 	
 	protected Object objectData;
 	
@@ -57,7 +57,7 @@ public class UsersRecord implements DataConvertable {
 		return bytesData;
 	}
 
-	public Serializable getSerializableData() {
+	public Object getSerializableData() {
 		return serializableData;
 	}
 
@@ -74,8 +74,8 @@ public class UsersRecord implements DataConvertable {
 		usersRecord.dateData         = dataBaseRecord.getDate("DATE_DATA");
 		usersRecord.timestampData    = dataBaseRecord.getTimestamp("TIMESTAMP_DATA");
 		usersRecord.bytesData        = dataBaseRecord.getBytes("BYTES_DATA");
-		usersRecord.serializableData = (Serializable)dataBaseRecord.getObject("OBJECT_DATA");
-		usersRecord.objectData       = dataBaseRecord.getBytes("CONVERTBYTES_DATA");
+		usersRecord.serializableData = dataBaseRecord.getObject("OBJECT_DATA");
+		usersRecord.objectData       = dataBaseRecord.getObject("CONVERTBYTES_DATA");
 		return usersRecord;
 	}
 

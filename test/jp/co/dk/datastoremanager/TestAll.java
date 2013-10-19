@@ -14,6 +14,7 @@ import jp.co.dk.datastoremanager.database.TestTimestampSqlParameter;
 import jp.co.dk.datastoremanager.database.TestTransaction;
 import jp.co.dk.datastoremanager.exception.TestDataStoreManagerException;
 import jp.co.dk.datastoremanager.property.TestDataStoreManagerProperty;
+import jp.co.dk.datastoremanager.testdbaccessobjects.TestDataBaseAccess;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -41,6 +42,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	TestDataStoreManagerException.class,
 	
 	TestDataStoreManagerProperty.class,
+	
+	TestDataBaseAccess.class,
 })
 public class TestAll {}
  
