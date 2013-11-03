@@ -53,28 +53,28 @@ public class TestSql extends TestDataStoreManagerFoundation{
 		}
 		// ==============================異常系==============================
 		// SQLにパラメータをnullを設定した際に、例外が送出されること
-		Sql sql1 = null;
-		try {
-			sql1 = new Sql("SELECT * FROM USERS WHERE USERID=?");
-			String param = null;
-			sql1.setParameter(param);
-			fail();
-		} catch (DataStoreManagerException e) {
-			assertEquals(e.getMessageObj(), DataStoreManagerMessage.SQL_PARAMETER_IS_NOT_SET);
-			assertEquals(sql1.getParameterList().size(), 0);
-			assertEquals(sql1.toString(), "SQL=[SELECT * FROM USERS WHERE USERID=?] PARAMETER=[NOTHING]");
-		}
+//		Sql sql1 = null;
+//		try {
+//			sql1 = new Sql("SELECT * FROM USERS WHERE USERID=?");
+//			String param = null;
+//			sql1.setParameter(param);
+//			fail();
+//		} catch (DataStoreManagerException e) {
+//			assertEquals(e.getMessageObj(), DataStoreManagerMessage.SQL_PARAMETER_IS_NOT_SET);
+//			assertEquals(sql1.getParameterList().size(), 0);
+//			assertEquals(sql1.toString(), "SQL=[SELECT * FROM USERS WHERE USERID=?] PARAMETER=[NOTHING]");
+//		}
 		
 		// SQLにパラメータを空文字を設定した際に、例外が送出されること
-		try {
-			sql1 = new Sql("SELECT * FROM USERS WHERE USERID=?");
-			sql1.setParameter("");
-			fail();
-		} catch (DataStoreManagerException e) {
-			assertEquals(e.getMessageObj(), DataStoreManagerMessage.SQL_PARAMETER_IS_NOT_SET);
-			assertEquals(sql1.getParameterList().size(), 0);
-			assertEquals(sql1.toString(), "SQL=[SELECT * FROM USERS WHERE USERID=?] PARAMETER=[NOTHING]");
-		}
+//		try {
+//			sql1 = new Sql("SELECT * FROM USERS WHERE USERID=?");
+//			sql1.setParameter("");
+//			fail();
+//		} catch (DataStoreManagerException e) {
+//			assertEquals(e.getMessageObj(), DataStoreManagerMessage.SQL_PARAMETER_IS_NOT_SET);
+//			assertEquals(sql1.getParameterList().size(), 0);
+//			assertEquals(sql1.toString(), "SQL=[SELECT * FROM USERS WHERE USERID=?] PARAMETER=[NOTHING]");
+//		}
 	}
 	
 	@Test
@@ -128,17 +128,17 @@ public class TestSql extends TestDataStoreManagerFoundation{
 		
 		// ==============================異常系==============================
 		// SQLにパラメータをnullを設定した際に、例外が送出されること
-		Sql sql1 = null;
-		try {
-			sql1 = new Sql("SELECT * FROM USERS WHERE BIRTHDAY=?");
-			Date param = null;
-			sql1.setParameter(param);
-			fail();
-		} catch (DataStoreManagerException e) {
-			assertEquals(e.getMessageObj(), DataStoreManagerMessage.SQL_PARAMETER_IS_NOT_SET);
-			assertEquals(sql1.getParameterList().size(), 0);
-			assertEquals(sql1.toString(), "SQL=[SELECT * FROM USERS WHERE BIRTHDAY=?] PARAMETER=[NOTHING]");
-		}
+//		Sql sql1 = null;
+//		try {
+//			sql1 = new Sql("SELECT * FROM USERS WHERE BIRTHDAY=?");
+//			Date param = null;
+//			sql1.setParameter(param);
+//			fail();
+//		} catch (DataStoreManagerException e) {
+//			assertEquals(e.getMessageObj(), DataStoreManagerMessage.SQL_PARAMETER_IS_NOT_SET);
+//			assertEquals(sql1.getParameterList().size(), 0);
+//			assertEquals(sql1.toString(), "SQL=[SELECT * FROM USERS WHERE BIRTHDAY=?] PARAMETER=[NOTHING]");
+//		}
 	}
 	
 	@Test

@@ -256,7 +256,7 @@ class Transaction {
 	}
 	
 	@Override
-	public void finalize() {
+	protected void finalize() {
 		try {
 			if (!(this.connection.isClosed())) {
 				this.connection.close();

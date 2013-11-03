@@ -48,8 +48,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='comment'>	/** SQL本文 */</pre></td>
     </tr>
     <tr>
-      <td class='line'>22</td><td class='count'>75</td>
-      <td><pre class='prettyprint covered' id='l22s0'>	private StringBuilder <span class='instance covered' title='Reads: 581 Writes: 75'>sql</span> = new StringBuilder();</pre></td>
+      <td class='line'>22</td><td class='count'>72</td>
+      <td><pre class='prettyprint covered' id='l22s0'>	private StringBuilder <span class='instance covered' title='Reads: 575 Writes: 72'>sql</span> = new StringBuilder();</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -57,8 +57,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='comment'>	/** パラメータ */</pre></td>
     </tr>
     <tr>
-      <td class='line'>25</td><td class='count'>75</td>
-      <td><pre class='prettyprint covered' id='l25s0'>	private List&lt;SqlParameter> <span class='instance covered' title='Reads: 635 Writes: 75'>sqlParameter</span> = new ArrayList&lt;SqlParameter>();</pre></td>
+      <td class='line'>25</td><td class='count'>72</td>
+      <td><pre class='prettyprint covered' id='l25s0'>	private List&lt;SqlParameter> <span class='instance covered' title='Reads: 626 Writes: 72'>sqlParameter</span> = new ArrayList&lt;SqlParameter>();</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -71,30 +71,30 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 * @param sql SQL本文の文字列
 	 * @throws DataStoreManagerException SQLオブジェクトのインスタンス生成に失敗した場合
 	 */    <tr>
-      <td></td><td class='count'>75</td>
+      <td></td><td class='count'>72</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
         <span class='covered' onclick="showPath(this,'l35s0 l36s0 l36s2')">A: 1</span>
         <span class='covered' onclick="showPath(this,'l35s0 l36s0 l36s1 l36s2')">B: 1</span>
-        <span class='covered' onclick="showPath(this,'l35s0 l36s0 l36s1 l37s0 l38s0')">C: 73</span>
+        <span class='covered' onclick="showPath(this,'l35s0 l36s0 l36s1 l37s0 l38s0')">C: 70</span>
       </td>
     </tr>
 </div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>35</td><td class='count'>75</td>
+      <td class='line'>35</td><td class='count'>72</td>
       <td><pre class='prettyprint covered' id='l35s0'>	public Sql(String sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>36</td><td class='count'>75</td>
-      <td><pre class='prettyprint jmp'>		<span id='l36s0' title='Executions: 75' class='covered'>if (sql == null</span> || <span id='l36s1' title='Executions: 74' class='covered'>sql.equals("")) throw new DataStoreManagerException(FAILE_TO_CREATE_SQL_OBJECT);</span> </pre></td>
+      <td class='line'>36</td><td class='count'>72</td>
+      <td><pre class='prettyprint jmp'>		<span id='l36s0' title='Executions: 72' class='covered'>if (sql == null</span> || <span id='l36s1' title='Executions: 71' class='covered'>sql.equals("")) throw new DataStoreManagerException(FAILE_TO_CREATE_SQL_OBJECT);</span> </pre></td>
     </tr>
     <tr>
-      <td class='line'>37</td><td class='count'>73</td>
+      <td class='line'>37</td><td class='count'>70</td>
       <td><pre class='prettyprint covered' id='l37s0'>		this.sql.append(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td class='count'>73</td>
+      <td class='line'>38</td><td class='count'>70</td>
       <td><pre class='prettyprint covered' id='l38s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -112,7 +112,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public void setParameter(String parameter) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>47</td><td class='count'>57</td>
+      <td class='line'>47</td><td class='count'>55</td>
       <td><pre class='prettyprint covered' id='l47s0'>		this.sqlParameter.add(new StringSqlParameter(parameter));</pre></td>
     </tr>
     <tr>
@@ -176,7 +176,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public void setParameter(Date parameter) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>75</td><td class='count'>25</td>
+      <td class='line'>75</td><td class='count'>24</td>
       <td><pre class='prettyprint covered' id='l75s0'>		this.sqlParameter.add(new DateSqlParameter(parameter));</pre></td>
     </tr>
     <tr>
@@ -301,7 +301,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	List&lt;SqlParameter> getParameterList() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>131</td><td class='count'>43</td>
+      <td class='line'>131</td><td class='count'>40</td>
       <td><pre class='prettyprint covered' id='l131s0'>		return new ArrayList&lt;SqlParameter>(this.sqlParameter);</pre></td>
     </tr>
     <tr>
@@ -386,27 +386,27 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public String toString() {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>29</td>
+      <td></td><td class='count'>26</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l152s0 l153s0 l154s0 l155s0')">A: 9</span>
+        <span class='covered' onclick="showPath(this,'l152s0 l153s0 l154s0 l155s0')">A: 6</span>
         <span class='covered' onclick="showPath(this,'l152s0 l153s0 l157s0 l158s0 l164s0')">B: 20</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>152</td><td class='count'>29</td>
+      <td class='line'>152</td><td class='count'>26</td>
       <td><pre class='prettyprint covered' id='l152s0'>		StringBuilder sqlstr = new StringBuilder("SQL=[").append(this.sql).append(']');</pre></td>
     </tr>
     <tr>
-      <td class='line'>153</td><td class='count'>29</td>
-      <td><pre class='prettyprint jmp'>		<span id='l153s0' title='Executions: 29' class='covered'>if (sqlParameter.size() == 0) {</span></pre></td>
+      <td class='line'>153</td><td class='count'>26</td>
+      <td><pre class='prettyprint jmp'>		<span id='l153s0' title='Executions: 26' class='covered'>if (sqlParameter.size() == 0) {</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>154</td><td class='count'>9</td>
+      <td class='line'>154</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l154s0'>			sqlstr.append(" PARAMETER=[NOTHING]");</pre></td>
     </tr>
     <tr>
-      <td class='line'>155</td><td class='count'>9</td>
+      <td class='line'>155</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l155s0'>			return sqlstr.toString();</pre></td>
     </tr>
     <tr>

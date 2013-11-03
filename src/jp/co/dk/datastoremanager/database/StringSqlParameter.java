@@ -12,14 +12,17 @@ class StringSqlParameter extends SqlParameter{
 	protected String parameter;
 	
 	StringSqlParameter(String parameter) throws DataStoreManagerException {
-		if (parameter == null || parameter.equals("")) throw new DataStoreManagerException(SQL_PARAMETER_IS_NOT_SET);
 		this.parameter = parameter;
 	} 
 
 	@Override
 	void set(int index, PreparedStatement statement) throws DataStoreManagerException {
 		try {
-			statement.setString(index, this.parameter);
+			if (this.parameter != null) { 
+				statement.setString(index, this.parameter);
+			} else {
+				statement.setString(index, null);
+			}
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL, e);
 		}
@@ -36,13 +39,21 @@ class StringSqlParameter extends SqlParameter{
 	
 	@Override
 	public int hashCode() {
-		return this.parameter.hashCode() * 17;
+		if (this.parameter != null) {
+			return this.parameter.hashCode() * 17;
+		} else {
+			return -1;
+		}
 	}
 	
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(this.parameter).append("(string)");
-		return sb.toString();
+		if (this.parameter != null) {
+			StringBuilder sb = new StringBuilder();
+			sb.append(this.parameter).append("(string)");
+			return sb.toString();
+		} else {
+			return "null(string)";
+		}
 	}
 }

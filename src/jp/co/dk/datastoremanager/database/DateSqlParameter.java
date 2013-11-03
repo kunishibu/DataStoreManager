@@ -15,14 +15,17 @@ class DateSqlParameter extends SqlParameter{
 	protected Date parameter;
 	
 	DateSqlParameter(Date parameter) throws DataStoreManagerException {
-		if (parameter == null) throw new DataStoreManagerException(SQL_PARAMETER_IS_NOT_SET);
 		this.parameter = parameter;
 	}
 
 	@Override
 	void set(int index, PreparedStatement statement) throws DataStoreManagerException {
 		try {
-			statement.setDate(index, new java.sql.Date(this.parameter.getTime()));
+			if (this.parameter != null) {
+				statement.setDate(index, new java.sql.Date(this.parameter.getTime()));
+			} else {
+				statement.setDate(index, null);
+			}
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL, e);
 		}
@@ -39,14 +42,22 @@ class DateSqlParameter extends SqlParameter{
 	
 	@Override
 	public int hashCode() {
-		return this.parameter.hashCode() * 17;
+		if (this.parameter != null) {
+			return this.parameter.hashCode() * 17;
+		} else {
+			return -1;
+		}
 	}
 	
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-		sb.append(sdf.format(this.parameter).toString()).append("(date)");
-		return sb.toString();
+		if (this.parameter != null) {
+			StringBuilder sb = new StringBuilder();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+			sb.append(sdf.format(this.parameter).toString()).append("(date)");
+			return sb.toString();
+		} else {
+			return "null(date)";
+		}
 	}
 }
