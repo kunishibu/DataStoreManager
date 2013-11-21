@@ -62,8 +62,8 @@ public class DataStoreManager {
 	 */
 	public void startTrunsaction() throws DataStoreManagerException {
 		this.defaultDataStore.startTransaction();
-		for (String name : this.dataStores.keySet()) {
-			this.dataStores.get(name).startTransaction();
+		for (DataStore dataStore : this.dataStores.values()) {
+			dataStore.startTransaction();
 		}
 	}
 	
@@ -82,15 +82,63 @@ public class DataStoreManager {
 	}
 	
 	/**
+	 * このトランザクションに対してコミットを実行します。
+	 * 
+	 * @throws DataStoreManagerException コミットに失敗した場合
+	 */
+	public void commit() throws DataStoreManagerException {
+		this.defaultDataStore.commit();
+		for (String name : dataStores.keySet()) {
+			this.dataStores.get(name).commit();
+		}
+	}
+	
+	/**
+	 * このトランザクションに対してロールバックを実行します。
+	 * 
+	 * @throws DataStoreManagerException ロールバックに失敗した場合
+	 */
+	public void rollback() throws DataStoreManagerException {
+		this.defaultDataStore.rollback();
+		for (String name : dataStores.keySet()) {
+			this.dataStores.get(name).rollback();
+		}
+	}
+	
+	/**
+	 * このデータストアにてエラーが発生したかを判定します。
+	 * 
+	 * @return 判定結果（true=エラーが発生した、false=エラーは発生していない）
+	 */
+	public boolean hasError() {
+		if (this.defaultDataStore.hasError()) return true;
+		for (String name : dataStores.keySet()) {
+			if (this.dataStores.get(name).hasError()) return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * このデータストア管理クラスが管理しているすべてのデータストアに対してトランザクションを終了します。<p/>
-	 * トランザクション終了処理に失敗した場合、例外を送出します。
+	 * トランザクション終了処理に失敗した場合、例外を送出します。<br/>
 	 * 
 	 * @throws DataStoreManagerException トランザクション終了に失敗した場合
 	 */
 	public void finishTrunsaction() throws DataStoreManagerException {
+		if (this.hasError()) {
+			this.defaultDataStore.rollback();
+			for (String name : dataStores.keySet()) {
+				this.dataStores.get(name).rollback();
+			}
+		} else {
+			this.defaultDataStore.commit();
+			for (String name : dataStores.keySet()) {
+				this.dataStores.get(name).commit();
+			}
+		}
 		this.defaultDataStore.finishTransaction();
-		for (String name : dataStores.keySet()) {
-			this.dataStores.get(name).finishTransaction();
+		for (DataStore dataStore : dataStores.values()) {
+			dataStore.finishTransaction();
 		}
 	}
 }

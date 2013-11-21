@@ -29,6 +29,9 @@ public class DataBaseDataStore implements DataStore {
 	/** SQLリスト */
 	protected List<Sql> sqlList = new ArrayList<Sql>();
 	
+	/** 発生例外一覧 */
+	protected List<DataStoreManagerException> exceptionList = new ArrayList<DataStoreManagerException>();
+	
 	/**
 	 * コンストラクタ<p/>
 	 * 指定のデータベースアクセスパラメータを基にデータベースデータストアを生成します。
@@ -50,17 +53,36 @@ public class DataBaseDataStore implements DataStore {
 		DataStoreKind dataStoreKind = this.dataBaseAccessParameter.getDataStoreKind();
 		return daoConstants.getDataAccessObjectFactory().getDataAccessObject(dataStoreKind, this);
 	}
+	
 
+	@Override
+	public void commit() throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);
+		this.transaction.commit();
+	}
+
+	@Override
+	public void rollback() throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);
+		this.transaction.rollback();
+	}
+	
 	@Override
 	public void finishTransaction() throws DataStoreManagerException {
 		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);
-		this.transaction.commit();
+		this.transaction.close();
 		this.transaction = null;
 	}
 	
 	@Override
 	public boolean isTransaction() {
 		if (this.transaction != null) return true;
+		return false;
+	}
+	
+	@Override
+	public boolean hasError() {
+		if (this.exceptionList.size() != 0) return true;
 		return false;
 	}
 	
@@ -72,9 +94,14 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException テーブル作成に失敗した場合
 	 */
 	void createTable(Sql sql) throws DataStoreManagerException {
-		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-		this.transaction.createTable(sql);
-		this.sqlList.add(sql);
+		try {
+			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
+			this.transaction.createTable(sql);
+			this.sqlList.add(sql);
+		} catch (DataStoreManagerException e) {
+			this.exceptionList.add(e);
+			throw e;
+		}
 	}
 	
 	/**
@@ -85,9 +112,14 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException テーブル削除に失敗した場合
 	 */
 	void dropTable(Sql sql) throws DataStoreManagerException {
-		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-		this.transaction.dropTable(sql);
-		this.sqlList.add(sql);
+		try {
+			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
+			this.transaction.dropTable(sql);
+			this.sqlList.add(sql);
+		} catch (DataStoreManagerException e) {
+			this.exceptionList.add(e);
+			throw e;
+		}
 	}
 	
 	/**
@@ -98,9 +130,14 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException レコード追加に失敗した場合
 	 */
 	void insert(Sql sql) throws DataStoreManagerException {
-		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-		this.transaction.insert(sql);
-		this.sqlList.add(sql);
+		try {
+			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
+			this.transaction.insert(sql);
+			this.sqlList.add(sql);
+		} catch (DataStoreManagerException e) {
+			this.exceptionList.add(e);
+			throw e;
+		}
 	}
 	
 	/**
@@ -112,10 +149,15 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException レコード更新に失敗した場合
 	 */
 	int update(Sql sql) throws DataStoreManagerException {
-		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-		int result = this.transaction.update(sql);
-		this.sqlList.add(sql);
-		return result;
+		try {
+			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
+			int result = this.transaction.update(sql);
+			this.sqlList.add(sql);
+			return result;
+		} catch (DataStoreManagerException e) {
+			this.exceptionList.add(e);
+			throw e;
+		}
 	}
 	
 	/**
@@ -127,10 +169,15 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException レコード削除に失敗した場合
 	 */
 	int delete(Sql sql) throws DataStoreManagerException {
-		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-		int result = this.transaction.delete(sql);
-		this.sqlList.add(sql);
-		return result;
+		try {
+			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
+			int result = this.transaction.delete(sql);
+			this.sqlList.add(sql);
+			return result;
+		} catch (DataStoreManagerException e) {
+			this.exceptionList.add(e);
+			throw e;
+		}
 	}
 	
 	/**
@@ -142,10 +189,15 @@ public class DataBaseDataStore implements DataStore {
 	 * @throws DataStoreManagerException SQLの実行に失敗した場合
 	 */
 	ResultSet select(Sql sql) throws DataStoreManagerException {
-		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-		ResultSet result = this.transaction.select(sql);
-		this.sqlList.add(sql);
-		return result;
+		try {
+			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
+			ResultSet result = this.transaction.select(sql);
+			this.sqlList.add(sql);
+			return result;
+		} catch (DataStoreManagerException e) {
+			this.exceptionList.add(e);
+			throw e;
+		}
 	}
 	
 	@Override

@@ -74,12 +74,21 @@ class Transaction {
 	 * @throws DataStoreManagerException テーブル作成に失敗した場合
 	 */
 	void createTable(Sql sql) throws DataStoreManagerException {
+		PreparedStatement statement = null;
 		try {
-			PreparedStatement statement = this.connection.prepareStatement(sql.getSql());
+			statement = this.connection.prepareStatement(sql.getSql());
 			statement.execute();
 			statement.close();
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);
+				}
+			}
 		}
 	}
 	
@@ -91,8 +100,9 @@ class Transaction {
 	 * @throws DataStoreManagerException レコード追加に失敗した場合
 	 */
 	void insert(Sql sql) throws DataStoreManagerException {
+		PreparedStatement statement = null;
 		try {
-			PreparedStatement statement = this.connection.prepareStatement(sql.getSql());
+			statement = this.connection.prepareStatement(sql.getSql());
 			List<SqlParameter> sqlPrameterList = sql.getParameterList();
 			for (int index = 0; index < sqlPrameterList.size(); index++) {
 				int tmpIndex = index + 1;
@@ -102,6 +112,14 @@ class Transaction {
 			statement.close();
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);
+				}
+			}
 		}
 	}
 	
@@ -114,8 +132,9 @@ class Transaction {
 	 * @throws DataStoreManagerException レコード更新に失敗した場合
 	 */
 	int update(Sql sql) throws DataStoreManagerException {
+		PreparedStatement statement = null;
 		try {
-			PreparedStatement statement = this.connection.prepareStatement(sql.getSql());
+			statement = this.connection.prepareStatement(sql.getSql());
 			List<SqlParameter> sqlPrameterList = sql.getParameterList();
 			for (int index = 0; index < sqlPrameterList.size(); index++) {
 				int tmpIndex = index + 1;
@@ -127,6 +146,14 @@ class Transaction {
 			return result;
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);
+				}
+			}
 		}
 	}
 	
@@ -139,8 +166,9 @@ class Transaction {
 	 * @throws DataStoreManagerException レコード削除に失敗した場合
 	 */
 	int delete(Sql sql) throws DataStoreManagerException {
+		PreparedStatement statement = null;
 		try {
-			PreparedStatement statement = this.connection.prepareStatement(sql.getSql());
+			statement = this.connection.prepareStatement(sql.getSql());
 			List<SqlParameter> sqlPrameterList = sql.getParameterList();
 			for (int index = 0; index < sqlPrameterList.size(); index++) {
 				int tmpIndex = index + 1;
@@ -152,6 +180,14 @@ class Transaction {
 			return result;
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);
+				}
+			}
 		}
 	}
 
@@ -164,8 +200,9 @@ class Transaction {
 	 * @throws DataStoreManagerException SQLの実行に失敗した場合
 	 */
 	ResultSet select(Sql sql) throws DataStoreManagerException {
+		PreparedStatement statement = null;
 		try {
-			PreparedStatement statement = this.connection.prepareStatement(sql.getSql());
+			statement = this.connection.prepareStatement(sql.getSql());
 			List<SqlParameter> sqlPrameterList = sql.getParameterList();
 			for (int index = 0; index < sqlPrameterList.size(); index++) {
 				int tmpIndex = index + 1;
@@ -185,12 +222,20 @@ class Transaction {
 	 * @throws DataStoreManagerException テーブル削除に失敗した場合
 	 */
 	void dropTable(Sql sql) throws DataStoreManagerException {
+		PreparedStatement statement = null;
 		try {
-			PreparedStatement statement = this.connection.prepareStatement(sql.getSql());
+			statement = this.connection.prepareStatement(sql.getSql());
 			statement.execute();
-			statement.close();
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);
+				}
+			}
 		}
 	}
 	
@@ -210,7 +255,7 @@ class Transaction {
 	/**
 	 * このトランザクションに対してロールバックを実行します。
 	 * 
-	 * @throws DataStoreManagerException コミットに失敗した場合
+	 * @throws DataStoreManagerException ロールバックに失敗した場合
 	 */
 	void rollback() throws DataStoreManagerException {
 		try {

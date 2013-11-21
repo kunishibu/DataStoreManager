@@ -26,6 +26,20 @@ public interface DataStore {
 	public DataAccessObject getDataAccessObject(DaoConstants daoConstants) throws DataStoreManagerException;
 	
 	/**
+	 * このトランザクションに対してコミットを実行します。
+	 * 
+	 * @throws DataStoreManagerException コミットに失敗した場合
+	 */
+	public void commit() throws DataStoreManagerException;
+	
+	/**
+	 * このトランザクションに対してロールバックを実行します。
+	 * 
+	 * @throws DataStoreManagerException ロールバックに失敗した場合
+	 */
+	public void rollback() throws DataStoreManagerException;
+	
+	/**
 	 * このデータストアのトランザクションを終了します。
 	 * @throws DataStoreManagerException トランザクション終了に失敗した場合
 	 */
@@ -37,4 +51,11 @@ public interface DataStore {
 	 * @return true=トランザクションが開始済み、false=トランザクションはまだ開始されていない
 	 */
 	public boolean isTransaction();
+	
+	/**
+	 * このデータストアにてエラーが発生したかを判定します。
+	 * 
+	 * @return 判定結果（true=エラーが発生した、false=エラーは発生していない）
+	 */
+	public boolean hasError();
 }
