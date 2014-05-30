@@ -3,7 +3,6 @@ package jp.co.dk.datastoremanager.testdbaccessobjects.table;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.testdbaccessobjects.record.UsersRecord;

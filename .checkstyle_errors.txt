@@ -760,35 +760,33 @@ Starting audit...
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DataBaseRecord.java:226: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:0: ファイルが新しい行で終了していません。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:3: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:4: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:4:15: 使用されないインポートです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.SQL_PARAMETER_IS_NOT_SET。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:13: Javadoc コメントがありません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:13:44: '{' の前にホワイトスペースがありません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:14: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:14:1: File contains tab characters (this is the first instance).
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:15:9: Javadoc コメントがありません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:15:24: 変数 'parameter' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:16: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:17:9: Javadoc コメントがありません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:17:26: Parameter parameter should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:17:31: 'parameter' がフィールドを隠しています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:17:49: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:22: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:22:18: Parameter index should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:22:29: Parameter statement should be final.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:22:65: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:25: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:30: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:33: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:35:31: Parameter object should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:12: Javadoc コメントがありません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:12:44: '{' の前にホワイトスペースがありません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:13: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:13:1: File contains tab characters (this is the first instance).
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:14:9: Javadoc コメントがありません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:14:24: 変数 'parameter' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:15: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:16:9: Javadoc コメントがありません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:16:26: Parameter parameter should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:16:31: 'parameter' がフィールドを隠しています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:16:49: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:21: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:21:18: Parameter index should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:21:29: Parameter statement should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:21:65: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:24: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:29: 行が 80 文字を超えています。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:32: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:34:31: Parameter object should be final.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:35: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:36: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:37: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:39: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:42: Line has trailing spaces.
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:46:60: '17' はマジックナンバーです。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:51: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:38: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:41: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:45:60: '17' はマジックナンバーです。
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:50: Line has trailing spaces.
+/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:55: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:56: 行が 80 文字を超えています。
-/home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/DateSqlParameter.java:57: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/IntSqlParameter.java:3: 行が 80 文字を超えています。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/IntSqlParameter.java:10: Javadoc コメントがありません。
 /home/dk/projects/DataStoreManager/src/jp/co/dk/datastoremanager/database/IntSqlParameter.java:10:43: '{' の前にホワイトスペースがありません。

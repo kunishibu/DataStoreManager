@@ -2,14 +2,11 @@ package jp.co.dk.datastoremanager.testdbaccessobjects.table.mysql;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import jp.co.dk.datastoremanager.DataStore;
 import jp.co.dk.datastoremanager.database.AbstractDataBaseAccessObject;
 import jp.co.dk.datastoremanager.database.DataBaseAccessParameter;
-import jp.co.dk.datastoremanager.database.DataBaseDriverConstants;
 import jp.co.dk.datastoremanager.database.Sql;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.testdbaccessobjects.record.UsersRecord;
@@ -30,9 +27,9 @@ public class UserDaoImpl extends AbstractDataBaseAccessObject implements UsersDa
 		StringBuilder sb = new StringBuilder("CREATE TABLE USERS ");
 		sb.append('(');
 		sb.append("STRING_DATA       VARCHAR(10) NOT NULL,");
-		sb.append("INT_DATA          INT        NOT NULL,");
-		sb.append("LONG_DATA         BIGINT(8)  NOT NULL,");
-		sb.append("DATE_DATA         DATE      NOT NULL,");
+		sb.append("INT_DATA          INT         NOT NULL,");
+		sb.append("LONG_DATA         BIGINT(8)   NOT NULL,");
+		sb.append("DATE_DATA         DATE        NOT NULL,");
 		sb.append("TIMESTAMP_DATA    DATETIME, ");
 		sb.append("BYTES_DATA        LONGBLOB, ");
 		sb.append("OBJECT_DATA       LONGBLOB, ");

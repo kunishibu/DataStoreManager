@@ -183,7 +183,7 @@ public class DataStoreManagerProperty extends PropertiesFile {
 	protected List<String> getNameList(String key) {
 		List<String> list = new ArrayList<String>();
 		if (key == null || key.equals("")) return list; 
-		Iterator<String> keys = getKeys(key);
+		Iterator<String> keys = getKeys(key).iterator();
 		while(keys.hasNext()) {
 			String getKey = keys.next();
 			String replaceKey = getKey.replaceAll(key+".", "");

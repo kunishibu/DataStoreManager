@@ -1,7 +1,6 @@
 package jp.co.dk.datastoremanager.database;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL;
-import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.SQL_PARAMETER_IS_NOT_SET;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
