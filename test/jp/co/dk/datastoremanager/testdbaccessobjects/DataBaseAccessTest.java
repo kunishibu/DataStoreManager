@@ -52,10 +52,10 @@ public class DataBaseAccessTest extends DataStoreManagerTestFoundation{
 			assertEquals(super.getStringByDate_YYYYMMDD(userRecord.getDateData()), super.getStringByDate_YYYYMMDD(dateData));
 			assertEquals(super.getStringByDate_YYYYMMDDHH24MMDD(userRecord.getTimestampData()), super.getStringByDate_YYYYMMDDHH24MMDD(timestampData));
 			assertEquals(userRecord.getBytesData(), bytesData);
-			List object1 = (ArrayList)userRecord.getSerializableData();
+			List<?> object1 = (ArrayList<?>)userRecord.getSerializableData();
 			assertTrue(object1 instanceof ArrayList); 
 			assertEquals(object1, objectData);
-			List object2 = (ArrayList)userRecord.getObjectData();
+			List<?> object2 = (ArrayList<?>)userRecord.getObjectData();
 			assertTrue(object2 instanceof ArrayList); 
 			assertEquals(object2, convertBytesData);
 		} finally {
