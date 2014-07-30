@@ -1,133 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="2.0.2" sequence="0" timestamp="1401476885863" analysisTimestamp="1401476885916" release="">
+<BugCollection version="2.0.2" sequence="0" timestamp="1406730712597" analysisTimestamp="1406730712627" release="">
   <Project projectName="">
-    <Jar>/home/dk/projects/DataStoreManager/datastoremanager.jar</Jar>
-    <AuxClasspathEntry>/home/dk/projects/DataStoreManager/lib/message_all.jar</AuxClasspathEntry>
-    <AuxClasspathEntry>/home/dk/projects/DataStoreManager/lib/mysql-connector-java-5.1.26-bin.jar</AuxClasspathEntry>
-    <AuxClasspathEntry>/home/dk/projects/DataStoreManager/lib/property_all.jar</AuxClasspathEntry>
-    <AuxClasspathEntry>/home/dk/projects/DataStoreManager/lib/test/jmockit-coverage.jar</AuxClasspathEntry>
-    <AuxClasspathEntry>/home/dk/projects/DataStoreManager/lib/test/jmockit.jar</AuxClasspathEntry>
-    <AuxClasspathEntry>/home/dk/projects/DataStoreManager/lib/test/testtemplate_all.jar</AuxClasspathEntry>
-    <SrcDir>/home/dk/projects/DataStoreManager/src</SrcDir>
+    <Jar>/home/dk/workspace_svn/DataStoreManager/datastoremanager.jar</Jar>
+    <AuxClasspathEntry>/home/dk/workspace_svn/DataStoreManager/lib/message_all.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/workspace_svn/DataStoreManager/lib/mysql-connector-java-5.1.26-bin.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/workspace_svn/DataStoreManager/lib/property_all.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/workspace_svn/DataStoreManager/lib/test/jmockit-coverage.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/workspace_svn/DataStoreManager/lib/test/jmockit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/workspace_svn/DataStoreManager/lib/test/testtemplate_all.jar</AuxClasspathEntry>
+    <SrcDir>/home/dk/workspace_svn/DataStoreManager/src</SrcDir>
   </Project>
-  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE">
-    <Class classname="jp.co.dk.datastoremanager.DataStoreManager">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="35" end="143" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
-    </Class>
-    <Field classname="jp.co.dk.datastoremanager.DataStoreManager" name="dataStoreManagerProperty" signature="Ljp/co/dk/datastoremanager/property/DataStoreManagerProperty;" isStatic="false">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
-    </Field>
-    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="49" end="49" startBytecode="32" endBytecode="32" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
-  </BugInstance>
-  <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" abbrev="WMI" category="PERFORMANCE">
-    <Class classname="jp.co.dk.datastoremanager.DataStoreManager">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="35" end="143" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
-    </Class>
-    <Method classname="jp.co.dk.datastoremanager.DataStoreManager" name="&lt;init&gt;" signature="(Ljp/co/dk/datastoremanager/property/DataStoreManagerProperty;)V" isStatic="false">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="47" end="55" startBytecode="0" endBytecode="281" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
-    </Method>
-    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="53" end="53" startBytecode="92" endBytecode="92" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
-  </BugInstance>
-  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="2" abbrev="NP" category="CORRECTNESS">
-    <Class classname="jp.co.dk.datastoremanager.database.DataBaseDataStore">
-      <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="30" end="234" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java"/>
-    </Class>
-    <Method classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false">
-      <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="211" end="223" startBytecode="0" endBytecode="226" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java"/>
-    </Method>
-    <Field classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" name="transaction" signature="Ljp/co/dk/datastoremanager/database/Transaction;" isStatic="false" role="FIELD_CONTAINS_VALUE">
-      <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java"/>
-    </Field>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="221" end="221" startBytecode="96" endBytecode="96" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java" role="SOURCE_LINE_DEREF"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="216" end="216" startBytecode="64" endBytecode="64" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java" role="SOURCE_LINE_KNOWN_NULL"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="218" end="218" startBytecode="73" endBytecode="73" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java" role="SOURCE_LINE_KNOWN_NULL"/>
-  </BugInstance>
-  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" abbrev="OBL" category="EXPERIMENTAL">
-    <Class classname="jp.co.dk.datastoremanager.database.Transaction">
-      <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="49" end="312" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java"/>
-    </Class>
-    <Method classname="jp.co.dk.datastoremanager.database.Transaction" name="select" signature="(Ljp/co/dk/datastoremanager/database/Sql;)Ljava/sql/ResultSet;" isStatic="false">
-      <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="203" end="213" startBytecode="0" endBytecode="291" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java"/>
-    </Method>
-    <Class classname="java.sql.Statement" role="CLASS_REFTYPE">
-      <SourceLine classname="java.sql.Statement" sourcefile="Statement.java" sourcepath="java/sql/Statement.java"/>
-    </Class>
-    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="205" end="205" startBytecode="10" endBytecode="10" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="206" end="206" startBytecode="16" endBytecode="16" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="207" end="207" startBytecode="21" endBytecode="21" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="208" end="208" startBytecode="35" endBytecode="35" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="209" end="209" startBytecode="41" endBytecode="41" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
-    <String value="{Statement x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
-  </BugInstance>
-  <Errors errors="0" missingClasses="0"></Errors>
-  <FindBugsSummary timestamp="Sat, 31 May 2014 04:08:05 +0900" total_classes="28" referenced_classes="98" total_bugs="4" total_size="1038" num_packages="5" vm_version="22.0-b10" cpu_seconds="21.61" clock_seconds="13.77" peak_mbytes="153.22" alloc_mbytes="780.50" gc_seconds="0.19" priority_2="4">
-    <PackageStats package="jp.co.dk.datastoremanager" total_bugs="2" total_types="9" total_size="128" priority_2="2">
-      <ClassStats class="jp.co.dk.datastoremanager.DaoConstants" sourceFile="DaoConstants.java" interface="true" size="3" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.DataAccessObject" sourceFile="DataAccessObject.java" interface="true" size="1" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.DataAccessObjectFactory" sourceFile="DataAccessObjectFactory.java" interface="true" size="2" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.DataConvertable" sourceFile="DataConvertable.java" interface="true" size="3" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.DataStore" sourceFile="DataStore.java" interface="true" size="8" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.DataStoreKind" sourceFile="DataStoreKind.java" interface="false" size="25" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.DataStoreManager" sourceFile="DataStoreManager.java" interface="false" size="59" bugs="2" priority_2="2"/>
-      <ClassStats class="jp.co.dk.datastoremanager.DataStoreParameter" sourceFile="DataStoreParameter.java" interface="false" size="19" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.Record" sourceFile="Record.java" interface="true" size="8" bugs="0"/>
-    </PackageStats>
-    <PackageStats package="jp.co.dk.datastoremanager.database" total_bugs="2" total_types="15" total_size="738" priority_2="2">
-      <ClassStats class="jp.co.dk.datastoremanager.database.AbstractDataBaseAccessObject" sourceFile="AbstractDataBaseAccessObject.java" interface="false" size="44" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.BytesSqlParameter" sourceFile="BytesSqlParameter.java" interface="false" size="49" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.DataBaseAccessParameter" sourceFile="DataBaseAccessParameter.java" interface="false" size="47" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.DataBaseDataStore" sourceFile="DataBaseDataStore.java" interface="false" size="110" bugs="1" priority_2="1"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.DataBaseDriverConstants" sourceFile="DataBaseDriverConstants.java" interface="false" size="29" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.DataBaseRecord" sourceFile="DataBaseRecord.java" interface="false" size="77" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.DateSqlParameter" sourceFile="DateSqlParameter.java" interface="false" size="31" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.IntSqlParameter" sourceFile="IntSqlParameter.java" interface="false" size="24" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.LongSqlParameter" sourceFile="LongSqlParameter.java" interface="false" size="24" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.ObjectSqlParameter" sourceFile="ObjectSqlParameter.java" interface="false" size="30" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.Sql" sourceFile="Sql.java" interface="false" size="61" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.SqlParameter" sourceFile="SqlParameter.java" interface="false" size="4" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.StringSqlParameter" sourceFile="StringSqlParameter.java" interface="false" size="30" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.TimestampSqlParameter" sourceFile="TimestampSqlParameter.java" interface="false" size="30" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.Transaction" sourceFile="Transaction.java" interface="false" size="148" bugs="1" priority_2="1"/>
-    </PackageStats>
-    <PackageStats package="jp.co.dk.datastoremanager.exception" total_bugs="0" total_types="1" total_size="26">
-      <ClassStats class="jp.co.dk.datastoremanager.exception.DataStoreManagerException" sourceFile="DataStoreManagerException.java" interface="false" size="26" bugs="0"/>
-    </PackageStats>
-    <PackageStats package="jp.co.dk.datastoremanager.message" total_bugs="0" total_types="1" total_size="75">
-      <ClassStats class="jp.co.dk.datastoremanager.message.DataStoreManagerMessage" sourceFile="DataStoreManagerMessage.java" interface="false" size="75" bugs="0"/>
-    </PackageStats>
-    <PackageStats package="jp.co.dk.datastoremanager.property" total_bugs="0" total_types="2" total_size="71">
-      <ClassStats class="jp.co.dk.datastoremanager.property.DataStoreManagerProperty" sourceFile="DataStoreManagerProperty.java" interface="false" size="67" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.property.DataStoreManagerProperty$1" sourceFile="DataStoreManagerProperty.java" interface="false" size="4" bugs="0"/>
-    </PackageStats>
+  <Errors errors="7" missingClasses="0">
+    <Error>
+      <ErrorMessage>Unable to get XClass for java/lang/StringBuilder</ErrorMessage>
+      <Exception>java.lang.ArrayIndexOutOfBoundsException: 26721</Exception>
+      <StackTrace>org.objectweb.asm.ClassReader.readClass(Unknown Source)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.asm.FBClassReader.accept(FBClassReader.java:44)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:565)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:38)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.impl.AnalysisCache.getClassAnalysis(AnalysisCache.java:266)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.XFactory.getXClass(XFactory.java:652)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addInheritanceEdge(Subtypes2.java:1227)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addSupertypeEdges(Subtypes2.java:1200)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addClassAndGetClassVertex(Subtypes2.java:275)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addClass(Subtypes2.java:244)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.AnalysisCacheToAnalysisContextAdapter.setAppClassList(AnalysisCacheToAnalysisContextAdapter.java:400)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.setAppClassList(FindBugs2.java:981)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:224)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:391)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1298)</StackTrace>
+    </Error>
+    <Error>
+      <ErrorMessage>Unable to get XClass for java/util/Arrays</ErrorMessage>
+      <Exception>java.lang.ArrayIndexOutOfBoundsException: 35328</Exception>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.asm.FBClassReader.accept(FBClassReader.java:44)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:565)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:38)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.impl.AnalysisCache.getClassAnalysis(AnalysisCache.java:266)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.XFactory.getXClass(XFactory.java:652)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.AnalysisCacheToAnalysisContextAdapter.setAppClassList(AnalysisCacheToAnalysisContextAdapter.java:391)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.setAppClassList(FindBugs2.java:981)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:224)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:391)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1298)</StackTrace>
+    </Error>
+    <Error>
+      <ErrorMessage>Unable to get XClass for java/lang/String</ErrorMessage>
+      <Exception>java.lang.ArrayIndexOutOfBoundsException: 26721</Exception>
+      <StackTrace>org.objectweb.asm.ClassReader.readClass(Unknown Source)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.asm.FBClassReader.accept(FBClassReader.java:44)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:565)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:38)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.impl.AnalysisCache.getClassAnalysis(AnalysisCache.java:266)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.XFactory.getXClass(XFactory.java:652)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addInheritanceEdge(Subtypes2.java:1227)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addSupertypeEdges(Subtypes2.java:1200)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addClassAndGetClassVertex(Subtypes2.java:275)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addClass(Subtypes2.java:244)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.AnalysisCacheToAnalysisContextAdapter.setAppClassList(AnalysisCacheToAnalysisContextAdapter.java:400)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.setAppClassList(FindBugs2.java:981)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:224)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:391)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1298)</StackTrace>
+    </Error>
+    <Error>
+      <ErrorMessage>Unable to get XClass for java/lang/CharSequence</ErrorMessage>
+      <Exception>java.lang.ArrayIndexOutOfBoundsException: 26721</Exception>
+      <StackTrace>org.objectweb.asm.ClassReader.readClass(Unknown Source)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.asm.FBClassReader.accept(FBClassReader.java:44)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:565)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:38)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.impl.AnalysisCache.getClassAnalysis(AnalysisCache.java:266)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.XFactory.getXClass(XFactory.java:652)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addInheritanceEdge(Subtypes2.java:1227)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addSupertypeEdges(Subtypes2.java:1200)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addClassAndGetClassVertex(Subtypes2.java:275)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addClass(Subtypes2.java:244)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.AnalysisCacheToAnalysisContextAdapter.setAppClassList(AnalysisCacheToAnalysisContextAdapter.java:400)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.setAppClassList(FindBugs2.java:981)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:224)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:391)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1298)</StackTrace>
+    </Error>
+    <Error>
+      <ErrorMessage>Unable to get XClass for java/lang/Class</ErrorMessage>
+      <Exception>java.lang.ArrayIndexOutOfBoundsException: 2560</Exception>
+      <StackTrace>org.objectweb.asm.ClassReader.readClass(Unknown Source)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.asm.FBClassReader.accept(FBClassReader.java:44)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:565)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:38)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.impl.AnalysisCache.getClassAnalysis(AnalysisCache.java:266)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.XFactory.getXClass(XFactory.java:652)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addInheritanceEdge(Subtypes2.java:1227)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addSupertypeEdges(Subtypes2.java:1200)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addClassAndGetClassVertex(Subtypes2.java:275)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addClass(Subtypes2.java:244)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.AnalysisCacheToAnalysisContextAdapter.setAppClassList(AnalysisCacheToAnalysisContextAdapter.java:400)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.setAppClassList(FindBugs2.java:981)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:224)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:391)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1298)</StackTrace>
+    </Error>
+    <Error>
+      <ErrorMessage>Couldn&apos;t get class info for java/util/Arrays</ErrorMessage>
+      <Exception>java.lang.ArrayIndexOutOfBoundsException: 35328</Exception>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.asm.FBClassReader.accept(FBClassReader.java:44)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:565)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:38)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.impl.AnalysisCache.getClassAnalysis(AnalysisCache.java:266)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.XFactory.getXClass(XFactory.java:652)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.AnalysisCacheToAnalysisContextAdapter.setAppClassList(AnalysisCacheToAnalysisContextAdapter.java:391)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.setAppClassList(FindBugs2.java:981)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:224)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:391)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1298)</StackTrace>
+    </Error>
+    <Error>
+      <ErrorMessage>Couldn&apos;t get class info for java/lang/CharSequence</ErrorMessage>
+      <Exception>java.lang.ArrayIndexOutOfBoundsException: 26721</Exception>
+      <StackTrace>org.objectweb.asm.ClassReader.readClass(Unknown Source)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.asm.FBClassReader.accept(FBClassReader.java:44)</StackTrace>
+      <StackTrace>org.objectweb.asm.ClassReader.accept(Unknown Source)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassParserUsingASM.parse(ClassParserUsingASM.java:565)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine.analyze(ClassInfoAnalysisEngine.java:38)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.impl.AnalysisCache.getClassAnalysis(AnalysisCache.java:266)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.XFactory.getXClass(XFactory.java:652)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addInheritanceEdge(Subtypes2.java:1227)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addSupertypeEdges(Subtypes2.java:1200)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addClassAndGetClassVertex(Subtypes2.java:275)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.ch.Subtypes2.addClass(Subtypes2.java:244)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.ba.AnalysisCacheToAnalysisContextAdapter.setAppClassList(AnalysisCacheToAnalysisContextAdapter.java:400)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.setAppClassList(FindBugs2.java:981)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:224)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:391)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1298)</StackTrace>
+    </Error>
+  </Errors>
+  <FindBugsSummary timestamp="Wed, 30 Jul 2014 23:31:52 +0900" total_classes="0" referenced_classes="97" total_bugs="0" total_size="0" num_packages="0" vm_version="25.5-b02" cpu_seconds="1.42" clock_seconds="1.54" peak_mbytes="79.02" alloc_mbytes="780.50" gc_seconds="0.04">
     <FindBugsProfile>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="1199" invocations="588" avgMicrosecondsPerInvocation="2039" maxMicrosecondsPerInvocation="58230" standardDeviationMircosecondsPerInvocation="5453"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="808" invocations="205" avgMicrosecondsPerInvocation="3945" maxMicrosecondsPerInvocation="31185" standardDeviationMircosecondsPerInvocation="5418"/>
-      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="798" invocations="158" avgMicrosecondsPerInvocation="5056" maxMicrosecondsPerInvocation="96772" standardDeviationMircosecondsPerInvocation="8905"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="797" invocations="98" avgMicrosecondsPerInvocation="8136" maxMicrosecondsPerInvocation="83576" standardDeviationMircosecondsPerInvocation="17295"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="690" invocations="199" avgMicrosecondsPerInvocation="3470" maxMicrosecondsPerInvocation="27850" standardDeviationMircosecondsPerInvocation="4259"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="637" invocations="158" avgMicrosecondsPerInvocation="4036" maxMicrosecondsPerInvocation="19834" standardDeviationMircosecondsPerInvocation="4434"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="625" invocations="158" avgMicrosecondsPerInvocation="3957" maxMicrosecondsPerInvocation="34717" standardDeviationMircosecondsPerInvocation="5074"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="422" invocations="98" avgMicrosecondsPerInvocation="4309" maxMicrosecondsPerInvocation="43031" standardDeviationMircosecondsPerInvocation="8378"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="398" invocations="146" avgMicrosecondsPerInvocation="2730" maxMicrosecondsPerInvocation="20272" standardDeviationMircosecondsPerInvocation="3628"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="363" invocations="158" avgMicrosecondsPerInvocation="2299" maxMicrosecondsPerInvocation="17249" standardDeviationMircosecondsPerInvocation="3135"/>
-      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="329" invocations="401" avgMicrosecondsPerInvocation="822" maxMicrosecondsPerInvocation="20157" standardDeviationMircosecondsPerInvocation="1842"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.impl.ZipCodeBaseFactory" totalMilliseconds="269" invocations="20" avgMicrosecondsPerInvocation="13476" maxMicrosecondsPerInvocation="267770" standardDeviationMircosecondsPerInvocation="58339"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="209" invocations="158" avgMicrosecondsPerInvocation="1328" maxMicrosecondsPerInvocation="9228" standardDeviationMircosecondsPerInvocation="1886"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="195" invocations="98" avgMicrosecondsPerInvocation="1992" maxMicrosecondsPerInvocation="23352" standardDeviationMircosecondsPerInvocation="3444"/>
-      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="187" invocations="548" avgMicrosecondsPerInvocation="341" maxMicrosecondsPerInvocation="12756" standardDeviationMircosecondsPerInvocation="1224"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="165" invocations="98" avgMicrosecondsPerInvocation="1691" maxMicrosecondsPerInvocation="28201" standardDeviationMircosecondsPerInvocation="4336"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="161" invocations="98" avgMicrosecondsPerInvocation="1647" maxMicrosecondsPerInvocation="27123" standardDeviationMircosecondsPerInvocation="4361"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="159" invocations="98" avgMicrosecondsPerInvocation="1623" maxMicrosecondsPerInvocation="21334" standardDeviationMircosecondsPerInvocation="3855"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="137" invocations="158" avgMicrosecondsPerInvocation="867" maxMicrosecondsPerInvocation="9251" standardDeviationMircosecondsPerInvocation="1458"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="129" invocations="119" avgMicrosecondsPerInvocation="1088" maxMicrosecondsPerInvocation="37868" standardDeviationMircosecondsPerInvocation="3742"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.URLProblems" totalMilliseconds="113" invocations="28" avgMicrosecondsPerInvocation="4068" maxMicrosecondsPerInvocation="17525" standardDeviationMircosecondsPerInvocation="4656"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="113" invocations="591" avgMicrosecondsPerInvocation="192" maxMicrosecondsPerInvocation="10555" standardDeviationMircosecondsPerInvocation="856"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="113" invocations="98" avgMicrosecondsPerInvocation="1158" maxMicrosecondsPerInvocation="18885" standardDeviationMircosecondsPerInvocation="2864"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="106" invocations="98" avgMicrosecondsPerInvocation="1089" maxMicrosecondsPerInvocation="20488" standardDeviationMircosecondsPerInvocation="2855"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="106" invocations="28" avgMicrosecondsPerInvocation="3788" maxMicrosecondsPerInvocation="18338" standardDeviationMircosecondsPerInvocation="4551"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="103" invocations="28" avgMicrosecondsPerInvocation="3692" maxMicrosecondsPerInvocation="15342" standardDeviationMircosecondsPerInvocation="4358"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="389" invocations="170" avgMicrosecondsPerInvocation="2290" maxMicrosecondsPerInvocation="53032" standardDeviationMircosecondsPerInvocation="6348"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.impl.ZipCodeBaseFactory" totalMilliseconds="210" invocations="24" avgMicrosecondsPerInvocation="8772" maxMicrosecondsPerInvocation="204852" standardDeviationMircosecondsPerInvocation="40889"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="74" invocations="2" avgMicrosecondsPerInvocation="37465" maxMicrosecondsPerInvocation="64206" standardDeviationMircosecondsPerInvocation="26740"/>
     </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>
