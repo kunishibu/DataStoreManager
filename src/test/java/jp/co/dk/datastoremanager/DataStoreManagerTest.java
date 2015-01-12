@@ -16,7 +16,7 @@ public class DataStoreManagerTest extends DataStoreManagerTestFoundation{
 		// ==============================正常系==============================
 		// 接続先プロパティの設定がマスターのみの場合
 		try {
-			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("properties/test/datastoremanager/success/datastoremanager_accessable_001.properties"));
+			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("datastoremanager/success/datastoremanager_accessable_001.properties"));
 			assertNotNull(target.defaultDataStore);
 			assertNotNull(target.dataStores);
 			assertEquals (target.dataStores.size(), 0);
@@ -27,7 +27,7 @@ public class DataStoreManagerTest extends DataStoreManagerTestFoundation{
 		
 		// 接続先プロパティの設定がマスター、個別の接続先に設定している場合
 		try {
-			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("properties/test/datastoremanager/success/datastoremanager_accessable_002.properties"));
+			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("datastoremanager/success/datastoremanager_accessable_002.properties"));
 			assertNotNull(target.defaultDataStore);
 			assertNotNull(target.dataStores);
 			assertEquals (target.dataStores.size(), 1);
@@ -51,7 +51,7 @@ public class DataStoreManagerTest extends DataStoreManagerTestFoundation{
 		// ==============================正常系==============================
 		// 接続先プロパティの設定がマスターのみの場合、正常にトランザクション開始できること。
 		try {
-			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("properties/test/datastoremanager/success/datastoremanager_accessable_001.properties"));
+			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("datastoremanager/success/datastoremanager_accessable_001.properties"));
 			target.startTrunsaction();
 			DataBaseDataStore defaultDataBaseDataStore = (DataBaseDataStore)target.defaultDataStore;
 			assertTrue(defaultDataBaseDataStore.isTransaction());
@@ -63,7 +63,7 @@ public class DataStoreManagerTest extends DataStoreManagerTestFoundation{
 		
 		// 接続先プロパティの設定がマスター、個別の接続先を指定している場合、正常にトランザクション開始できること。
 		try {
-			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("properties/test/datastoremanager/success/datastoremanager_accessable_002.properties"));
+			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("datastoremanager/success/datastoremanager_accessable_002.properties"));
 			target.startTrunsaction();
 			DataBaseDataStore defaultDataBaseDataStore = (DataBaseDataStore)target.defaultDataStore;
 			DataBaseDataStore usersDataBaseDataStore   = (DataBaseDataStore)target.dataStores.get("USERS");
@@ -76,7 +76,7 @@ public class DataStoreManagerTest extends DataStoreManagerTestFoundation{
 		// ==============================異常系==============================
 		// 接続先プロパティの設定がマスターのみの場合で、接続先が不正な場合、正常にエラーが発生すること。
 		try {
-			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("properties/test/datastoremanager/success/datastoremanager_access_fail_001.properties"));
+			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("datastoremanager/success/datastoremanager_access_fail_001.properties"));
 			target.startTrunsaction();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -85,7 +85,7 @@ public class DataStoreManagerTest extends DataStoreManagerTestFoundation{
 		
 		// 接続先プロパティの設定がマスター、個別の接続先を指定している場合で、接続先が不正な場合、正常にエラーが発生すること。
 		try {
-			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("properties/test/datastoremanager/success/datastoremanager_access_fail_002.properties"));
+			DataStoreManager target = new DataStoreManager(new DataStoreManagerProperty("datastoremanager/success/datastoremanager_access_fail_002.properties"));
 			target.startTrunsaction();
 			fail();
 		} catch (DataStoreManagerException e) {

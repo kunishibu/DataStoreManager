@@ -23,7 +23,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		// ===============正常系===============
 		// ORACLEの設定値を正常に取得できること
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/oracle.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/success/oracle.properties");
 			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDefaultDataStoreParameter();
 			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
 			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
@@ -38,7 +38,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 		// MYSQLの設定値を正常に取得できること
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/mysql.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/success/mysql.properties");
 			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDefaultDataStoreParameter();
 			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
 			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
@@ -52,7 +52,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 		// POSTGRESQLの設定値を正常に取得できること
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/postgresql.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/success/postgresql.properties");
 			DataStoreParameter dataStoreParameter = dataStoreManagerProperty.getDefaultDataStoreParameter();
 			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
 			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
@@ -67,7 +67,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 		// ===============異常系===============
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/datastore_type_not_set.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/error/datastore_type_not_set.properties");
 			dataStoreManagerProperty.getDefaultDataStoreParameter();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -76,7 +76,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/url_not_set.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/error/url_not_set.properties");
 			dataStoreManagerProperty.getDefaultDataStoreParameter();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -84,7 +84,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		}
 		
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/sid_not_set.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/error/sid_not_set.properties");
 			dataStoreManagerProperty.getDefaultDataStoreParameter();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -92,7 +92,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		}
 		
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/user_not_set.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/error/user_not_set.properties");
 			dataStoreManagerProperty.getDefaultDataStoreParameter();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -101,7 +101,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/password_not_set.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/error/password_not_set.properties");
 			dataStoreManagerProperty.getDefaultDataStoreParameter();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -114,7 +114,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		// ===============正常系===============
 		// デフォルトのみしか定義されていない場合、空のマップが返却されること。
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/defaultonly.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/success/defaultonly.properties");
 			Map<String, DataStoreParameter> dataStoreParameterMap = dataStoreManagerProperty.getDataStoreParameters();
 			assertEquals(dataStoreParameterMap.size(), 0);
 		} catch (DataStoreManagerException e) {
@@ -123,7 +123,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 		// ORACLEの設定値を正常に取得できること
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/oracle.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/success/oracle.properties");
 			Map<String, DataStoreParameter> dataStoreParameterMap = dataStoreManagerProperty.getDataStoreParameters();
 			assertEquals(dataStoreParameterMap.size(), 1);
 			DataStoreParameter dataStoreParameter = dataStoreParameterMap.get("USERS");
@@ -140,7 +140,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 		// MYSQLの設定値を正常に取得できること
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/mysql.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/success/mysql.properties");
 			Map<String, DataStoreParameter> dataStoreParameterMap = dataStoreManagerProperty.getDataStoreParameters();
 			assertEquals(dataStoreParameterMap.size(), 1);
 			DataStoreParameter dataStoreParameter = dataStoreParameterMap.get("USERS");
@@ -157,7 +157,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 		// POSTGRESQLの設定値を正常に取得できること
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/postgresql.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/success/postgresql.properties");
 			Map<String, DataStoreParameter> dataStoreParameterMap = dataStoreManagerProperty.getDataStoreParameters();
 			assertEquals(dataStoreParameterMap.size(), 1);
 			DataStoreParameter dataStoreParameter = dataStoreParameterMap.get("USERS");
@@ -175,7 +175,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		// ===============異常系===============
 		// データストア種別が設定されていない場合、例外が発生すること。
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/datastore_type_not_set.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/error/datastore_type_not_set.properties");
 			dataStoreManagerProperty.getDataStoreParameters();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -185,7 +185,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 		// URLが設定されていない場合、例外が発生すること。
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/url_not_set.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/error/url_not_set.properties");
 			dataStoreManagerProperty.getDataStoreParameters();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -194,7 +194,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 		// SIDが設定されていない場合、例外が発生すること。
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/sid_not_set.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/error/sid_not_set.properties");
 			dataStoreManagerProperty.getDataStoreParameters();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -203,7 +203,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 		// ユーザが設定されていない場合、例外が発生すること。
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/user_not_set.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/error/user_not_set.properties");
 			dataStoreManagerProperty.getDataStoreParameters();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -212,7 +212,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 		
 		// パスワードが設定されていない場合、例外が発生すること。
 		try {
-			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/error/password_not_set.properties");
+			DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/error/password_not_set.properties");
 			dataStoreManagerProperty.getDataStoreParameters();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -223,7 +223,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 	
 	@Test
 	public void getNameList() {
-		DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/getnamelist.properties");
+		DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/success/getnamelist.properties");
 		
 		// 引数に指定された名称がnullの場合、空のリストを返却すること。
 		assertEquals(dataStoreManagerProperty.getNameList(null).size(), 0);
@@ -248,7 +248,7 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 	
 	@Test
 	public void getStringWithName() {
-		DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("properties/test/datastoremanager/success/getstringwithname.properties");
+		DataStoreManagerProperty dataStoreManagerProperty = new DataStoreManagerProperty("datastoremanager/success/getstringwithname.properties");
 		// プロパティキー、名称ともにnullの場合、nullが返却されること。
 		assertNull(dataStoreManagerProperty.getStringWithName(null, null));
 		// 名称のみnullの場合、nullが返却されること。

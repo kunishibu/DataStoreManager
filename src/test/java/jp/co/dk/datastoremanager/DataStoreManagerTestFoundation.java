@@ -18,7 +18,7 @@ public class DataStoreManagerTestFoundation extends TestCaseTemplate{
 	 */
 	
 	protected DataBaseAccessParameter getAccessableDataBaseAccessParameter() throws DataStoreManagerException {
-		return new DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "192.168.11.101:3306", "test_db", "test_user", "123456");
+		return new DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "192.168.11.104:3306", "test_db", "test_user", "123456");
 	}
 	
 	/**

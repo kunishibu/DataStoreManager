@@ -34,7 +34,7 @@ public class DataStoreManagerProperty extends PropertiesFile {
 	 * @throws PropertyException プロパティファイルオブジェクトのインスタンス作成に失敗した場合
 	 */
 	public DataStoreManagerProperty () throws PropertyException {
-		this("properties/DataStoreManager.properties");
+		this("DataStoreManager.properties");
 	}
 	
 	/**
