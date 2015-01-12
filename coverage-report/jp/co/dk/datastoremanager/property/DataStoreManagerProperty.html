@@ -9,7 +9,7 @@
 </head>
 <body onload='prettyPrint()'>
   <table cellpadding='0' cellspacing='1'>
-    <caption>DataStoreManager/src/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java</caption>
+    <caption>DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java</caption>
     <tr>
       <td class='line'>1</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>package jp.co.dk.datastoremanager.property;</pre></td>
@@ -91,11 +91,11 @@ import jp.co.dk.property.exception.PropertyException;
       <td><pre class='prettyprint'>	public DataStoreManagerProperty (String file) throws PropertyException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>50</td><td class='count'>25</td>
+      <td class='line'>50</td><td class='count'>14</td>
       <td><pre class='prettyprint covered' id='l50s0'>		super(file);</pre></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td class='count'>25</td>
+      <td class='line'>51</td><td class='count'>14</td>
       <td><pre class='prettyprint covered' id='l51s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -126,21 +126,21 @@ import jp.co.dk.property.exception.PropertyException;
       <td><pre class='prettyprint'>	public DataStoreParameter getDefaultDataStoreParameter() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>9</td>
+      <td></td><td class='count'>6</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#40bf00' onclick='hidePath()'>Path coverage: 3/4</span>
         <span class='covered' onclick="showPath(this,'l73s0 l74s0 l76s0 l80s0')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l73s0 l74s0 l83s0 l87s0')">B: 7</span>
+        <span class='covered' onclick="showPath(this,'l73s0 l74s0 l83s0 l87s0')">B: 4</span>
         <span class='covered' onclick="showPath(this,'l73s0 l74s0 l90s0 l94s0')">C: 1</span>
         <span class='uncovered' onclick="showPath(this,'l73s0 l74s0 l97s0')">D: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>73</td><td class='count'>14</td>
+      <td class='line'>73</td><td class='count'>7</td>
       <td><pre class='prettyprint covered' id='l73s0'>		DataStoreKind dataStoreKind = DataStoreKind.convert(this.getString("datastore.type"));</pre></td>
     </tr>
     <tr>
-      <td class='line'>74</td><td class='count'>26</td>
+      <td class='line'>74</td><td class='count'>12</td>
       <td><pre class='prettyprint covered' id='l74s0'>		switch (dataStoreKind) {</pre></td>
     </tr>
     <tr>
@@ -148,23 +148,23 @@ import jp.co.dk.property.exception.PropertyException;
       <td><pre class='prettyprint'>			case ORACLE:</pre></td>
     </tr>
     <tr>
-      <td class='line'>76</td><td class='count'>5</td>
+      <td class='line'>76</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l76s0'>				String oracleurl      = this.getString("datastore.oracle.url"     );</pre></td>
     </tr>
     <tr>
-      <td class='line'>77</td><td class='count'>5</td>
+      <td class='line'>77</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l77s0'>				String oraclesid      = this.getString("datastore.oracle.sid"     );</pre></td>
     </tr>
     <tr>
-      <td class='line'>78</td><td class='count'>5</td>
+      <td class='line'>78</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l78s0'>				String oracleuser     = this.getString("datastore.oracle.user"    );</pre></td>
     </tr>
     <tr>
-      <td class='line'>79</td><td class='count'>5</td>
+      <td class='line'>79</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l79s0'>				String oraclepassword = this.getString("datastore.oracle.password");</pre></td>
     </tr>
     <tr>
-      <td class='line'>80</td><td class='count'>5</td>
+      <td class='line'>80</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l80s0'>				return new DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, oracleurl, oraclesid, oracleuser, oraclepassword);</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -173,23 +173,23 @@ import jp.co.dk.property.exception.PropertyException;
       <td><pre class='prettyprint'>			case MYSQL:</pre></td>
     </tr>
     <tr>
-      <td class='line'>83</td><td class='count'>7</td>
+      <td class='line'>83</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l83s0'>				String mysqlurl      = this.getString("datastore.mysql.url"     );</pre></td>
     </tr>
     <tr>
-      <td class='line'>84</td><td class='count'>7</td>
+      <td class='line'>84</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l84s0'>				String mysqlsid      = this.getString("datastore.mysql.sid"     );</pre></td>
     </tr>
     <tr>
-      <td class='line'>85</td><td class='count'>7</td>
+      <td class='line'>85</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l85s0'>				String mysqluser     = this.getString("datastore.mysql.user"    );</pre></td>
     </tr>
     <tr>
-      <td class='line'>86</td><td class='count'>7</td>
+      <td class='line'>86</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l86s0'>				String mysqlpassword = this.getString("datastore.mysql.password");</pre></td>
     </tr>
     <tr>
-      <td class='line'>87</td><td class='count'>7</td>
+      <td class='line'>87</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l87s0'>				return new DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, mysqlurl, mysqlsid, mysqluser, mysqlpassword);</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -249,19 +249,19 @@ import jp.co.dk.property.exception.PropertyException;
       <td><pre class='prettyprint'>	public Map&lt;String, DataStoreParameter> getDataStoreParameters() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>108</td><td class='count'>15</td>
+      <td class='line'>108</td><td class='count'>8</td>
       <td><pre class='prettyprint covered' id='l108s0'>		Map&lt;String, DataStoreParameter> configurationMap = new HashMap&lt;String, DataStoreParameter>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>109</td><td class='count'>15</td>
+      <td class='line'>109</td><td class='count'>8</td>
       <td><pre class='prettyprint covered' id='l109s0'>		List&lt;String> nameList = this.getNameList("datastore.type");</pre></td>
     </tr>
     <tr>
-      <td class='line'>110</td><td class='count'>36</td>
+      <td class='line'>110</td><td class='count'>20</td>
       <td><pre class='prettyprint covered' id='l110s0'>		for (String name : nameList) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>111</td><td class='count'>11</td>
+      <td class='line'>111</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l111s0'>			configurationMap.put(name, this.getDataStoreParameter(name));</pre></td>
     </tr>
     <tr>
@@ -269,7 +269,7 @@ import jp.co.dk.property.exception.PropertyException;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>113</td><td class='count'>10</td>
+      <td class='line'>113</td><td class='count'>7</td>
       <td><pre class='prettyprint covered' id='l113s0'>		return configurationMap;</pre></td>
     </tr>
     <tr>
@@ -304,21 +304,21 @@ import jp.co.dk.property.exception.PropertyException;
       <td><pre class='prettyprint'>	protected DataStoreParameter getDataStoreParameter(String name) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>6</td>
+      <td></td><td class='count'>4</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#40bf00' onclick='hidePath()'>Path coverage: 3/4</span>
         <span class='covered' onclick="showPath(this,'l137s0 l138s0 l140s0 l144s0')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l137s0 l138s0 l147s0 l151s0')">B: 4</span>
+        <span class='covered' onclick="showPath(this,'l137s0 l138s0 l147s0 l151s0')">B: 2</span>
         <span class='covered' onclick="showPath(this,'l137s0 l138s0 l154s0 l158s0')">C: 1</span>
         <span class='uncovered' onclick="showPath(this,'l137s0 l138s0 l161s0')">D: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>137</td><td class='count'>11</td>
+      <td class='line'>137</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l137s0'>		DataStoreKind dataStoreKind = DataStoreKind.convert(this.getString("datastore.type", name));</pre></td>
     </tr>
     <tr>
-      <td class='line'>138</td><td class='count'>20</td>
+      <td class='line'>138</td><td class='count'>8</td>
       <td><pre class='prettyprint covered' id='l138s0'>		switch (dataStoreKind) {</pre></td>
     </tr>
     <tr>
@@ -326,23 +326,23 @@ import jp.co.dk.property.exception.PropertyException;
       <td><pre class='prettyprint'>			case ORACLE:</pre></td>
     </tr>
     <tr>
-      <td class='line'>140</td><td class='count'>5</td>
+      <td class='line'>140</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l140s0'>				String oracleurl      = this.getStringWithName("datastore.oracle.url"     , name);</pre></td>
     </tr>
     <tr>
-      <td class='line'>141</td><td class='count'>5</td>
+      <td class='line'>141</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l141s0'>				String oraclesid      = this.getStringWithName("datastore.oracle.sid"     , name);</pre></td>
     </tr>
     <tr>
-      <td class='line'>142</td><td class='count'>5</td>
+      <td class='line'>142</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l142s0'>				String oracleuser     = this.getStringWithName("datastore.oracle.user"    , name);</pre></td>
     </tr>
     <tr>
-      <td class='line'>143</td><td class='count'>5</td>
+      <td class='line'>143</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l143s0'>				String oraclepassword = this.getStringWithName("datastore.oracle.password", name);</pre></td>
     </tr>
     <tr>
-      <td class='line'>144</td><td class='count'>5</td>
+      <td class='line'>144</td><td class='count'>1</td>
       <td><pre class='prettyprint covered' id='l144s0'>				return new DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, oracleurl, oraclesid, oracleuser, oraclepassword);</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -351,23 +351,23 @@ import jp.co.dk.property.exception.PropertyException;
       <td><pre class='prettyprint'>			case MYSQL:</pre></td>
     </tr>
     <tr>
-      <td class='line'>147</td><td class='count'>4</td>
+      <td class='line'>147</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l147s0'>				String mysqlurl      = this.getStringWithName("datastore.mysql.url"     , name);</pre></td>
     </tr>
     <tr>
-      <td class='line'>148</td><td class='count'>4</td>
+      <td class='line'>148</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l148s0'>				String mysqlsid      = this.getStringWithName("datastore.mysql.sid"     , name);</pre></td>
     </tr>
     <tr>
-      <td class='line'>149</td><td class='count'>4</td>
+      <td class='line'>149</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l149s0'>				String mysqluser     = this.getStringWithName("datastore.mysql.user"    , name);</pre></td>
     </tr>
     <tr>
-      <td class='line'>150</td><td class='count'>4</td>
+      <td class='line'>150</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l150s0'>				String mysqlpassword = this.getStringWithName("datastore.mysql.password", name);</pre></td>
     </tr>
     <tr>
-      <td class='line'>151</td><td class='count'>4</td>
+      <td class='line'>151</td><td class='count'>2</td>
       <td><pre class='prettyprint covered' id='l151s0'>				return new DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, mysqlurl, mysqlsid, mysqluser, mysqlpassword);</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -439,48 +439,48 @@ import jp.co.dk.property.exception.PropertyException;
       <td><pre class='prettyprint'>	protected List&lt;String> getNameList(String key) {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>20</td>
+      <td></td><td class='count'>13</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#55aa00' onclick='hidePath()'>Path coverage: 2/3</span>
         <span class='covered' onclick="showPath(this,'l184s0 l185s0 l185s2')">A: 1</span>
         <span class='uncovered' onclick="showPath(this,'l184s0 l185s0 l185s1 l185s2')">B: 0</span>
-        <span class='covered' onclick="showPath(this,'l184s0 l185s0 l185s1 l186s0 l187s0 l192s0')">C: 19</span>
+        <span class='covered' onclick="showPath(this,'l184s0 l185s0 l185s1 l186s0 l187s0 l192s0')">C: 12</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>184</td><td class='count'>20</td>
+      <td class='line'>184</td><td class='count'>13</td>
       <td><pre class='prettyprint covered' id='l184s0'>		List&lt;String> list = new ArrayList&lt;String>();</pre></td>
     </tr>
     <tr>
-      <td class='line'>185</td><td class='count'>20</td>
-      <td><pre class='prettyprint jmp'>		<span id='l185s0' title='Executions: 20' class='covered'>if (key == null</span> || <span id='l185s1' title='Executions: 19' class='covered'>key.equals("")) return list;</span> </pre></td>
+      <td class='line'>185</td><td class='count'>13</td>
+      <td><pre class='prettyprint jmp'>		<span id='l185s0' title='Executions: 13' class='covered'>if (key == null</span> || <span id='l185s1' title='Executions: 12' class='covered'>key.equals("")) return list;</span> </pre></td>
     </tr>
     <tr>
-      <td class='line'>186</td><td class='count'>19</td>
-      <td><pre class='prettyprint covered' id='l186s0'>		Iterator&lt;String> keys = getKeys(key);</pre></td>
+      <td class='line'>186</td><td class='count'>12</td>
+      <td><pre class='prettyprint covered' id='l186s0'>		Iterator&lt;String> keys = getKeys(key).iterator();</pre></td>
     </tr>
     <tr>
-      <td class='line'>187</td><td class='count'>70</td>
+      <td class='line'>187</td><td class='count'>43</td>
       <td><pre class='prettyprint covered' id='l187s0'>		while(keys.hasNext()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>188</td><td class='count'>32</td>
+      <td class='line'>188</td><td class='count'>19</td>
       <td><pre class='prettyprint covered' id='l188s0'>			String getKey = keys.next();</pre></td>
     </tr>
     <tr>
-      <td class='line'>189</td><td class='count'>32</td>
+      <td class='line'>189</td><td class='count'>19</td>
       <td><pre class='prettyprint covered' id='l189s0'>			String replaceKey = getKey.replaceAll(key+".", "");</pre></td>
     </tr>
     <tr>
-      <td class='line'>190</td><td class='count'>32</td>
-      <td><pre class='prettyprint jmp'>			<span id='l190s0' title='Executions: 32' class='covered'>if (!key.equals(replaceKey)</span> && <span id='l190s1' title='Executions: 14' class='covered'>!replaceKey.equals("")) list.add(replaceKey);</span> </pre></td>
+      <td class='line'>190</td><td class='count'>19</td>
+      <td><pre class='prettyprint jmp'>			<span id='l190s0' title='Executions: 19' class='covered'>if (!key.equals(replaceKey)</span> && <span id='l190s1' title='Executions: 8' class='covered'>!replaceKey.equals("")) list.add(replaceKey);</span> </pre></td>
     </tr>
     <tr>
       <td class='line'>191</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>192</td><td class='count'>19</td>
+      <td class='line'>192</td><td class='count'>12</td>
       <td><pre class='prettyprint covered' id='l192s0'>		return list;</pre></td>
     </tr>
     <tr>
@@ -507,28 +507,28 @@ import jp.co.dk.property.exception.PropertyException;
       <td><pre class='prettyprint'>	protected String getStringWithName(String key, String name) {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>44</td>
+      <td></td><td class='count'>20</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 3/3</span>
         <span class='covered' onclick="showPath(this,'l207s0 l207s1')">A: 2</span>
         <span class='covered' onclick="showPath(this,'l207s0 l208s0 l209s0 l209s1')">B: 1</span>
-        <span class='covered' onclick="showPath(this,'l207s0 l208s0 l209s0 l210s0')">C: 41</span>
+        <span class='covered' onclick="showPath(this,'l207s0 l208s0 l209s0 l210s0')">C: 17</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>207</td><td class='count'>44</td>
-      <td><pre class='prettyprint jmp'>		<span id='l207s0' title='Executions: 44' class='covered'>if (name == null)</span> <span id='l207s1' title='Executions: 2' class='covered'>return null;</span></pre></td>
+      <td class='line'>207</td><td class='count'>20</td>
+      <td><pre class='prettyprint jmp'>		<span id='l207s0' title='Executions: 20' class='covered'>if (name == null)</span> <span id='l207s1' title='Executions: 2' class='covered'>return null;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>208</td><td class='count'>42</td>
+      <td class='line'>208</td><td class='count'>18</td>
       <td><pre class='prettyprint covered' id='l208s0'>		String value = this.getString(new StringBuilder(key).append('.').append(name).toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>209</td><td class='count'>42</td>
-      <td><pre class='prettyprint jmp'>		<span id='l209s0' title='Executions: 42' class='covered'>if (value == null )</span> <span id='l209s1' title='Executions: 1' class='covered'>return null;</span></pre></td>
+      <td class='line'>209</td><td class='count'>18</td>
+      <td><pre class='prettyprint jmp'>		<span id='l209s0' title='Executions: 18' class='covered'>if (value == null )</span> <span id='l209s1' title='Executions: 1' class='covered'>return null;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>210</td><td class='count'>41</td>
+      <td class='line'>210</td><td class='count'>17</td>
       <td><pre class='prettyprint covered' id='l210s0'>		return value;</pre></td>
     </tr>
     <tr>

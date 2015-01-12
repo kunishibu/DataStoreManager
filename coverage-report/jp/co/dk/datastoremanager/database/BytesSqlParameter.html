@@ -9,7 +9,7 @@
 </head>
 <body onload='prettyPrint()'>
   <table cellpadding='0' cellspacing='1'>
-    <caption>DataStoreManager/src/jp/co/dk/datastoremanager/database/BytesSqlParameter.java</caption>
+    <caption>DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/BytesSqlParameter.java</caption>
     <tr>
       <td class='line'>1</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>package jp.co.dk.datastoremanager.database;</pre></td>
@@ -36,69 +36,69 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>15</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected byte[] <span class='instance covered' title='Reads: 13660 Writes: 15'>parameter</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected byte[] <span class='instance covered' title='Reads: 13656 Writes: 13'>parameter</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>17</td><td class='count'>10</td>
+      <td class='line'>17</td><td class='count'>9</td>
       <td><pre class='prettyprint covered' id='l17s0'>	BytesSqlParameter(byte[] parameter) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>18</td><td class='count'>10</td>
+      <td class='line'>18</td><td class='count'>9</td>
       <td><pre class='prettyprint covered' id='l18s0'>		this.parameter = parameter;</pre></td>
     </tr>
     <tr>
-      <td class='line'>19</td><td class='count'>10</td>
+      <td class='line'>19</td><td class='count'>9</td>
       <td><pre class='prettyprint covered' id='l19s0'>	} </pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>6</td>
+      <td></td><td class='count'>5</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
         <span class='covered' onclick="showPath(this,'l21s0 l22s0 l34s0')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l21s0 l22s0 l24s0 l34s0')">B: 5</span>
+        <span class='covered' onclick="showPath(this,'l21s0 l22s0 l24s0 l34s0')">B: 4</span>
       </td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>21</td><td class='count'>6</td>
+      <td class='line'>21</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l21s0'>	BytesSqlParameter(Object parameter) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>22</td><td class='count'>6</td>
-      <td><pre class='prettyprint jmp'>		<span id='l22s0' title='Executions: 6' class='covered'>if (parameter != null)</span> <span id='l22s1' title='Executions: 5' class='covered'>{</span></pre></td>
+      <td class='line'>22</td><td class='count'>5</td>
+      <td><pre class='prettyprint jmp'>		<span id='l22s0' title='Executions: 5' class='covered'>if (parameter != null)</span> <span id='l22s1' title='Executions: 4' class='covered'>{</span></pre></td>
     </tr>
     <tr>
       <td class='line'>23</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>24</td><td class='count'>5</td>
+      <td class='line'>24</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l24s0'>				ByteArrayOutputStream baos= new ByteArrayOutputStream();  </pre></td>
     </tr>
     <tr>
-      <td class='line'>25</td><td class='count'>5</td>
+      <td class='line'>25</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l25s0'>				ObjectOutputStream oos = new ObjectOutputStream(baos);</pre></td>
     </tr>
     <tr>
-      <td class='line'>26</td><td class='count'>5</td>
+      <td class='line'>26</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l26s0'>				oos.writeObject(parameter);</pre></td>
     </tr>
     <tr>
-      <td class='line'>27</td><td class='count'>5</td>
+      <td class='line'>27</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l27s0'>				this.parameter = baos.toByteArray();</pre></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td class='count'>5</td>
+      <td class='line'>28</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l28s0'>				baos.close();</pre></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td class='count'>5</td>
+      <td class='line'>29</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l29s0'>				oos.close();</pre></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l30s0'>			} catch (IOException e) {</pre></td>
+      <td class='line'>30</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l30s0'>			} catch (IOException e) {</pre></td>
     </tr>
     <tr>
       <td class='line'>31</td><td class='count'>0</td>
@@ -113,7 +113,7 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>34</td><td class='count'>6</td>
+      <td class='line'>34</td><td class='count'>5</td>
       <td><pre class='prettyprint covered' id='l34s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -130,24 +130,24 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>2</td>
+      <td></td><td class='count'>0</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
         <span class='uncovered' onclick="showPath(this,'l39s0 l42s0 l47s0')">A: 0</span>
-        <span class='covered' onclick="showPath(this,'l39s0 l40s0 l47s0')">B: 2</span>
+        <span class='uncovered' onclick="showPath(this,'l39s0 l40s0 l47s0')">B: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>39</td><td class='count'>2</td>
-      <td><pre class='prettyprint jmp'>			<span id='l39s0' title='Executions: 2' class='covered'>if (this.parameter != null)</span> <span id='l39s1' title='Executions: 2' class='covered'>{</span></pre></td>
+      <td class='line'>39</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l39s0' title='Executions: 0' class='uncovered'>if (this.parameter != null)</span> <span id='l39s1' title='Executions: 0' class='uncovered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>40</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l40s0'>				statement.setBytes(index, this.parameter);</pre></td>
+      <td class='line'>40</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l40s0'>				statement.setBytes(index, this.parameter);</pre></td>
     </tr>
     <tr>
-      <td class='line'>41</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>			} else {</pre></td>
+      <td class='line'>41</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l41s0'>			} else {</pre></td>
     </tr>
     <tr>
       <td class='line'>42</td><td class='count'>0</td>
@@ -170,8 +170,8 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>47</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l47s0'>	}</pre></td>
+      <td class='line'>47</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l47s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
