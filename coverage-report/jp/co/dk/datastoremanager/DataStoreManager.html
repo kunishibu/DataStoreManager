@@ -59,7 +59,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
     </tr>
     <tr>
       <td class='line'>32</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected DataStore <span class='instance covered' title='Reads: 1 Writes: 3'>defaultDataStore</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected DataStore <span class='instance covered' title='Reads: 4 Writes: 6'>defaultDataStore</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -67,8 +67,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='comment'>	/** 各種データストア */</pre></td>
     </tr>
     <tr>
-      <td class='line'>35</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l35s0'>	protected Map&lt;String, DataStore> <span class='instance uncovered' title='Reads: 1 Writes: 4'>dataStores</span> = new HashMap&lt;String, DataStore>();</pre></td>
+      <td class='line'>35</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l35s0'>	protected Map&lt;String, DataStore> <span class='instance uncovered' title='Reads: 5 Writes: 7'>dataStores</span> = new HashMap&lt;String, DataStore>();</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -77,7 +77,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
     </tr>
     <tr>
       <td class='line'>38</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected DataStoreManagerProperty <span class='instance uncovered' title='Reads: 0 Writes: 3'>dataStoreManagerProperty</span>;</pre></td>
+      <td><pre class='prettyprint'>	protected DataStoreManagerProperty <span class='instance uncovered' title='Reads: 0 Writes: 6'>dataStoreManagerProperty</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -89,41 +89,41 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 * @param dataStoreManagerProperty データストアマネージャプロパティ
 	 * @throws DataStoreManagerException インスタンスの生成に失敗した場合
 	 */    <tr>
-      <td></td><td class='count'>3</td>
+      <td></td><td class='count'>7</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
-        <span class='uncovered' onclick="showPath(this,'l47s0 l48s0 l48s1')">A: 0</span>
-        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l49s0 l52s0 l55s0')">B: 3</span>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l48s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l47s0 l48s0 l49s0 l52s0 l55s0')">B: 6</span>
       </td>
     </tr>
 </div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>47</td><td class='count'>4</td>
+      <td class='line'>47</td><td class='count'>7</td>
       <td><pre class='prettyprint covered' id='l47s0'>	public DataStoreManager(DataStoreManagerProperty dataStoreManagerProperty) throws DataStoreManagerException{</pre></td>
     </tr>
     <tr>
-      <td class='line'>48</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>		<span id='l48s0' title='Executions: 4' class='covered'>if (dataStoreManagerProperty == null)</span> <span id='l48s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(PROPERTY_IS_NOT_SET);</span></pre></td>
+      <td class='line'>48</td><td class='count'>7</td>
+      <td><pre class='prettyprint jmp'>		<span id='l48s0' title='Executions: 7' class='covered'>if (dataStoreManagerProperty == null)</span> <span id='l48s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(PROPERTY_IS_NOT_SET);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>49</td><td class='count'>3</td>
+      <td class='line'>49</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l49s0'>		this.dataStoreManagerProperty               = dataStoreManagerProperty;</pre></td>
     </tr>
     <tr>
-      <td class='line'>50</td><td class='count'>3</td>
+      <td class='line'>50</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l50s0'>		this.defaultDataStore                       = dataStoreManagerProperty.getDefaultDataStoreParameter().createDataStore();</pre></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td class='count'>3</td>
+      <td class='line'>51</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l51s0'>		Map&lt;String, DataStoreParameter> parameterMap = dataStoreManagerProperty.getDataStoreParameters();</pre></td>
     </tr>
     <tr>
-      <td class='line'>52</td><td class='count'>7</td>
+      <td class='line'>52</td><td class='count'>15</td>
       <td><pre class='prettyprint covered' id='l52s0'>		for (String name : parameterMap.keySet()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>53</td><td class='count'>1</td>
+      <td class='line'>53</td><td class='count'>3</td>
       <td><pre class='prettyprint covered' id='l53s0'>			this.dataStores.put(name, parameterMap.get(name).createDataStore());</pre></td>
     </tr>
     <tr>
@@ -131,7 +131,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td class='count'>3</td>
+      <td class='line'>55</td><td class='count'>6</td>
       <td><pre class='prettyprint covered' id='l55s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -149,24 +149,24 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public void startTrunsaction() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>64</td><td class='count'>1</td>
+      <td class='line'>64</td><td class='count'>4</td>
       <td><pre class='prettyprint covered' id='l64s0'>		this.defaultDataStore.startTransaction();</pre></td>
     </tr>
     <tr>
-      <td class='line'>65</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l65s0'>		for (DataStore dataStore : this.dataStores.values()) {</pre></td>
+      <td class='line'>65</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l65s0'>		for (DataStore dataStore : this.dataStores.values()) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>66</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l66s0'>			dataStore.startTransaction();</pre></td>
+      <td class='line'>66</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l66s0'>			dataStore.startTransaction();</pre></td>
     </tr>
     <tr>
       <td class='line'>67</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>68</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l68s0'>	}</pre></td>
+      <td class='line'>68</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l68s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
