@@ -1,133 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="3.0.1" sequence="0" timestamp="1433089498228" analysisTimestamp="1433089498236" release="">
+<BugCollection version="3.0.1" sequence="0" timestamp="1433695019957" analysisTimestamp="1433695019965" release="">
   <Project projectName="">
     <Jar>/home/dk/git/DataStoreManager/datastoremanager_1.0.0.jar</Jar>
-    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/message_1.0.0_all.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/commons-configuration-1.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/commons-lang-2.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/commons-logging-1.1.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/log4j-1.2.17.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/logger_1.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/message_1.0.0.jar</AuxClasspathEntry>
     <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/mysql-connector-java-5.1.26-bin.jar</AuxClasspathEntry>
-    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/property_1.0.0_all.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/property_1.0.0.jar</AuxClasspathEntry>
     <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/test/jmockit-coverage.jar</AuxClasspathEntry>
     <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/test/jmockit.jar</AuxClasspathEntry>
-    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/test/testtemplate_all.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/test/junit-4.10.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/dk/git/DataStoreManager/lib/test/testtemplate_1.0.0.jar</AuxClasspathEntry>
     <SrcDir>/home/dk/git/DataStoreManager/src/main/java</SrcDir>
   </Project>
   <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="18" abbrev="UrF" category="STYLE">
     <Class classname="jp.co.dk.datastoremanager.DataStoreManager">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="35" end="143" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="36" end="148" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Class>
     <Field classname="jp.co.dk.datastoremanager.DataStoreManager" name="dataStoreManagerProperty" signature="Ljp/co/dk/datastoremanager/property/DataStoreManagerProperty;" isStatic="false">
       <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Field>
-    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="49" end="49" startBytecode="32" endBytecode="32" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="54" end="54" startBytecode="62" endBytecode="62" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
   </BugInstance>
   <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" rank="18" abbrev="WMI" category="PERFORMANCE">
     <Class classname="jp.co.dk.datastoremanager.DataStoreManager">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="35" end="143" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="36" end="148" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Class>
     <Method classname="jp.co.dk.datastoremanager.DataStoreManager" name="&lt;init&gt;" signature="(Ljp/co/dk/datastoremanager/property/DataStoreManagerProperty;)V" isStatic="false">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="47" end="55" startBytecode="0" endBytecode="271" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="51" end="60" startBytecode="0" endBytecode="309" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Method>
-    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="53" end="53" startBytecode="92" endBytecode="92" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="58" end="58" startBytecode="122" endBytecode="122" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
   </BugInstance>
   <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" rank="18" abbrev="WMI" category="PERFORMANCE">
     <Class classname="jp.co.dk.datastoremanager.DataStoreManager">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="35" end="143" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="36" end="148" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Class>
     <Method classname="jp.co.dk.datastoremanager.DataStoreManager" name="commit" signature="()V" isStatic="false">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="90" end="94" startBytecode="0" endBytecode="149" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="95" end="99" startBytecode="0" endBytecode="149" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Method>
     <Field classname="jp.co.dk.datastoremanager.DataStoreManager" name="dataStores" signature="Ljava/util/Map;" isStatic="false">
       <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Field>
-    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="92" end="92" startBytecode="48" endBytecode="48" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="97" end="97" startBytecode="48" endBytecode="48" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
   </BugInstance>
   <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" rank="18" abbrev="WMI" category="PERFORMANCE">
     <Class classname="jp.co.dk.datastoremanager.DataStoreManager">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="35" end="143" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="36" end="148" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Class>
     <Method classname="jp.co.dk.datastoremanager.DataStoreManager" name="finishTrunsaction" signature="()V" isStatic="false">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="128" end="143" startBytecode="0" endBytecode="350" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="133" end="148" startBytecode="0" endBytecode="350" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Method>
     <Field classname="jp.co.dk.datastoremanager.DataStoreManager" name="dataStores" signature="Ljava/util/Map;" isStatic="false">
       <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Field>
-    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="131" end="131" startBytecode="55" endBytecode="55" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="136" end="136" startBytecode="122" endBytecode="122" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java" role="SOURCE_LINE_ANOTHER_INSTANCE"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="136" end="136" startBytecode="55" endBytecode="55" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="141" end="141" startBytecode="122" endBytecode="122" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java" role="SOURCE_LINE_ANOTHER_INSTANCE"/>
   </BugInstance>
   <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" rank="18" abbrev="WMI" category="PERFORMANCE">
     <Class classname="jp.co.dk.datastoremanager.DataStoreManager">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="35" end="143" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="36" end="148" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Class>
     <Method classname="jp.co.dk.datastoremanager.DataStoreManager" name="hasError" signature="()Z" isStatic="false">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="114" end="118" startBytecode="0" endBytecode="162" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="119" end="123" startBytecode="0" endBytecode="162" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Method>
     <Field classname="jp.co.dk.datastoremanager.DataStoreManager" name="dataStores" signature="Ljava/util/Map;" isStatic="false">
       <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Field>
-    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="116" end="116" startBytecode="53" endBytecode="53" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="121" end="121" startBytecode="53" endBytecode="53" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
   </BugInstance>
   <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" rank="18" abbrev="WMI" category="PERFORMANCE">
     <Class classname="jp.co.dk.datastoremanager.DataStoreManager">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="35" end="143" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="36" end="148" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Class>
     <Method classname="jp.co.dk.datastoremanager.DataStoreManager" name="rollback" signature="()V" isStatic="false">
-      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="102" end="106" startBytecode="0" endBytecode="149" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="107" end="111" startBytecode="0" endBytecode="149" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Method>
     <Field classname="jp.co.dk.datastoremanager.DataStoreManager" name="dataStores" signature="Ljava/util/Map;" isStatic="false">
       <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
     </Field>
-    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="104" end="104" startBytecode="48" endBytecode="48" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.DataStoreManager" start="109" end="109" startBytecode="48" endBytecode="48" sourcefile="DataStoreManager.java" sourcepath="jp/co/dk/datastoremanager/DataStoreManager.java"/>
   </BugInstance>
   <BugInstance type="NP_NULL_ON_SOME_PATH" priority="2" rank="8" abbrev="NP" category="CORRECTNESS">
     <Class classname="jp.co.dk.datastoremanager.database.DataBaseDataStore">
-      <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="30" end="234" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="32" end="240" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java"/>
     </Class>
     <Method classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false">
-      <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="211" end="223" startBytecode="0" endBytecode="226" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="217" end="229" startBytecode="0" endBytecode="226" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java"/>
     </Method>
     <Field classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" name="transaction" signature="Ljp/co/dk/datastoremanager/database/Transaction;" isStatic="false" role="FIELD_CONTAINS_VALUE">
       <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java"/>
     </Field>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="221" end="221" startBytecode="96" endBytecode="96" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java" role="SOURCE_LINE_DEREF"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="216" end="216" startBytecode="64" endBytecode="64" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java" role="SOURCE_LINE_KNOWN_NULL"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="218" end="218" startBytecode="73" endBytecode="73" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java" role="SOURCE_LINE_KNOWN_NULL"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="227" end="227" startBytecode="96" endBytecode="96" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java" role="SOURCE_LINE_DEREF"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="222" end="222" startBytecode="64" endBytecode="64" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java" role="SOURCE_LINE_KNOWN_NULL"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.database.DataBaseDataStore" start="224" end="224" startBytecode="73" endBytecode="73" sourcefile="DataBaseDataStore.java" sourcepath="jp/co/dk/datastoremanager/database/DataBaseDataStore.java" role="SOURCE_LINE_KNOWN_NULL"/>
   </BugInstance>
   <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL">
     <Class classname="jp.co.dk.datastoremanager.database.Transaction">
-      <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="49" end="312" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="40" end="329" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java"/>
     </Class>
     <Method classname="jp.co.dk.datastoremanager.database.Transaction" name="select" signature="(Ljp/co/dk/datastoremanager/database/Sql;)Ljava/sql/ResultSet;" isStatic="false">
-      <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="203" end="213" startBytecode="0" endBytecode="291" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java"/>
+      <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="213" end="224" startBytecode="0" endBytecode="324" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java"/>
     </Method>
     <Class classname="java.sql.Statement" role="CLASS_REFTYPE">
       <SourceLine classname="java.sql.Statement" start="1092" end="1368" sourcefile="Statement.java" sourcepath="java/sql/Statement.java"/>
     </Class>
     <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="205" end="205" startBytecode="10" endBytecode="10" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="206" end="206" startBytecode="16" endBytecode="16" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="207" end="207" startBytecode="21" endBytecode="21" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="208" end="208" startBytecode="35" endBytecode="35" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
-    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="209" end="209" startBytecode="41" endBytecode="41" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="216" end="216" startBytecode="39" endBytecode="39" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="217" end="217" startBytecode="45" endBytecode="45" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="218" end="218" startBytecode="50" endBytecode="50" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="219" end="219" startBytecode="64" endBytecode="64" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="jp.co.dk.datastoremanager.database.Transaction" start="220" end="220" startBytecode="70" endBytecode="70" sourcefile="Transaction.java" sourcepath="jp/co/dk/datastoremanager/database/Transaction.java" role="SOURCE_LINE_PATH_CONTINUES"/>
     <String value="{Statement x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
   </BugInstance>
   <Errors errors="0" missingClasses="0"></Errors>
-  <FindBugsSummary timestamp="Mon, 1 Jun 2015 01:24:58 +0900" total_classes="28" referenced_classes="99" total_bugs="8" total_size="1038" num_packages="5" java_version="1.8.0_20" vm_version="25.20-b23" cpu_seconds="7.18" clock_seconds="2.52" peak_mbytes="190.90" alloc_mbytes="1749.50" gc_seconds="0.06" priority_2="8">
-    <PackageStats package="jp.co.dk.datastoremanager" total_bugs="6" total_types="9" total_size="128" priority_2="6">
+  <FindBugsSummary timestamp="Mon, 8 Jun 2015 01:36:59 +0900" total_classes="28" referenced_classes="101" total_bugs="8" total_size="1073" num_packages="5" java_version="1.8.0_20" vm_version="25.20-b23" cpu_seconds="7.52" clock_seconds="2.58" peak_mbytes="190.26" alloc_mbytes="1749.50" gc_seconds="0.08" priority_2="8">
+    <PackageStats package="jp.co.dk.datastoremanager" total_bugs="6" total_types="9" total_size="131" priority_2="6">
       <ClassStats class="jp.co.dk.datastoremanager.DaoConstants" sourceFile="DaoConstants.java" interface="true" size="3" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.DataAccessObject" sourceFile="DataAccessObject.java" interface="true" size="1" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.DataAccessObjectFactory" sourceFile="DataAccessObjectFactory.java" interface="true" size="2" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.DataConvertable" sourceFile="DataConvertable.java" interface="true" size="3" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.DataStore" sourceFile="DataStore.java" interface="true" size="8" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.DataStoreKind" sourceFile="DataStoreKind.java" interface="false" size="25" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.DataStoreManager" sourceFile="DataStoreManager.java" interface="false" size="59" bugs="6" priority_2="6"/>
+      <ClassStats class="jp.co.dk.datastoremanager.DataStoreManager" sourceFile="DataStoreManager.java" interface="false" size="62" bugs="6" priority_2="6"/>
       <ClassStats class="jp.co.dk.datastoremanager.DataStoreParameter" sourceFile="DataStoreParameter.java" interface="false" size="19" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.Record" sourceFile="Record.java" interface="true" size="8" bugs="0"/>
     </PackageStats>
-    <PackageStats package="jp.co.dk.datastoremanager.database" total_bugs="2" total_types="15" total_size="738" priority_2="2">
-      <ClassStats class="jp.co.dk.datastoremanager.database.AbstractDataBaseAccessObject" sourceFile="AbstractDataBaseAccessObject.java" interface="false" size="44" bugs="0"/>
+    <PackageStats package="jp.co.dk.datastoremanager.database" total_bugs="2" total_types="15" total_size="760" priority_2="2">
+      <ClassStats class="jp.co.dk.datastoremanager.database.AbstractDataBaseAccessObject" sourceFile="AbstractDataBaseAccessObject.java" interface="false" size="48" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.database.BytesSqlParameter" sourceFile="BytesSqlParameter.java" interface="false" size="49" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.database.DataBaseAccessParameter" sourceFile="DataBaseAccessParameter.java" interface="false" size="47" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.DataBaseDataStore" sourceFile="DataBaseDataStore.java" interface="false" size="110" bugs="1" priority_2="1"/>
+      <ClassStats class="jp.co.dk.datastoremanager.database.DataBaseDataStore" sourceFile="DataBaseDataStore.java" interface="false" size="113" bugs="1" priority_2="1"/>
       <ClassStats class="jp.co.dk.datastoremanager.database.DataBaseDriverConstants" sourceFile="DataBaseDriverConstants.java" interface="false" size="29" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.database.DataBaseRecord" sourceFile="DataBaseRecord.java" interface="false" size="77" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.database.DateSqlParameter" sourceFile="DateSqlParameter.java" interface="false" size="31" bugs="0"/>
@@ -138,10 +144,10 @@
       <ClassStats class="jp.co.dk.datastoremanager.database.SqlParameter" sourceFile="SqlParameter.java" interface="false" size="4" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.database.StringSqlParameter" sourceFile="StringSqlParameter.java" interface="false" size="30" bugs="0"/>
       <ClassStats class="jp.co.dk.datastoremanager.database.TimestampSqlParameter" sourceFile="TimestampSqlParameter.java" interface="false" size="30" bugs="0"/>
-      <ClassStats class="jp.co.dk.datastoremanager.database.Transaction" sourceFile="Transaction.java" interface="false" size="148" bugs="1" priority_2="1"/>
+      <ClassStats class="jp.co.dk.datastoremanager.database.Transaction" sourceFile="Transaction.java" interface="false" size="163" bugs="1" priority_2="1"/>
     </PackageStats>
-    <PackageStats package="jp.co.dk.datastoremanager.exception" total_bugs="0" total_types="1" total_size="26">
-      <ClassStats class="jp.co.dk.datastoremanager.exception.DataStoreManagerException" sourceFile="DataStoreManagerException.java" interface="false" size="26" bugs="0"/>
+    <PackageStats package="jp.co.dk.datastoremanager.exception" total_bugs="0" total_types="1" total_size="36">
+      <ClassStats class="jp.co.dk.datastoremanager.exception.DataStoreManagerException" sourceFile="DataStoreManagerException.java" interface="false" size="36" bugs="0"/>
     </PackageStats>
     <PackageStats package="jp.co.dk.datastoremanager.message" total_bugs="0" total_types="1" total_size="75">
       <ClassStats class="jp.co.dk.datastoremanager.message.DataStoreManagerMessage" sourceFile="DataStoreManagerMessage.java" interface="false" size="75" bugs="0"/>
@@ -151,34 +157,31 @@
       <ClassStats class="jp.co.dk.datastoremanager.property.DataStoreManagerProperty$1" sourceFile="DataStoreManagerProperty.java" interface="false" size="4" bugs="0"/>
     </PackageStats>
     <FindBugsProfile>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="244" invocations="649" avgMicrosecondsPerInvocation="375" maxMicrosecondsPerInvocation="20267" standardDeviationMircosecondsPerInvocation="1141"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="128" invocations="175" avgMicrosecondsPerInvocation="736" maxMicrosecondsPerInvocation="32775" standardDeviationMircosecondsPerInvocation="2745"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="116" invocations="181" avgMicrosecondsPerInvocation="642" maxMicrosecondsPerInvocation="13577" standardDeviationMircosecondsPerInvocation="1740"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="114" invocations="158" avgMicrosecondsPerInvocation="727" maxMicrosecondsPerInvocation="14617" standardDeviationMircosecondsPerInvocation="1862"/>
-      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="101" invocations="430" avgMicrosecondsPerInvocation="236" maxMicrosecondsPerInvocation="7162" standardDeviationMircosecondsPerInvocation="629"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="91" invocations="99" avgMicrosecondsPerInvocation="925" maxMicrosecondsPerInvocation="10916" standardDeviationMircosecondsPerInvocation="2028"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="85" invocations="158" avgMicrosecondsPerInvocation="543" maxMicrosecondsPerInvocation="12451" standardDeviationMircosecondsPerInvocation="1595"/>
-      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="84" invocations="158" avgMicrosecondsPerInvocation="536" maxMicrosecondsPerInvocation="11092" standardDeviationMircosecondsPerInvocation="1385"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="83" invocations="99" avgMicrosecondsPerInvocation="841" maxMicrosecondsPerInvocation="16207" standardDeviationMircosecondsPerInvocation="2208"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="60" invocations="158" avgMicrosecondsPerInvocation="382" maxMicrosecondsPerInvocation="8759" standardDeviationMircosecondsPerInvocation="873"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="55" invocations="180" avgMicrosecondsPerInvocation="306" maxMicrosecondsPerInvocation="24994" standardDeviationMircosecondsPerInvocation="2015"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="52" invocations="146" avgMicrosecondsPerInvocation="362" maxMicrosecondsPerInvocation="7200" standardDeviationMircosecondsPerInvocation="867"/>
-      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="49" invocations="608" avgMicrosecondsPerInvocation="81" maxMicrosecondsPerInvocation="2651" standardDeviationMircosecondsPerInvocation="222"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="47" invocations="137" avgMicrosecondsPerInvocation="345" maxMicrosecondsPerInvocation="11042" standardDeviationMircosecondsPerInvocation="1273"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="43" invocations="28" avgMicrosecondsPerInvocation="1538" maxMicrosecondsPerInvocation="12519" standardDeviationMircosecondsPerInvocation="3021"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="34" invocations="99" avgMicrosecondsPerInvocation="351" maxMicrosecondsPerInvocation="8524" standardDeviationMircosecondsPerInvocation="999"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="32" invocations="158" avgMicrosecondsPerInvocation="203" maxMicrosecondsPerInvocation="7107" standardDeviationMircosecondsPerInvocation="781"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="30" invocations="99" avgMicrosecondsPerInvocation="312" maxMicrosecondsPerInvocation="8169" standardDeviationMircosecondsPerInvocation="884"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="29" invocations="99" avgMicrosecondsPerInvocation="298" maxMicrosecondsPerInvocation="9532" standardDeviationMircosecondsPerInvocation="1073"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="27" invocations="28" avgMicrosecondsPerInvocation="969" maxMicrosecondsPerInvocation="11544" standardDeviationMircosecondsPerInvocation="2680"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="25" invocations="652" avgMicrosecondsPerInvocation="39" maxMicrosecondsPerInvocation="1171" standardDeviationMircosecondsPerInvocation="54"/>
-      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="23" invocations="63" avgMicrosecondsPerInvocation="368" maxMicrosecondsPerInvocation="3634" standardDeviationMircosecondsPerInvocation="769"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="22" invocations="99" avgMicrosecondsPerInvocation="231" maxMicrosecondsPerInvocation="5253" standardDeviationMircosecondsPerInvocation="676"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="22" invocations="28" avgMicrosecondsPerInvocation="808" maxMicrosecondsPerInvocation="8835" standardDeviationMircosecondsPerInvocation="1710"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="20" invocations="28" avgMicrosecondsPerInvocation="720" maxMicrosecondsPerInvocation="10749" standardDeviationMircosecondsPerInvocation="1954"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="18" invocations="28" avgMicrosecondsPerInvocation="678" maxMicrosecondsPerInvocation="9217" standardDeviationMircosecondsPerInvocation="1932"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="18" invocations="28" avgMicrosecondsPerInvocation="668" maxMicrosecondsPerInvocation="5916" standardDeviationMircosecondsPerInvocation="1367"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref$CheckCallSitesAndReturnInstructions" totalMilliseconds="18" invocations="158" avgMicrosecondsPerInvocation="113" maxMicrosecondsPerInvocation="8802" standardDeviationMircosecondsPerInvocation="701"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="269" invocations="662" avgMicrosecondsPerInvocation="407" maxMicrosecondsPerInvocation="16695" standardDeviationMircosecondsPerInvocation="1033"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="166" invocations="183" avgMicrosecondsPerInvocation="910" maxMicrosecondsPerInvocation="59182" standardDeviationMircosecondsPerInvocation="4550"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="121" invocations="432" avgMicrosecondsPerInvocation="281" maxMicrosecondsPerInvocation="13938" standardDeviationMircosecondsPerInvocation="1009"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="115" invocations="101" avgMicrosecondsPerInvocation="1148" maxMicrosecondsPerInvocation="17743" standardDeviationMircosecondsPerInvocation="2962"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="88" invocations="177" avgMicrosecondsPerInvocation="500" maxMicrosecondsPerInvocation="8434" standardDeviationMircosecondsPerInvocation="907"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="87" invocations="158" avgMicrosecondsPerInvocation="552" maxMicrosecondsPerInvocation="7455" standardDeviationMircosecondsPerInvocation="936"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="87" invocations="101" avgMicrosecondsPerInvocation="861" maxMicrosecondsPerInvocation="13323" standardDeviationMircosecondsPerInvocation="2015"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="86" invocations="158" avgMicrosecondsPerInvocation="546" maxMicrosecondsPerInvocation="8541" standardDeviationMircosecondsPerInvocation="1110"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="67" invocations="101" avgMicrosecondsPerInvocation="668" maxMicrosecondsPerInvocation="22557" standardDeviationMircosecondsPerInvocation="2460"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="63" invocations="621" avgMicrosecondsPerInvocation="101" maxMicrosecondsPerInvocation="5398" standardDeviationMircosecondsPerInvocation="386"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="61" invocations="158" avgMicrosecondsPerInvocation="389" maxMicrosecondsPerInvocation="6857" standardDeviationMircosecondsPerInvocation="681"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="57" invocations="665" avgMicrosecondsPerInvocation="87" maxMicrosecondsPerInvocation="11273" standardDeviationMircosecondsPerInvocation="583"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="54" invocations="158" avgMicrosecondsPerInvocation="345" maxMicrosecondsPerInvocation="7333" standardDeviationMircosecondsPerInvocation="771"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="54" invocations="141" avgMicrosecondsPerInvocation="384" maxMicrosecondsPerInvocation="10382" standardDeviationMircosecondsPerInvocation="1183"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="54" invocations="146" avgMicrosecondsPerInvocation="370" maxMicrosecondsPerInvocation="10518" standardDeviationMircosecondsPerInvocation="1000"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="46" invocations="101" avgMicrosecondsPerInvocation="456" maxMicrosecondsPerInvocation="5879" standardDeviationMircosecondsPerInvocation="1139"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="40" invocations="180" avgMicrosecondsPerInvocation="223" maxMicrosecondsPerInvocation="23964" standardDeviationMircosecondsPerInvocation="1791"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="31" invocations="101" avgMicrosecondsPerInvocation="308" maxMicrosecondsPerInvocation="6808" standardDeviationMircosecondsPerInvocation="924"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="31" invocations="158" avgMicrosecondsPerInvocation="196" maxMicrosecondsPerInvocation="3801" standardDeviationMircosecondsPerInvocation="486"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="28" invocations="101" avgMicrosecondsPerInvocation="279" maxMicrosecondsPerInvocation="9166" standardDeviationMircosecondsPerInvocation="983"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="27" invocations="101" avgMicrosecondsPerInvocation="271" maxMicrosecondsPerInvocation="4476" standardDeviationMircosecondsPerInvocation="774"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="22" invocations="63" avgMicrosecondsPerInvocation="354" maxMicrosecondsPerInvocation="3044" standardDeviationMircosecondsPerInvocation="666"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="20" invocations="28" avgMicrosecondsPerInvocation="737" maxMicrosecondsPerInvocation="9980" standardDeviationMircosecondsPerInvocation="1956"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="19" invocations="28" avgMicrosecondsPerInvocation="699" maxMicrosecondsPerInvocation="9421" standardDeviationMircosecondsPerInvocation="1739"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="19" invocations="28" avgMicrosecondsPerInvocation="678" maxMicrosecondsPerInvocation="7006" standardDeviationMircosecondsPerInvocation="1393"/>
     </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>

@@ -109,70 +109,74 @@ Starting audit...
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreKind.java:50: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreKind.java:53: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreKind.java:55: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:9: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:11: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:17: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:25: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:30: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:30:1: File contains tab characters (this is the first instance).
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:31: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:32:29: 変数 'defaultDataStore' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:33: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:34: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:35: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:35:42: 変数 'dataStores' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:36: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:37: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:38:44: 変数 'dataStoreManagerProperty' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:39: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:40: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:42: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:10: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:12: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:18: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:26: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:31: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:31:1: File contains tab characters (this is the first instance).
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:32: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:33:29: 変数 'defaultDataStore' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:34: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:35: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:36: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:36:42: 変数 'dataStores' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:37: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:38: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:39:44: 変数 'dataStoreManagerProperty' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:40: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:41: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:42:26: 変数 'logger' は private とし、アクセッサメソッドを持つべきです。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:43: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:47: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:47:33: Parameter dataStoreManagerProperty should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:47:58: 'dataStoreManagerProperty' がフィールドを隠しています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:47:91: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:47:116: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:48: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:48: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:49: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:50: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:44: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:46: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:47: Line has trailing spaces.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:51: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:51:33: Parameter dataStoreManagerProperty should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:51:58: 'dataStoreManagerProperty' がフィールドを隠しています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:51:91: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:51:116: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:52: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:53: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:53: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:56: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:57: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:60: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:63:9: メソッド 'startTrunsaction' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:63:47: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:69: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:70: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:76: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:76:9: メソッド 'getDataAccessObject' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:76:53: Parameter daoConstants should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:76:87: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:77: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:78: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:54: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:55: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:56: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:58: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:61: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:62: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:65: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:68:9: メソッド 'startTrunsaction' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:68:47: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:74: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:75: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:81: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:81:9: メソッド 'getDataAccessObject' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:81:53: Parameter daoConstants should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:81:87: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:82: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:83: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:84: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:86: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:89:9: メソッド 'commit' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:89:37: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:95: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:96: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:98: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:101:9: メソッド 'rollback' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:101:39: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:107: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:108: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:110: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:113:9: メソッド 'hasError' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:114: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:116: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:120: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:121: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:124: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:127:9: メソッド 'finishTrunsaction' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:127:48: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:88: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:89: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:91: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:94:9: メソッド 'commit' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:94:37: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:100: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:101: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:103: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:106:9: メソッド 'rollback' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:106:39: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:112: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:113: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:115: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:118:9: メソッド 'hasError' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:119: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:121: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:125: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:126: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:129: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:132:9: メソッド 'finishTrunsaction' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreManager.java:132:48: DataStoreManagerException のクラス情報が取得できません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreParameter.java:5: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreParameter.java:7: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/DataStoreParameter.java:9: Line has trailing spaces.
@@ -253,101 +257,105 @@ Starting audit...
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/Record.java:77:51: DataStoreManagerException のクラス情報が取得できません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/Record.java:77:76: ';' の前にホワイトスペースがあります。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:0: Missing package-info.java file.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:13: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:15: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:17: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:19: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:21: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:25:79: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:26: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:26:1: File contains tab characters (this is the first instance).
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:27: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:28:37: 変数 'dataStore' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:29: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:30: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:41: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:49: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:49:48: Parameter driver should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:49:80: Parameter url should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:49:92: Parameter sid should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:49:104: Parameter user should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:49:117: Parameter password should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:49:141: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:50: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:52: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:53: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:58: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:62: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:62:48: Parameter dataBaseAccessParameter should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:62:104: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:63: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:63: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:67: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:68: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:76: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:76:48: Parameter dataStore should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:76:58: 'dataStore' がフィールドを隠しています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:76:76: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:77: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:77: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:77: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:78:53: 'cast' の後にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:80: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:81: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:84: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:88:9: メソッド 'createTable' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:88:33: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:88:49: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:91: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:92: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:95: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:99:9: メソッド 'dropTable' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:99:31: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:99:47: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:102: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:103: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:106: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:110:9: メソッド 'insert' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:110:28: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:110:44: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:113: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:114: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:117: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:122:9: メソッド 'update' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:122:27: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:122:43: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:125: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:126: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:129: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:134:9: メソッド 'delete' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:134:27: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:134:43: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:137: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:138: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:14: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:16: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:18: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:20: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:22: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:26:79: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:27: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:27:1: File contains tab characters (this is the first instance).
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:28: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:29:37: 変数 'dataStore' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:30: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:31: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:32:26: 変数 'logger' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:33: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:34: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:45: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:53: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:53:48: Parameter driver should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:53:80: Parameter url should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:53:92: Parameter sid should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:53:104: Parameter user should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:53:117: Parameter password should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:53:141: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:54: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:56: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:57: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:62: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:66: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:66:48: Parameter dataBaseAccessParameter should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:66:104: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:67: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:68: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:68: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:72: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:73: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:81: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:81:48: Parameter dataStore should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:81:58: 'dataStore' がフィールドを隠しています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:81:76: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:83: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:83: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:83: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:84:53: 'cast' の後にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:86: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:87: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:90: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:94:9: メソッド 'createTable' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:94:33: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:94:49: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:97: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:98: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:101: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:105:9: メソッド 'dropTable' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:105:31: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:105:47: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:108: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:109: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:112: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:116:9: メソッド 'insert' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:116:28: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:116:44: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:119: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:120: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:123: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:128:9: メソッド 'update' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:128:27: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:128:43: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:131: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:132: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:135: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:140:9: メソッド 'delete' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:140:27: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:140:43: DataStoreManagerException のクラス情報が取得できません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:143: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:149: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:149:9: メソッド 'selectSingle' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:149:17: '<E>' には @param タグが必要です。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:149:59: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:149:68: Parameter convertable should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:149:90: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:149:115: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:151: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:152: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:152: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:155: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:156: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:160: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:166:9: メソッド 'selectMulti' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:167: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:167:17: '<E>' には @param タグが必要です。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:167:64: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:167:73: Parameter convertable should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:167:95: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:167:120: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:172: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:172:51: 'cast' の後にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:176: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:144: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:149: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:155: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:155:9: メソッド 'selectSingle' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:155:17: '<E>' には @param タグが必要です。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:155:59: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:155:68: Parameter convertable should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:155:90: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:155:115: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:157: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:158: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:158: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:161: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:162: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:166: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:172:9: メソッド 'selectMulti' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:173: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:173:17: '<E>' には @param タグが必要です。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:173:64: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:173:73: Parameter convertable should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:173:95: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:173:120: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:178: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:178:51: 'cast' の後にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/AbstractDataBaseAccessObject.java:182: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/BytesSqlParameter.java:0: ファイルが新しい行で終了していません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/BytesSqlParameter.java:3: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/BytesSqlParameter.java:13: Javadoc コメントがありません。
@@ -480,128 +488,132 @@ Starting audit...
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseAccessParameter.java:123: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseAccessParameter.java:124: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseAccessParameter.java:129: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:12: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:14: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:17: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:22: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:22:1: File contains tab characters (this is the first instance).
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:23: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:24:43: 変数 'dataBaseAccessParameter' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:25: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:26: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:27:31: 変数 'transaction' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:28: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:29: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:30:29: 変数 'sqlList' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:31: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:32: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:33: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:33:51: 変数 'exceptionList' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:34: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:35: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:38: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:41:27: Parameter dataBaseAccessParameter should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:41:51: 'dataBaseAccessParameter' がフィールドを隠しています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:44: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:45:9: メソッド 'startTransaction' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:46:47: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:50:9: メソッド 'getDataAccessObject' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:51: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:51:53: Parameter daoConstants should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:51:87: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:52: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:52: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:53: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:54: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:56: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:58:9: メソッド 'commit' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:59:37: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:60: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:14: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:16: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:19: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:24: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:24:1: File contains tab characters (this is the first instance).
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:25: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:26:43: 変数 'dataBaseAccessParameter' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:27: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:28: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:29:31: 変数 'transaction' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:30: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:31: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:32:29: 変数 'sqlList' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:33: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:34: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:35: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:35:51: 変数 'exceptionList' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:36: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:37: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:38:26: 変数 'logger' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:39: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:40: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:43: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:46:27: Parameter dataBaseAccessParameter should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:46:51: 'dataBaseAccessParameter' がフィールドを隠しています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:47: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:50: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:51:9: メソッド 'startTransaction' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:52:47: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:56:9: メソッド 'getDataAccessObject' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:57: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:57:53: Parameter daoConstants should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:57:87: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:58: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:58: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:59: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:60: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:64:9: メソッド 'rollback' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:65:39: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:62: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:64:9: メソッド 'commit' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:65:37: DataStoreManagerException のクラス情報が取得できません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:66: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:66: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:69: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:70:9: メソッド 'finishTransaction' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:71:48: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:70:9: メソッド 'rollback' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:71:39: DataStoreManagerException のクラス情報が取得できません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:72: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:72: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:76: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:77:9: メソッド 'isTransaction' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:79: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:75: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:76:9: メソッド 'finishTransaction' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:77:48: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:78: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:78: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:82: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:83:9: メソッド 'hasError' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:83:9: メソッド 'isTransaction' は拡張するように設計されていません - abstract か final か空である必要があります。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:85: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:88: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:89: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:92: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:96:9: メソッド 'createTable' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:96:26: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:96:42: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:98: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:98: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:106: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:107: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:110: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:114:9: メソッド 'dropTable' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:114:24: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:114:40: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:116: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:116: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:124: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:125: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:128: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:132:9: メソッド 'insert' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:132:21: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:132:37: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:134: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:134: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:142: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:143: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:146: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:151:9: メソッド 'update' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:151:20: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:151:36: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:153: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:153: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:162: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:163: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:166: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:171:9: メソッド 'delete' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:171:20: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:171:36: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:173: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:173: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:182: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:183: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:186: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:187: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:191:9: メソッド 'select' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:191:26: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:191:42: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:193: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:193: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:202: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:203:9: メソッド 'hashCode' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:89:9: メソッド 'hasError' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:91: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:94: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:95: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:98: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:102:9: メソッド 'createTable' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:102:26: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:102:42: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:104: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:104: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:112: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:113: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:116: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:120:9: メソッド 'dropTable' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:120:24: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:120:40: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:122: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:122: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:130: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:131: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:134: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:138:9: メソッド 'insert' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:138:21: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:138:37: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:140: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:140: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:148: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:149: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:152: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:157:9: メソッド 'update' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:157:20: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:157:36: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:159: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:159: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:168: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:169: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:172: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:177:9: メソッド 'delete' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:177:20: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:177:36: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:179: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:179: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:188: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:189: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:192: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:193: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:197:9: メソッド 'select' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:197:26: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:197:42: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:199: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:199: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:208: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:209:9: メソッド 'equals' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:210:31: Parameter object should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:211: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:212: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:214: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:215: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:215: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:215:27: 'if' の後にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:216: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:218: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:209:9: メソッド 'hashCode' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:214: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:215:9: メソッド 'equals' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:216:31: Parameter object should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:217: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:218: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:220: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:221: 'if' 文では '{}' を使用しなければなりません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:221: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:221:27: 'if' の後にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:225: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:226:9: メソッド 'toString' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:230: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:236: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:222: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:224: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:227: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:227: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:227:27: 'if' の後にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:231: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:232:9: メソッド 'toString' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:236: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDataStore.java:242: Line has trailing spaces.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDriverConstants.java:5: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDriverConstants.java:7: Line has trailing spaces.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDriverConstants.java:12: Line has trailing spaces.
@@ -1021,188 +1033,197 @@ Starting audit...
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/TimestampSqlParameter.java:44:60: '17' はマジックナンバーです。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/TimestampSqlParameter.java:49: Line has trailing spaces.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/TimestampSqlParameter.java:59: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:12: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:14: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:21: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:26: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:31: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:31:1: File contains tab characters (this is the first instance).
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:32: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:33:30: 変数 'connection' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:34: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:35: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:36:43: 変数 'dataBaseAccessParameter' は private とし、アクセッサメソッドを持つべきです。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:37: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:38: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:45: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:49: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:49:21: Parameter dataBaseAccessParameter should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:49:45: 'dataBaseAccessParameter' がフィールドを隠しています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:49:77: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:49:102: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:50: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:50: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:52: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:13: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:15: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:22: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:27: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:32: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:32:1: File contains tab characters (this is the first instance).
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:33: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:34:30: 変数 'connection' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:35: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:36: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:37:43: 変数 'dataBaseAccessParameter' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:38: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:39: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:40:26: 変数 'logger' は private とし、アクセッサメソッドを持つべきです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:41: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:42: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:49: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:53: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:53:21: Parameter dataBaseAccessParameter should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:53:45: 'dataBaseAccessParameter' がフィールドを隠しています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:53:77: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:53:102: '{' の前にホワイトスペースがありません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:54: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:55: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:55: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:57: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:59: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:61: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:63: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:65: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:68: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:69: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:72: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:76:26: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:76:42: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:79: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:83: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:89: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:94: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:95: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:98: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:102:21: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:102:37: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:105: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:106: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:107: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:109: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:64: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:66: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:68: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:70: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:72: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:74: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:75: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:78: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:82:26: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:82:42: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:86: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:90: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:96: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:101: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:102: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:105: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:109:21: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:109:37: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:113: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:114: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:120: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:125: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:126: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:129: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:134:20: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:134:36: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:137: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:138: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:139: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:141: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:115: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:117: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:122: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:128: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:133: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:134: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:137: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:142:20: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:142:36: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:146: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:147: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:148: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:154: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:159: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:160: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:163: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:168:20: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:168:36: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:171: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:172: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:173: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:175: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:150: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:157: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:163: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:168: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:169: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:172: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:177:20: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:177:36: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:181: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:182: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:188: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:194: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:197: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:198: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:202:26: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:202:42: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:205: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:206: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:207: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:209: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:213: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:216: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:217: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:220: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:224:24: Parameter sql should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:224:40: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:227: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:230: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:236: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:241: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:242: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:244: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:247:30: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:254: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:255: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:257: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:260:32: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:264: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:267: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:268: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:270: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:273:29: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:280: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:283: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:283:95: '17' はマジックナンバーです。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:285: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:287:31: Parameter object should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:288: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:289: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:290:57: 'cast' の後にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:291: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:294: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:298: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:183: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:185: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:192: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:198: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:204: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:207: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:208: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:212:26: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:212:42: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:216: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:217: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:218: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:220: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:224: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:227: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:228: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:231: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:235:24: Parameter sql should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:235:40: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:239: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:242: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:248: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:253: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:254: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:256: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:259:30: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:268: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:269: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:271: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:274:32: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:280: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:283: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:284: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:286: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:289:29: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:297: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:300: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:300:95: '17' はマジックナンバーです。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:302: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:304:31: Parameter object should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:305: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:306: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:307:57: 'cast' の後にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:308: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:311: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:315: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/Transaction.java:319: Line has trailing spaces.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:0: Missing package-info.java file.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:8: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:10: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:14:72: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:15: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:15:1: File contains tab characters (this is the first instance).
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:16: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:21: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:23: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:10: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:12: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:16:72: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:17: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:17:1: File contains tab characters (this is the first instance).
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:18: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:22: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:23: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:24:26: 変数 'logger' は private とし、アクセッサメソッドを持つべきです。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:25: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:29:42: Parameter msg should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:29:63: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:32: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:33: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:35: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:37: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:42:42: Parameter msg should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:42:64: Parameter str should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:42:75: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:45: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:46: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:48: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:50: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:55: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:55:42: Parameter msg should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:55:64: Parameter list should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:55:82: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:58: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:59: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:61: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:63: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:68:42: Parameter msg should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:68:64: Parameter str should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:68:77: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:26: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:28: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:30: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:34:42: Parameter msg should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:34:63: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:38: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:39: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:41: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:43: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:48:42: Parameter msg should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:48:64: Parameter str should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:48:75: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:52: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:53: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:55: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:57: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:62: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:62:42: Parameter msg should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:62:64: Parameter list should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:62:82: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:66: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:67: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:69: Line has trailing spaces.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:71: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:72: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:74: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:76: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:81: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:81:42: Parameter msg should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:81:64: Parameter throwable should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:81:84: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:84: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:85: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:87: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:89: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:95: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:95:42: Parameter msg should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:95:64: Parameter str should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:95:76: Parameter throwable should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:95:96: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:98: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:99: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:101: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:103: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:109: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:109:42: Parameter msg should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:109:64: Parameter list should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:109:82: ',' の後にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:109:82: Parameter throwable should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:109:102: '{' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:110:33: ',' の後にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:76:42: Parameter msg should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:76:64: Parameter str should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:76:77: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:80: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:81: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:83: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:85: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:90: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:90:42: Parameter msg should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:90:64: Parameter throwable should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:90:84: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:94: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:95: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:97: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:99: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:105: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:105:42: Parameter msg should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:105:64: Parameter str should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:105:76: Parameter throwable should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:105:96: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:109: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:110: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:112: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:113: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:115: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:117: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:123: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:123:42: Parameter msg should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:123:64: Parameter str should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:123:78: Parameter throwable should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:123:98: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:114: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:120: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:120:42: Parameter msg should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:120:64: Parameter list should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:120:82: ',' の後にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:120:82: Parameter throwable should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:120:102: '{' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:121:33: ',' の後にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:124: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:125: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:127: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:129: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:135: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:135:42: Parameter msg should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:135:64: Parameter str should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:135:78: Parameter throwable should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/exception/DataStoreManagerException.java:135:98: '{' の前にホワイトスペースがありません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:0: Missing package-info.java file.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:5: 最初の一文はピリオドで終わらなければなりません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/message/DataStoreManagerMessage.java:7: Line has trailing spaces.
