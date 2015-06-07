@@ -9,7 +9,8 @@ import jp.co.dk.datastoremanager.DataAccessObject;
 import jp.co.dk.datastoremanager.DataConvertable;
 import jp.co.dk.datastoremanager.DataStore;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
-
+import jp.co.dk.logger.Logger;
+import jp.co.dk.logger.LoggerFactory;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 /**
@@ -26,6 +27,9 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	
 	/** データストアオブジェクト */
 	protected DataBaseDataStore dataStore;
+	
+	/** ロガーインスタンス */
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	/**
 	 * コンストラクタ<p/>
@@ -60,6 +64,7 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	 * @throws DataStoreManagerException パラメータが不足している場合、またはトランザクション開始に失敗した場合
 	 */
 	protected AbstractDataBaseAccessObject(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {
+		this.logger.constractor(this.getClass(), dataBaseAccessParameter);
 		if (dataBaseAccessParameter == null) throw new DataStoreManagerException(DATA_ACCESS_OBJECT_IS_NOT_SET);
 		this.dataStore = new DataBaseDataStore(dataBaseAccessParameter);
 		this.dataStore.startTransaction();
@@ -74,6 +79,7 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	 * @throws DataStoreManagerException データストアがデータベース用データストアでなかった場合
 	 */
 	protected AbstractDataBaseAccessObject(DataStore dataStore) throws DataStoreManagerException {
+		this.logger.constractor(this.getClass(), dataStore);
 		if (!(dataStore instanceof DataBaseDataStore)) throw new DataStoreManagerException(FAILE_TO_CAST_DATA_STORE_OBJECT); 
 		this.dataStore = (DataBaseDataStore)dataStore;
 	}

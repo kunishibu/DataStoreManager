@@ -5,7 +5,8 @@ import java.util.Map;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.property.DataStoreManagerProperty;
-
+import jp.co.dk.logger.Logger;
+import jp.co.dk.logger.LoggerFactory;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 /**
@@ -37,6 +38,9 @@ public class DataStoreManager {
 	/** データストアプロパティ */
 	protected DataStoreManagerProperty dataStoreManagerProperty;
 	
+	/** ロガーインスタンス */
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * コンストラクタ<p/>
 	 * 
@@ -45,6 +49,7 @@ public class DataStoreManager {
 	 * @throws DataStoreManagerException インスタンスの生成に失敗した場合
 	 */
 	public DataStoreManager(DataStoreManagerProperty dataStoreManagerProperty) throws DataStoreManagerException{
+		this.logger.constractor(this.getClass(), dataStoreManagerProperty);
 		if (dataStoreManagerProperty == null) throw new DataStoreManagerException(PROPERTY_IS_NOT_SET);
 		this.dataStoreManagerProperty               = dataStoreManagerProperty;
 		this.defaultDataStore                       = dataStoreManagerProperty.getDefaultDataStoreParameter().createDataStore();

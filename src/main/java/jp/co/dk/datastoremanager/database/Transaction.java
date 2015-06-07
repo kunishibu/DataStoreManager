@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
-
+import jp.co.dk.logger.Logger;
+import jp.co.dk.logger.LoggerFactory;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 /**
@@ -35,6 +36,9 @@ class Transaction {
 	/** パラメータ */
 	protected DataBaseAccessParameter dataBaseAccessParameter;
 	
+	/** ロガーインスタンス */
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * コンストラクタ<p/>
 	 * 指定のデータベースアクセスパラメータを元にトランザクションを開始する。<br/>
@@ -47,6 +51,7 @@ class Transaction {
 	 * @throws DataStoreManagerException トランザクションの開始に失敗した場合
 	 */
 	Transaction(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException{
+		this.logger.constractor(this.getClass(), dataBaseAccessParameter);
 		if (dataBaseAccessParameter == null) throw new DataStoreManagerException(PARAMETER_IS_NOT_SET);
 		this.dataBaseAccessParameter = dataBaseAccessParameter;
 		DataBaseDriverConstants driverConstants = dataBaseAccessParameter.getDriver();
@@ -64,6 +69,7 @@ class Transaction {
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_CREATE_CONNECTION, this.dataBaseAccessParameter.toString(), e);
 		}
+		this.logger.info("transaction start param=[" + this.dataBaseAccessParameter + "]");
 	}
 	
 	/**
@@ -74,6 +80,7 @@ class Transaction {
 	 * @throws DataStoreManagerException テーブル作成に失敗した場合
 	 */
 	void createTable(Sql sql) throws DataStoreManagerException {
+		this.logger.info("create table " + sql.toString());
 		PreparedStatement statement = null;
 		try {
 			statement = this.connection.prepareStatement(sql.getSql());
@@ -100,6 +107,7 @@ class Transaction {
 	 * @throws DataStoreManagerException レコード追加に失敗した場合
 	 */
 	void insert(Sql sql) throws DataStoreManagerException {
+		this.logger.info("insert " + sql.toString());
 		PreparedStatement statement = null;
 		try {
 			statement = this.connection.prepareStatement(sql.getSql());
@@ -132,6 +140,7 @@ class Transaction {
 	 * @throws DataStoreManagerException レコード更新に失敗した場合
 	 */
 	int update(Sql sql) throws DataStoreManagerException {
+		this.logger.info("update " + sql.toString());
 		PreparedStatement statement = null;
 		try {
 			statement = this.connection.prepareStatement(sql.getSql());
@@ -166,6 +175,7 @@ class Transaction {
 	 * @throws DataStoreManagerException レコード削除に失敗した場合
 	 */
 	int delete(Sql sql) throws DataStoreManagerException {
+		this.logger.info("delete " + sql.toString());
 		PreparedStatement statement = null;
 		try {
 			statement = this.connection.prepareStatement(sql.getSql());
@@ -200,6 +210,7 @@ class Transaction {
 	 * @throws DataStoreManagerException SQLの実行に失敗した場合
 	 */
 	ResultSet select(Sql sql) throws DataStoreManagerException {
+		this.logger.info("select " + sql.toString());
 		PreparedStatement statement = null;
 		try {
 			statement = this.connection.prepareStatement(sql.getSql());
@@ -222,6 +233,7 @@ class Transaction {
 	 * @throws DataStoreManagerException テーブル削除に失敗した場合
 	 */
 	void dropTable(Sql sql) throws DataStoreManagerException {
+		this.logger.info("drop table " + sql.toString());
 		PreparedStatement statement = null;
 		try {
 			statement = this.connection.prepareStatement(sql.getSql());
@@ -245,8 +257,10 @@ class Transaction {
 	 * @throws DataStoreManagerException コミットに失敗した場合
 	 */
 	void commit() throws DataStoreManagerException {
+		this.logger.info("commit start");
 		try {
 			this.connection.commit();
+			this.logger.info("commit fin");
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_COMMIT, e);
 		}
@@ -258,8 +272,10 @@ class Transaction {
 	 * @throws DataStoreManagerException ロールバックに失敗した場合
 	 */
 	void rollback() throws DataStoreManagerException {
+		this.logger.info("rollback start");
 		try {
 			this.connection.rollback();
+			this.logger.info("rollback fin");
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_ROLLBACK, e);
 		}
@@ -271,6 +287,7 @@ class Transaction {
 	 * @throws DataStoreManagerException クローズに失敗した場合
 	 */
 	void close() throws DataStoreManagerException {
+		this.logger.info("transaction close");
 		try {
 			this.connection.close();
 		} catch (SQLException e) {

@@ -9,6 +9,8 @@ import jp.co.dk.datastoremanager.DataAccessObject;
 import jp.co.dk.datastoremanager.DataStore;
 import jp.co.dk.datastoremanager.DataStoreKind;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import jp.co.dk.logger.Logger;
+import jp.co.dk.logger.LoggerFactory;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 /**
@@ -32,6 +34,9 @@ public class DataBaseDataStore implements DataStore {
 	/** 発生例外一覧 */
 	protected List<DataStoreManagerException> exceptionList = new ArrayList<DataStoreManagerException>();
 	
+	/** ロガーインスタンス */
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * コンストラクタ<p/>
 	 * 指定のデータベースアクセスパラメータを基にデータベースデータストアを生成します。
@@ -39,6 +44,7 @@ public class DataBaseDataStore implements DataStore {
 	 * @param dataBaseAccessParameter データベースアクセスパラメータ
 	 */
 	DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
+		this.logger.constractor(this.getClass(), dataBaseAccessParameter);
 		this.dataBaseAccessParameter = dataBaseAccessParameter;
 	}
 	

@@ -25,7 +25,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
-
+import jp.co.dk.logger.Logger;
+import jp.co.dk.logger.LoggerFactory;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 </div><span>import ...</span></pre></td>
     </tr>
@@ -50,26 +51,35 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
  */</div><span>/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td>&nbsp;</td>
+      <td class='line'>31</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>class Transaction {</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>32</td><td>&nbsp;</td>
+      <td class='line'>33</td><td>&nbsp;</td>
       <td><pre class='comment'>	/** コネクション */</pre></td>
     </tr>
     <tr>
-      <td class='line'>33</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected Connection <span class='instance covered' title='Reads: 553 Writes: 26'>connection</span>;</pre></td>
+      <td class='line'>34</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Connection <span class='instance covered' title='Reads: 554 Writes: 26'>connection</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>35</td><td>&nbsp;</td>
+      <td class='line'>36</td><td>&nbsp;</td>
       <td><pre class='comment'>	/** パラメータ */</pre></td>
     </tr>
     <tr>
-      <td class='line'>36</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected DataBaseAccessParameter <span class='instance covered' title='Reads: 438 Writes: 31'>dataBaseAccessParameter</span>;</pre></td>
+      <td class='line'>37</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected DataBaseAccessParameter <span class='instance covered' title='Reads: 465 Writes: 31'>dataBaseAccessParameter</span>;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>39</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ロガーインスタンス */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>40</td><td class='count'>32</td>
+      <td><pre class='prettyprint covered' id='l40s0'>	protected Logger <span class='instance covered' title='Reads: 144 Writes: 32'>logger</span> = LoggerFactory.getLogger(this.getClass());</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -88,87 +98,95 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td></td><td class='count'>27</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l49s0 l50s0 l50s1')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l49s0 l50s0 l51s0 l67s0')">B: 26</span>
+        <span class='covered' onclick="showPath(this,'l53s0 l55s0 l55s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l53s0 l55s0 l56s0 l72s0 l73s0')">B: 26</span>
       </td>
     </tr>
 </div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>49</td><td class='count'>32</td>
-      <td><pre class='prettyprint covered' id='l49s0'>	Transaction(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException{</pre></td>
+      <td class='line'>53</td><td class='count'>32</td>
+      <td><pre class='prettyprint covered' id='l53s0'>	Transaction(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException{</pre></td>
     </tr>
     <tr>
-      <td class='line'>50</td><td class='count'>32</td>
-      <td><pre class='prettyprint jmp'>		<span id='l50s0' title='Executions: 32' class='covered'>if (dataBaseAccessParameter == null)</span> <span id='l50s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(PARAMETER_IS_NOT_SET);</span></pre></td>
+      <td class='line'>54</td><td class='count'>32</td>
+      <td><pre class='prettyprint covered' id='l54s0'>		this.logger.constractor(this.getClass(), dataBaseAccessParameter);</pre></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td class='count'>31</td>
-      <td><pre class='prettyprint covered' id='l51s0'>		this.dataBaseAccessParameter = dataBaseAccessParameter;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>52</td><td class='count'>31</td>
-      <td><pre class='prettyprint covered' id='l52s0'>		DataBaseDriverConstants driverConstants = dataBaseAccessParameter.getDriver();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>53</td><td class='count'>31</td>
-      <td><pre class='prettyprint covered' id='l53s0'>		String driver   = driverConstants.getDriverClass();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>54</td><td class='count'>31</td>
-      <td><pre class='prettyprint covered' id='l54s0'>		String url      = driverConstants.getUrl(dataBaseAccessParameter.getUrl(), dataBaseAccessParameter.getSid());</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>55</td><td class='count'>31</td>
-      <td><pre class='prettyprint covered' id='l55s0'>		String user     = dataBaseAccessParameter.getUser();</pre></td>
+      <td class='line'>55</td><td class='count'>32</td>
+      <td><pre class='prettyprint jmp'>		<span id='l55s0' title='Executions: 32' class='covered'>if (dataBaseAccessParameter == null)</span> <span id='l55s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(PARAMETER_IS_NOT_SET);</span></pre></td>
     </tr>
     <tr>
       <td class='line'>56</td><td class='count'>31</td>
-      <td><pre class='prettyprint covered' id='l56s0'>		String password = dataBaseAccessParameter.getPassword();</pre></td>
+      <td><pre class='prettyprint covered' id='l56s0'>		this.dataBaseAccessParameter = dataBaseAccessParameter;</pre></td>
     </tr>
     <tr>
-      <td class='line'>57</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		try {</pre></td>
+      <td class='line'>57</td><td class='count'>31</td>
+      <td><pre class='prettyprint covered' id='l57s0'>		DataBaseDriverConstants driverConstants = dataBaseAccessParameter.getDriver();</pre></td>
     </tr>
     <tr>
       <td class='line'>58</td><td class='count'>31</td>
-      <td><pre class='prettyprint covered' id='l58s0'>			Class.forName(driver);</pre></td>
+      <td><pre class='prettyprint covered' id='l58s0'>		String driver   = driverConstants.getDriverClass();</pre></td>
     </tr>
     <tr>
-      <td class='line'>59</td><td class='count'>30</td>
-      <td><pre class='prettyprint covered' id='l59s0'>			this.connection = DriverManager.getConnection(url, user, password);</pre></td>
+      <td class='line'>59</td><td class='count'>31</td>
+      <td><pre class='prettyprint covered' id='l59s0'>		String url      = driverConstants.getUrl(dataBaseAccessParameter.getUrl(), dataBaseAccessParameter.getSid());</pre></td>
     </tr>
     <tr>
-      <td class='line'>60</td><td class='count'>26</td>
-      <td><pre class='prettyprint covered' id='l60s0'>			this.connection.setAutoCommit(false);</pre></td>
+      <td class='line'>60</td><td class='count'>31</td>
+      <td><pre class='prettyprint covered' id='l60s0'>		String user     = dataBaseAccessParameter.getUser();</pre></td>
     </tr>
     <tr>
-      <td class='line'>61</td><td class='count'>26</td>
-      <td><pre class='prettyprint covered' id='l61s0'>			this.connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);</pre></td>
+      <td class='line'>61</td><td class='count'>31</td>
+      <td><pre class='prettyprint covered' id='l61s0'>		String password = dataBaseAccessParameter.getPassword();</pre></td>
     </tr>
     <tr>
-      <td class='line'>62</td><td class='count'>26</td>
-      <td><pre class='prettyprint covered' id='l62s0'>		} catch (ClassNotFoundException e) {</pre></td>
+      <td class='line'>62</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>63</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l63s0'>			throw new DataStoreManagerException(FAILE_TO_READ_DRIVER, driverConstants.getDriverClass(), e);</pre></td>
+      <td class='line'>63</td><td class='count'>31</td>
+      <td><pre class='prettyprint covered' id='l63s0'>			Class.forName(driver);</pre></td>
     </tr>
     <tr>
-      <td class='line'>64</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l64s0'>		} catch (SQLException e) {</pre></td>
+      <td class='line'>64</td><td class='count'>30</td>
+      <td><pre class='prettyprint covered' id='l64s0'>			this.connection = DriverManager.getConnection(url, user, password);</pre></td>
     </tr>
     <tr>
-      <td class='line'>65</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l65s0'>			throw new DataStoreManagerException(FAILE_TO_CREATE_CONNECTION, this.dataBaseAccessParameter.toString(), e);</pre></td>
+      <td class='line'>65</td><td class='count'>26</td>
+      <td><pre class='prettyprint covered' id='l65s0'>			this.connection.setAutoCommit(false);</pre></td>
     </tr>
     <tr>
-      <td class='line'>66</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		}</pre></td>
+      <td class='line'>66</td><td class='count'>26</td>
+      <td><pre class='prettyprint covered' id='l66s0'>			this.connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);</pre></td>
     </tr>
     <tr>
       <td class='line'>67</td><td class='count'>26</td>
-      <td><pre class='prettyprint covered' id='l67s0'>	}</pre></td>
+      <td><pre class='prettyprint covered' id='l67s0'>		} catch (ClassNotFoundException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>68</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l68s0'>			throw new DataStoreManagerException(FAILE_TO_READ_DRIVER, driverConstants.getDriverClass(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>69</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l69s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>70</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l70s0'>			throw new DataStoreManagerException(FAILE_TO_CREATE_CONNECTION, this.dataBaseAccessParameter.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>71</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>72</td><td class='count'>26</td>
+      <td><pre class='prettyprint covered' id='l72s0'>		this.logger.info("transaction start param=[" + this.dataBaseAccessParameter + "]");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>73</td><td class='count'>26</td>
+      <td><pre class='prettyprint covered' id='l73s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -182,84 +200,88 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>76</td><td>&nbsp;</td>
+      <td class='line'>82</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	void createTable(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
-        <span class='uncovered' onclick="showPath(this,'l77s0 l85s0 l92s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l77s0 l85s0 l87s0 l92s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l83s0 l92s0 l99s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l83s0 l92s0 l94s0 l99s0')">B: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>77</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l77s0'>		PreparedStatement statement = null;</pre></td>
+      <td class='line'>83</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l83s0'>		this.logger.info("create table " + sql.toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>78</td><td>&nbsp;</td>
+      <td class='line'>84</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l84s0'>		PreparedStatement statement = null;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>85</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>79</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l79s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>80</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l80s0'>			statement.execute();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>81</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l81s0'>			statement.close();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>82</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l82s0'>		} catch (SQLException e) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>83</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l83s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>84</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l84s0'>		} finally {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>85</td><td class='count'>7</td>
-      <td><pre class='prettyprint jmp'>			<span id='l85s0' title='Executions: 7' class='covered'>if (statement != null)</span> <span id='l85s1' title='Executions: 2' class='covered'>{</span></pre></td>
-    </tr>
-    <tr>
-      <td class='line'>86</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>				try {</pre></td>
+      <td class='line'>86</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l86s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
     </tr>
     <tr>
       <td class='line'>87</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l87s0'>					statement.close();</pre></td>
+      <td><pre class='prettyprint covered' id='l87s0'>			statement.execute();</pre></td>
     </tr>
     <tr>
-      <td class='line'>88</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l88s0'>				} catch (SQLException e) {</pre></td>
+      <td class='line'>88</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l88s0'>			statement.close();</pre></td>
     </tr>
     <tr>
-      <td class='line'>89</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l89s0'>					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);</pre></td>
+      <td class='line'>89</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l89s0'>		} catch (SQLException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>90</td><td>&nbsp;</td>
+      <td class='line'>90</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l90s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>91</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l91s0'>		} finally {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>92</td><td class='count'>7</td>
+      <td><pre class='prettyprint jmp'>			<span id='l92s0' title='Executions: 7' class='covered'>if (statement != null)</span> <span id='l92s1' title='Executions: 2' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>93</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>94</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l94s0'>					statement.close();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>95</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l95s0'>				} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>96</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l96s0'>					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>97</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>				}</pre></td>
     </tr>
     <tr>
-      <td class='line'>91</td><td>&nbsp;</td>
+      <td class='line'>98</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>92</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l92s0'>		}</pre></td>
+      <td class='line'>99</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l99s0'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>93</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l93s0'>	}</pre></td>
+      <td class='line'>100</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l100s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -273,104 +295,108 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>102</td><td>&nbsp;</td>
+      <td class='line'>109</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	void insert(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
-        <span class='uncovered' onclick="showPath(this,'l103s0 l116s0 l123s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l103s0 l116s0 l118s0 l123s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l110s0 l124s0 l131s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l110s0 l124s0 l126s0 l131s0')">B: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>103</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l103s0'>		PreparedStatement statement = null;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>104</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		try {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>105</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l105s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>106</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l106s0'>			List&lt;SqlParameter> sqlPrameterList = sql.getParameterList();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>107</td><td class='count'>33</td>
-      <td><pre class='prettyprint covered' id='l107s0'>			for (int index = 0; index &lt; sqlPrameterList.size(); index++) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>108</td><td class='count'>26</td>
-      <td><pre class='prettyprint covered' id='l108s0'>				int tmpIndex = index + 1;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>109</td><td class='count'>26</td>
-      <td><pre class='prettyprint covered' id='l109s0'>				sqlPrameterList.get(index).set(tmpIndex, statement);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>110</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>			}</pre></td>
+      <td class='line'>110</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l110s0'>		this.logger.info("insert " + sql.toString());</pre></td>
     </tr>
     <tr>
       <td class='line'>111</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l111s0'>			statement.execute();</pre></td>
+      <td><pre class='prettyprint covered' id='l111s0'>		PreparedStatement statement = null;</pre></td>
     </tr>
     <tr>
-      <td class='line'>112</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l112s0'>			statement.close();</pre></td>
+      <td class='line'>112</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>113</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l113s0'>		} catch (SQLException e) {</pre></td>
+      <td class='line'>113</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l113s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
     </tr>
     <tr>
-      <td class='line'>114</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l114s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
+      <td class='line'>114</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l114s0'>			List&lt;SqlParameter> sqlPrameterList = sql.getParameterList();</pre></td>
     </tr>
     <tr>
-      <td class='line'>115</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l115s0'>		} finally {</pre></td>
+      <td class='line'>115</td><td class='count'>33</td>
+      <td><pre class='prettyprint covered' id='l115s0'>			for (int index = 0; index &lt; sqlPrameterList.size(); index++) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>116</td><td class='count'>7</td>
-      <td><pre class='prettyprint jmp'>			<span id='l116s0' title='Executions: 7' class='covered'>if (statement != null)</span> <span id='l116s1' title='Executions: 2' class='covered'>{</span></pre></td>
+      <td class='line'>116</td><td class='count'>26</td>
+      <td><pre class='prettyprint covered' id='l116s0'>				int tmpIndex = index + 1;</pre></td>
     </tr>
     <tr>
-      <td class='line'>117</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>				try {</pre></td>
+      <td class='line'>117</td><td class='count'>26</td>
+      <td><pre class='prettyprint covered' id='l117s0'>				sqlPrameterList.get(index).set(tmpIndex, statement);</pre></td>
     </tr>
     <tr>
-      <td class='line'>118</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l118s0'>					statement.close();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>119</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l119s0'>				} catch (SQLException e) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>120</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l120s0'>					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>121</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>				}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>122</td><td>&nbsp;</td>
+      <td class='line'>118</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>123</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l123s0'>		}</pre></td>
+      <td class='line'>119</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l119s0'>			statement.execute();</pre></td>
     </tr>
     <tr>
-      <td class='line'>124</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l124s0'>	}</pre></td>
+      <td class='line'>120</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l120s0'>			statement.close();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>121</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l121s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>122</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l122s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>123</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l123s0'>		} finally {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>124</td><td class='count'>7</td>
+      <td><pre class='prettyprint jmp'>			<span id='l124s0' title='Executions: 7' class='covered'>if (statement != null)</span> <span id='l124s1' title='Executions: 2' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>125</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>126</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l126s0'>					statement.close();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>127</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l127s0'>				} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>128</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l128s0'>					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>129</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>130</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>131</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l131s0'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>132</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l132s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -385,111 +411,115 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>134</td><td>&nbsp;</td>
+      <td class='line'>142</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	int update(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
-        <span class='uncovered' onclick="showPath(this,'l135s0 l150s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l135s0 l150s0 l152s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l143s0 l159s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l143s0 l159s0 l161s0')">B: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>135</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l135s0'>		PreparedStatement statement = null;</pre></td>
+      <td class='line'>143</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l143s0'>		this.logger.info("update " + sql.toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>136</td><td>&nbsp;</td>
+      <td class='line'>144</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l144s0'>		PreparedStatement statement = null;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>145</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>137</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l137s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
+      <td class='line'>146</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l146s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
     </tr>
     <tr>
-      <td class='line'>138</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l138s0'>			List&lt;SqlParameter> sqlPrameterList = sql.getParameterList();</pre></td>
+      <td class='line'>147</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l147s0'>			List&lt;SqlParameter> sqlPrameterList = sql.getParameterList();</pre></td>
     </tr>
     <tr>
-      <td class='line'>139</td><td class='count'>30</td>
-      <td><pre class='prettyprint covered' id='l139s0'>			for (int index = 0; index &lt; sqlPrameterList.size(); index++) {</pre></td>
+      <td class='line'>148</td><td class='count'>30</td>
+      <td><pre class='prettyprint covered' id='l148s0'>			for (int index = 0; index &lt; sqlPrameterList.size(); index++) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>140</td><td class='count'>24</td>
-      <td><pre class='prettyprint covered' id='l140s0'>				int tmpIndex = index + 1;</pre></td>
+      <td class='line'>149</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l149s0'>				int tmpIndex = index + 1;</pre></td>
     </tr>
     <tr>
-      <td class='line'>141</td><td class='count'>24</td>
-      <td><pre class='prettyprint covered' id='l141s0'>				sqlPrameterList.get(index).set(tmpIndex, statement);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>142</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>			}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>143</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l143s0'>			int result = statement.executeUpdate();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>144</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l144s0'>			statement.executeUpdate();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>145</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l145s0'>			statement.close();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>146</td><td class='count'>8</td>
-      <td><pre class='prettyprint covered' id='l146s0'>			return result;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>147</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l147s0'>		} catch (SQLException e) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>148</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l148s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>149</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l149s0'>		} finally {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>150</td><td class='count'>6</td>
-      <td><pre class='prettyprint jmp'>			<span id='l150s0' title='Executions: 6' class='covered'>if (statement != null)</span> <span id='l150s1' title='Executions: 4' class='covered'>{</span></pre></td>
+      <td class='line'>150</td><td class='count'>24</td>
+      <td><pre class='prettyprint covered' id='l150s0'>				sqlPrameterList.get(index).set(tmpIndex, statement);</pre></td>
     </tr>
     <tr>
       <td class='line'>151</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>				try {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>152</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l152s0'>					statement.close();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>153</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l153s0'>				} catch (SQLException e) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>154</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l154s0'>					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>155</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>				}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>156</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>157</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l157s0'>		}</pre></td>
+      <td class='line'>152</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l152s0'>			int result = statement.executeUpdate();</pre></td>
     </tr>
     <tr>
-      <td class='line'>158</td><td>&nbsp;</td>
+      <td class='line'>153</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l153s0'>			statement.executeUpdate();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>154</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l154s0'>			statement.close();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>155</td><td class='count'>8</td>
+      <td><pre class='prettyprint covered' id='l155s0'>			return result;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>156</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l156s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>157</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l157s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>158</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l158s0'>		} finally {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>159</td><td class='count'>6</td>
+      <td><pre class='prettyprint jmp'>			<span id='l159s0' title='Executions: 6' class='covered'>if (statement != null)</span> <span id='l159s1' title='Executions: 4' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>160</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>161</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l161s0'>					statement.close();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>162</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l162s0'>				} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>163</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l163s0'>					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>164</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>165</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>166</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l166s0'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>167</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -505,111 +535,115 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>168</td><td>&nbsp;</td>
+      <td class='line'>177</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	int delete(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
-        <span class='uncovered' onclick="showPath(this,'l169s0 l184s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l169s0 l184s0 l186s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l178s0 l194s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l178s0 l194s0 l196s0')">B: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>169</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l169s0'>		PreparedStatement statement = null;</pre></td>
+      <td class='line'>178</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l178s0'>		this.logger.info("delete " + sql.toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>170</td><td>&nbsp;</td>
+      <td class='line'>179</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l179s0'>		PreparedStatement statement = null;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>180</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>171</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l171s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
+      <td class='line'>181</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l181s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
     </tr>
     <tr>
-      <td class='line'>172</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l172s0'>			List&lt;SqlParameter> sqlPrameterList = sql.getParameterList();</pre></td>
+      <td class='line'>182</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l182s0'>			List&lt;SqlParameter> sqlPrameterList = sql.getParameterList();</pre></td>
     </tr>
     <tr>
-      <td class='line'>173</td><td class='count'>14</td>
-      <td><pre class='prettyprint covered' id='l173s0'>			for (int index = 0; index &lt; sqlPrameterList.size(); index++) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>174</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l174s0'>				int tmpIndex = index + 1;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>175</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l175s0'>				sqlPrameterList.get(index).set(tmpIndex, statement);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>176</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>			}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>177</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l177s0'>			int result = statement.executeUpdate();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>178</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l178s0'>			statement.executeUpdate();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>179</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l179s0'>			statement.close();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>180</td><td class='count'>10</td>
-      <td><pre class='prettyprint covered' id='l180s0'>			return result;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>181</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l181s0'>		} catch (SQLException e) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>182</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l182s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>183</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l183s0'>		} finally {</pre></td>
+      <td class='line'>183</td><td class='count'>14</td>
+      <td><pre class='prettyprint covered' id='l183s0'>			for (int index = 0; index &lt; sqlPrameterList.size(); index++) {</pre></td>
     </tr>
     <tr>
       <td class='line'>184</td><td class='count'>7</td>
-      <td><pre class='prettyprint jmp'>			<span id='l184s0' title='Executions: 7' class='covered'>if (statement != null)</span> <span id='l184s1' title='Executions: 5' class='covered'>{</span></pre></td>
+      <td><pre class='prettyprint covered' id='l184s0'>				int tmpIndex = index + 1;</pre></td>
     </tr>
     <tr>
-      <td class='line'>185</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>				try {</pre></td>
+      <td class='line'>185</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l185s0'>				sqlPrameterList.get(index).set(tmpIndex, statement);</pre></td>
     </tr>
     <tr>
-      <td class='line'>186</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l186s0'>					statement.close();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>187</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l187s0'>				} catch (SQLException e) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>188</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l188s0'>					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>189</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>				}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>190</td><td>&nbsp;</td>
+      <td class='line'>186</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>191</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l191s0'>		}</pre></td>
+      <td class='line'>187</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l187s0'>			int result = statement.executeUpdate();</pre></td>
     </tr>
     <tr>
-      <td class='line'>192</td><td>&nbsp;</td>
+      <td class='line'>188</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l188s0'>			statement.executeUpdate();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>189</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l189s0'>			statement.close();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>190</td><td class='count'>10</td>
+      <td><pre class='prettyprint covered' id='l190s0'>			return result;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>191</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l191s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>192</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l192s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>193</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l193s0'>		} finally {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>194</td><td class='count'>7</td>
+      <td><pre class='prettyprint jmp'>			<span id='l194s0' title='Executions: 7' class='covered'>if (statement != null)</span> <span id='l194s1' title='Executions: 5' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>195</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>196</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l196s0'>					statement.close();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>197</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l197s0'>				} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>198</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l198s0'>					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>199</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>200</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>201</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l201s0'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>202</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -625,59 +659,63 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>202</td><td>&nbsp;</td>
+      <td class='line'>212</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	ResultSet select(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>203</td><td class='count'>15</td>
-      <td><pre class='prettyprint covered' id='l203s0'>		PreparedStatement statement = null;</pre></td>
+      <td class='line'>213</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l213s0'>		this.logger.info("select " + sql.toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>204</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		try {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>205</td><td class='count'>15</td>
-      <td><pre class='prettyprint covered' id='l205s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>206</td><td class='count'>15</td>
-      <td><pre class='prettyprint covered' id='l206s0'>			List&lt;SqlParameter> sqlPrameterList = sql.getParameterList();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>207</td><td class='count'>30</td>
-      <td><pre class='prettyprint covered' id='l207s0'>			for (int index = 0; index &lt; sqlPrameterList.size(); index++) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>208</td><td class='count'>15</td>
-      <td><pre class='prettyprint covered' id='l208s0'>				int tmpIndex = index + 1;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>209</td><td class='count'>15</td>
-      <td><pre class='prettyprint covered' id='l209s0'>				sqlPrameterList.get(index).set(tmpIndex, statement);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>210</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>			}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>211</td><td class='count'>15</td>
-      <td><pre class='prettyprint covered' id='l211s0'>			return statement.executeQuery();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>212</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l212s0'>		} catch (SQLException e) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>213</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l213s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>214</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		}</pre></td>
+      <td class='line'>214</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l214s0'>		PreparedStatement statement = null;</pre></td>
     </tr>
     <tr>
       <td class='line'>215</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>216</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l216s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>217</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l217s0'>			List&lt;SqlParameter> sqlPrameterList = sql.getParameterList();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>218</td><td class='count'>30</td>
+      <td><pre class='prettyprint covered' id='l218s0'>			for (int index = 0; index &lt; sqlPrameterList.size(); index++) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>219</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l219s0'>				int tmpIndex = index + 1;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>220</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l220s0'>				sqlPrameterList.get(index).set(tmpIndex, statement);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>221</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>222</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l222s0'>			return statement.executeQuery();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>223</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l223s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>224</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l224s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>225</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>226</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -692,80 +730,84 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>224</td><td>&nbsp;</td>
+      <td class='line'>235</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	void dropTable(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
-        <span class='uncovered' onclick="showPath(this,'l225s0 l232s0 l239s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l225s0 l232s0 l234s0 l239s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l236s0 l244s0 l251s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l236s0 l244s0 l246s0 l251s0')">B: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>225</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l225s0'>		PreparedStatement statement = null;</pre></td>
+      <td class='line'>236</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l236s0'>		this.logger.info("drop table " + sql.toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>226</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>		try {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>227</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l227s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>228</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l228s0'>			statement.execute();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>229</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l229s0'>		} catch (SQLException e) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>230</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l230s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>231</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l231s0'>		} finally {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>232</td><td class='count'>7</td>
-      <td><pre class='prettyprint jmp'>			<span id='l232s0' title='Executions: 7' class='covered'>if (statement != null)</span> <span id='l232s1' title='Executions: 2' class='covered'>{</span></pre></td>
-    </tr>
-    <tr>
-      <td class='line'>233</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>				try {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>234</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l234s0'>					statement.close();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>235</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l235s0'>				} catch (SQLException e) {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>236</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l236s0'>					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>237</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>				}</pre></td>
+      <td class='line'>237</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l237s0'>		PreparedStatement statement = null;</pre></td>
     </tr>
     <tr>
       <td class='line'>238</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>239</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l239s0'>			statement = this.connection.prepareStatement(sql.getSql());</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>240</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l240s0'>			statement.execute();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>241</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l241s0'>		} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>242</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l242s0'>			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>243</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l243s0'>		} finally {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>244</td><td class='count'>7</td>
+      <td><pre class='prettyprint jmp'>			<span id='l244s0' title='Executions: 7' class='covered'>if (statement != null)</span> <span id='l244s1' title='Executions: 2' class='covered'>{</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>245</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				try {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>246</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l246s0'>					statement.close();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>247</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l247s0'>				} catch (SQLException e) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>248</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l248s0'>					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>249</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>				}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>250</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>239</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l239s0'>		}</pre></td>
+      <td class='line'>251</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l251s0'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>240</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l240s0'>	}</pre></td>
+      <td class='line'>252</td><td class='count'>5</td>
+      <td><pre class='prettyprint covered' id='l252s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -777,32 +819,44 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>247</td><td>&nbsp;</td>
+      <td class='line'>259</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	void commit() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>248</td><td>&nbsp;</td>
+      <td class='line'>260</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l260s0'>		this.logger.info("commit start");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>261</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>249</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l249s0'>			this.connection.commit();</pre></td>
+      <td class='line'>262</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l262s0'>			this.connection.commit();</pre></td>
     </tr>
     <tr>
-      <td class='line'>250</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l250s0'>		} catch (SQLException e) {</pre></td>
+      <td class='line'>263</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l263s0'>			this.logger.info("commit fin");</pre></td>
     </tr>
     <tr>
-      <td class='line'>251</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l251s0'>			throw new DataStoreManagerException(FAILE_TO_COMMIT, e);</pre></td>
+      <td class='line'>264</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l264s0'>		} catch (SQLException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>252</td><td>&nbsp;</td>
+      <td class='line'>265</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l265s0'>			throw new DataStoreManagerException(FAILE_TO_COMMIT, e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>266</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>253</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l253s0'>	}</pre></td>
+      <td class='line'>267</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l267s0'>		this.logger.info("transaction fin");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>268</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l268s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -814,32 +868,44 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>260</td><td>&nbsp;</td>
+      <td class='line'>275</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	void rollback() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>261</td><td>&nbsp;</td>
+      <td class='line'>276</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l276s0'>		this.logger.info("rollback start");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>277</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>262</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l262s0'>			this.connection.rollback();</pre></td>
+      <td class='line'>278</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l278s0'>			this.connection.rollback();</pre></td>
     </tr>
     <tr>
-      <td class='line'>263</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l263s0'>		} catch (SQLException e) {</pre></td>
+      <td class='line'>279</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l279s0'>			this.logger.info("rollback fin");</pre></td>
     </tr>
     <tr>
-      <td class='line'>264</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l264s0'>			throw new DataStoreManagerException(FAILE_TO_ROLLBACK, e);</pre></td>
+      <td class='line'>280</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l280s0'>		} catch (SQLException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>265</td><td>&nbsp;</td>
+      <td class='line'>281</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l281s0'>			throw new DataStoreManagerException(FAILE_TO_ROLLBACK, e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>282</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>266</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l266s0'>	}</pre></td>
+      <td class='line'>283</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l283s0'>		this.logger.info("transaction fin");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>284</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l284s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -851,173 +917,181 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>273</td><td>&nbsp;</td>
+      <td class='line'>291</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	void close() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>274</td><td>&nbsp;</td>
+      <td class='line'>292</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l292s0'>		this.logger.info("close start");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>293</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>275</td><td class='count'>13</td>
-      <td><pre class='prettyprint covered' id='l275s0'>			this.connection.close();</pre></td>
+      <td class='line'>294</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l294s0'>			this.connection.close();</pre></td>
     </tr>
     <tr>
-      <td class='line'>276</td><td class='count'>13</td>
-      <td><pre class='prettyprint covered' id='l276s0'>		} catch (SQLException e) {</pre></td>
+      <td class='line'>295</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l295s0'>			this.logger.info("close fin");</pre></td>
     </tr>
     <tr>
-      <td class='line'>277</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l277s0'>			throw new DataStoreManagerException(FAILE_TO_CLOSE, e);</pre></td>
+      <td class='line'>296</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l296s0'>		} catch (SQLException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>278</td><td>&nbsp;</td>
+      <td class='line'>297</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l297s0'>			throw new DataStoreManagerException(FAILE_TO_CLOSE, e);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>298</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>279</td><td class='count'>13</td>
-      <td><pre class='prettyprint covered' id='l279s0'>	}</pre></td>
+      <td class='line'>299</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l299s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>281</td><td>&nbsp;</td>
+      <td class='line'>301</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>282</td><td>&nbsp;</td>
+      <td class='line'>302</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public int hashCode() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>283</td><td class='count'>428</td>
-      <td><pre class='prettyprint covered' id='l283s0'>		return this.connection.hashCode() * this.dataBaseAccessParameter.hashCode() * 17;</pre></td>
+      <td class='line'>303</td><td class='count'>428</td>
+      <td><pre class='prettyprint covered' id='l303s0'>		return this.connection.hashCode() * this.dataBaseAccessParameter.hashCode() * 17;</pre></td>
     </tr>
     <tr>
-      <td class='line'>284</td><td>&nbsp;</td>
+      <td class='line'>304</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>286</td><td>&nbsp;</td>
+      <td class='line'>306</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>287</td><td>&nbsp;</td>
+      <td class='line'>307</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public boolean equals(Object object) {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>212</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#40bf00' onclick='hidePath()'>Path coverage: 3/4</span>
-        <span class='covered' onclick="showPath(this,'l288s0 l288s1')">A: 3</span>
-        <span class='uncovered' onclick="showPath(this,'l288s0 l289s0 l289s1')">B: 0</span>
-        <span class='covered' onclick="showPath(this,'l288s0 l289s0 l290s0 l291s0 l291s1')">C: 108</span>
-        <span class='covered' onclick="showPath(this,'l288s0 l289s0 l290s0 l291s0 l292s0')">D: 101</span>
+        <span class='covered' onclick="showPath(this,'l308s0 l308s1')">A: 3</span>
+        <span class='uncovered' onclick="showPath(this,'l308s0 l309s0 l309s1')">B: 0</span>
+        <span class='covered' onclick="showPath(this,'l308s0 l309s0 l310s0 l311s0 l311s1')">C: 108</span>
+        <span class='covered' onclick="showPath(this,'l308s0 l309s0 l310s0 l311s0 l312s0')">D: 101</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>288</td><td class='count'>212</td>
-      <td><pre class='prettyprint jmp'>		<span id='l288s0' title='Executions: 212' class='covered'>if (object == null)</span> <span id='l288s1' title='Executions: 3' class='covered'>return false;</span></pre></td>
+      <td class='line'>308</td><td class='count'>212</td>
+      <td><pre class='prettyprint jmp'>		<span id='l308s0' title='Executions: 212' class='covered'>if (object == null)</span> <span id='l308s1' title='Executions: 3' class='covered'>return false;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>289</td><td class='count'>209</td>
-      <td><pre class='prettyprint jmp'>		<span id='l289s0' title='Executions: 209' class='covered'>if (!(object instanceof Transaction)) return false;</span></pre></td>
+      <td class='line'>309</td><td class='count'>209</td>
+      <td><pre class='prettyprint jmp'>		<span id='l309s0' title='Executions: 209' class='covered'>if (!(object instanceof Transaction)) return false;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>290</td><td class='count'>209</td>
-      <td><pre class='prettyprint covered' id='l290s0'>		Transaction thisClassIbj = (Transaction)object;</pre></td>
+      <td class='line'>310</td><td class='count'>209</td>
+      <td><pre class='prettyprint covered' id='l310s0'>		Transaction thisClassIbj = (Transaction)object;</pre></td>
     </tr>
     <tr>
-      <td class='line'>291</td><td class='count'>209</td>
-      <td><pre class='prettyprint jmp'>		<span id='l291s0' title='Executions: 209' class='covered'>if (thisClassIbj.hashCode() == this.hashCode()) return true;</span></pre></td>
+      <td class='line'>311</td><td class='count'>209</td>
+      <td><pre class='prettyprint jmp'>		<span id='l311s0' title='Executions: 209' class='covered'>if (thisClassIbj.hashCode() == this.hashCode()) return true;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>292</td><td class='count'>101</td>
-      <td><pre class='prettyprint covered' id='l292s0'>		return false;</pre></td>
+      <td class='line'>312</td><td class='count'>101</td>
+      <td><pre class='prettyprint covered' id='l312s0'>		return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>293</td><td>&nbsp;</td>
+      <td class='line'>313</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>295</td><td>&nbsp;</td>
+      <td class='line'>315</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>296</td><td>&nbsp;</td>
+      <td class='line'>316</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public String toString() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>297</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l297s0'>		StringBuilder sb = new StringBuilder();</pre></td>
+      <td class='line'>317</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l317s0'>		StringBuilder sb = new StringBuilder();</pre></td>
     </tr>
     <tr>
-      <td class='line'>298</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l298s0'>		sb.append("CONNECTION_HASH=[").append(this.connection.hashCode()).append(']').append(',');</pre></td>
+      <td class='line'>318</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l318s0'>		sb.append("CONNECTION_HASH=[").append(this.connection.hashCode()).append(']').append(',');</pre></td>
     </tr>
     <tr>
-      <td class='line'>299</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l299s0'>		sb.append(this.dataBaseAccessParameter.toString());</pre></td>
+      <td class='line'>319</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l319s0'>		sb.append(this.dataBaseAccessParameter.toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>300</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l300s0'>		return sb.toString();</pre></td>
+      <td class='line'>320</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l320s0'>		return sb.toString();</pre></td>
     </tr>
     <tr>
-      <td class='line'>301</td><td>&nbsp;</td>
+      <td class='line'>321</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>303</td><td>&nbsp;</td>
+      <td class='line'>323</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>304</td><td>&nbsp;</td>
+      <td class='line'>324</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	protected void finalize() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>305</td><td>&nbsp;</td>
+      <td class='line'>325</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
-        <span class='uncovered' onclick="showPath(this,'l306s0 l312s0')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l306s0 l307s0 l312s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l326s0 l332s0')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l326s0 l327s0 l332s0')">B: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>306</td><td class='count'>32</td>
-      <td><pre class='prettyprint jmp'>			<span id='l306s0' title='Executions: 32' class='covered'>if (!(this.connection.isClosed())) {</span></pre></td>
+      <td class='line'>326</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>			<span id='l326s0' title='Executions: 0' class='uncovered'>if (!(this.connection.isClosed())) {</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>307</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l307s0'>				this.connection.close();</pre></td>
+      <td class='line'>327</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l327s0'>				this.connection.close();</pre></td>
     </tr>
     <tr>
-      <td class='line'>308</td><td>&nbsp;</td>
+      <td class='line'>328</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>			}</pre></td>
     </tr>
     <tr>
-      <td class='line'>309</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l309s0'>		} catch (SQLException e) {</pre></td>
+      <td class='line'>329</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l329s0'>		} catch (SQLException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>310</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l310s0'>			throw new RuntimeException(e);</pre></td>
+      <td class='line'>330</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l330s0'>			throw new RuntimeException(e);</pre></td>
     </tr>
     <tr>
-      <td class='line'>311</td><td>&nbsp;</td>
+      <td class='line'>331</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>312</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l312s0'>	}</pre></td>
+      <td class='line'>332</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l332s0'>	}</pre></td>
     </tr>
     <tr>
-      <td class='line'>313</td><td>&nbsp;</td>
+      <td class='line'>333</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>

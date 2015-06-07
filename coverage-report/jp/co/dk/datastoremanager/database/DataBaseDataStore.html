@@ -26,6 +26,8 @@ import jp.co.dk.datastoremanager.DataAccessObject;
 import jp.co.dk.datastoremanager.DataStore;
 import jp.co.dk.datastoremanager.DataStoreKind;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import jp.co.dk.logger.Logger;
+import jp.co.dk.logger.LoggerFactory;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 </div><span>import ...</span></pre></td>
     </tr>
@@ -41,44 +43,53 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
  */</div><span>/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>21</td><td>&nbsp;</td>
+      <td class='line'>23</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>public class DataBaseDataStore implements DataStore {</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>23</td><td>&nbsp;</td>
+      <td class='line'>25</td><td>&nbsp;</td>
       <td><pre class='comment'>	/** データベースアクセスパラメータ */</pre></td>
     </tr>
     <tr>
-      <td class='line'>24</td><td>&nbsp;</td>
+      <td class='line'>26</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	protected DataBaseAccessParameter <span class='instance covered' title='Reads: 448 Writes: 34'>dataBaseAccessParameter</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>26</td><td>&nbsp;</td>
+      <td class='line'>28</td><td>&nbsp;</td>
       <td><pre class='comment'>	/** トランザクション */</pre></td>
     </tr>
     <tr>
-      <td class='line'>27</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected Transaction <span class='instance covered' title='Reads: 501 Writes: 15'>transaction</span>;</pre></td>
+      <td class='line'>29</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Transaction <span class='instance covered' title='Reads: 503 Writes: 15'>transaction</span>;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>29</td><td>&nbsp;</td>
+      <td class='line'>31</td><td>&nbsp;</td>
       <td><pre class='comment'>	/** SQLリスト */</pre></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered' id='l30s0'>	protected List&lt;Sql> <span class='instance covered' title='Reads: 12 Writes: 34'>sqlList</span> = new ArrayList&lt;Sql>();</pre></td>
+      <td class='line'>32</td><td class='count'>34</td>
+      <td><pre class='prettyprint covered' id='l32s0'>	protected List&lt;Sql> <span class='instance covered' title='Reads: 12 Writes: 34'>sqlList</span> = new ArrayList&lt;Sql>();</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>32</td><td>&nbsp;</td>
+      <td class='line'>34</td><td>&nbsp;</td>
       <td><pre class='comment'>	/** 発生例外一覧 */</pre></td>
     </tr>
     <tr>
-      <td class='line'>33</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered' id='l33s0'>	protected List&lt;DataStoreManagerException> <span class='instance covered' title='Reads: 12 Writes: 34'>exceptionList</span> = new ArrayList&lt;DataStoreManagerException>();</pre></td>
+      <td class='line'>35</td><td class='count'>34</td>
+      <td><pre class='prettyprint covered' id='l35s0'>	protected List&lt;DataStoreManagerException> <span class='instance covered' title='Reads: 12 Writes: 34'>exceptionList</span> = new ArrayList&lt;DataStoreManagerException>();</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>37</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** ロガーインスタンス */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>38</td><td class='count'>34</td>
+      <td><pre class='prettyprint covered' id='l38s0'>	protected Logger <span class='instance covered' title='Reads: 34 Writes: 34'>logger</span> = LoggerFactory.getLogger(this.getClass());</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -91,95 +102,70 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>41</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered' id='l41s0'>	DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {</pre></td>
+      <td class='line'>46</td><td class='count'>34</td>
+      <td><pre class='prettyprint covered' id='l46s0'>	DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>42</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered' id='l42s0'>		this.dataBaseAccessParameter = dataBaseAccessParameter;</pre></td>
+      <td class='line'>47</td><td class='count'>34</td>
+      <td><pre class='prettyprint covered' id='l47s0'>		this.logger.constractor(this.getClass(), dataBaseAccessParameter);</pre></td>
     </tr>
     <tr>
-      <td class='line'>43</td><td class='count'>34</td>
-      <td><pre class='prettyprint covered' id='l43s0'>	}</pre></td>
+      <td class='line'>48</td><td class='count'>34</td>
+      <td><pre class='prettyprint covered' id='l48s0'>		this.dataBaseAccessParameter = dataBaseAccessParameter;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>49</td><td class='count'>34</td>
+      <td><pre class='prettyprint covered' id='l49s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>45</td><td>&nbsp;</td>
+      <td class='line'>51</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>46</td><td>&nbsp;</td>
+      <td class='line'>52</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public void startTransaction() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>47</td><td class='count'>16</td>
-      <td><pre class='prettyprint covered' id='l47s0'>		this.transaction = new Transaction(dataBaseAccessParameter);</pre></td>
+      <td class='line'>53</td><td class='count'>16</td>
+      <td><pre class='prettyprint covered' id='l53s0'>		this.transaction = new Transaction(dataBaseAccessParameter);</pre></td>
     </tr>
     <tr>
-      <td class='line'>48</td><td class='count'>13</td>
-      <td><pre class='prettyprint covered' id='l48s0'>	}</pre></td>
+      <td class='line'>54</td><td class='count'>13</td>
+      <td><pre class='prettyprint covered' id='l54s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>50</td><td>&nbsp;</td>
+      <td class='line'>56</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td>&nbsp;</td>
+      <td class='line'>57</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public DataAccessObject getDataAccessObject(DaoConstants daoConstants) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>2</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l52s0 l52s1')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l52s0 l53s0 l54s0')">B: 1</span>
+        <span class='covered' onclick="showPath(this,'l58s0 l58s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l58s0 l59s0 l60s0')">B: 1</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>52</td><td class='count'>2</td>
-      <td><pre class='prettyprint jmp'>		<span id='l52s0' title='Executions: 2' class='covered'>if (this.transaction == null)</span> <span id='l52s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</span></pre></td>
+      <td class='line'>58</td><td class='count'>2</td>
+      <td><pre class='prettyprint jmp'>		<span id='l58s0' title='Executions: 2' class='covered'>if (this.transaction == null)</span> <span id='l58s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>53</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l53s0'>		DataStoreKind dataStoreKind = this.dataBaseAccessParameter.getDataStoreKind();</pre></td>
+      <td class='line'>59</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l59s0'>		DataStoreKind dataStoreKind = this.dataBaseAccessParameter.getDataStoreKind();</pre></td>
     </tr>
     <tr>
-      <td class='line'>54</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l54s0'>		return daoConstants.getDataAccessObjectFactory().getDataAccessObject(dataStoreKind, this);</pre></td>
+      <td class='line'>60</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l60s0'>		return daoConstants.getDataAccessObjectFactory().getDataAccessObject(dataStoreKind, this);</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td>&nbsp;</td>
+      <td class='line'>61</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>58</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	@Override</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>59</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public void commit() throws DataStoreManagerException {</pre></td>
-    </tr>
-    <tr>
-      <td></td><td class='count'>0</td>
-      <td class='paths'>
-        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
-        <span class='uncovered' onclick="showPath(this,'l60s0 l60s1')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l60s0 l61s0 l62s0')">B: 0</span>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>60</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l60s0' title='Executions: 0' class='uncovered'>if (this.transaction == null)</span> <span id='l60s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</span></pre></td>
-    </tr>
-    <tr>
-      <td class='line'>61</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l61s0'>		this.transaction.commit();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>62</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l62s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -188,7 +174,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
     </tr>
     <tr>
       <td class='line'>65</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public void rollback() throws DataStoreManagerException {</pre></td>
+      <td><pre class='prettyprint'>	public void commit() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
@@ -204,7 +190,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
     </tr>
     <tr>
       <td class='line'>67</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l67s0'>		this.transaction.rollback();</pre></td>
+      <td><pre class='prettyprint uncovered' id='l67s0'>		this.transaction.commit();</pre></td>
     </tr>
     <tr>
       <td class='line'>68</td><td class='count'>0</td>
@@ -217,60 +203,60 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
     </tr>
     <tr>
       <td class='line'>71</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void rollback() throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>0</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
+        <span class='uncovered' onclick="showPath(this,'l72s0 l72s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l72s0 l73s0 l74s0')">B: 0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>72</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l72s0' title='Executions: 0' class='uncovered'>if (this.transaction == null)</span> <span id='l72s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>73</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l73s0'>		this.transaction.rollback();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>74</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l74s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>76</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>77</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public void finishTransaction() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>3</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l72s0 l72s1')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l72s0 l73s0 l75s0')">B: 2</span>
+        <span class='covered' onclick="showPath(this,'l78s0 l78s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l78s0 l79s0 l81s0')">B: 2</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>72</td><td class='count'>3</td>
-      <td><pre class='prettyprint jmp'>		<span id='l72s0' title='Executions: 3' class='covered'>if (this.transaction == null)</span> <span id='l72s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</span></pre></td>
+      <td class='line'>78</td><td class='count'>3</td>
+      <td><pre class='prettyprint jmp'>		<span id='l78s0' title='Executions: 3' class='covered'>if (this.transaction == null)</span> <span id='l78s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>73</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l73s0'>		this.transaction.close();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>74</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l74s0'>		this.transaction = null;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>75</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l75s0'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>77</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	@Override</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>78</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public boolean isTransaction() {</pre></td>
-    </tr>
-    <tr>
-      <td></td><td class='count'>7</td>
-      <td class='paths'>
-        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l79s0 l79s1')">A: 5</span>
-        <span class='covered' onclick="showPath(this,'l79s0 l80s0')">B: 2</span>
-      </td>
-    </tr>
-    <tr>
-      <td class='line'>79</td><td class='count'>7</td>
-      <td><pre class='prettyprint jmp'>		<span id='l79s0' title='Executions: 7' class='covered'>if (this.transaction != null)</span> <span id='l79s1' title='Executions: 5' class='covered'>return true;</span></pre></td>
+      <td class='line'>79</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l79s0'>		this.transaction.close();</pre></td>
     </tr>
     <tr>
       <td class='line'>80</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l80s0'>		return false;</pre></td>
+      <td><pre class='prettyprint covered' id='l80s0'>		this.transaction = null;</pre></td>
     </tr>
     <tr>
-      <td class='line'>81</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td class='line'>81</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l81s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -279,26 +265,55 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
     </tr>
     <tr>
       <td class='line'>84</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean isTransaction() {</pre></td>
+    </tr>
+    <tr>
+      <td></td><td class='count'>7</td>
+      <td class='paths'>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l85s0 l85s1')">A: 5</span>
+        <span class='covered' onclick="showPath(this,'l85s0 l86s0')">B: 2</span>
+      </td>
+    </tr>
+    <tr>
+      <td class='line'>85</td><td class='count'>7</td>
+      <td><pre class='prettyprint jmp'>		<span id='l85s0' title='Executions: 7' class='covered'>if (this.transaction != null)</span> <span id='l85s1' title='Executions: 5' class='covered'>return true;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>86</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l86s0'>		return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>87</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>89</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>90</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public boolean hasError() {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>0</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ff0000' onclick='hidePath()'>Path coverage: 0/2</span>
-        <span class='uncovered' onclick="showPath(this,'l85s0 l85s1')">A: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l85s0 l86s0')">B: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l91s0 l91s1')">A: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l91s0 l92s0')">B: 0</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>85</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l85s0' title='Executions: 0' class='uncovered'>if (this.exceptionList.size() != 0) return true;</span></pre></td>
+      <td class='line'>91</td><td class='count'>0</td>
+      <td><pre class='prettyprint jmp'>		<span id='l91s0' title='Executions: 0' class='uncovered'>if (this.exceptionList.size() != 0) return true;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>86</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l86s0'>		return false;</pre></td>
+      <td class='line'>92</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l92s0'>		return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>87</td><td>&nbsp;</td>
+      <td class='line'>93</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -313,52 +328,52 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>96</td><td>&nbsp;</td>
+      <td class='line'>102</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	void createTable(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>97</td><td>&nbsp;</td>
+      <td class='line'>103</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>3</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l98s0 l98s1')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l98s0 l99s0 l105s0')">B: 2</span>
+        <span class='covered' onclick="showPath(this,'l104s0 l104s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l104s0 l105s0 l111s0')">B: 2</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>98</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>			<span id='l98s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l98s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
+      <td class='line'>104</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>			<span id='l104s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l104s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>99</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l99s0'>			this.transaction.createTable(sql);</pre></td>
+      <td class='line'>105</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l105s0'>			this.transaction.createTable(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>100</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l100s0'>			this.sqlList.add(sql);</pre></td>
+      <td class='line'>106</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l106s0'>			this.sqlList.add(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>101</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l101s0'>		} catch (DataStoreManagerException e) {</pre></td>
+      <td class='line'>107</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l107s0'>		} catch (DataStoreManagerException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>102</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l102s0'>			this.exceptionList.add(e);</pre></td>
+      <td class='line'>108</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l108s0'>			this.exceptionList.add(e);</pre></td>
     </tr>
     <tr>
-      <td class='line'>103</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l103s0'>			throw e;</pre></td>
+      <td class='line'>109</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l109s0'>			throw e;</pre></td>
     </tr>
     <tr>
-      <td class='line'>104</td><td>&nbsp;</td>
+      <td class='line'>110</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>105</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l105s0'>	}</pre></td>
+      <td class='line'>111</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l111s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -372,52 +387,52 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>114</td><td>&nbsp;</td>
+      <td class='line'>120</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	void dropTable(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>115</td><td>&nbsp;</td>
+      <td class='line'>121</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>3</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l116s0 l116s1')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l116s0 l117s0 l123s0')">B: 2</span>
+        <span class='covered' onclick="showPath(this,'l122s0 l122s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l122s0 l123s0 l129s0')">B: 2</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>116</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>			<span id='l116s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l116s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
+      <td class='line'>122</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>			<span id='l122s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l122s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>117</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l117s0'>			this.transaction.dropTable(sql);</pre></td>
+      <td class='line'>123</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l123s0'>			this.transaction.dropTable(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>118</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l118s0'>			this.sqlList.add(sql);</pre></td>
+      <td class='line'>124</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l124s0'>			this.sqlList.add(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>119</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l119s0'>		} catch (DataStoreManagerException e) {</pre></td>
+      <td class='line'>125</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l125s0'>		} catch (DataStoreManagerException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>120</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l120s0'>			this.exceptionList.add(e);</pre></td>
+      <td class='line'>126</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l126s0'>			this.exceptionList.add(e);</pre></td>
     </tr>
     <tr>
-      <td class='line'>121</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l121s0'>			throw e;</pre></td>
+      <td class='line'>127</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l127s0'>			throw e;</pre></td>
     </tr>
     <tr>
-      <td class='line'>122</td><td>&nbsp;</td>
+      <td class='line'>128</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>123</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l123s0'>	}</pre></td>
+      <td class='line'>129</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l129s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -431,52 +446,52 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>132</td><td>&nbsp;</td>
+      <td class='line'>138</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	void insert(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>133</td><td>&nbsp;</td>
+      <td class='line'>139</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>3</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l134s0 l134s1')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l134s0 l135s0 l141s0')">B: 2</span>
+        <span class='covered' onclick="showPath(this,'l140s0 l140s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l140s0 l141s0 l147s0')">B: 2</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>134</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>			<span id='l134s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l134s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
+      <td class='line'>140</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>			<span id='l140s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l140s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>135</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l135s0'>			this.transaction.insert(sql);</pre></td>
+      <td class='line'>141</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l141s0'>			this.transaction.insert(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>136</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l136s0'>			this.sqlList.add(sql);</pre></td>
+      <td class='line'>142</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l142s0'>			this.sqlList.add(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>137</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l137s0'>		} catch (DataStoreManagerException e) {</pre></td>
+      <td class='line'>143</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l143s0'>		} catch (DataStoreManagerException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>138</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l138s0'>			this.exceptionList.add(e);</pre></td>
+      <td class='line'>144</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l144s0'>			this.exceptionList.add(e);</pre></td>
     </tr>
     <tr>
-      <td class='line'>139</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l139s0'>			throw e;</pre></td>
+      <td class='line'>145</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l145s0'>			throw e;</pre></td>
     </tr>
     <tr>
-      <td class='line'>140</td><td>&nbsp;</td>
+      <td class='line'>146</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>141</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l141s0'>	}</pre></td>
+      <td class='line'>147</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l147s0'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -491,55 +506,55 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>151</td><td>&nbsp;</td>
+      <td class='line'>157</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	int update(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>152</td><td>&nbsp;</td>
+      <td class='line'>158</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>3</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l153s0 l153s1')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l153s0 l154s0 l156s0')">B: 2</span>
+        <span class='covered' onclick="showPath(this,'l159s0 l159s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l159s0 l160s0 l162s0')">B: 2</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>153</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>			<span id='l153s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l153s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
+      <td class='line'>159</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>			<span id='l159s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l159s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>154</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l154s0'>			int result = this.transaction.update(sql);</pre></td>
+      <td class='line'>160</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l160s0'>			int result = this.transaction.update(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>155</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l155s0'>			this.sqlList.add(sql);</pre></td>
+      <td class='line'>161</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l161s0'>			this.sqlList.add(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>156</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l156s0'>			return result;</pre></td>
+      <td class='line'>162</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l162s0'>			return result;</pre></td>
     </tr>
     <tr>
-      <td class='line'>157</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l157s0'>		} catch (DataStoreManagerException e) {</pre></td>
+      <td class='line'>163</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l163s0'>		} catch (DataStoreManagerException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>158</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l158s0'>			this.exceptionList.add(e);</pre></td>
+      <td class='line'>164</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l164s0'>			this.exceptionList.add(e);</pre></td>
     </tr>
     <tr>
-      <td class='line'>159</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l159s0'>			throw e;</pre></td>
+      <td class='line'>165</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l165s0'>			throw e;</pre></td>
     </tr>
     <tr>
-      <td class='line'>160</td><td>&nbsp;</td>
+      <td class='line'>166</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>161</td><td>&nbsp;</td>
+      <td class='line'>167</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -555,55 +570,55 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>171</td><td>&nbsp;</td>
+      <td class='line'>177</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	int delete(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>172</td><td>&nbsp;</td>
+      <td class='line'>178</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>3</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l173s0 l173s1')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l173s0 l174s0 l176s0')">B: 2</span>
+        <span class='covered' onclick="showPath(this,'l179s0 l179s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l179s0 l180s0 l182s0')">B: 2</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>173</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>			<span id='l173s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l173s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
+      <td class='line'>179</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>			<span id='l179s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l179s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>174</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l174s0'>			int result = this.transaction.delete(sql);</pre></td>
+      <td class='line'>180</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l180s0'>			int result = this.transaction.delete(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>175</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l175s0'>			this.sqlList.add(sql);</pre></td>
+      <td class='line'>181</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l181s0'>			this.sqlList.add(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>176</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l176s0'>			return result;</pre></td>
+      <td class='line'>182</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l182s0'>			return result;</pre></td>
     </tr>
     <tr>
-      <td class='line'>177</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l177s0'>		} catch (DataStoreManagerException e) {</pre></td>
+      <td class='line'>183</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l183s0'>		} catch (DataStoreManagerException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>178</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l178s0'>			this.exceptionList.add(e);</pre></td>
+      <td class='line'>184</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l184s0'>			this.exceptionList.add(e);</pre></td>
     </tr>
     <tr>
-      <td class='line'>179</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l179s0'>			throw e;</pre></td>
+      <td class='line'>185</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l185s0'>			throw e;</pre></td>
     </tr>
     <tr>
-      <td class='line'>180</td><td>&nbsp;</td>
+      <td class='line'>186</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>181</td><td>&nbsp;</td>
+      <td class='line'>187</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -619,73 +634,52 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>191</td><td>&nbsp;</td>
+      <td class='line'>197</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	ResultSet select(Sql sql) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>192</td><td>&nbsp;</td>
+      <td class='line'>198</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>3</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
-        <span class='covered' onclick="showPath(this,'l193s0 l193s1')">A: 1</span>
-        <span class='covered' onclick="showPath(this,'l193s0 l194s0 l196s0')">B: 2</span>
+        <span class='covered' onclick="showPath(this,'l199s0 l199s1')">A: 1</span>
+        <span class='covered' onclick="showPath(this,'l199s0 l200s0 l202s0')">B: 2</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>193</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>			<span id='l193s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l193s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
+      <td class='line'>199</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>			<span id='l199s0' title='Executions: 4' class='covered'>if (this.transaction == null)</span> <span id='l199s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>194</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l194s0'>			ResultSet result = this.transaction.select(sql);</pre></td>
+      <td class='line'>200</td><td class='count'>3</td>
+      <td><pre class='prettyprint covered' id='l200s0'>			ResultSet result = this.transaction.select(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>195</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l195s0'>			this.sqlList.add(sql);</pre></td>
+      <td class='line'>201</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l201s0'>			this.sqlList.add(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>196</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l196s0'>			return result;</pre></td>
+      <td class='line'>202</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l202s0'>			return result;</pre></td>
     </tr>
     <tr>
-      <td class='line'>197</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l197s0'>		} catch (DataStoreManagerException e) {</pre></td>
+      <td class='line'>203</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l203s0'>		} catch (DataStoreManagerException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>198</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l198s0'>			this.exceptionList.add(e);</pre></td>
+      <td class='line'>204</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l204s0'>			this.exceptionList.add(e);</pre></td>
     </tr>
     <tr>
-      <td class='line'>199</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l199s0'>			throw e;</pre></td>
+      <td class='line'>205</td><td class='count'>2</td>
+      <td><pre class='prettyprint covered' id='l205s0'>			throw e;</pre></td>
     </tr>
     <tr>
-      <td class='line'>200</td><td>&nbsp;</td>
+      <td class='line'>206</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>201</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>203</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	@Override</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>204</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public int hashCode() {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>205</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l205s0'>		int hashcode = this.dataBaseAccessParameter.hashCode();</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>206</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l206s0'>		return hashcode;</pre></td>
     </tr>
     <tr>
       <td class='line'>207</td><td>&nbsp;</td>
@@ -698,152 +692,173 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
     </tr>
     <tr>
       <td class='line'>210</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public int hashCode() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>211</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l211s0'>		int hashcode = this.dataBaseAccessParameter.hashCode();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>212</td><td class='count'>6</td>
+      <td><pre class='prettyprint covered' id='l212s0'>		return hashcode;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>213</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>215</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>216</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public boolean equals(Object object) {</pre></td>
     </tr>
     <tr>
       <td></td><td class='count'>216</td>
       <td class='paths'>
         <span style='cursor:default; background-color:#ba4500' onclick='hidePath()'>Path coverage: 7/26</span>
-        <span class='covered' onclick="showPath(this,'l211s0 l211s1')">A: 3</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l212s1')">B: 0</span>
-        <span class='covered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l215s0 l215s1')">C: 108</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l216s0 l216s1 l217s0')">D: 0</span>
-        <span class='covered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l216s0 l216s1 l217s0')">E: 1</span>
-        <span class='covered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l216s0 l218s0 l218s1 l219s0')">F: 1</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l216s0 l216s1 l218s0 l218s1 l219s0')">G: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l216s0 l218s0 l218s1 l219s0')">H: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l216s0 l216s1 l218s0 l218s1 l219s0')">I: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l216s0 l218s0 l221s0 l221s1')">J: 0</span>
-        <span class='covered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l216s0 l218s0 l218s1 l221s0 l221s1')">K: 1</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l216s0 l216s1 l218s0 l221s0 l221s1')">L: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l216s0 l216s1 l218s0 l218s1 l221s0 l221s1')">M: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l216s0 l218s0 l221s0 l221s1')">N: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l216s0 l218s0 l218s1 l221s0 l221s1')">O: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l216s0 l216s1 l218s0 l221s0 l221s1')">P: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l216s0 l216s1 l218s0 l218s1 l221s0 l221s1')">Q: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l216s0 l218s0 l221s0 l223s0')">R: 0</span>
-        <span class='covered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l216s0 l218s0 l218s1 l221s0 l223s0')">S: 1</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l216s0 l216s1 l218s0 l221s0 l223s0')">T: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l216s0 l216s1 l218s0 l218s1 l221s0 l223s0')">U: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l216s0 l218s0 l221s0 l223s0')">V: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l216s0 l218s0 l218s1 l221s0 l223s0')">W: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l216s0 l216s1 l218s0 l221s0 l223s0')">X: 0</span>
-        <span class='uncovered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l216s0 l216s1 l218s0 l218s1 l221s0 l223s0')">Y: 0</span>
-        <span class='covered' onclick="showPath(this,'l211s0 l212s0 l213s0 l214s0 l214s1 l215s0 l223s0')">Z: 101</span>
+        <span class='covered' onclick="showPath(this,'l217s0 l217s1')">A: 3</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l218s1')">B: 0</span>
+        <span class='covered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l221s0 l221s1')">C: 108</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l222s0 l222s1 l223s0')">D: 0</span>
+        <span class='covered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l222s0 l222s1 l223s0')">E: 1</span>
+        <span class='covered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l222s0 l224s0 l224s1 l225s0')">F: 1</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l222s0 l222s1 l224s0 l224s1 l225s0')">G: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l222s0 l224s0 l224s1 l225s0')">H: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l222s0 l222s1 l224s0 l224s1 l225s0')">I: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l222s0 l224s0 l227s0 l227s1')">J: 0</span>
+        <span class='covered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l222s0 l224s0 l224s1 l227s0 l227s1')">K: 1</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l222s0 l222s1 l224s0 l227s0 l227s1')">L: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l222s0 l222s1 l224s0 l224s1 l227s0 l227s1')">M: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l222s0 l224s0 l227s0 l227s1')">N: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l222s0 l224s0 l224s1 l227s0 l227s1')">O: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l222s0 l222s1 l224s0 l227s0 l227s1')">P: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l222s0 l222s1 l224s0 l224s1 l227s0 l227s1')">Q: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l222s0 l224s0 l227s0 l229s0')">R: 0</span>
+        <span class='covered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l222s0 l224s0 l224s1 l227s0 l229s0')">S: 1</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l222s0 l222s1 l224s0 l227s0 l229s0')">T: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l222s0 l222s1 l224s0 l224s1 l227s0 l229s0')">U: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l222s0 l224s0 l227s0 l229s0')">V: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l222s0 l224s0 l224s1 l227s0 l229s0')">W: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l222s0 l222s1 l224s0 l227s0 l229s0')">X: 0</span>
+        <span class='uncovered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l222s0 l222s1 l224s0 l224s1 l227s0 l229s0')">Y: 0</span>
+        <span class='covered' onclick="showPath(this,'l217s0 l218s0 l219s0 l220s0 l220s1 l221s0 l229s0')">Z: 101</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>211</td><td class='count'>216</td>
-      <td><pre class='prettyprint jmp'>		<span id='l211s0' title='Executions: 216' class='covered'>if (object == null)</span> <span id='l211s1' title='Executions: 3' class='covered'>return false;</span></pre></td>
+      <td class='line'>217</td><td class='count'>216</td>
+      <td><pre class='prettyprint jmp'>		<span id='l217s0' title='Executions: 216' class='covered'>if (object == null)</span> <span id='l217s1' title='Executions: 3' class='covered'>return false;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>212</td><td class='count'>213</td>
-      <td><pre class='prettyprint jmp'>		<span id='l212s0' title='Executions: 213' class='covered'>if (!(object instanceof DataBaseDataStore)) return false;</span></pre></td>
+      <td class='line'>218</td><td class='count'>213</td>
+      <td><pre class='prettyprint jmp'>		<span id='l218s0' title='Executions: 213' class='covered'>if (!(object instanceof DataBaseDataStore)) return false;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>213</td><td class='count'>213</td>
-      <td><pre class='prettyprint covered' id='l213s0'>		DataBaseDataStore thisClassObj = (DataBaseDataStore) object;</pre></td>
+      <td class='line'>219</td><td class='count'>213</td>
+      <td><pre class='prettyprint covered' id='l219s0'>		DataBaseDataStore thisClassObj = (DataBaseDataStore) object;</pre></td>
     </tr>
     <tr>
-      <td class='line'>214</td><td class='count'>213</td>
-      <td><pre class='prettyprint jmp'>		<span id='l214s0' title='Executions: 213' class='covered'>if (this.transaction == null</span> && <span id='l214s1' title='Executions: 210' class='covered'>thisClassObj.transaction == null)</span> <span id='l214s2' title='Executions: 209' class='covered'>{</span></pre></td>
+      <td class='line'>220</td><td class='count'>213</td>
+      <td><pre class='prettyprint jmp'>		<span id='l220s0' title='Executions: 213' class='covered'>if (this.transaction == null</span> && <span id='l220s1' title='Executions: 210' class='covered'>thisClassObj.transaction == null)</span> <span id='l220s2' title='Executions: 209' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>215</td><td class='count'>209</td>
-      <td><pre class='prettyprint jmp'>			<span id='l215s0' title='Executions: 209' class='covered'>if(thisClassObj.dataBaseAccessParameter.hashCode() == this.dataBaseAccessParameter .hashCode()) return true;</span></pre></td>
+      <td class='line'>221</td><td class='count'>209</td>
+      <td><pre class='prettyprint jmp'>			<span id='l221s0' title='Executions: 209' class='covered'>if(thisClassObj.dataBaseAccessParameter.hashCode() == this.dataBaseAccessParameter .hashCode()) return true;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>216</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>		<span id='l216s0' title='Executions: 4' class='covered'>}</span> else <span id='l216s1' title='Executions: 1' class='covered'>if (this.transaction == null</span> && <span id='l216s2' title='Executions: 1' class='covered'>thisClassObj.transaction != null)</span> </pre></td>
+      <td class='line'>222</td><td class='count'>4</td>
+      <td><pre class='prettyprint jmp'>		<span id='l222s0' title='Executions: 4' class='covered'>}</span> else <span id='l222s1' title='Executions: 1' class='covered'>if (this.transaction == null</span> && <span id='l222s2' title='Executions: 1' class='covered'>thisClassObj.transaction != null)</span> </pre></td>
     </tr>
     <tr>
-      <td class='line'>217</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l217s0'>			return false;</pre></td>
+      <td class='line'>223</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l223s0'>			return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>218</td><td class='count'>3</td>
-      <td><pre class='prettyprint jmp'>		<span id='l218s0' title='Executions: 3' class='covered'>}</span> else <span id='l218s1' title='Executions: 3' class='covered'>if (this.transaction != null</span> && <span id='l218s2' title='Executions: 1' class='covered'>thisClassObj.transaction == null)</span> </pre></td>
+      <td class='line'>224</td><td class='count'>3</td>
+      <td><pre class='prettyprint jmp'>		<span id='l224s0' title='Executions: 3' class='covered'>}</span> else <span id='l224s1' title='Executions: 3' class='covered'>if (this.transaction != null</span> && <span id='l224s2' title='Executions: 1' class='covered'>thisClassObj.transaction == null)</span> </pre></td>
     </tr>
     <tr>
-      <td class='line'>219</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l219s0'>			return false;</pre></td>
+      <td class='line'>225</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l225s0'>			return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>220</td><td>&nbsp;</td>
+      <td class='line'>226</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		} else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>221</td><td class='count'>2</td>
-      <td><pre class='prettyprint jmp'>			<span id='l221s0' title='Executions: 2' class='covered'>if(thisClassObj.transaction.hashCode() == this.transaction.hashCode()) return true;</span></pre></td>
+      <td class='line'>227</td><td class='count'>2</td>
+      <td><pre class='prettyprint jmp'>			<span id='l227s0' title='Executions: 2' class='covered'>if(thisClassObj.transaction.hashCode() == this.transaction.hashCode()) return true;</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>222</td><td>&nbsp;</td>
+      <td class='line'>228</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>223</td><td class='count'>102</td>
-      <td><pre class='prettyprint covered' id='l223s0'>		return false;</pre></td>
+      <td class='line'>229</td><td class='count'>102</td>
+      <td><pre class='prettyprint covered' id='l229s0'>		return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>224</td><td>&nbsp;</td>
+      <td class='line'>230</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>226</td><td>&nbsp;</td>
+      <td class='line'>232</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	@Override</pre></td>
     </tr>
     <tr>
-      <td class='line'>227</td><td>&nbsp;</td>
+      <td class='line'>233</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public String toString() {</pre></td>
     </tr>
     <tr>
-      <td></td><td class='count'>7</td>
+      <td></td><td class='count'>8</td>
       <td class='paths'>
-        <span style='cursor:default; background-color:#7f8000' onclick='hidePath()'>Path coverage: 1/2</span>
-        <span class='covered' onclick="showPath(this,'l228s0 l229s0 l232s0')">A: 7</span>
-        <span class='uncovered' onclick="showPath(this,'l228s0 l234s0')">B: 0</span>
+        <span style='cursor:default; background-color:#00ff00' onclick='hidePath()'>Path coverage: 2/2</span>
+        <span class='covered' onclick="showPath(this,'l234s0 l235s0 l238s0')">A: 7</span>
+        <span class='covered' onclick="showPath(this,'l234s0 l240s0')">B: 1</span>
       </td>
     </tr>
     <tr>
-      <td class='line'>228</td><td class='count'>7</td>
-      <td><pre class='prettyprint jmp'>		<span id='l228s0' title='Executions: 7' class='covered'>if (this.transaction == null)</span> <span id='l228s1' title='Executions: 7' class='covered'>{</span></pre></td>
+      <td class='line'>234</td><td class='count'>8</td>
+      <td><pre class='prettyprint jmp'>		<span id='l234s0' title='Executions: 8' class='covered'>if (this.transaction == null)</span> <span id='l234s1' title='Executions: 7' class='covered'>{</span></pre></td>
     </tr>
     <tr>
-      <td class='line'>229</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l229s0'>			StringBuilder sb = new StringBuilder();</pre></td>
+      <td class='line'>235</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l235s0'>			StringBuilder sb = new StringBuilder();</pre></td>
     </tr>
     <tr>
-      <td class='line'>230</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l230s0'>			sb.append("CONNECTION_HASH=[Transaction has not been started]").append(',');</pre></td>
+      <td class='line'>236</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l236s0'>			sb.append("CONNECTION_HASH=[Transaction has not been started]").append(',');</pre></td>
     </tr>
     <tr>
-      <td class='line'>231</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l231s0'>			sb.append(this.dataBaseAccessParameter.toString());</pre></td>
+      <td class='line'>237</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l237s0'>			sb.append(this.dataBaseAccessParameter.toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>232</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l232s0'>			return sb.toString();</pre></td>
+      <td class='line'>238</td><td class='count'>7</td>
+      <td><pre class='prettyprint covered' id='l238s0'>			return sb.toString();</pre></td>
     </tr>
     <tr>
-      <td class='line'>233</td><td>&nbsp;</td>
+      <td class='line'>239</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		} else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>234</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l234s0'>			return this.transaction.toString();</pre></td>
+      <td class='line'>240</td><td class='count'>1</td>
+      <td><pre class='prettyprint covered' id='l240s0'>			return this.transaction.toString();</pre></td>
     </tr>
     <tr>
-      <td class='line'>235</td><td>&nbsp;</td>
+      <td class='line'>241</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>237</td><td>&nbsp;</td>
+      <td class='line'>243</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr>
-      <td class='line'>238</td><td>&nbsp;</td>
+      <td class='line'>244</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>
