@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager.database;
+package jp.co.dk.datastoremanager.gdb;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL;
 
@@ -7,18 +7,18 @@ import java.sql.SQLException;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 
-class LongSqlParameter extends SqlParameter{
+class NumericCypherParameter extends CypherParameter{
 	
-	protected long parameter;
+	protected int parameter;
 	
-	LongSqlParameter(long parameter) {
+	NumericCypherParameter(int parameter) {
 		this.parameter = parameter;
 	}
 
 	@Override
 	void set(int index, PreparedStatement statement) throws DataStoreManagerException {
 		try {
-			statement.setLong(index, this.parameter);
+			statement.setInt(index, this.parameter);
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL, e);
 		}
@@ -27,8 +27,8 @@ class LongSqlParameter extends SqlParameter{
 	@Override
 	public boolean equals(Object object) {
 		if (object == null) return false;
-		if (!(object instanceof LongSqlParameter)) return false;
-		LongSqlParameter thisClassObj = (LongSqlParameter) object;
+		if (!(object instanceof NumericCypherParameter)) return false;
+		NumericCypherParameter thisClassObj = (NumericCypherParameter) object;
 		if (thisClassObj.hashCode() == this.hashCode()) return true;
 		return false;
 	}
@@ -41,7 +41,7 @@ class LongSqlParameter extends SqlParameter{
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.parameter).append("(long)");
+		sb.append(this.parameter).append("(int)");
 		return sb.toString();
 	}
 }

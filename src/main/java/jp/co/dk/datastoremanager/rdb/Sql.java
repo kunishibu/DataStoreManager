@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager.database;
+package jp.co.dk.datastoremanager.rdb;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
-
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 /**

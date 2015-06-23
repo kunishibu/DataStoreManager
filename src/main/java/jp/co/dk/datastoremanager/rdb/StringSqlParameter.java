@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager.database;
+package jp.co.dk.datastoremanager.rdb;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 

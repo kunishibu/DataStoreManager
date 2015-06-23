@@ -1,10 +1,10 @@
-package jp.co.dk.datastoremanager.database;
+package jp.co.dk.datastoremanager.rdb;
 
+import jp.co.dk.datastoremanager.DataBaseDriverConstants;
 import jp.co.dk.datastoremanager.DataStore;
 import jp.co.dk.datastoremanager.DataStoreKind;
 import jp.co.dk.datastoremanager.DataStoreParameter;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
-
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 /**

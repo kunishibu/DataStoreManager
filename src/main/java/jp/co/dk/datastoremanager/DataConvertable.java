@@ -1,7 +1,7 @@
 package jp.co.dk.datastoremanager;
 
-import jp.co.dk.datastoremanager.database.DataBaseRecord;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import jp.co.dk.datastoremanager.rdb.DataBaseRecord;
 
 /**
  * DataConvertableは、レコードの変換を行うクラスが実装するインターフェースです。<p/>

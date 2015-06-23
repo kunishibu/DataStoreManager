@@ -20,6 +20,9 @@ public enum DataStoreKind {
 	
 	/** POSTGRESSQL */
 	POSTGRESQL("postgresql"),
+
+	/** NEO4J */
+	NEO4J("neo4j"),
 	
 	/** CSV */
 	CSV("csv"),
