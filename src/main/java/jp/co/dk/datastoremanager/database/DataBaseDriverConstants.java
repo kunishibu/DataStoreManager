@@ -16,6 +16,8 @@ public enum DataBaseDriverConstants {
 	MYSQL("jdbc:mysql://servername/databasename", "com.mysql.jdbc.Driver", DataStoreKind.MYSQL),
 	/** POSTGRESSQL */
 	POSTGRESSQL("jdbc:postgresql://servername/databasename", "org.postgresql.Driver", DataStoreKind.POSTGRESQL),
+	/** NEO4J */
+	NEO4J("jdbc:neo4j://servername", "org.neo4j.jdbc.Driver", DataStoreKind.NEO4J),
 	;
 	
 	/** URL */
@@ -42,13 +44,23 @@ public enum DataBaseDriverConstants {
 	}
 	
 	/**
+	 * 指定のサーバ名を基に接続先URLを取得する。
+	 * 
+	 * @param servername   サーバ名
+	 * @return 接続先URL
+	 */
+	public String getUrl(String servername) {
+		return this.url.replaceAll("servername", servername);
+	}
+	
+	/**
 	 * 指定のサーバ名、データベース名を基に接続先URLを取得する。
 	 * 
 	 * @param servername   サーバ名
 	 * @param databasename データベース名称
 	 * @return 接続先URL
 	 */
-	String getUrl(String servername, String databasename) {
+	public String getUrl(String servername, String databasename) {
 		String result1 = this.url.replaceAll("servername", servername);
 		String result2 = result1.replaceAll("databasename", databasename);
 		return result2;
@@ -59,7 +71,7 @@ public enum DataBaseDriverConstants {
 	 * 
 	 * @return ドライバークラス名
 	 */
-	String getDriverClass() {
+	public String getDriverClass() {
 		return this.driverClass;
 	}
 	/**
@@ -67,7 +79,7 @@ public enum DataBaseDriverConstants {
 	 * 
 	 * @return データストア種別
 	 */
-	DataStoreKind getDataStoreKind() {
+	public DataStoreKind getDataStoreKind() {
 		return this.dataStoreKind;
 	}
 	

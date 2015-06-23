@@ -1,29 +1,28 @@
-package jp.co.dk.datastoremanager.database;
+package jp.co.dk.datastoremanager.rdb;
 
-import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL;
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
+import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 
-class DateSqlParameter extends SqlParameter{
+class ObjectSqlParameter extends SqlParameter{
 	
-	protected Date parameter;
+	protected Serializable parameter;
 	
-	DateSqlParameter(Date parameter) throws DataStoreManagerException {
+	ObjectSqlParameter(Serializable parameter) throws DataStoreManagerException {
 		this.parameter = parameter;
-	}
+	} 
 
 	@Override
 	void set(int index, PreparedStatement statement) throws DataStoreManagerException {
 		try {
 			if (this.parameter != null) {
-				statement.setDate(index, new java.sql.Date(this.parameter.getTime()));
+				statement.setObject(index, this.parameter);
 			} else {
-				statement.setDate(index, null);
+				statement.setObject(index, null);
 			}
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL, e);
@@ -33,8 +32,8 @@ class DateSqlParameter extends SqlParameter{
 	@Override
 	public boolean equals(Object object) {
 		if (object == null) return false;
-		if (!(object instanceof DateSqlParameter)) return false;
-		DateSqlParameter thisClassObj = (DateSqlParameter) object;
+		if (!(object instanceof ObjectSqlParameter)) return false;
+		ObjectSqlParameter thisClassObj = (ObjectSqlParameter) object;
 		if (thisClassObj.hashCode() == this.hashCode()) return true;
 		return false;
 	}
@@ -52,11 +51,10 @@ class DateSqlParameter extends SqlParameter{
 	public String toString() {
 		if (this.parameter != null) {
 			StringBuilder sb = new StringBuilder();
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-			sb.append(sdf.format(this.parameter).toString()).append("(date)");
+			sb.append(this.parameter).append("(object)");
 			return sb.toString();
 		} else {
-			return "null(date)";
+			return "null(object)";
 		}
 	}
 }

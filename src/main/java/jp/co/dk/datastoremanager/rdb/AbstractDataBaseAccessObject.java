@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager.database;
+package jp.co.dk.datastoremanager.rdb;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,6 +8,7 @@ import java.util.List;
 import jp.co.dk.datastoremanager.DataAccessObject;
 import jp.co.dk.datastoremanager.DataConvertable;
 import jp.co.dk.datastoremanager.DataStore;
+import jp.co.dk.datastoremanager.database.DataBaseDriverConstants;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.logger.Logger;
 import jp.co.dk.logger.LoggerFactory;

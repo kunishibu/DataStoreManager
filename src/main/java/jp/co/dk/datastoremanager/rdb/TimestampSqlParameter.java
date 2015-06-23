@@ -1,18 +1,18 @@
-package jp.co.dk.datastoremanager.database;
+package jp.co.dk.datastoremanager.rdb;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
-import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 
-class ObjectSqlParameter extends SqlParameter{
+class TimestampSqlParameter extends SqlParameter{
 	
-	protected Serializable parameter;
+	protected Timestamp parameter;
 	
-	ObjectSqlParameter(Serializable parameter) throws DataStoreManagerException {
+	TimestampSqlParameter(Timestamp parameter) throws DataStoreManagerException {
 		this.parameter = parameter;
 	} 
 
@@ -20,9 +20,9 @@ class ObjectSqlParameter extends SqlParameter{
 	void set(int index, PreparedStatement statement) throws DataStoreManagerException {
 		try {
 			if (this.parameter != null) {
-				statement.setObject(index, this.parameter);
+				statement.setTimestamp(index, this.parameter);
 			} else {
-				statement.setObject(index, null);
+				statement.setTimestamp(index, null);
 			}
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL, e);
@@ -32,8 +32,8 @@ class ObjectSqlParameter extends SqlParameter{
 	@Override
 	public boolean equals(Object object) {
 		if (object == null) return false;
-		if (!(object instanceof ObjectSqlParameter)) return false;
-		ObjectSqlParameter thisClassObj = (ObjectSqlParameter) object;
+		if (!(object instanceof TimestampSqlParameter)) return false;
+		TimestampSqlParameter thisClassObj = (TimestampSqlParameter) object;
 		if (thisClassObj.hashCode() == this.hashCode()) return true;
 		return false;
 	}
@@ -51,10 +51,11 @@ class ObjectSqlParameter extends SqlParameter{
 	public String toString() {
 		if (this.parameter != null) {
 			StringBuilder sb = new StringBuilder();
-			sb.append(this.parameter).append("(object)");
+			sb.append(this.parameter).append("(timestamp)");
 			return sb.toString();
 		} else {
-			return "null(object)";
+			return "null(timestamp)";
 		}
+		
 	}
 }

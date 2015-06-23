@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager.database;
+package jp.co.dk.datastoremanager.gdb;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import jp.co.dk.datastoremanager.database.DataBaseDriverConstants;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.logger.Logger;
 import jp.co.dk.logger.LoggerFactory;
@@ -25,7 +26,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
  * ・ファントム<br/>
  * 　検索基準に合致するがクエリーからは見えないローのこと。他のトランザクションからクエリーの範囲に行を挿入した場合など。<br/>
  * 
- * @version 1.0
+ * @version 1.1
  * @author D.Kanno
  */
 class Transaction {
@@ -56,7 +57,7 @@ class Transaction {
 		this.dataBaseAccessParameter = dataBaseAccessParameter;
 		DataBaseDriverConstants driverConstants = dataBaseAccessParameter.getDriver();
 		String driver   = driverConstants.getDriverClass();
-		String url      = driverConstants.getUrl(dataBaseAccessParameter.getUrl(), dataBaseAccessParameter.getSid());
+		String url      = driverConstants.getUrl(dataBaseAccessParameter.getUrl());
 		String user     = dataBaseAccessParameter.getUser();
 		String password = dataBaseAccessParameter.getPassword();
 		try {
@@ -73,45 +74,18 @@ class Transaction {
 	}
 	
 	/**
-	 * 指定のSQLを実行し、テーブルを作成する。<p/>
-	 * テーブル作成に失敗した場合、例外を送出する。
-	 * 
-	 * @param sql 実行対象のSQLオブジェクト
-	 * @throws DataStoreManagerException テーブル作成に失敗した場合
-	 */
-	void createTable(Sql sql) throws DataStoreManagerException {
-		this.logger.info("create table " + sql.toString());
-		PreparedStatement statement = null;
-		try {
-			statement = this.connection.prepareStatement(sql.getSql());
-			statement.execute();
-			statement.close();
-		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);
-				}
-			}
-		}
-	}
-	
-	/**
 	 * 指定のSQLを実行し、レコードを作成する。<p/>
 	 * レコード追加に失敗した場合、例外を送出する。
 	 * 
-	 * @param sql 実行対象のSQLオブジェクト
+	 * @param cypher 実行対象のSQLオブジェクト
 	 * @throws DataStoreManagerException レコード追加に失敗した場合
 	 */
-	void insert(Sql sql) throws DataStoreManagerException {
-		this.logger.info("insert " + sql.toString());
+	void insert(Cypher cypher) throws DataStoreManagerException {
+		this.logger.info("insert " + cypher.toString());
 		PreparedStatement statement = null;
 		try {
-			statement = this.connection.prepareStatement(sql.getSql());
-			List<SqlParameter> sqlPrameterList = sql.getParameterList();
+			statement = this.connection.prepareStatement(cypher.getSql());
+			List<CypherParameter> sqlPrameterList = cypher.getParameterList();
 			for (int index = 0; index < sqlPrameterList.size(); index++) {
 				int tmpIndex = index + 1;
 				sqlPrameterList.get(index).set(tmpIndex, statement);
@@ -119,13 +93,13 @@ class Transaction {
 			statement.execute();
 			statement.close();
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
+			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, cypher.toString(), e);
 		} finally {
 			if (statement != null) {
 				try {
 					statement.close();
 				} catch (SQLException e) {
-					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);
+					throw new DataStoreManagerException(FAILE_TO_CLOSE, cypher.toString(), e);
 				}
 			}
 		}
@@ -135,16 +109,16 @@ class Transaction {
 	 * 指定のSQLを実行し、レコードの更新を実行する。<p/>
 	 * レコードの更新に失敗した場合、例外を送出する。
 	 * 
-	 * @param sql 実行対象のSQLオブジェクト
+	 * @param cypher 実行対象のSQLオブジェクト
 	 * @return 更新結果の件数
 	 * @throws DataStoreManagerException レコード更新に失敗した場合
 	 */
-	int update(Sql sql) throws DataStoreManagerException {
-		this.logger.info("update " + sql.toString());
+	int update(Cypher cypher) throws DataStoreManagerException {
+		this.logger.info("update " + cypher.toString());
 		PreparedStatement statement = null;
 		try {
-			statement = this.connection.prepareStatement(sql.getSql());
-			List<SqlParameter> sqlPrameterList = sql.getParameterList();
+			statement = this.connection.prepareStatement(cypher.getSql());
+			List<CypherParameter> sqlPrameterList = cypher.getParameterList();
 			for (int index = 0; index < sqlPrameterList.size(); index++) {
 				int tmpIndex = index + 1;
 				sqlPrameterList.get(index).set(tmpIndex, statement);
@@ -154,13 +128,13 @@ class Transaction {
 			statement.close();
 			return result;
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
+			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, cypher.toString(), e);
 		} finally {
 			if (statement != null) {
 				try {
 					statement.close();
 				} catch (SQLException e) {
-					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);
+					throw new DataStoreManagerException(FAILE_TO_CLOSE, cypher.toString(), e);
 				}
 			}
 		}
@@ -170,16 +144,16 @@ class Transaction {
 	 * 指定のSQLを実行し、レコードの削除を実行する。<p/>
 	 * レコードの削除に失敗した場合、例外を送出する。
 	 * 
-	 * @param sql 実行対象のSQLオブジェクト
+	 * @param cypher 実行対象のSQLオブジェクト
 	 * @return 削除結果の件数
 	 * @throws DataStoreManagerException レコード削除に失敗した場合
 	 */
-	int delete(Sql sql) throws DataStoreManagerException {
-		this.logger.info("delete " + sql.toString());
+	int delete(Cypher cypher) throws DataStoreManagerException {
+		this.logger.info("delete " + cypher.toString());
 		PreparedStatement statement = null;
 		try {
-			statement = this.connection.prepareStatement(sql.getSql());
-			List<SqlParameter> sqlPrameterList = sql.getParameterList();
+			statement = this.connection.prepareStatement(cypher.getSql());
+			List<CypherParameter> sqlPrameterList = cypher.getParameterList();
 			for (int index = 0; index < sqlPrameterList.size(); index++) {
 				int tmpIndex = index + 1;
 				sqlPrameterList.get(index).set(tmpIndex, statement);
@@ -189,13 +163,13 @@ class Transaction {
 			statement.close();
 			return result;
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
+			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, cypher.toString(), e);
 		} finally {
 			if (statement != null) {
 				try {
 					statement.close();
 				} catch (SQLException e) {
-					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);
+					throw new DataStoreManagerException(FAILE_TO_CLOSE, cypher.toString(), e);
 				}
 			}
 		}
@@ -205,49 +179,23 @@ class Transaction {
 	 * 指定のSQLを元に、レコード取得を実施します。<p/>
 	 * SQLの実行に失敗した場合、例外が送出される。<br/>
 	 * 
-	 * @param sql 実行対象のSELECT文 
+	 * @param cypher 実行対象のSELECT文 
 	 * @return 実行結果
 	 * @throws DataStoreManagerException SQLの実行に失敗した場合
 	 */
-	ResultSet select(Sql sql) throws DataStoreManagerException {
-		this.logger.info("select " + sql.toString());
+	ResultSet select(Cypher cypher) throws DataStoreManagerException {
+		this.logger.info("select " + cypher.toString());
 		PreparedStatement statement = null;
 		try {
-			statement = this.connection.prepareStatement(sql.getSql());
-			List<SqlParameter> sqlPrameterList = sql.getParameterList();
+			statement = this.connection.prepareStatement(cypher.getSql());
+			List<CypherParameter> sqlPrameterList = cypher.getParameterList();
 			for (int index = 0; index < sqlPrameterList.size(); index++) {
 				int tmpIndex = index + 1;
 				sqlPrameterList.get(index).set(tmpIndex, statement);
 			}
 			return statement.executeQuery();
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
-		}
-	}
-	
-	/**
-	 * 指定のSQLを実行し、テーブルを削除する。<p/>
-	 * テーブル削除に失敗した場合、例外を送出する。
-	 * 
-	 * @param sql 実行対象のSQLオブジェクト
-	 * @throws DataStoreManagerException テーブル削除に失敗した場合
-	 */
-	void dropTable(Sql sql) throws DataStoreManagerException {
-		this.logger.info("drop table " + sql.toString());
-		PreparedStatement statement = null;
-		try {
-			statement = this.connection.prepareStatement(sql.getSql());
-			statement.execute();
-		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, sql.toString(), e);
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					throw new DataStoreManagerException(FAILE_TO_CLOSE, sql.toString(), e);
-				}
-			}
+			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, cypher.toString(), e);
 		}
 	}
 	

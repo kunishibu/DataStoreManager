@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager.database;
+package jp.co.dk.datastoremanager.gdb;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 /**
  * DataBaseDataStoreは、単一のデータベースのデータストアを表すクラスです。<p/>
- * 単一の接続先に対するトランザクション管理、SQLの実行、実行されたSQLの履歴保持を行う。<br/>
+ * 単一の接続先に対するトランザクション管理、Cypherの実行、実行されたCypherの履歴保持を行う。<br/>
  * 
- * @version 1.0
+ * @version 1.1
  * @author D.Kanno
  */
 public class DataBaseDataStore implements DataStore {
@@ -28,8 +28,8 @@ public class DataBaseDataStore implements DataStore {
 	/** トランザクション */
 	protected Transaction transaction;
 	
-	/** SQLリスト */
-	protected List<Sql> sqlList = new ArrayList<Sql>();
+	/** Cypherリスト */
+	protected List<Cypher> cypherList = new ArrayList<Cypher>();
 	
 	/** 発生例外一覧 */
 	protected List<DataStoreManagerException> exceptionList = new ArrayList<DataStoreManagerException>();
@@ -93,17 +93,17 @@ public class DataBaseDataStore implements DataStore {
 	}
 	
 	/**
-	 * 指定のSQLを実行し、テーブルを作成する。<p/>
-	 * テーブル作成に失敗した場合、例外を送出する。
+	 * 指定のCypherを実行し、ノード、またはリレーションを作成する。<p/>
+	 * ノード、またはリレーション追加に失敗した場合、例外を送出する。
 	 * 
-	 * @param sql 実行対象のSQLオブジェクト
-	 * @throws DataStoreManagerException テーブル作成に失敗した場合
+	 * @param cypher 実行対象のCypherオブジェクト
+	 * @throws DataStoreManagerException ノード、またはリレーション追加に失敗した場合
 	 */
-	void createTable(Sql sql) throws DataStoreManagerException {
+	void insert(Cypher cypher) throws DataStoreManagerException {
 		try {
 			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-			this.transaction.createTable(sql);
-			this.sqlList.add(sql);
+			this.transaction.insert(cypher);
+			this.cypherList.add(cypher);
 		} catch (DataStoreManagerException e) {
 			this.exceptionList.add(e);
 			throw e;
@@ -111,54 +111,18 @@ public class DataBaseDataStore implements DataStore {
 	}
 	
 	/**
-	 * 指定のSQLを実行し、テーブルを削除する。<p/>
-	 * テーブル削除に失敗した場合、例外を送出する。
+	 * 指定のCypherを実行し、ノード、またはリレーションの更新を実行する。<p/>
+	 * ノード、またはリレーションの更新に失敗した場合、例外を送出する。
 	 * 
-	 * @param sql 実行対象のSQLオブジェクト
-	 * @throws DataStoreManagerException テーブル削除に失敗した場合
-	 */
-	void dropTable(Sql sql) throws DataStoreManagerException {
-		try {
-			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-			this.transaction.dropTable(sql);
-			this.sqlList.add(sql);
-		} catch (DataStoreManagerException e) {
-			this.exceptionList.add(e);
-			throw e;
-		}
-	}
-	
-	/**
-	 * 指定のSQLを実行し、レコードを作成する。<p/>
-	 * レコード追加に失敗した場合、例外を送出する。
-	 * 
-	 * @param sql 実行対象のSQLオブジェクト
-	 * @throws DataStoreManagerException レコード追加に失敗した場合
-	 */
-	void insert(Sql sql) throws DataStoreManagerException {
-		try {
-			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-			this.transaction.insert(sql);
-			this.sqlList.add(sql);
-		} catch (DataStoreManagerException e) {
-			this.exceptionList.add(e);
-			throw e;
-		}
-	}
-	
-	/**
-	 * 指定のSQLを実行し、レコードの更新を実行する。<p/>
-	 * レコードの更新に失敗した場合、例外を送出する。
-	 * 
-	 * @param sql 実行対象のSQLオブジェクト
+	 * @param cypher 実行対象のCypherオブジェクト
 	 * @return 更新結果の件数
-	 * @throws DataStoreManagerException レコード更新に失敗した場合
+	 * @throws DataStoreManagerException ノード、またはリレーション更新に失敗した場合
 	 */
-	int update(Sql sql) throws DataStoreManagerException {
+	int update(Cypher cypher) throws DataStoreManagerException {
 		try {
 			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-			int result = this.transaction.update(sql);
-			this.sqlList.add(sql);
+			int result = this.transaction.update(cypher);
+			this.cypherList.add(cypher);
 			return result;
 		} catch (DataStoreManagerException e) {
 			this.exceptionList.add(e);
@@ -167,18 +131,18 @@ public class DataBaseDataStore implements DataStore {
 	}
 	
 	/**
-	 * 指定のSQLを実行し、レコードの削除を実行する。<p/>
-	 * レコードの削除に失敗した場合、例外を送出する。
+	 * 指定のCypherを実行し、ノード、またはリレーションの削除を実行する。<p/>
+	 * ノード、またはリレーションの削除に失敗した場合、例外を送出する。
 	 * 
-	 * @param sql 実行対象のSQLオブジェクト
+	 * @param cypher 実行対象のCypherオブジェクト
 	 * @return 削除結果の件数
-	 * @throws DataStoreManagerException レコード削除に失敗した場合
+	 * @throws DataStoreManagerException ノード、またはリレーション削除に失敗した場合
 	 */
-	int delete(Sql sql) throws DataStoreManagerException {
+	int delete(Cypher cypher) throws DataStoreManagerException {
 		try {
 			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-			int result = this.transaction.delete(sql);
-			this.sqlList.add(sql);
+			int result = this.transaction.delete(cypher);
+			this.cypherList.add(cypher);
 			return result;
 		} catch (DataStoreManagerException e) {
 			this.exceptionList.add(e);
@@ -187,18 +151,18 @@ public class DataBaseDataStore implements DataStore {
 	}
 	
 	/**
-	 * 指定のSQLを元に、レコード取得を実施します。<p/>
-	 * SQLの実行に失敗した場合、例外が送出される。<br/>
+	 * 指定のCypherを元に、ノード、またはリレーション取得を実施します。<p/>
+	 * Cypherの実行に失敗した場合、例外が送出される。<br/>
 	 * 
-	 * @param sql 実行対象のSELECT文 
+	 * @param cypher 実行対象のSELECT文 
 	 * @return 実行結果
-	 * @throws DataStoreManagerException SQLの実行に失敗した場合
+	 * @throws DataStoreManagerException Cypherの実行に失敗した場合
 	 */
-	ResultSet select(Sql sql) throws DataStoreManagerException {
+	ResultSet select(Cypher cypher) throws DataStoreManagerException {
 		try {
 			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-			ResultSet result = this.transaction.select(sql);
-			this.sqlList.add(sql);
+			ResultSet result = this.transaction.select(cypher);
+			this.cypherList.add(cypher);
 			return result;
 		} catch (DataStoreManagerException e) {
 			this.exceptionList.add(e);
