@@ -93,64 +93,6 @@ public class DataBaseDataStore implements DataStore {
 	}
 	
 	/**
-	 * 指定のCypherを実行し、ノード、またはリレーションを作成する。<p/>
-	 * ノード、またはリレーション追加に失敗した場合、例外を送出する。
-	 * 
-	 * @param cypher 実行対象のCypherオブジェクト
-	 * @throws DataStoreManagerException ノード、またはリレーション追加に失敗した場合
-	 */
-	void insert(Cypher cypher) throws DataStoreManagerException {
-		try {
-			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-			this.transaction.insert(cypher);
-			this.cypherList.add(cypher);
-		} catch (DataStoreManagerException e) {
-			this.exceptionList.add(e);
-			throw e;
-		}
-	}
-	
-	/**
-	 * 指定のCypherを実行し、ノード、またはリレーションの更新を実行する。<p/>
-	 * ノード、またはリレーションの更新に失敗した場合、例外を送出する。
-	 * 
-	 * @param cypher 実行対象のCypherオブジェクト
-	 * @return 更新結果の件数
-	 * @throws DataStoreManagerException ノード、またはリレーション更新に失敗した場合
-	 */
-	int update(Cypher cypher) throws DataStoreManagerException {
-		try {
-			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-			int result = this.transaction.update(cypher);
-			this.cypherList.add(cypher);
-			return result;
-		} catch (DataStoreManagerException e) {
-			this.exceptionList.add(e);
-			throw e;
-		}
-	}
-	
-	/**
-	 * 指定のCypherを実行し、ノード、またはリレーションの削除を実行する。<p/>
-	 * ノード、またはリレーションの削除に失敗した場合、例外を送出する。
-	 * 
-	 * @param cypher 実行対象のCypherオブジェクト
-	 * @return 削除結果の件数
-	 * @throws DataStoreManagerException ノード、またはリレーション削除に失敗した場合
-	 */
-	int delete(Cypher cypher) throws DataStoreManagerException {
-		try {
-			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-			int result = this.transaction.delete(cypher);
-			this.cypherList.add(cypher);
-			return result;
-		} catch (DataStoreManagerException e) {
-			this.exceptionList.add(e);
-			throw e;
-		}
-	}
-	
-	/**
 	 * 指定のCypherを元に、ノード、またはリレーション取得を実施します。<p/>
 	 * Cypherの実行に失敗した場合、例外が送出される。<br/>
 	 * 
@@ -158,10 +100,10 @@ public class DataBaseDataStore implements DataStore {
 	 * @return 実行結果
 	 * @throws DataStoreManagerException Cypherの実行に失敗した場合
 	 */
-	ResultSet select(Cypher cypher) throws DataStoreManagerException {
+	ResultSet execute(Cypher cypher) throws DataStoreManagerException {
 		try {
 			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);
-			ResultSet result = this.transaction.select(cypher);
+			ResultSet result = this.transaction.execute(cypher);
 			this.cypherList.add(cypher);
 			return result;
 		} catch (DataStoreManagerException e) {

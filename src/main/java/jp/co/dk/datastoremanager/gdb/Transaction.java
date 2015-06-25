@@ -59,12 +59,13 @@ class Transaction {
 		DataBaseDriverConstants driverConstants = dataBaseAccessParameter.getDriver();
 		String driver   = driverConstants.getDriverClass();
 		String url      = driverConstants.getUrl(dataBaseAccessParameter.getUrl());
-		// String user     = dataBaseAccessParameter.getUser();
-		// String password = dataBaseAccessParameter.getPassword();
 		try {
 			Class.forName(driver);
-			// this.connection = DriverManager.getConnection(url, user, password);
-			this.connection = DriverManager.getConnection(url);
+			if (dataBaseAccessParameter.isUserpass()) {
+				this.connection = DriverManager.getConnection(url, dataBaseAccessParameter.getUser(), dataBaseAccessParameter.getPassword());
+			} else {
+				this.connection = DriverManager.getConnection(url);
+			}
 			this.connection.setAutoCommit(false);
 			this.connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
 		} catch (ClassNotFoundException e) {
@@ -76,108 +77,6 @@ class Transaction {
 	}
 	
 	/**
-	 * 指定のCypherを実行し、レコードを作成する。<p/>
-	 * レコード追加に失敗した場合、例外を送出する。
-	 * 
-	 * @param cypher 実行対象のCypherオブジェクト
-	 * @throws DataStoreManagerException レコード追加に失敗した場合
-	 */
-	void insert(Cypher cypher) throws DataStoreManagerException {
-		this.logger.info("insert " + cypher.toString());
-		PreparedStatement statement = null;
-		try {
-			statement = this.connection.prepareStatement(cypher.getCypher());
-			List<CypherParameter> sqlPrameterList = cypher.getParameterList();
-			for (int index = 0; index < sqlPrameterList.size(); index++) {
-				int tmpIndex = index + 1;
-				sqlPrameterList.get(index).set(tmpIndex, statement);
-			}
-			statement.execute();
-			statement.close();
-		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, cypher.toString(), e);
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					throw new DataStoreManagerException(FAILE_TO_CLOSE, cypher.toString(), e);
-				}
-			}
-		}
-	}
-	
-	/**
-	 * 指定のCypherを実行し、レコードの更新を実行する。<p/>
-	 * レコードの更新に失敗した場合、例外を送出する。
-	 * 
-	 * @param cypher 実行対象のCypherオブジェクト
-	 * @return 更新結果の件数
-	 * @throws DataStoreManagerException レコード更新に失敗した場合
-	 */
-	int update(Cypher cypher) throws DataStoreManagerException {
-		this.logger.info("update " + cypher.toString());
-		PreparedStatement statement = null;
-		try {
-			statement = this.connection.prepareStatement(cypher.getCypher());
-			List<CypherParameter> sqlPrameterList = cypher.getParameterList();
-			for (int index = 0; index < sqlPrameterList.size(); index++) {
-				int tmpIndex = index + 1;
-				sqlPrameterList.get(index).set(tmpIndex, statement);
-			}
-			int result = statement.executeUpdate();
-			statement.executeUpdate();
-			statement.close();
-			return result;
-		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, cypher.toString(), e);
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					throw new DataStoreManagerException(FAILE_TO_CLOSE, cypher.toString(), e);
-				}
-			}
-		}
-	}
-	
-	/**
-	 * 指定のCypherを実行し、レコードの削除を実行する。<p/>
-	 * レコードの削除に失敗した場合、例外を送出する。
-	 * 
-	 * @param cypher 実行対象のCypherオブジェクト
-	 * @return 削除結果の件数
-	 * @throws DataStoreManagerException レコード削除に失敗した場合
-	 */
-	int delete(Cypher cypher) throws DataStoreManagerException {
-		this.logger.info("delete " + cypher.toString());
-		PreparedStatement statement = null;
-		try {
-			statement = this.connection.prepareStatement(cypher.getCypher());
-			List<CypherParameter> sqlPrameterList = cypher.getParameterList();
-			for (int index = 0; index < sqlPrameterList.size(); index++) {
-				int tmpIndex = index + 1;
-				sqlPrameterList.get(index).set(tmpIndex, statement);
-			}
-			int result = statement.executeUpdate();
-			statement.executeUpdate();
-			statement.close();
-			return result;
-		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_EXECUTE_SQL, cypher.toString(), e);
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					throw new DataStoreManagerException(FAILE_TO_CLOSE, cypher.toString(), e);
-				}
-			}
-		}
-	}
-
-	/**
 	 * 指定のCypherを元に、レコード取得を実施します。<p/>
 	 * Cypherの実行に失敗した場合、例外が送出される。<br/>
 	 * 
@@ -185,8 +84,8 @@ class Transaction {
 	 * @return 実行結果
 	 * @throws DataStoreManagerException SQLの実行に失敗した場合
 	 */
-	ResultSet select(Cypher cypher) throws DataStoreManagerException {
-		this.logger.info("select " + cypher.toString());
+	ResultSet execute(Cypher cypher) throws DataStoreManagerException {
+		this.logger.info("execute " + cypher.toString());
 		PreparedStatement statement = null;
 		try {
 			statement = this.connection.prepareStatement(cypher.getCypher());

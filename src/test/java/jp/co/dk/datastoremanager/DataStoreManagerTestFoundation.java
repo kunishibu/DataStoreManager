@@ -35,7 +35,7 @@ public class DataStoreManagerTestFoundation extends TestCaseTemplate{
 	 * @throws DataStoreManagerException 引数が不足していた場合
 	 */
 	protected jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter getAccessableDataBaseAccessParameterGDB() throws DataStoreManagerException {
-		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "localhost:7474", "test_user", "123456");
+		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "localhost:7474");
 	}
 	
 	/**
@@ -45,7 +45,7 @@ public class DataStoreManagerTestFoundation extends TestCaseTemplate{
 	 * @throws DataStoreManagerException 引数が不足していた場合
 	 */
 	protected jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter getAccessFaileDataBaseAccessParameterGDB() throws DataStoreManagerException {
-		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "255.255.255.255:7474", "test_user", "123456");
+		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "255.255.255.255:7474");
 	}
 	
 	

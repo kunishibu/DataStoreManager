@@ -21,11 +21,34 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	/** 接続先URL */
 	protected String url;
 	
+	/** ユーザ・パスワード設定有無 */
+	protected boolean isUserpass;
+	
 	/** ユーザ */
 	protected String user;
 	
 	/** パスワード */
 	protected String password;
+	
+	/**
+	 * コンストラクタ<p/>
+	 * 指定のドライバー、接続先URL、ユーザ名、パスワードからデータベースアクセスに必要なパラメータを生成します。<br/>
+	 * いづれかの値にnullまたは空文字が設定されていた場合、例外を送出する。
+	 * 
+	 * @param dataStoreKind データストア種別
+	 * @param driver        データベースドライバー
+	 * @param url           接続先URL
+	 * @param user          ユーザ
+	 * @param password      パスワード
+	 */
+	public DataBaseAccessParameter(DataStoreKind dataStoreKind, DataBaseDriverConstants driver, String url) throws DataStoreManagerException {
+		super(dataStoreKind);
+		if (driver   == null) throw new DataStoreManagerException(DRIVER_IS_NOT_SET);
+		if (url      == null || url.equals("")) throw new DataStoreManagerException(URL_IS_NOT_SET);
+		this.driver   = driver;
+		this.url      = url;
+		this.isUserpass = false;
+	}
 	
 	/**
 	 * コンストラクタ<p/>
@@ -48,6 +71,7 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 		this.url      = url;
 		this.user     = user;
 		this.password = password;
+		this.isUserpass = true;
 	}
 	
 	/**
@@ -68,6 +92,15 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	}
 	
 	/**
+	 * データベース接続先のユーザ・パスワード設定有無を取得します。
+	 * 
+	 * @return ユーザ・パスワード設定有無
+	 */
+	public boolean isUserpass() {
+		return isUserpass;
+	}
+
+	/**
 	 * データベース接続先のユーザを取得します。
 	 * 
 	 * @return データベース接続先のユーザ
@@ -84,7 +117,7 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	public String getPassword() {
 		return password;
 	}
-
+	
 	@Override
 	protected DataStore createDataStore() {
 		return new DataBaseDataStore(this);
