@@ -1,19 +1,19 @@
 package jp.co.dk.datastoremanager;
 
-import jp.co.dk.datastoremanager.database.BytesSqlParameterTest;
-import jp.co.dk.datastoremanager.database.DataBaseAccessParameterTest;
-import jp.co.dk.datastoremanager.database.DataBaseDataStoreTest;
-import jp.co.dk.datastoremanager.database.DataBaseDriverConstantsTest;
-import jp.co.dk.datastoremanager.database.DataBaseRecordTest;
-import jp.co.dk.datastoremanager.database.DateSqlParameterTest;
-import jp.co.dk.datastoremanager.database.IntSqlParameterTest;
-import jp.co.dk.datastoremanager.database.ObjectSqlParameterTest;
-import jp.co.dk.datastoremanager.database.SqlTest;
-import jp.co.dk.datastoremanager.database.StringSqlParameterTest;
-import jp.co.dk.datastoremanager.database.TimestampSqlParameterTest;
-import jp.co.dk.datastoremanager.database.TransactionTest;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerExceptionTest;
 import jp.co.dk.datastoremanager.property.DataStoreManagerPropertyTest;
+import jp.co.dk.datastoremanager.rdb.BytesSqlParameterTest;
+import jp.co.dk.datastoremanager.rdb.DataBaseAccessParameterTest;
+import jp.co.dk.datastoremanager.rdb.DataBaseDataStoreTest;
+import jp.co.dk.datastoremanager.rdb.DataBaseDriverConstantsTest;
+import jp.co.dk.datastoremanager.rdb.DataBaseRecordTest;
+import jp.co.dk.datastoremanager.rdb.DateSqlParameterTest;
+import jp.co.dk.datastoremanager.rdb.IntSqlParameterTest;
+import jp.co.dk.datastoremanager.rdb.ObjectSqlParameterTest;
+import jp.co.dk.datastoremanager.rdb.SqlTest;
+import jp.co.dk.datastoremanager.rdb.StringSqlParameterTest;
+import jp.co.dk.datastoremanager.rdb.TimestampSqlParameterTest;
+import jp.co.dk.datastoremanager.rdb.TransactionTest;
 import jp.co.dk.datastoremanager.testdbaccessobjects.DataBaseAccessTest;
 
 import org.junit.runner.RunWith;

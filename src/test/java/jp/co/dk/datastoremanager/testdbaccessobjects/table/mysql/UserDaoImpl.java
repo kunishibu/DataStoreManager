@@ -5,10 +5,10 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import jp.co.dk.datastoremanager.DataStore;
-import jp.co.dk.datastoremanager.database.AbstractDataBaseAccessObject;
-import jp.co.dk.datastoremanager.database.DataBaseAccessParameter;
-import jp.co.dk.datastoremanager.database.Sql;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import jp.co.dk.datastoremanager.rdb.AbstractDataBaseAccessObject;
+import jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter;
+import jp.co.dk.datastoremanager.rdb.Sql;
 import jp.co.dk.datastoremanager.testdbaccessobjects.record.UsersRecord;
 import jp.co.dk.datastoremanager.testdbaccessobjects.table.UsersDao;
 

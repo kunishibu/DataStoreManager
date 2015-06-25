@@ -19,17 +19,15 @@
       <td class='line'></td><td>&nbsp;</td>
       <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.text.ParseException;
 
-import jp.co.dk.datastoremanager.database.DataBaseAccessParameter;
-import jp.co.dk.datastoremanager.database.DataBaseDriverConstants;
-import jp.co.dk.datastoremanager.database.Sql;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import jp.co.dk.datastoremanager.rdb.Sql;
 import jp.co.dk.test.template.TestCaseTemplate;
 </div><span>import ...</span></pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>11</td><td class='count'>60</td>
-      <td><pre class='prettyprint covered' id='l11s0'>public class DataStoreManagerTestFoundation extends TestCaseTemplate{</pre></td>
+      <td class='line'>9</td><td class='count'>8</td>
+      <td><pre class='prettyprint covered' id='l9s0'>public class DataStoreManagerTestFoundation extends TestCaseTemplate{</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -41,17 +39,16 @@ import jp.co.dk.test.template.TestCaseTemplate;
 	 * @throws DataStoreManagerException 引数が不足していた場合
 	 */</div><span>	/*...*/</span></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>20</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected DataBaseAccessParameter getAccessableDataBaseAccessParameter() throws DataStoreManagerException {</pre></td>
+      <td class='line'>17</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessableDataBaseAccessParameterRDB() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>21</td><td class='count'>26</td>
-      <td><pre class='prettyprint covered' id='l21s0'>		return new DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "192.168.11.104:3306", "test_db", "test_user", "123456");</pre></td>
+      <td class='line'>18</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l18s0'>		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "192.168.11.104:3306", "test_db", "test_user", "123456");</pre></td>
     </tr>
     <tr>
-      <td class='line'>22</td><td>&nbsp;</td>
+      <td class='line'>19</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -65,87 +62,69 @@ import jp.co.dk.test.template.TestCaseTemplate;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	protected DataBaseAccessParameter getAccessFaileDataBaseAccessParameter() throws DataStoreManagerException {</pre></td>
+      <td class='line'>27</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessFaileDataBaseAccessParameterRDB() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>31</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l31s0'>		return new DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "255.255.255.255:3306", "test_db", "test_user", "123456");</pre></td>
+      <td class='line'>28</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l28s0'>		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "255.255.255.255:3306", "test_db", "test_user", "123456");</pre></td>
     </tr>
     <tr>
-      <td class='line'>32</td><td>&nbsp;</td>
+      <td class='line'>29</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>35</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Sql createTableSql() throws DataStoreManagerException {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>36</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l36s0'>		return new Sql("CREATE TABLE TEST_USERS( USERID VARCHAR(10) NOT NULL PRIMARY KEY, AGE INT(3), BIRTHDAY DATE );");</pre></td>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * アクセス可能なDBアクセスパラメータを設定したDataBaseAccessParameterを返却します。
+	 * 
+	 * @return DBアクセスパラメータ
+	 * @throws DataStoreManagerException 引数が不足していた場合
+	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
       <td class='line'>37</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td><pre class='prettyprint'>	protected jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter getAccessableDataBaseAccessParameterGDB() throws DataStoreManagerException {</pre></td>
     </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>38</td><td class='count'>17</td>
+      <td><pre class='prettyprint covered' id='l38s0'>		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "localhost:7474", "test_user", "123456");</pre></td>
+    </tr>
     <tr>
       <td class='line'>39</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Sql insertSql_1234567890() throws DataStoreManagerException, ParseException {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>40</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l40s0'>		Sql insertSql  = new Sql("INSERT INTO TEST_USERS( USERID, AGE, BIRTHDAY ) VALUES (?, ?, ?)");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>41</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l41s0'>		insertSql.setParameter("1234567890");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>42</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l42s0'>		insertSql.setParameter(20);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>43</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l43s0'>		insertSql.setParameter(super.createDateByString("20130101000000"));</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>44</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l44s0'>		return insertSql;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>45</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * アクセス不可能なDBアクセスパラメータを設定したDataBaseAccessParameterを返却します。
+	 * 
+	 * @return DBアクセスパラメータ
+	 * @throws DataStoreManagerException 引数が不足していた場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
       <td class='line'>47</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Sql updateSql_1234567890_to_0987654321() throws DataStoreManagerException, ParseException {</pre></td>
+      <td><pre class='prettyprint'>	protected jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter getAccessFaileDataBaseAccessParameterGDB() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>48</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l48s0'>		Sql uptedaSql  = new Sql("UPDATE TEST_USERS SET USERID=?, AGE=?, BIRTHDAY=? WHERE USERID=?");</pre></td>
+      <td class='line'>48</td><td class='count'>4</td>
+      <td><pre class='prettyprint covered' id='l48s0'>		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "255.255.255.255:7474", "test_user", "123456");</pre></td>
     </tr>
     <tr>
-      <td class='line'>49</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l49s0'>		uptedaSql.setParameter("0987654321");</pre></td>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>52</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Sql createTableSql() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>50</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l50s0'>		uptedaSql.setParameter(21);</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>51</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l51s0'>		uptedaSql.setParameter(super.createDateByString("20130102000000"));</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>52</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l52s0'>		uptedaSql.setParameter("1234567890");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>53</td><td class='count'>5</td>
-      <td><pre class='prettyprint covered' id='l53s0'>		return uptedaSql;</pre></td>
+      <td class='line'>53</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l53s0'>		return new Sql("CREATE TABLE TEST_USERS( USERID VARCHAR(10) NOT NULL PRIMARY KEY, AGE INT(3), BIRTHDAY DATE );");</pre></td>
     </tr>
     <tr>
       <td class='line'>54</td><td>&nbsp;</td>
@@ -154,219 +133,281 @@ import jp.co.dk.test.template.TestCaseTemplate;
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
       <td class='line'>56</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Sql insertSql_1234567890() throws DataStoreManagerException, ParseException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>57</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l57s0'>		Sql insertSql  = new Sql("INSERT INTO TEST_USERS( USERID, AGE, BIRTHDAY ) VALUES (?, ?, ?)");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>58</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l58s0'>		insertSql.setParameter("1234567890");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>59</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l59s0'>		insertSql.setParameter(20);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>60</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l60s0'>		insertSql.setParameter(super.createDateByString("20130101000000"));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>61</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l61s0'>		return insertSql;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>62</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>64</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Sql updateSql_1234567890_to_0987654321() throws DataStoreManagerException, ParseException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>65</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l65s0'>		Sql uptedaSql  = new Sql("UPDATE TEST_USERS SET USERID=?, AGE=?, BIRTHDAY=? WHERE USERID=?");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>66</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l66s0'>		uptedaSql.setParameter("0987654321");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>67</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l67s0'>		uptedaSql.setParameter(21);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>68</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l68s0'>		uptedaSql.setParameter(super.createDateByString("20130102000000"));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>69</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l69s0'>		uptedaSql.setParameter("1234567890");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>70</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l70s0'>		return uptedaSql;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>71</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>73</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public Sql updateFaileSql() throws DataStoreManagerException, ParseException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>57</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l57s0'>		Sql uptedaSql  = new Sql("UPDATE TEST_USERS_ SET USERID=?, AGE=?, BIRTHDAY=? WHERE USERID=?");</pre></td>
+      <td class='line'>74</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l74s0'>		Sql uptedaSql  = new Sql("UPDATE TEST_USERS_ SET USERID=?, AGE=?, BIRTHDAY=? WHERE USERID=?");</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l58s0'>		uptedaSql.setParameter("0987654321");</pre></td>
+      <td class='line'>75</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l75s0'>		uptedaSql.setParameter("0987654321");</pre></td>
     </tr>
     <tr>
-      <td class='line'>59</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l59s0'>		uptedaSql.setParameter(21);</pre></td>
+      <td class='line'>76</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l76s0'>		uptedaSql.setParameter(21);</pre></td>
     </tr>
     <tr>
-      <td class='line'>60</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l60s0'>		uptedaSql.setParameter(super.createDateByString("20130102000000"));</pre></td>
+      <td class='line'>77</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l77s0'>		uptedaSql.setParameter(super.createDateByString("20130102000000"));</pre></td>
     </tr>
     <tr>
-      <td class='line'>61</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l61s0'>		uptedaSql.setParameter("1234567890");</pre></td>
+      <td class='line'>78</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l78s0'>		uptedaSql.setParameter("1234567890");</pre></td>
     </tr>
     <tr>
-      <td class='line'>62</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l62s0'>		return uptedaSql;</pre></td>
+      <td class='line'>79</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l79s0'>		return uptedaSql;</pre></td>
     </tr>
     <tr>
-      <td class='line'>63</td><td>&nbsp;</td>
+      <td class='line'>80</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>65</td><td>&nbsp;</td>
+      <td class='line'>82</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public Sql selectSql_1234567890() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>66</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l66s0'>		Sql selectSql  = new Sql("SELECT * FROM TEST_USERS WHERE USERID=?");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>67</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l67s0'>		selectSql.setParameter("1234567890");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>68</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l68s0'>		return selectSql;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>69</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>71</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Sql selectCountSql_1234567890() throws DataStoreManagerException {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>72</td><td class='count'>10</td>
-      <td><pre class='prettyprint covered' id='l72s0'>		Sql selectSql  = new Sql("SELECT COUNT(*) AS CNT FROM TEST_USERS WHERE USERID=?");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>73</td><td class='count'>10</td>
-      <td><pre class='prettyprint covered' id='l73s0'>		selectSql.setParameter("1234567890");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>74</td><td class='count'>10</td>
-      <td><pre class='prettyprint covered' id='l74s0'>		return selectSql;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>75</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>77</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Sql selectSql_0987654321() throws DataStoreManagerException {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>78</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l78s0'>		Sql selectSql  = new Sql("SELECT * FROM TEST_USERS WHERE USERID=?");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>79</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l79s0'>		selectSql.setParameter("0987654321");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>80</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l80s0'>		return selectSql;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>81</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>83</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Sql selectCountSql_0987654321() throws DataStoreManagerException {</pre></td>
+      <td class='line'>83</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l83s0'>		Sql selectSql  = new Sql("SELECT * FROM TEST_USERS WHERE USERID=?");</pre></td>
     </tr>
     <tr>
       <td class='line'>84</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l84s0'>		Sql selectSql  = new Sql("SELECT COUNT(*) AS CNT FROM TEST_USERS WHERE USERID=?");</pre></td>
+      <td><pre class='prettyprint uncovered' id='l84s0'>		selectSql.setParameter("1234567890");</pre></td>
     </tr>
     <tr>
       <td class='line'>85</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l85s0'>		selectSql.setParameter("0987654321");</pre></td>
+      <td><pre class='prettyprint uncovered' id='l85s0'>		return selectSql;</pre></td>
     </tr>
     <tr>
-      <td class='line'>86</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l86s0'>		return selectSql;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>87</td><td>&nbsp;</td>
+      <td class='line'>86</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>89</td><td>&nbsp;</td>
+      <td class='line'>88</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Sql selectCountSql_1234567890() throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>89</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l89s0'>		Sql selectSql  = new Sql("SELECT COUNT(*) AS CNT FROM TEST_USERS WHERE USERID=?");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>90</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l90s0'>		selectSql.setParameter("1234567890");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>91</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l91s0'>		return selectSql;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>92</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>94</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Sql selectSql_0987654321() throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>95</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l95s0'>		Sql selectSql  = new Sql("SELECT * FROM TEST_USERS WHERE USERID=?");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>96</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l96s0'>		selectSql.setParameter("0987654321");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>97</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l97s0'>		return selectSql;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>98</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>100</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Sql selectCountSql_0987654321() throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>101</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l101s0'>		Sql selectSql  = new Sql("SELECT COUNT(*) AS CNT FROM TEST_USERS WHERE USERID=?");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>102</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l102s0'>		selectSql.setParameter("0987654321");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>103</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l103s0'>		return selectSql;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>104</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>106</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public Sql selectFaileSql() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>90</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l90s0'>		Sql selectSql  = new Sql("SELECT * FROM TEST_USERS_ WHERE USERID=?");</pre></td>
+      <td class='line'>107</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l107s0'>		Sql selectSql  = new Sql("SELECT * FROM TEST_USERS_ WHERE USERID=?");</pre></td>
     </tr>
     <tr>
-      <td class='line'>91</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l91s0'>		selectSql.setParameter("1234567890");</pre></td>
+      <td class='line'>108</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l108s0'>		selectSql.setParameter("1234567890");</pre></td>
     </tr>
     <tr>
-      <td class='line'>92</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l92s0'>		return selectSql;</pre></td>
+      <td class='line'>109</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l109s0'>		return selectSql;</pre></td>
     </tr>
     <tr>
-      <td class='line'>93</td><td>&nbsp;</td>
+      <td class='line'>110</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>95</td><td>&nbsp;</td>
+      <td class='line'>112</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	public Sql deleteSql_1234567890() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>96</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l96s0'>		Sql deleteSql  = new Sql("DELETE FROM TEST_USERS WHERE USERID=?");</pre></td>
+      <td class='line'>113</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l113s0'>		Sql deleteSql  = new Sql("DELETE FROM TEST_USERS WHERE USERID=?");</pre></td>
     </tr>
     <tr>
-      <td class='line'>97</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l97s0'>		deleteSql.setParameter("1234567890");</pre></td>
+      <td class='line'>114</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l114s0'>		deleteSql.setParameter("1234567890");</pre></td>
     </tr>
     <tr>
-      <td class='line'>98</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l98s0'>		return deleteSql;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>99</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>101</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Sql deleteSql_0987654321() throws DataStoreManagerException {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>102</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l102s0'>		Sql deleteSql  = new Sql("DELETE FROM TEST_USERS WHERE USERID=?");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>103</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l103s0'>		deleteSql.setParameter("0987654321");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>104</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l104s0'>		return deleteSql;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>105</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>107</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Sql deleteFaileSql() throws DataStoreManagerException {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>108</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l108s0'>		Sql deleteSql  = new Sql("DELETE FROM TEST_USERS_ WHERE USERID=?");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>109</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l109s0'>		deleteSql.setParameter("1234567890");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>110</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l110s0'>		return deleteSql;</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>111</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
-    </tr>
-    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
-    <tr>
-      <td class='line'>113</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	public Sql dropTableSql() throws DataStoreManagerException {</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>114</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l114s0'>		return new Sql("DROP TABLE TEST_USERS");</pre></td>
-    </tr>
-    <tr>
-      <td class='line'>115</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	}</pre></td>
+      <td class='line'>115</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l115s0'>		return deleteSql;</pre></td>
     </tr>
     <tr>
       <td class='line'>116</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>118</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Sql deleteSql_0987654321() throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>119</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l119s0'>		Sql deleteSql  = new Sql("DELETE FROM TEST_USERS WHERE USERID=?");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>120</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l120s0'>		deleteSql.setParameter("0987654321");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>121</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l121s0'>		return deleteSql;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>122</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>124</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Sql deleteFaileSql() throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>125</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l125s0'>		Sql deleteSql  = new Sql("DELETE FROM TEST_USERS_ WHERE USERID=?");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>126</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l126s0'>		deleteSql.setParameter("1234567890");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>127</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l127s0'>		return deleteSql;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>128</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>130</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public Sql dropTableSql() throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>131</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l131s0'>		return new Sql("DROP TABLE TEST_USERS");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>132</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>133</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>

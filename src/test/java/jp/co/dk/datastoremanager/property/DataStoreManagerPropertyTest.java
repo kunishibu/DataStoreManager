@@ -10,9 +10,9 @@ import jp.co.dk.datastoremanager.DataAccessObjectFactory;
 import jp.co.dk.datastoremanager.DataStoreKind;
 import jp.co.dk.datastoremanager.DataStoreParameter;
 import jp.co.dk.datastoremanager.DataStoreManagerTestFoundation;
-import jp.co.dk.datastoremanager.database.DataBaseAccessParameter;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.message.DataStoreManagerMessage;
+import jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter;
 
 import org.junit.Test;
 

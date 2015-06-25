@@ -5,8 +5,8 @@ import java.util.Date;
 
 import jp.co.dk.datastoremanager.DataConvertable;
 import jp.co.dk.datastoremanager.Record;
-import jp.co.dk.datastoremanager.database.DataBaseRecord;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import jp.co.dk.datastoremanager.rdb.DataBaseRecord;
 
 /**
  * ユーザテーブルのレコードオブジェクト

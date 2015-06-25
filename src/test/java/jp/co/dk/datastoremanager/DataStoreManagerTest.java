@@ -2,10 +2,9 @@ package jp.co.dk.datastoremanager;
 
 import org.junit.Test;
 
-import jp.co.dk.datastoremanager.database.DataBaseDataStore;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.property.DataStoreManagerProperty;
-
+import jp.co.dk.datastoremanager.rdb.DataBaseDataStore;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 import static org.junit.Assert.*;
 

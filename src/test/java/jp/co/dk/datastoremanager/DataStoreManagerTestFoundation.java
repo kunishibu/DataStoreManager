@@ -2,10 +2,8 @@ package jp.co.dk.datastoremanager;
 
 import java.text.ParseException;
 
-import jp.co.dk.datastoremanager.database.DataBaseAccessParameter;
-import jp.co.dk.datastoremanager.database.DataBaseDriverConstants;
-import jp.co.dk.datastoremanager.database.Sql;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import jp.co.dk.datastoremanager.rdb.Sql;
 import jp.co.dk.test.template.TestCaseTemplate;
 
 public class DataStoreManagerTestFoundation extends TestCaseTemplate{
@@ -16,9 +14,8 @@ public class DataStoreManagerTestFoundation extends TestCaseTemplate{
 	 * @return DBアクセスパラメータ
 	 * @throws DataStoreManagerException 引数が不足していた場合
 	 */
-	
-	protected DataBaseAccessParameter getAccessableDataBaseAccessParameter() throws DataStoreManagerException {
-		return new DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "192.168.11.104:3306", "test_db", "test_user", "123456");
+	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessableDataBaseAccessParameterRDB() throws DataStoreManagerException {
+		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "192.168.11.104:3306", "test_db", "test_user", "123456");
 	}
 	
 	/**
@@ -27,8 +24,28 @@ public class DataStoreManagerTestFoundation extends TestCaseTemplate{
 	 * @return DBアクセスパラメータ
 	 * @throws DataStoreManagerException 引数が不足していた場合
 	 */
-	protected DataBaseAccessParameter getAccessFaileDataBaseAccessParameter() throws DataStoreManagerException {
-		return new DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "255.255.255.255:3306", "test_db", "test_user", "123456");
+	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessFaileDataBaseAccessParameterRDB() throws DataStoreManagerException {
+		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "255.255.255.255:3306", "test_db", "test_user", "123456");
+	}
+	
+	/**
+	 * アクセス可能なDBアクセスパラメータを設定したDataBaseAccessParameterを返却します。
+	 * 
+	 * @return DBアクセスパラメータ
+	 * @throws DataStoreManagerException 引数が不足していた場合
+	 */
+	protected jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter getAccessableDataBaseAccessParameterGDB() throws DataStoreManagerException {
+		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "localhost:7474", "test_user", "123456");
+	}
+	
+	/**
+	 * アクセス不可能なDBアクセスパラメータを設定したDataBaseAccessParameterを返却します。
+	 * 
+	 * @return DBアクセスパラメータ
+	 * @throws DataStoreManagerException 引数が不足していた場合
+	 */
+	protected jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter getAccessFaileDataBaseAccessParameterGDB() throws DataStoreManagerException {
+		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "255.255.255.255:7474", "test_user", "123456");
 	}
 	
 	
