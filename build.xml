@@ -356,6 +356,24 @@
 		</junit>
 	</target>
 	
+	<!-- 
+		■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+		■■     
+		■■     [概要] AspectJを実行
+		■■     
+		■■     [説明] ajcを実行し、AspectJのコンパイルを実行する。
+		■■     
+		■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+	 -->
+	<target name="aspectj" >
+		<taskdef resource="org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties">
+			<classpath>
+				<pathelement location="${home.dir}/tools/aspectj/lib/aspectjtools.jar"/>
+			</classpath>
+		</taskdef>
+		<iajc sourceroots="${home.dir}/ec/project/src" destDir="${classes}" classpath="${home.dir}/tools/aspectj/lib/aspectjrt.jar"/> 
+	</target>
+	
 	<!--================================================-->
 	<!-- 全ジョブ実行 -->
 	<!--================================================-->
