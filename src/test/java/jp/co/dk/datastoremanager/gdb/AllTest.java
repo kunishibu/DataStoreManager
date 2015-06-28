@@ -11,6 +11,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	NumericCypherParameterTest.class,
 	StringCypherParameterTest.class,
 	DataBaseDataStoreTest.class,
+	TransactionTest.class,
 })
 public class AllTest {}
  

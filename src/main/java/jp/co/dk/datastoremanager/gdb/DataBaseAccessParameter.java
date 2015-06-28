@@ -128,8 +128,10 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 		int hashcode = super.hashCode() ;
 		hashcode *= this.driver.hashCode() ;
 		hashcode *= this.url.hashCode() ;
-		hashcode *= this.user.hashCode() ;
-		hashcode *= this.password.hashCode() ;
+		if (this.isUserpass) {
+			hashcode *= this.user.hashCode() ;
+			hashcode *= this.password.hashCode() ;
+		}
 		hashcode *= 17;
 		return hashcode; 
 	}
@@ -138,9 +140,12 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	public String toString() {
 		StringBuilder sb = new StringBuilder("DATASTOREKIND=[").append(this.dataStoreKind.toString()).append(']').append(',');
 		sb.append("DRIVER=[").append(this.driver.getDriverClass()).append(']').append(',');
-		sb.append("URL=[").append(this.driver.getUrl(this.url)).append(']').append(',');
-		sb.append("USER=[").append(this.user).append(']').append(',');
-		sb.append("PASSWORD=[").append(this.password).append(']');
+		sb.append("URL=[").append(this.driver.getUrl(this.url)).append(']');
+		if (this.isUserpass) {
+			sb.append(",");
+			sb.append("USER=[").append(this.user).append(']').append(',');
+			sb.append("PASSWORD=[").append(this.password).append(']');
+		}
 		return sb.toString();
 	}
 	
