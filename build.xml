@@ -365,13 +365,23 @@
 		■■     
 		■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 	 -->
-	<target name="aspectj" >
+	<target name="aspectj_execute" depends="init" >
 		<taskdef resource="org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties">
 			<classpath>
-				<pathelement location="${home.dir}/tools/aspectj/lib/aspectjtools.jar"/>
+				<pathelement location="/Users/dk/aspectj1.8/lib/aspectjtools.jar"/>
 			</classpath>
 		</taskdef>
-		<iajc sourceroots="${home.dir}/ec/project/src" destDir="${classes}" classpath="${home.dir}/tools/aspectj/lib/aspectjrt.jar"/> 
+		<iajc          srcdir      = "${compile.javac.srcdir}" 
+			           source      = "1.8"
+			           destdir     = "${compile.javac.destdir}"
+			           deprecation = "${compile.javac.deprecation}"
+			           debug       = "${compile.javac.debug}"
+			           encoding    = "${compile.javac.encoding}"
+			           classpath   = "${compile.javac.classpath};${_library.jars}"
+			           />
+		<!--
+		<iajc sourceroots="${home.dir}/ec/project/src" destDir="${classes}" classpath="${home.dir}/tools/aspectj/lib/aspectjrt.jar"/>
+		--> 
 	</target>
 	
 	<!--================================================-->
