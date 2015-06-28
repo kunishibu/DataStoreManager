@@ -106,13 +106,62 @@
 	<!-- 
 		■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 		■■     
+		■■     [概要] AspectJ用ソースコードコンパイル
+		■■     
+		■■     [説明] AspectJ用ソースコードをコンパイルし、指定のビルドディレクトリへ保存します。
+		■■     
+		■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+	 -->
+	<target name="aspectj_compile" depends="init" >
+		<taskdef resource="org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties">
+			<classpath>
+				<pathelement location="${aspectj_compile.aspectj.jar}"/>
+			</classpath>
+		</taskdef>
+		<delete dir="${aspectj_compile.delete.dir}" />
+	  	<mkdir  dir="${aspectj_compile.mkdir.dir}"  />
+		<path id="_init.path.id.aspect">
+	  		<fileset dir="${aspectj_compile.aspectj.lib}" includes="*.jar"/>
+	  	</path>
+	  	<pathconvert property="_aspect.library.jars" refid="_init.path.id.aspect"/>
+		<iajc          sourceroots = "${aspectj_compile.iajc.sourceroots}" 
+			           source      = "${aspectj_compile.iajc.source}"
+			           destdir     = "${aspectj_compile.iajc.destdir}"
+			           deprecation = "${aspectj_compile.iajc.deprecation}"
+			           debug       = "${aspectj_compile.iajc.debug}"
+			           encoding    = "${aspectj_compile.iajc.encoding}"
+			           classpath   = "${aspectj_compile.iajc.classpath};${_library.jars};${_aspect.library.jars}"
+			           />
+		<copy todir="${aspectj_compile.copy.todir}">
+	  		<fileset dir="${aspectj_compile.copy.fileset.dir.src}">
+	  	  	<include name="${aspectj_compile.copy.fileset.include.name}"/>
+	  	  	<exclude name="${aspectj_compile.copy.fileset.exclude.name}"/>
+	   		</fileset>
+	   	</copy>
+		<copy todir="${aspectj_compile.copy.todir}">
+	  		<fileset dir="${aspectj_compile.copy.fileset.dir.aspect_src}">
+	  	  	<include name="${aspectj_compile.copy.fileset.include.name}"/>
+	  	  	<exclude name="${aspectj_compile.copy.fileset.exclude.name}"/>
+	   		</fileset>
+	   	</copy>
+		<copy todir="${aspectj_compile.copy.todir}">
+			<fileset dir="${aspectj_compile.copy.fileset.dir.resources}"/>
+		</copy>
+		<copy todir="${aspectj_compile.copy.todir}">
+			<fileset dir="${aspectj_compile.copy.fileset.dir.aspect_resources}"/>
+		</copy>
+	</target>
+	
+	<!-- 
+		■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+		■■     
 		■■     [概要] JAR作成
 		■■     
 		■■     [説明] ビルド済みのクラスをJar形式でまとめます。
 		■■     
 		■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 	 -->
-	<target name="jar" depends="compile">
+	<target name="jar" depends="aspectj_compile">
 	  	<delete dir="${jar.delete.dir}" />
 	  	<jar jarfile  = "${jar.jar.jarfile}"
 	         basedir  = "${jar.jar.basedir}" >
@@ -129,7 +178,7 @@
 		■■     
 		■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 	 -->
-	<target name="jar_all" depends="compile">
+	<target name="jar_all" depends="aspectj_compile">
 	  	<delete dir="${jar_all.delete.dir}" />
 	  	<jar jarfile  = "${jar_all.jar.jarfile}"
 	         basedir  = "${jar_all.jar.basedir}" >
@@ -354,24 +403,6 @@
 		  		<pathelement path="${_test.library.jars}" />
 	      	</classpath>
 		</junit>
-	</target>
-	
-	<!-- 
-		■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-		■■     
-		■■     [概要] AspectJを実行
-		■■     
-		■■     [説明] ajcを実行し、AspectJのコンパイルを実行する。
-		■■     
-		■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-	 -->
-	<target name="aspectj" >
-		<taskdef resource="org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties">
-			<classpath>
-				<pathelement location="${home.dir}/tools/aspectj/lib/aspectjtools.jar"/>
-			</classpath>
-		</taskdef>
-		<iajc sourceroots="${home.dir}/ec/project/src" destDir="${classes}" classpath="${home.dir}/tools/aspectj/lib/aspectjrt.jar"/> 
 	</target>
 	
 	<!--================================================-->
