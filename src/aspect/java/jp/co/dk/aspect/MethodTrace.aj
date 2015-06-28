@@ -7,9 +7,9 @@ public aspect MethodTrace {
 	pointcut methodTrace(): execution(* *.*(..));
 	
 	before(): methodTrace() {
-	    logger.trace("entering:" + thisJoinPoint);
+	    logger.trace("METHOD[START]:" + thisJoinPoint);
 	}
 	after(): methodTrace() {
-	    logger.trace("exiting:" + thisJoinPoint);
+	    logger.trace("METHOD[ FIN ]:" + thisJoinPoint);
 	}
 }
