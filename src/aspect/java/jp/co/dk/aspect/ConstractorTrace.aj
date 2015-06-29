@@ -1,10 +1,10 @@
 package jp.co.dk.aspect;
 
 public aspect ConstractorTrace {
-	
+	/*
 	protected jp.co.dk.logger.Logger logger = jp.co.dk.logger.LoggerFactory.getLogger(this.getClass());
 	
-	pointcut constractorTrace(): call(*.new());
+	pointcut constractorTrace(): execution(*.new(..))  ;
 	
 	before(): constractorTrace() {
 	    logger.trace("CONSTRACTOR[START]:" + thisJoinPoint);
@@ -12,4 +12,5 @@ public aspect ConstractorTrace {
 	after(): constractorTrace() {
 	    logger.trace("CONSTRACTOR[ FIN ]:" + thisJoinPoint);
 	}
+	*/
 }
