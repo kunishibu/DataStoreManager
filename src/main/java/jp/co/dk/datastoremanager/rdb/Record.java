@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager;
+package jp.co.dk.datastoremanager.rdb;
 
 import java.sql.Timestamp;
 import java.util.Date;

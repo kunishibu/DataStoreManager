@@ -7,9 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import jp.co.dk.datastoremanager.Record;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
-
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 /**

@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager.rdb;
+package jp.co.dk.datastoremanager.gdb;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +9,8 @@ import jp.co.dk.datastoremanager.DataAccessObject;
 import jp.co.dk.datastoremanager.DataBaseDriverConstants;
 import jp.co.dk.datastoremanager.DataStore;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import jp.co.dk.datastoremanager.gdb.DataBaseNode;
+import jp.co.dk.datastoremanager.gdb.DataConvertable;
 import jp.co.dk.logger.Logger;
 import jp.co.dk.logger.LoggerFactory;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
@@ -39,19 +41,34 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	 * <br/>
 	 * ・データベースドライバー<br/>
 	 * ・データベース接続先URLまたは、IPアドレス<br/>
-	 * ・接続先データべース名称（ORACLEの場合、SID）<br/>
+	 * 
+	 * @param driver   データベースドライバー
+	 * @param url      データベース接続先URLまたは、IPアドレス
+	 * @throws DataStoreManagerException パラメータが不足している場合、またはトランザクション開始に失敗した場合
+	 */
+	protected AbstractDataBaseAccessObject(DataBaseDriverConstants driver, String url) throws DataStoreManagerException {
+		this(new DataBaseAccessParameter(driver.getDataStoreKind(), driver, url));
+	}
+	
+	/**
+	 * コンストラクタ<p/>
+	 * 以下のパラメータを元に、データベースアクセスオブジェクトを生成、トランザクションを開始する。<br/>
+	 * <br/>
+	 * パラメータが不足している場合、またはトランザクション開始に失敗した場合、例外が送出される。<br/>
+	 * <br/>
+	 * ・データベースドライバー<br/>
+	 * ・データベース接続先URLまたは、IPアドレス<br/>
 	 * ・データベース接続先ユーザ<br/>
 	 * ・データベース接続先パスワード<br/>
 	 * 
 	 * @param driver   データベースドライバー
 	 * @param url      データベース接続先URLまたは、IPアドレス
-	 * @param sid      接続先データべース名称（ORACLEの場合、SID）
 	 * @param user     データベース接続先ユーザ
 	 * @param password データベース接続先パスワード
 	 * @throws DataStoreManagerException パラメータが不足している場合、またはトランザクション開始に失敗した場合
 	 */
-	protected AbstractDataBaseAccessObject(DataBaseDriverConstants driver, String url, String sid, String user, String password) throws DataStoreManagerException {
-		this(new DataBaseAccessParameter(driver.getDataStoreKind(), driver, url, sid, user, password));
+	protected AbstractDataBaseAccessObject(DataBaseDriverConstants driver, String url, String user, String password) throws DataStoreManagerException {
+		this(new DataBaseAccessParameter(driver.getDataStoreKind(), driver, url, user, password));
 	}
 	
 	/**
@@ -85,101 +102,33 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	}
 	
 	/**
-	 * 指定のSQLを実行し、テーブルを作成する。<p/>
-	 * テーブル作成に失敗した場合、例外を送出する。
-	 * 
-	 * @param sql 実行対象のSQLオブジェクト
-	 * @throws DataStoreManagerException テーブル作成に失敗した場合
-	 */
-	public void createTable(Sql sql) throws DataStoreManagerException {
-		this.dataStore.createTable(sql);
-	}
-	
-	/**
-	 * 指定のSQLを実行し、テーブルを削除する。<p/>
-	 * テーブル削除に失敗した場合、例外を送出する。
-	 * 
-	 * @param sql 実行対象のSQLオブジェクト
-	 * @throws DataStoreManagerException テーブル削除に失敗した場合
-	 */
-	public void dropTable(Sql sql) throws DataStoreManagerException {
-		this.dataStore.dropTable(sql);
-	}
-	
-	/**
-	 * 指定のSQLを実行し、レコードを作成する。<p/>
+	 * 指定のCypherを実行し、レコードを作成する。<p/>
 	 * レコード追加に失敗した場合、例外を送出する。
 	 * 
-	 * @param sql 実行対象のSQLオブジェクト
+	 * @param cypher 実行対象のCypherオブジェクト
 	 * @throws DataStoreManagerException レコード追加に失敗した場合
 	 */
-	public void insert(Sql sql) throws DataStoreManagerException {
-		this.dataStore.insert(sql);
+	public void execute(Cypher cypher) throws DataStoreManagerException {
+		this.dataStore.execute(cypher);
 	}
 	
 	/**
-	 * 指定のSQLを実行し、レコードの更新を実行する。<p/>
-	 * レコードの更新に失敗した場合、例外を送出する。
+	 * 指定のCypherを実行し、レコードを作成する。<p/>
+	 * レコード追加に失敗した場合、例外を送出する。
 	 * 
-	 * @param sql 実行対象のSQLオブジェクト
-	 * @return 更新結果の件数
-	 * @throws DataStoreManagerException レコード更新に失敗した場合
+	 * @param cypher 実行対象のCypherオブジェクト
+	 * @throws DataStoreManagerException レコード追加に失敗した場合
 	 */
-	public int update(Sql sql) throws DataStoreManagerException {
-		return this.dataStore.update(sql);
-	}
-	
-	/**
-	 * 指定のSQLを実行し、レコードの削除を実行する。<p/>
-	 * レコードの削除に失敗した場合、例外を送出する。
-	 * 
-	 * @param sql 実行対象のSQLオブジェクト
-	 * @return 削除結果の件数
-	 * @throws DataStoreManagerException レコード削除に失敗した場合
-	 */
-	public int delete(Sql sql) throws DataStoreManagerException {
-		return this.dataStore.delete(sql);
-	}
-	
-	/**
-	 * 指定のSQLを実行し、単一のレコードを取得する。<p/>
-	 * 引数に指定されたSQLを実行し、指定のレコード変換オブジェクトを使用してレコードを変換、返却する。<br/>
-	 * レコードが取得出来なかった場合はnullが返却される。<br/>
-	 * レコードが複数取得された、SQLの実行に失敗した場合、例外が送出される。
-	 * 
-	 * @param sql 実行対象のSQLオブジェクト
-	 * @param convertable レコード変換オブジェクト
-	 * @return 取得したレコードオブジェクト
-	 * @throws DataStoreManagerException レコードが複数取得された、SQLの実行に失敗した場合
-	 */
-	public <E extends DataConvertable> E selectSingle(Sql sql, E convertable) throws DataStoreManagerException{
-		List<E> resultList = this.selectMulti(sql, convertable);
-		if (resultList.size() == 0) return null;
-		if (resultList.size() >  1) throw new DataStoreManagerException(GET_RECORD_IS_FAILE, sql.toString());
-		return resultList.get(0);
-	}
-	
-	/**
-	 * 指定のSQLを実行し、複数のレコードを取得する。<p/>
-	 * 引数に指定されたSQLを実行し、指定のレコード変換オブジェクトを使用してレコードを変換、返却する。<br/>
-	 * レコードが取得出来なかった場合は空のリストが返却される。SQLの実行に失敗した場合、例外が送出される。<br/>
-	 * 
-	 * @param sql 実行対象のSQLオブジェクト
-	 * @param convertable レコード変換オブジェクト
-	 * @return 取得したレコードオブジェクトのリスト
-	 * @throws DataStoreManagerException SQLの実行に失敗した場合
-	 */
-	@SuppressWarnings("unchecked")
-	public <E extends DataConvertable> List<E> selectMulti(Sql sql, E convertable) throws DataStoreManagerException{
+	public <E extends DataConvertable> List<E> executeWithRetuen(Cypher cypher, E convertable) throws DataStoreManagerException {
 		List<E> resultList = new ArrayList<E>();
-		ResultSet result = this.dataStore.select(sql);
+		ResultSet result = this.dataStore.execute(cypher);
 		try {
 			while (result.next()) {
-				resultList.add((E)convertable.convert(new DataBaseRecord(result)));
+				resultList.add((E)convertable.convert(new DataBaseNode(result)));
 			}
 			result.close();
 		} catch (SQLException e) {
-			throw new DataStoreManagerException(GET_RECORD_IS_FAILE, sql.toString(), e);
+			throw new DataStoreManagerException(GET_RECORD_IS_FAILE, cypher.toString(), e);
 		}
 		return resultList;
 	}
