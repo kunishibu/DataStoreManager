@@ -1,5 +1,7 @@
 jp.co.dk.datastoremanager
 jp.co.dk.datastoremanager.database
 jp.co.dk.datastoremanager.exception
+jp.co.dk.datastoremanager.gdb
 jp.co.dk.datastoremanager.message
 jp.co.dk.datastoremanager.property
+jp.co.dk.datastoremanager.rdb

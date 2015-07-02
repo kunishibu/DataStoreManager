@@ -1,5 +1,6 @@
 package jp.co.dk.datastoremanager.gdb;
 
+import java.net.SocketException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -62,8 +63,10 @@ class Transaction {
 		try {
 			Class.forName(driver);
 			if (dataBaseAccessParameter.isUserpass()) {
+				DriverManager.setLoginTimeout(5);
 				this.connection = DriverManager.getConnection(url, dataBaseAccessParameter.getUser(), dataBaseAccessParameter.getPassword());
 			} else {
+				DriverManager.setLoginTimeout(5);
 				this.connection = DriverManager.getConnection(url);
 			}
 			this.connection.setAutoCommit(false);

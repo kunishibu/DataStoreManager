@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JMockit Coverage Report - DataBaseDriverConstants.java</title>
+  <title>DataBaseDriverConstants.java</title>
   <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
   <link rel='stylesheet' type='text/css' href='../../../../../coverage.css'/>
+  <link rel='shortcut icon' type='image/png' href='../../../../../logo.png'/>
   <script type='text/javascript' src='../../../../../coverage.js'></script>
   <script type='text/javascript' src='../../../../../prettify.js'></script>
 </head>
@@ -11,8 +12,8 @@
   <table cellpadding='0' cellspacing='1'>
     <caption>DataStoreManager/src/main/java/jp/co/dk/datastoremanager/database/DataBaseDriverConstants.java</caption>
     <tr>
-      <td class='line'>1</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l1s0'>package jp.co.dk.datastoremanager.database;</pre></td>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.datastoremanager.database;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -61,33 +62,41 @@
     </tr>
     <tr>
       <td class='line'>19</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** NEO4J */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>20</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	NEO4J("jdbc:neo4j://servername", "org.neo4j.jdbc.Driver", DataStoreKind.NEO4J),</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>21</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>21</td><td>&nbsp;</td>
+      <td class='line'>23</td><td>&nbsp;</td>
       <td><pre class='comment'>	/** URL */</pre></td>
     </tr>
     <tr>
-      <td class='line'>22</td><td>&nbsp;</td>
+      <td class='line'>24</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	private String url;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>24</td><td>&nbsp;</td>
+      <td class='line'>26</td><td>&nbsp;</td>
       <td><pre class='comment'>	/** ドライバークラス */</pre></td>
     </tr>
     <tr>
-      <td class='line'>25</td><td>&nbsp;</td>
+      <td class='line'>27</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	private String driverClass;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>27</td><td>&nbsp;</td>
+      <td class='line'>29</td><td>&nbsp;</td>
       <td><pre class='comment'>	/** データストア種別 */</pre></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td>&nbsp;</td>
+      <td class='line'>30</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	private DataStoreKind dataStoreKind;</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -103,24 +112,46 @@
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l38s0'>	private DataBaseDriverConstants(String url, String driverClass, DataStoreKind dataStoreKind) {</pre></td>
+      <td class='line'>40</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	private DataBaseDriverConstants(String url, String driverClass, DataStoreKind dataStoreKind) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>39</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l39s0'>		this.url           = url;</pre></td>
+      <td class='line'>41</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.url           = url;</pre></td>
     </tr>
     <tr>
-      <td class='line'>40</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l40s0'>		this.driverClass   = driverClass;</pre></td>
+      <td class='line'>42</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.driverClass   = driverClass;</pre></td>
     </tr>
     <tr>
-      <td class='line'>41</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l41s0'>		this.dataStoreKind = dataStoreKind;</pre></td>
+      <td class='line'>43</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.dataStoreKind = dataStoreKind;</pre></td>
     </tr>
     <tr>
-      <td class='line'>42</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l42s0'>	}</pre></td>
+      <td class='line'>44</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定のサーバ名を基に接続先URLを取得する。
+	 * 
+	 * @param servername   サーバ名
+	 * @return 接続先URL
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>52</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getUrl(String servername) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>53</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return this.url.replaceAll("servername", servername);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -134,23 +165,23 @@
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	String getUrl(String servername, String databasename) {</pre></td>
+      <td class='line'>63</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getUrl(String servername, String databasename) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>52</td><td class='count'>152</td>
-      <td><pre class='prettyprint covered' id='l52s0'>		String result1 = this.url.replaceAll("servername", servername);</pre></td>
+      <td class='line'>64</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		String result1 = this.url.replaceAll("servername", servername);</pre></td>
     </tr>
     <tr>
-      <td class='line'>53</td><td class='count'>152</td>
-      <td><pre class='prettyprint covered' id='l53s0'>		String result2 = result1.replaceAll("databasename", databasename);</pre></td>
+      <td class='line'>65</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		String result2 = result1.replaceAll("databasename", databasename);</pre></td>
     </tr>
     <tr>
-      <td class='line'>54</td><td class='count'>152</td>
-      <td><pre class='prettyprint covered' id='l54s0'>		return result2;</pre></td>
+      <td class='line'>66</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return result2;</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td>&nbsp;</td>
+      <td class='line'>67</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -163,15 +194,15 @@
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>62</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	String getDriverClass() {</pre></td>
+      <td class='line'>74</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getDriverClass() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>63</td><td class='count'>153</td>
-      <td><pre class='prettyprint covered' id='l63s0'>		return this.driverClass;</pre></td>
+      <td class='line'>75</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return this.driverClass;</pre></td>
     </tr>
     <tr>
-      <td class='line'>64</td><td>&nbsp;</td>
+      <td class='line'>76</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr>
@@ -183,20 +214,20 @@
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>70</td><td>&nbsp;</td>
-      <td><pre class='prettyprint'>	DataStoreKind getDataStoreKind() {</pre></td>
+      <td class='line'>82</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public DataStoreKind getDataStoreKind() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>71</td><td class='count'>3</td>
-      <td><pre class='prettyprint covered' id='l71s0'>		return this.dataStoreKind;</pre></td>
+      <td class='line'>83</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return this.dataStoreKind;</pre></td>
     </tr>
     <tr>
-      <td class='line'>72</td><td>&nbsp;</td>
+      <td class='line'>84</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>74</td><td>&nbsp;</td>
+      <td class='line'>86</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>}</pre></td>
     </tr>
   </table>

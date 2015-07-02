@@ -6,8 +6,7 @@ import jp.co.dk.datastoremanager.DataAccessObjectFactory;
 import jp.co.dk.datastoremanager.DataStore;
 import jp.co.dk.datastoremanager.DataStoreKind;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
-import jp.co.dk.datastoremanager.testdbaccessobjects.table.mysql.UserDaoImpl;
-
+import jp.co.dk.datastoremanager.testdbaccessobjects.rdb.mysql.UserDaoImpl;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 public enum DataStoreDaoConstantsTest implements DaoConstants{
@@ -18,6 +17,8 @@ public enum DataStoreDaoConstantsTest implements DaoConstants{
 			case ORACLE:
 			case MYSQL:
 			case POSTGRESQL:
+				return new UserDaoImpl(dataStore);
+			case NEO4J:
 				return new UserDaoImpl(dataStore);
 			default:
 				throw new DataStoreManagerException(FAILE_TO_CREATE_DATA_ACCESS_OBJECT);

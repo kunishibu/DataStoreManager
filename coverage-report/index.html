@@ -1,207 +1,348 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JMockit Coverage Report</title>
+  <title>Code Coverage Report</title>
   <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
   <link rel='stylesheet' type='text/css' href='coverage.css'/>
+  <link rel='shortcut icon' type='image/png' href='logo.png'/>
   <script type='text/javascript' src='coverage.js'></script>
 </head>
 <body>
-  <h1>JMockit Coverage Report</h1>
   <table id='packages'>
-    <caption>All Packages and Files<div style='font-size: smaller'>DataStoreManager/src</div></caption>
+    <caption>All Packages and Files<div style='font-size: smaller'>DataStoreManager/src/main/java, DataStoreManager/src/test/java, DataStoreManager/src</div></caption>
     <tr>
-      <th style='cursor: col-resize' onclick='showHideAllFiles()'>Packages: 5</th>
-      <th onclick='location.reload()' style='cursor: n-resize' title='Click on the title for each metric to sort by size (total number of line segments, paths, or fields).'>Files: 20</th>
+      <th style='cursor: col-resize' onclick='showHideAllFiles()'>Packages: 11</th>
+      <th onclick='location.reload()' style='cursor: n-resize' title='Click on the title for each metric to sort by size (total number of line segments, paths, or fields).'>Files: 43</th>
       <th onclick='sortTables(1)' style='cursor: n-resize' title='Measures how much of the executable production code was exercised by tests.
 An executable line of code contains one or more executable segments.
 The percentages are calculated as 100*NE/NS, where NS is the number of segments and NE the number of executed segments.'>Line</th>
-      <th onclick='sortTables(2)' style='cursor: n-resize' title='Measures how many of the possible execution paths through method/constructor bodies were actually executed by tests.
-The percentages are calculated as 100*NPE/NP, where NP is the number of possible paths and NPE the number of fully executed paths.'>Path</th>
-      <th onclick='sortTables(3)' style='cursor: n-resize' title='Measures how many of the instance and static non-final fields were fully exercised by the test run.
-To be fully exercised, a field must have the last value assigned to it read by at least one test.
-The percentages are calculated as 100*NFE/NF, where NF is the number of non-final fields and NFE the number of fully exercised fields.'>Data</th>
     </tr>
     <tr>
-      <td class='file click' onclick='showHideFiles(this)'>jp.co.dk.datastoremanager</td>
+      <td class='package click' onclick='showHideFiles(this)'>jp.co.dk.datastoremanager</td>
       <td>
         <table width='100%'>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/DaoConstants.html'>DaoConstants.java</a>                  </td>
-            <td class='nocode'>N/A</td>
-            <td class='nocode'>N/A</td>
-            <td class='nocode'>N/A</td>
+            <td class='file enum'><a target='_blank' href='jp/co/dk/datastoremanager/DataBaseDriverConstants.html'>DataBaseDriverConstants.java</a>       </td>
+            <td style='background-color:#15ea00' title='Line segments: 11/12'>92%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/DataAccessObject.html'>DataAccessObject.java</a>              </td>
-            <td class='nocode'>N/A</td>
-            <td class='nocode'>N/A</td>
-            <td class='nocode'>N/A</td>
+            <td class='file enum'><a target='_blank' href='jp/co/dk/datastoremanager/DataStoreKind.html'>DataStoreKind.java</a>                 </td>
+            <td style='background-color:#00ff00' title='Line segments: 10/10'>100%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/DataAccessObjectFactory.html'>DataAccessObjectFactory.java</a>       </td>
-            <td class='nocode'>N/A</td>
-            <td class='nocode'>N/A</td>
-            <td class='nocode'>N/A</td>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/DataStoreManager.html'>DataStoreManager.java</a>              </td>
+            <td style='background-color:#a65900' title='Line segments: 16/46'>35%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/DataBaseDriverConstants.html'>DataBaseDriverConstants.java</a>       </td>
-            <td style='background-color:#6a9500' title='Line segments: 7/12'>58%</td>
-            <td style='background-color:#7f8000' title='Paths: 3/6'>50%</td>
-            <td style='background-color:#55aa00' title='Fields: 2/3'>67%</td>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/DataStoreManagerTestFoundation.html'>DataStoreManagerTestFoundation.java</a></td>
+            <td style='background-color:#df2000' title='Line segments: 6/48'>13%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/DataStore.html'>DataStore.java</a>                     </td>
-            <td class='nocode'>N/A</td>
-            <td class='nocode'>N/A</td>
-            <td class='nocode'>N/A</td>
+            <td class='file abstractClass'><a target='_blank' href='jp/co/dk/datastoremanager/DataStoreParameter.html'>DataStoreParameter.java</a>            </td>
+            <td style='background-color:#11ee00' title='Line segments: 14/15'>93%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/DataStoreKind.html'>DataStoreKind.java</a>                 </td>
-            <td style='background-color:#a25d00' title='Line segments: 4/11'>36%</td>
-            <td style='background-color:#996600' title='Paths: 2/5'>40%</td>
-            <td style='background-color:#ff0000' title='Fields: 0/1'>0%</td>
-          </tr>
-          <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/DataStoreManagerTestFoundation.html'>DataStoreManagerTestFoundation.java</a></td>
-            <td style='background-color:#ef1000' title='Line segments: 3/48'>6%</td>
-            <td style='background-color:#d42b00' title='Paths: 3/18'>17%</td>
-            <td class='nocode'>N/A</td>
-          </tr>
-          <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/DataStoreParameter.html'>DataStoreParameter.java</a>            </td>
-            <td style='background-color:#996600' title='Line segments: 6/15'>40%</td>
-            <td style='background-color:#9f6000' title='Paths: 3/8'>38%</td>
-            <td style='background-color:#00ff00' title='Fields: 1/1'>100%</td>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/DataStoreParameterTest.html'>DataStoreParameterTest.java</a>        </td>
+            <td style='background-color:#40bf00' title='Line segments: 3/4'>75%</td>
           </tr>
         </table>
-      </td>
-      <td class='pt' style='background-color:#c43b00' title='Line segments: 20/86'>23%</td>
-      <td class='pt' style='background-color:#b34c00' title='Paths: 11/37'>30%</td>
-      <td class='pt' style='background-color:#669900' title='Fields: 3/5'>60%</td>
+        <span>(6 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#8e7100' title='Line segments: 60/135'>44%</td>
     </tr>
     <tr>
-      <td class='file'>jp.co.dk.datastoremanager.exception</td>
+      <td class='package click' onclick='showHideFiles(this)'>jp.co.dk.datastoremanager.database</td>
       <td>
         <table width='100%'>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/exception/DataStoreManagerException.html'>DataStoreManagerException.java</a>     </td>
-            <td style='background-color:#996600' title='Line segments: 10/25'>40%</td>
-            <td style='background-color:#9f6000' title='Paths: 3/8'>38%</td>
-            <td style='background-color:#00ff00' title='Fields: 1/1'>100%</td>
+            <td class='file abstractClass'><a target='_blank' href='jp/co/dk/datastoremanager/database/AbstractTransaction.html'>AbstractTransaction.java</a>           </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/1'>0%</td>
+          </tr>
+          <tr>
+            <td class='file enum'><a target='_blank' href='jp/co/dk/datastoremanager/database/DataBaseDriverConstants.html'>DataBaseDriverConstants.java</a>       </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/12'>0%</td>
           </tr>
         </table>
-      </td>
-      <td class='pt' style='background-color:#996600' title='Line segments: 10/25'>40%</td>
-      <td class='pt' style='background-color:#9f6000' title='Paths: 3/8'>38%</td>
-      <td class='pt' style='background-color:#00ff00' title='Fields: 1/1'>100%</td>
+        <span>(2 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#ff0000' title='Line segments: 0/13'>0%</td>
     </tr>
     <tr>
-      <td class='file click' onclick='showHideFiles(this)'>jp.co.dk.datastoremanager.gdb</td>
+      <td class='package click' onclick='showHideFiles(this)'>jp.co.dk.datastoremanager.exception</td>
       <td>
         <table width='100%'>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/BooleanCypherParameter.html'>BooleanCypherParameter.java</a>        </td>
+            <td class='file exception'><a target='_blank' href='jp/co/dk/datastoremanager/exception/DataStoreManagerException.html'>DataStoreManagerException.java</a>     </td>
+            <td style='background-color:#00ff00' title='Line segments: 25/25'>100%</td>
+          </tr>
+          <tr>
+            <td class='file exception'><a target='_blank' href='jp/co/dk/datastoremanager/exception/DataStoreManagerFatalException.html'>DataStoreManagerFatalException.java</a></td>
+            <td style='background-color:#ff0000' title='Line segments: 0/25'>0%</td>
+          </tr>
+        </table>
+        <span>(2 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#7f8000' title='Line segments: 25/50'>50%</td>
+    </tr>
+    <tr>
+      <td class='package click' onclick='showHideFiles(this)'>jp.co.dk.datastoremanager.gdb</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file abstractClass'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/AbstractDataBaseAccessObject.html'>AbstractDataBaseAccessObject.java</a>  </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/28'>0%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/BooleanCypherParameter.html'>BooleanCypherParameter.java</a>        </td>
             <td style='background-color:#1be400' title='Line segments: 17/19'>89%</td>
-            <td style='background-color:#20df00' title='Paths: 7/8'>88%</td>
-            <td style='background-color:#00ff00' title='Fields: 1/1'>100%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/Cypher.html'>Cypher.java</a>                        </td>
-            <td style='background-color:#06f900' title='Line segments: 39/40'>98%</td>
-            <td style='background-color:#11ee00' title='Paths: 14/15'>93%</td>
-            <td style='background-color:#00ff00' title='Fields: 2/2'>100%</td>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/Cypher.html'>Cypher.java</a>                        </td>
+            <td style='background-color:#07f800' title='Line segments: 38/39'>97%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/CypherParameter.html'>CypherParameter.java</a>               </td>
+            <td class='file abstractClass'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/CypherParameter.html'>CypherParameter.java</a>               </td>
             <td style='background-color:#00ff00' title='Line segments: 1/1'>100%</td>
-            <td style='background-color:#00ff00' title='Paths: 1/1'>100%</td>
-            <td class='nocode'>N/A</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/DataBaseAccessParameter.html'>DataBaseAccessParameter.java</a>       </td>
-            <td style='background-color:#936c00' title='Line segments: 22/52'>42%</td>
-            <td style='background-color:#b94600' title='Paths: 6/22'>27%</td>
-            <td style='background-color:#669900' title='Fields: 3/5'>60%</td>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/DataBaseAccessParameter.html'>DataBaseAccessParameter.java</a>       </td>
+            <td style='background-color:#976800' title='Line segments: 22/54'>41%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/DataBaseDataStore.html'>DataBaseDataStore.java</a>             </td>
-            <td style='background-color:#3ec100' title='Line segments: 53/70'>76%</td>
-            <td style='background-color:#aa5500' title='Paths: 15/45'>33%</td>
-            <td style='background-color:#33cc00' title='Fields: 4/5'>80%</td>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/DataBaseDataStore.html'>DataBaseDataStore.java</a>             </td>
+            <td style='background-color:#3ec100' title='Line segments: 50/66'>76%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/NumericCypherParameter.html'>NumericCypherParameter.java</a>        </td>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/DataBaseNode.html'>DataBaseNode.java</a>                  </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/12'>0%</td>
+          </tr>
+          <tr>
+            <td class='file interface'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/DataConvertable.html'>DataConvertable.java</a>               </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/1'>0%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/NumericCypherParameter.html'>NumericCypherParameter.java</a>        </td>
             <td style='background-color:#1be400' title='Line segments: 17/19'>89%</td>
-            <td style='background-color:#20df00' title='Paths: 7/8'>88%</td>
-            <td style='background-color:#00ff00' title='Fields: 1/1'>100%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/StringCypherParameter.html'>StringCypherParameter.java</a>         </td>
-            <td style='background-color:#35ca00' title='Line segments: 23/29'>79%</td>
-            <td style='background-color:#5da200' title='Paths: 7/11'>64%</td>
-            <td style='background-color:#00ff00' title='Fields: 1/1'>100%</td>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/StringCypherParameter.html'>StringCypherParameter.java</a>         </td>
+            <td style='background-color:#3bc400' title='Line segments: 20/26'>77%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/Transaction.html'>Transaction.java</a>                   </td>
-            <td style='background-color:#29d600' title='Line segments: 58/69'>84%</td>
-            <td style='background-color:#44bb00' title='Paths: 11/15'>73%</td>
-            <td style='background-color:#00ff00' title='Fields: 3/3'>100%</td>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/gdb/Transaction.html'>Transaction.java</a>                   </td>
+            <td style='background-color:#1ae500' title='Line segments: 62/69'>90%</td>
           </tr>
         </table>
-      </td>
-      <td class='pt' style='background-color:#3bc400' title='Line segments: 230/299'>77%</td>
-      <td class='pt' style='background-color:#748b00' title='Paths: 68/125'>54%</td>
-      <td class='pt' style='background-color:#2ad500' title='Fields: 15/18'>83%</td>
+        <span>(11 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#52ad00' title='Line segments: 227/334'>68%</td>
     </tr>
     <tr>
-      <td class='file'>jp.co.dk.datastoremanager.message</td>
+      <td class='package'>jp.co.dk.datastoremanager.message</td>
       <td>
         <table width='100%'>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/message/DataStoreManagerMessage.html'>DataStoreManagerMessage.java</a>       </td>
-            <td style='background-color:#00ff00' title='Line segments: 37/37'>100%</td>
-            <td style='background-color:#00ff00' title='Paths: 1/1'>100%</td>
-            <td class='nocode'>N/A</td>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/message/DataStoreManagerMessage.html'>DataStoreManagerMessage.java</a>       </td>
+            <td style='background-color:#00ff00' title='Line segments: 38/38'>100%</td>
           </tr>
         </table>
-      </td>
-      <td class='pt' style='background-color:#00ff00' title='Line segments: 37/37'>100%</td>
-      <td class='pt' style='background-color:#00ff00' title='Paths: 1/1'>100%</td>
-      <td class='nocode'>N/A</td>
+        <span>(1 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#00ff00' title='Line segments: 38/38'>100%</td>
     </tr>
     <tr>
-      <td class='file click' onclick='showHideFiles(this)'>jp.co.dk.datastoremanager.rdb</td>
+      <td class='package click' onclick='showHideFiles(this)'>jp.co.dk.datastoremanager.property</td>
       <td>
         <table width='100%'>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/DataBaseAccessParameter.html'>DataBaseAccessParameter.java</a>       </td>
-            <td style='background-color:#ff0000' title='Line segments: 0/41'>0%</td>
-            <td style='background-color:#ff0000' title='Paths: 0/18'>0%</td>
-            <td style='background-color:#ff0000' title='Fields: 0/5'>0%</td>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/property/DataStoreManagerProperty.html'>DataStoreManagerProperty.java</a>      </td>
+            <td style='background-color:#2ed100' title='Line segments: 59/72'>82%</td>
           </tr>
           <tr>
-            <td class='file'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/Sql.html'>Sql.java</a>                           </td>
-            <td style='background-color:#ff0000' title='Line segments: 0/50'>0%</td>
-            <td style='background-color:#ff0000' title='Paths: 0/20'>0%</td>
-            <td style='background-color:#ff0000' title='Fields: 0/2'>0%</td>
+            <td class='file enum'><a target='_blank' href='jp/co/dk/datastoremanager/property/DataStoreManagerPropertyTest.html'>DataStoreManagerPropertyTest.java</a>  </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/7'>0%</td>
           </tr>
         </table>
-      </td>
-      <td class='pt' style='background-color:#ff0000' title='Line segments: 0/91'>0%</td>
-      <td class='pt' style='background-color:#ff0000' title='Paths: 0/38'>0%</td>
-      <td class='pt' style='background-color:#ff0000' title='Fields: 0/7'>0%</td>
+        <span>(2 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#41be00' title='Line segments: 59/79'>75%</td>
+    </tr>
+    <tr>
+      <td class='package click' onclick='showHideFiles(this)'>jp.co.dk.datastoremanager.rdb</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file abstractClass'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/AbstractDataBaseAccessObject.html'>AbstractDataBaseAccessObject.java</a>  </td>
+            <td style='background-color:#d02f00' title='Line segments: 7/38'>18%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/BytesSqlParameter.html'>BytesSqlParameter.java</a>             </td>
+            <td style='background-color:#41be00' title='Line segments: 32/43'>74%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/DataBaseAccessParameter.html'>DataBaseAccessParameter.java</a>       </td>
+            <td style='background-color:#00ff00' title='Line segments: 45/45'>100%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/DataBaseDataStore.html'>DataBaseDataStore.java</a>             </td>
+            <td style='background-color:#877800' title='Line segments: 50/106'>47%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/DataBaseRecord.html'>DataBaseRecord.java</a>                </td>
+            <td style='background-color:#a75800' title='Line segments: 21/61'>34%</td>
+          </tr>
+          <tr>
+            <td class='file interface'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/DataConvertable.html'>DataConvertable.java</a>               </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/1'>0%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/DateSqlParameter.html'>DateSqlParameter.java</a>              </td>
+            <td style='background-color:#5ea100' title='Line segments: 17/27'>63%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/IntSqlParameter.html'>IntSqlParameter.java</a>               </td>
+            <td style='background-color:#43bc00' title='Line segments: 14/19'>74%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/LongSqlParameter.html'>LongSqlParameter.java</a>              </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/19'>0%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/ObjectSqlParameter.html'>ObjectSqlParameter.java</a>            </td>
+            <td style='background-color:#629d00' title='Line segments: 16/26'>62%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/Sql.html'>Sql.java</a>                           </td>
+            <td style='background-color:#39c600' title='Line segments: 38/49'>78%</td>
+          </tr>
+          <tr>
+            <td class='file abstractClass'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/SqlParameter.html'>SqlParameter.java</a>                  </td>
+            <td style='background-color:#00ff00' title='Line segments: 1/1'>100%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/StringSqlParameter.html'>StringSqlParameter.java</a>            </td>
+            <td style='background-color:#629d00' title='Line segments: 16/26'>62%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/TimestampSqlParameter.html'>TimestampSqlParameter.java</a>         </td>
+            <td style='background-color:#629d00' title='Line segments: 16/26'>62%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/rdb/Transaction.html'>Transaction.java</a>                   </td>
+            <td style='background-color:#a85700' title='Line segments: 51/149'>34%</td>
+          </tr>
+        </table>
+        <span>(15 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#7d8200' title='Line segments: 324/636'>51%</td>
+    </tr>
+    <tr>
+      <td class='package'>jp.co.dk.datastoremanager.testdbaccessobjects.gdb</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/testdbaccessobjects/gdb/UserNode.html'>UserNode.java</a>                      </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/9'>0%</td>
+          </tr>
+        </table>
+        <span>(1 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#ff0000' title='Line segments: 0/9'>0%</td>
+    </tr>
+    <tr>
+      <td class='package'>jp.co.dk.datastoremanager.testdbaccessobjects.gdb.neo4j</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/testdbaccessobjects/gdb/neo4j/UserDaoImpl.html'>UserDaoImpl.java</a>                   </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/20'>0%</td>
+          </tr>
+        </table>
+        <span>(1 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#ff0000' title='Line segments: 0/20'>0%</td>
+    </tr>
+    <tr>
+      <td class='package'>jp.co.dk.datastoremanager.testdbaccessobjects.rdb</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/testdbaccessobjects/rdb/UsersRecord.html'>UsersRecord.java</a>                   </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/19'>0%</td>
+          </tr>
+        </table>
+        <span>(1 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#ff0000' title='Line segments: 0/19'>0%</td>
+    </tr>
+    <tr>
+      <td class='package'>jp.co.dk.datastoremanager.testdbaccessobjects.rdb.mysql</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file class'><a target='_blank' href='jp/co/dk/datastoremanager/testdbaccessobjects/rdb/mysql/UserDaoImpl.html'>UserDaoImpl.java</a>                   </td>
+            <td style='background-color:#f30c00' title='Line segments: 2/43'>5%</td>
+          </tr>
+        </table>
+        <span>(1 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#f30c00' title='Line segments: 2/43'>5%</td>
     </tr>
     <tr class='total'>
       <td>Total</td><td>&nbsp;</td>
-      <td class='pt' style='background-color:#728d00' title='Line segments: 297/538'>55%</td>
-      <td class='pt' style='background-color:#9a6500' title='Paths: 83/209'>40%</td>
-      <td class='pt' style='background-color:#639c00' title='Fields: 19/31'>61%</td>
+      <td class='pt' style='background-color:#778800' title='Line segments: 735/1376'>53%</td>
     </tr>
   </table>
+  <br/>Redundant tests:
+  <ol title="Tests are regarded as redundant when they don't cover any additional line segments or paths that haven't already been covered by a previous test.
+Note this means the list of redundant tests depends on the order of test execution.
+Such a test can be removed without weakening the test suite, as long as another test for the same scenario performs its assertions.">
+    <li>DataStoreKindTest.convert_success01</li>
+    <li>DataStoreKindTest.convert_error03</li>
+    <li>DataStoreKindTest.convert_success03</li>
+    <li>DataStoreKindTest.convert_success04</li>
+    <li>CypherTest.test_toString</li>
+    <li>CypherTest.setParameter_Int</li>
+    <li>BooleanCypherParameterTest.constractor</li>
+    <li>BooleanCypherParameterTest.test_toString</li>
+    <li>NumericCypherParameterTest.constractor</li>
+    <li>NumericCypherParameterTest.test_toString</li>
+    <li>StringCypherParameterTest.constractor</li>
+    <li>StringCypherParameterTest.test_toString</li>
+    <li>DataBaseDataStoreTest.startTrunsaction</li>
+    <li>DataBaseDataStoreTest.constractor</li>
+    <li>DataBaseDataStoreTest.test_tostring</li>
+    <li>TransactionTest.execute</li>
+    <li>DataBaseDriverConstantsTest.getUrl</li>
+    <li>DataBaseDriverConstantsTest.getDriverClass</li>
+    <li>DataBaseDataStoreTest.startTrunsaction</li>
+    <li>DataBaseDataStoreTest.constractor</li>
+    <li>DataBaseDataStoreTest.test_tostring</li>
+    <li>TransactionTest.rollback</li>
+    <li>TransactionTest.commit</li>
+    <li>TransactionTest.execute</li>
+    <li>TransactionTest.close</li>
+    <li>SqlTest.test_toString</li>
+    <li>SqlTest.setParameter_Int</li>
+    <li>SqlTest.setParameter_Date</li>
+    <li>StringSqlParameterTest.constractor</li>
+    <li>StringSqlParameterTest.test_toString</li>
+    <li>IntSqlParameterTest.constractor</li>
+    <li>IntSqlParameterTest.test_toString</li>
+    <li>BytesSqlParameterTest.test_toString</li>
+    <li>DataBaseAccessParameterTest.test_equals</li>
+    <li>DataBaseAccessParameterTest.createDataStore</li>
+    <li>DataBaseAccessParameterTest.test_tostring</li>
+    <li>TimestampSqlParameterTest.constractor</li>
+    <li>TimestampSqlParameterTest.test_toString</li>
+    <li>DateSqlParameterTest.constractor</li>
+    <li>DateSqlParameterTest.test_toString</li>
+    <li>ObjectSqlParameterTest.constractor</li>
+    <li>ObjectSqlParameterTest.test_toString</li>
+  </ol>
   <p>
-    <a href='http://code.google.com/p/jmockit'><img src='logo.png'></a>
-    Generated on Fri Jun 26 03:47:41 JST 2015
+    <a href='http://jmockit.org'><img src='logo.png'></a>
+    Generated on Fri Jul 03 02:35:33 JST 2015
   </p>
 </body>
 </html>

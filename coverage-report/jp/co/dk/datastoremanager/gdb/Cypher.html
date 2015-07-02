@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cypher.java</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='../../../../../coverage.css'/>
+  <link rel='shortcut icon' type='image/png' href='../../../../../logo.png'/>
+  <script type='text/javascript' src='../../../../../coverage.js'></script>
+  <script type='text/javascript' src='../../../../../prettify.js'></script>
+</head>
+<body onload='prettyPrint()'>
+  <table cellpadding='0' cellspacing='1'>
+    <caption>DataStoreManager/src/main/java/jp/co/dk/datastoremanager/gdb/Cypher.java</caption>
+    <tr>
+      <td class='line'>1</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>package jp.co.dk.datastoremanager.gdb;</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td><pre class='imports prettyprint' onclick='showHideLines(this)'><div>import java.util.ArrayList;
+import java.util.List;
+
+import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
+</div><span>import ...</span></pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>/**
+ * Cypherは、Cypher本文と、そのCypherに対するパラメータを保持し、単一のCypher本文を生成するクラスです。
+ * 
+ * @version 1.1
+ * @author D.Kanno
+ */</div><span>/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>15</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>public class Cypher {</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>17</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** Cypher本文 */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>18</td><td class='count'>31</td>
+      <td><pre class='prettyprint covered' id='l18s0'>	private StringBuilder cypher = new StringBuilder();</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>20</td><td>&nbsp;</td>
+      <td><pre class='comment'>	/** パラメータ */</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>21</td><td class='count'>31</td>
+      <td><pre class='prettyprint covered' id='l21s0'>	private List&lt;CypherParameter> cypherParameter = new ArrayList&lt;CypherParameter>();</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * コンストラクタ&lt;p/>
+	 * 指定のCypherを表す文字列を元に、Cypherオブジェクトのインスタンスを生成します。&lt;br/>
+	 * Cypher本文がnull、または空文字の場合例外を送出します。
+	 * 
+	 * @param cypher Cypher本文の文字列
+	 * @throws DataStoreManagerException Cypherオブジェクトのインスタンス生成に失敗した場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>31</td><td class='count'>31</td>
+      <td><pre class='prettyprint covered' id='l31s0'>	public Cypher(String cypher) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>32</td><td class='count'>31</td>
+      <td><pre class='prettyprint jmp'>		<span id='l32s0' title='Executions: 31' class='covered'>if (cypher == null</span> || <span id='l32s1' title='Executions: 30' class='covered'>cypher.equals(""))</span> <span id='l32s2' title='Executions: 2' class='covered'>throw new DataStoreManagerException(FAILE_TO_CREATE_SQL_OBJECT);</span> </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>33</td><td class='count'>29</td>
+      <td><pre class='prettyprint covered' id='l33s0'>		this.cypher.append(cypher);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>34</td><td class='count'>29</td>
+      <td><pre class='prettyprint covered' id='l34s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定の文字列を元に、Cypherの{x}部分にあたる文字列を設定します。
+	 * @param parameter Cypherの{x}部分にあたる文字列
+	 * @throws DataStoreManagerException 設定されたパラメータがnullまたは空文字の場合
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>41</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void setParameter(String parameter) throws DataStoreManagerException {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>42</td><td class='count'>16</td>
+      <td><pre class='prettyprint covered' id='l42s0'>		this.cypherParameter.add(new StringCypherParameter(parameter));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>43</td><td class='count'>16</td>
+      <td><pre class='prettyprint covered' id='l43s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定の数値を元に、Cypherの{x}部分にあたる数値を設定します。
+	 * @param parameter Cypherの{x}部分にあたる数値(int)
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void setParameter(int parameter) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>50</td><td class='count'>18</td>
+      <td><pre class='prettyprint covered' id='l50s0'>		this.cypherParameter.add(new NumericCypherParameter(parameter));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>51</td><td class='count'>18</td>
+      <td><pre class='prettyprint covered' id='l51s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * 指定の数値を元に、Cypherの{x}部分にあたる数値を設定します。
+	 * @param parameter Cypherの{x}部分にあたる数値(boolean)
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>57</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public void setParameter(boolean parameter) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>58</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l58s0'>		this.cypherParameter.add(new BooleanCypherParameter(parameter));</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>59</td><td class='count'>15</td>
+      <td><pre class='prettyprint covered' id='l59s0'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>61</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String getCypher() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>62</td><td class='count'>22</td>
+      <td><pre class='prettyprint covered' id='l62s0'>		return this.cypher.toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>63</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'></td><td>&nbsp;</td>
+      <td class='comment' onclick='showHideLines(this)'><div>	/**
+	 * このCypherに設定されたCypherに対するパラメータの一覧を取得します。
+	 * @return パラメータの一覧
+	 */</div><span>	/*...*/</span></td>
+    </tr>
+    <tr>
+      <td class='line'>69</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	List&lt;CypherParameter> getParameterList() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>70</td><td class='count'>26</td>
+      <td><pre class='prettyprint covered' id='l70s0'>		return new ArrayList&lt;CypherParameter>(this.cypherParameter);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>71</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>73</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>74</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public int hashCode() { </pre></td>
+    </tr>
+    <tr>
+      <td class='line'>75</td><td class='count'>430</td>
+      <td><pre class='prettyprint covered' id='l75s0'>		int hashcode = this.cypher.toString().hashCode();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>76</td><td class='count'>430</td>
+      <td><pre class='prettyprint covered' id='l76s0'>		for (CypherParameter param : this.cypherParameter) hashcode *= param.hashCode();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>77</td><td class='count'>430</td>
+      <td><pre class='prettyprint covered' id='l77s0'>		return hashcode *17;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>78</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>80</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>81</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public boolean equals(Object object) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>82</td><td class='count'>215</td>
+      <td><pre class='prettyprint jmp'>		<span id='l82s0' title='Executions: 215' class='covered'>if (object == null)</span> <span id='l82s1' title='Executions: 3' class='covered'>return false;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>83</td><td class='count'>212</td>
+      <td><pre class='prettyprint jmp'>		<span id='l83s0' title='Executions: 212' class='covered'>if (!(object instanceof Cypher))</span> <span id='l83s1' title='Executions: 0' class='uncovered'>return false;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>84</td><td class='count'>212</td>
+      <td><pre class='prettyprint covered' id='l84s0'>		Cypher thisClassObj = (Cypher) object;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>85</td><td class='count'>212</td>
+      <td><pre class='prettyprint jmp'>		<span id='l85s0' title='Executions: 212' class='covered'>if (thisClassObj.hashCode() == this.hashCode())</span> <span id='l85s1' title='Executions: 108' class='covered'>return true;</span></pre></td>
+    </tr>
+    <tr>
+      <td class='line'>86</td><td class='count'>104</td>
+      <td><pre class='prettyprint covered' id='l86s0'>		return false;</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>87</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
+    <tr>
+      <td class='line'>89</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	@Override</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>90</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	public String toString() {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>91</td><td class='count'>37</td>
+      <td><pre class='prettyprint covered' id='l91s0'>		StringBuilder sqlstr = new StringBuilder("CYPHER=[").append(this.cypher).append(']');</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>92</td><td class='count'>37</td>
+      <td><pre class='prettyprint jmp'>		<span id='l92s0' title='Executions: 37' class='covered'>if (cypherParameter.size() == 0)</span> {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>93</td><td class='count'>12</td>
+      <td><pre class='prettyprint covered' id='l93s0'>			sqlstr.append(" PARAMETER=[NOTHING]");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>94</td><td class='count'>12</td>
+      <td><pre class='prettyprint covered' id='l94s0'>			return sqlstr.toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>95</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>96</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l96s0'>			sqlstr.append(" PARAMETER=[");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>97</td><td class='count'>117</td>
+      <td><pre class='prettyprint covered' id='l97s0'>			for (CypherParameter param : this.cypherParameter) {</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>98</td><td class='count'>67</td>
+      <td><pre class='prettyprint covered' id='l98s0'>				sqlstr.append(param.toString()).append(", ");</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>99</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>100</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l100s0'>			int index = sqlstr.length();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>101</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l101s0'>			sqlstr.delete(index-2, index);</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>102</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l102s0'>			sqlstr.append(']');</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>103</td><td class='count'>25</td>
+      <td><pre class='prettyprint covered' id='l103s0'>			return sqlstr.toString();</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>104</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>105</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
+    </tr>
+    <tr>
+      <td class='line'>106</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>}</pre></td>
+    </tr>
+  </table>
+</body>
+</html>

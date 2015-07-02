@@ -9,7 +9,7 @@ import org.junit.Test;
 import jp.co.dk.datastoremanager.DataStoreManagerTestFoundation;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.testdbaccessobjects.DataStoreDaoConstantsTest;
-import jp.co.dk.datastoremanager.testdbaccessobjects.table.UsersDao;
+import jp.co.dk.datastoremanager.testdbaccessobjects.UsersDao;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 import static org.junit.Assert.*;
 

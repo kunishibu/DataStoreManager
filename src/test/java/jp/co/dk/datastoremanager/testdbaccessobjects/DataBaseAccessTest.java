@@ -9,8 +9,8 @@ import java.util.List;
 
 import jp.co.dk.datastoremanager.DataStoreManagerTestFoundation;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
-import jp.co.dk.datastoremanager.testdbaccessobjects.record.UsersRecord;
-import jp.co.dk.datastoremanager.testdbaccessobjects.table.mysql.UserDaoImpl;
+import jp.co.dk.datastoremanager.testdbaccessobjects.rdb.UsersRecord;
+import jp.co.dk.datastoremanager.testdbaccessobjects.rdb.mysql.UserDaoImpl;
 
 import org.junit.Test;
 
