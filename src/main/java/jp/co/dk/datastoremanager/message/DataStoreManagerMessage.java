@@ -115,6 +115,9 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** バイト配列をオブジェクトへ変換を試みましたが、失敗しました。 */
 	public static final DataStoreManagerMessage FAILE_TO_AN_ATTEMPT_WAS_MADE_TO_CONVERT_TO_OBJECT = new DataStoreManagerMessage("E035");
 	
+	/** データストアからの取得結果を変換するメソッドが未定義です。 */
+	public static final DataStoreManagerMessage METHOD_TO_CONVERT_A_RESULT_IS_UNDEFINED = new DataStoreManagerMessage("E036");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}

@@ -1,5 +1,6 @@
 package jp.co.dk.datastoremanager.gdb;
 
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.METHOD_TO_CONVERT_A_RESULT_IS_UNDEFINED;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 
 /**
@@ -17,6 +18,8 @@ public interface DataConvertable extends jp.co.dk.datastoremanager.DataConvertab
 	 * @param dataBaseRecord 単一のデータベースレコード
 	 * @throws DataStoreManagerException 変換に失敗した場合
 	 */
-	public DataConvertable convert(DataBaseNode dataBaseRecord) throws DataStoreManagerException ;
+	public default DataConvertable convert(DataBaseNode dataBaseRecord) throws DataStoreManagerException {
+		throw new DataStoreManagerException(METHOD_TO_CONVERT_A_RESULT_IS_UNDEFINED);
+	}
 	
 }

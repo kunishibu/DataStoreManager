@@ -1,6 +1,7 @@
 package jp.co.dk.datastoremanager.rdb;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
 /**
  * DataConvertableは、レコードの変換を行うクラスが実装するインターフェースです。<p/>
@@ -17,13 +18,7 @@ public interface DataConvertable extends jp.co.dk.datastoremanager.DataConvertab
 	 * @param dataBaseRecord 単一のデータベースレコード
 	 * @throws DataStoreManagerException 変換に失敗した場合
 	 */
-	public DataConvertable convert(DataBaseRecord dataBaseRecord) throws DataStoreManagerException ;
-	
-	/**
-	 * その他のレコードオブエジェクトから取得した単一のレコードを自身のクラスへ設定します。
-	 * 
-	 * @param record 単一のデータベースレコード
-	 * @throws DataStoreManagerException 変換に失敗した場合
-	 */
-	public DataConvertable convert(Record record) throws DataStoreManagerException ;
+	public default DataConvertable convert(DataBaseRecord dataBaseRecord) throws DataStoreManagerException {
+		throw new DataStoreManagerException(METHOD_TO_CONVERT_A_RESULT_IS_UNDEFINED);
+	}
 }
