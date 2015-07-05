@@ -11,7 +11,7 @@ class StringSqlParameter extends SqlParameter{
 	
 	protected String parameter;
 	
-	StringSqlParameter(String parameter) throws DataStoreManagerException {
+	StringSqlParameter(String parameter) {
 		this.parameter = parameter;
 	} 
 

@@ -12,7 +12,7 @@ class TimestampSqlParameter extends SqlParameter{
 	
 	protected Timestamp parameter;
 	
-	TimestampSqlParameter(Timestamp parameter) throws DataStoreManagerException {
+	TimestampSqlParameter(Timestamp parameter) {
 		this.parameter = parameter;
 	} 
 

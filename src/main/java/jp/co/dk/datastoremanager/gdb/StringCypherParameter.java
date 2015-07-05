@@ -11,7 +11,7 @@ class StringCypherParameter extends CypherParameter{
 	
 	protected String parameter;
 	
-	StringCypherParameter(String parameter) throws DataStoreManagerException {
+	StringCypherParameter(String parameter) {
 		this.parameter = parameter;
 	} 
 

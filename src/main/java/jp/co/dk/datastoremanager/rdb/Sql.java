@@ -40,10 +40,10 @@ public class Sql {
 	 * 指定の文字列を元に、SQLの？部分にあたる文字列を設定します。<p/>
 	 * データベースに送るときに、ドライバはこれを SQL VARCHAR または LONGVARCHAR 値 (ドライバの VARCHAR 値に関する制限に関する引数のサイズに依存) に変換します。
 	 * @param parameter SQLの？部分にあたる文字列
-	 * @throws DataStoreManagerException 設定されたパラメータがnullまたは空文字の場合
 	 */
-	public void setParameter(String parameter) throws DataStoreManagerException {
+	public Sql setParameter(String parameter) {
 		this.sqlParameter.add(new StringSqlParameter(parameter));
+		return this;
 	}
 	
 	/**
@@ -51,8 +51,9 @@ public class Sql {
 	 * データベースに送るときに、ドライバはこれを SQL INTEGER 値に変換します。
 	 * @param parameter SQLの？部分にあたる数値(int)
 	 */
-	public void setParameter(int parameter) {
+	public Sql setParameter(int parameter) {
 		this.sqlParameter.add(new IntSqlParameter(parameter));
+		return this;
 	}
 	
 	/**
@@ -60,18 +61,19 @@ public class Sql {
 	 * データベースに送るときに、ドライバはこれを SQL BIGINT 値に変換します。
 	 * @param parameter SQLの？部分にあたる数値(long)
 	 */
-	public void setParameter(long parameter) {
+	public Sql setParameter(long parameter) {
 		this.sqlParameter.add(new LongSqlParameter(parameter));
+		return this;
 	}
 	
 	/**
 	 * 指定の日付を元に、SQLの？部分にあたる日付を設定します。<p/>
 	 * データベースに送るときに、ドライバはこれを SQL DATE 値に変換します。
 	 * @param parameter SQLの？部分にあたる日付
-	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
 	 */
-	public void setParameter(Date parameter) throws DataStoreManagerException {
+	public Sql setParameter(Date parameter) {
 		this.sqlParameter.add(new DateSqlParameter(parameter));
+		return this;
 	}
 	
 	/**
@@ -80,18 +82,19 @@ public class Sql {
 	 * @param parameter SQLの？部分にあたる日付
 	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
 	 */
-	public void setParameter(Timestamp parameter) throws DataStoreManagerException {
+	public Sql setParameter(Timestamp parameter) {
 		this.sqlParameter.add(new TimestampSqlParameter(parameter));
+		return this;
 	}
 	
 	/**
 	 * 指定のバイト配列を元に、SQLの？部分にあたるバイトは配列を設定します。<p/>
 	 * データベースに送るときに、ドライバはこれを SQL VARBINARY または LONGVARBINARY (ドライバの VARBINARY 値に関する制限に関する引数のサイズに依存) に変換します。
 	 * @param parameter SQLの？部分にあたるバイト配列
-	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
 	 */
-	public void setParameter(byte[] parameter) throws DataStoreManagerException {
+	public Sql setParameter(byte[] parameter) {
 		this.sqlParameter.add(new BytesSqlParameter(parameter));
+		return this;
 	}
 	
 	/**
@@ -101,10 +104,10 @@ public class Sql {
 	 * オブジェクトがインタフェース SQLData を実装するクラスのインスタンスである場合、JDBC ドライバは SQLData.writeSQL メソッドを呼び出して、そのオブジェクトを SQL データストリームへ書き込む必要があります。<br/>
 	 * また、オブジェクトが Ref、Blob、Clob、NClob、Struct、java.net.URL、RowId、SQLXML、または Array を実装するクラスのオブジェクトである場合、ドライバはこのオブジェクトを対応する SQL 型の値としてデータベースに渡す必要があります。  
 	 * @param parameter SQLの？部分にあたるバイト配列
-	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
 	 */
-	public void setParameter(Serializable parameter) throws DataStoreManagerException {
+	public Sql setParameter(Serializable parameter) {
 		this.sqlParameter.add(new ObjectSqlParameter(parameter));
+		return this;
 	}
 	
 	/**
@@ -114,8 +117,9 @@ public class Sql {
 	 * @param parameter SQLの？部分にあたるバイト配列
 	 * @throws DataStoreManagerException 設定されたパラメータがnullの場合
 	 */
-	public void setParameterConvertToBytes(Object parameter) throws DataStoreManagerException {
+	public Sql setParameterConvertToBytes(Object parameter) throws DataStoreManagerException{
 		this.sqlParameter.add(new BytesSqlParameter(parameter));
+		return this;
 	}
 	
 	public String getSql() {

@@ -36,26 +36,31 @@ public class Cypher {
 	/**
 	 * 指定の文字列を元に、Cypherの{x}部分にあたる文字列を設定します。
 	 * @param parameter Cypherの{x}部分にあたる文字列
-	 * @throws DataStoreManagerException 設定されたパラメータがnullまたは空文字の場合
+	 * @return 本オブジェクトインスタンス
 	 */
-	public void setParameter(String parameter) throws DataStoreManagerException {
+	public Cypher setParameter(String parameter){
 		this.cypherParameter.add(new StringCypherParameter(parameter));
+		return this;
 	}
 	
 	/**
 	 * 指定の数値を元に、Cypherの{x}部分にあたる数値を設定します。
 	 * @param parameter Cypherの{x}部分にあたる数値(int)
+	 * @return 本オブジェクトインスタンス
 	 */
-	public void setParameter(int parameter) {
+	public Cypher setParameter(int parameter) {
 		this.cypherParameter.add(new NumericCypherParameter(parameter));
+		return this;
 	}
 	
 	/**
 	 * 指定の数値を元に、Cypherの{x}部分にあたる数値を設定します。
 	 * @param parameter Cypherの{x}部分にあたる数値(boolean)
+	 * @return 本オブジェクトインスタンス
 	 */
-	public void setParameter(boolean parameter) {
+	public Cypher setParameter(boolean parameter) {
 		this.cypherParameter.add(new BooleanCypherParameter(parameter));
+		return this;
 	}
 	
 	public String getCypher() {

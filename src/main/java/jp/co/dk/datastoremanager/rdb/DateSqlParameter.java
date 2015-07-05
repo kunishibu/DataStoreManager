@@ -13,7 +13,7 @@ class DateSqlParameter extends SqlParameter{
 	
 	protected Date parameter;
 	
-	DateSqlParameter(Date parameter) throws DataStoreManagerException {
+	DateSqlParameter(Date parameter) {
 		this.parameter = parameter;
 	}
 

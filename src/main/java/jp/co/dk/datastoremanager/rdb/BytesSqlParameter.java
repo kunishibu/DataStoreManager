@@ -14,7 +14,7 @@ class BytesSqlParameter extends SqlParameter{
 	
 	protected byte[] parameter;
 	
-	BytesSqlParameter(byte[] parameter) throws DataStoreManagerException {
+	BytesSqlParameter(byte[] parameter) {
 		this.parameter = parameter;
 	} 
 	

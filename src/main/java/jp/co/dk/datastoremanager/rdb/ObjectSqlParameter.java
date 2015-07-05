@@ -12,7 +12,7 @@ class ObjectSqlParameter extends SqlParameter{
 	
 	protected Serializable parameter;
 	
-	ObjectSqlParameter(Serializable parameter) throws DataStoreManagerException {
+	ObjectSqlParameter(Serializable parameter) {
 		this.parameter = parameter;
 	} 
 
