@@ -41,12 +41,12 @@ import jp.co.dk.datastoremanager.testdbaccessobjects.rdb.UsersRecord;
       <td><pre class='prettyprint'>	public UserDaoImpl(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>17</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l17s0'>		super(dataBaseAccessParameter);</pre></td>
+      <td class='line'>17</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		super(dataBaseAccessParameter);</pre></td>
     </tr>
     <tr>
-      <td class='line'>18</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l18s0'>	}</pre></td>
+      <td class='line'>18</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -54,12 +54,12 @@ import jp.co.dk.datastoremanager.testdbaccessobjects.rdb.UsersRecord;
       <td><pre class='prettyprint'>	public UserDaoImpl(DataStore dataStore) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>21</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l21s0'>		super(dataStore);</pre></td>
+      <td class='line'>21</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		super(dataStore);</pre></td>
     </tr>
     <tr>
-      <td class='line'>22</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l22s0'>	}</pre></td>
+      <td class='line'>22</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -71,60 +71,60 @@ import jp.co.dk.datastoremanager.testdbaccessobjects.rdb.UsersRecord;
       <td><pre class='prettyprint'>	public void createTable() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>26</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l26s0'>		StringBuilder sb = new StringBuilder("CREATE TABLE USERS ");</pre></td>
+      <td class='line'>26</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		StringBuilder sb = new StringBuilder("CREATE TABLE USERS ");</pre></td>
     </tr>
     <tr>
-      <td class='line'>27</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l27s0'>		sb.append('(');</pre></td>
+      <td class='line'>27</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append('(');</pre></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l28s0'>		sb.append("STRING_DATA       VARCHAR(10) NOT NULL,");</pre></td>
+      <td class='line'>28</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("STRING_DATA       VARCHAR(10) NOT NULL,");</pre></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l29s0'>		sb.append("INT_DATA          INT         NOT NULL,");</pre></td>
+      <td class='line'>29</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("INT_DATA          INT         NOT NULL,");</pre></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l30s0'>		sb.append("LONG_DATA         BIGINT(8)   NOT NULL,");</pre></td>
+      <td class='line'>30</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("LONG_DATA         BIGINT(8)   NOT NULL,");</pre></td>
     </tr>
     <tr>
-      <td class='line'>31</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l31s0'>		sb.append("DATE_DATA         DATE        NOT NULL,");</pre></td>
+      <td class='line'>31</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("DATE_DATA         DATE        NOT NULL,");</pre></td>
     </tr>
     <tr>
-      <td class='line'>32</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l32s0'>		sb.append("TIMESTAMP_DATA    DATETIME, ");</pre></td>
+      <td class='line'>32</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("TIMESTAMP_DATA    DATETIME, ");</pre></td>
     </tr>
     <tr>
-      <td class='line'>33</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l33s0'>		sb.append("BYTES_DATA        LONGBLOB, ");</pre></td>
+      <td class='line'>33</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("BYTES_DATA        LONGBLOB, ");</pre></td>
     </tr>
     <tr>
-      <td class='line'>34</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l34s0'>		sb.append("OBJECT_DATA       LONGBLOB, ");</pre></td>
+      <td class='line'>34</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("OBJECT_DATA       LONGBLOB, ");</pre></td>
     </tr>
     <tr>
-      <td class='line'>35</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l35s0'>		sb.append("CONVERTBYTES_DATA LONGBLOB  ");</pre></td>
+      <td class='line'>35</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("CONVERTBYTES_DATA LONGBLOB  ");</pre></td>
     </tr>
     <tr>
-      <td class='line'>36</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l36s0'>		sb.append(")");</pre></td>
+      <td class='line'>36</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append(")");</pre></td>
     </tr>
     <tr>
-      <td class='line'>37</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l37s0'>		Sql sql = new Sql(sb.toString());</pre></td>
+      <td class='line'>37</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		Sql sql = new Sql(sb.toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l38s0'>		this.createTable(sql);</pre></td>
+      <td class='line'>38</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.createTable(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>39</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l39s0'>	}</pre></td>
+      <td class='line'>39</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -136,20 +136,20 @@ import jp.co.dk.datastoremanager.testdbaccessobjects.rdb.UsersRecord;
       <td><pre class='prettyprint'>	public void dropTable() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>43</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l43s0'>		StringBuilder sb = new StringBuilder("DROP TABLE USERS ");</pre></td>
+      <td class='line'>43</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		StringBuilder sb = new StringBuilder("DROP TABLE USERS ");</pre></td>
     </tr>
     <tr>
-      <td class='line'>44</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l44s0'>		Sql sql = new Sql(sb.toString());</pre></td>
+      <td class='line'>44</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		Sql sql = new Sql(sb.toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>45</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l45s0'>		this.dropTable(sql);</pre></td>
+      <td class='line'>45</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.dropTable(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>46</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l46s0'>	}</pre></td>
+      <td class='line'>46</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -161,16 +161,16 @@ import jp.co.dk.datastoremanager.testdbaccessobjects.rdb.UsersRecord;
       <td><pre class='prettyprint'>	public UsersRecord select(String stringData) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>50</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l50s0'>		Sql sql = new Sql("SELECT * FROM USERS WHERE STRING_DATA = ?");</pre></td>
+      <td class='line'>50</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		Sql sql = new Sql("SELECT * FROM USERS WHERE STRING_DATA = ?");</pre></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l51s0'>		sql.setParameter(stringData);</pre></td>
+      <td class='line'>51</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameter(stringData);</pre></td>
     </tr>
     <tr>
-      <td class='line'>52</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l52s0'>		return selectSingle(sql, new UsersRecord());</pre></td>
+      <td class='line'>52</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return selectSingle(sql, new UsersRecord());</pre></td>
     </tr>
     <tr>
       <td class='line'>53</td><td>&nbsp;</td>
@@ -186,48 +186,48 @@ import jp.co.dk.datastoremanager.testdbaccessobjects.rdb.UsersRecord;
       <td><pre class='prettyprint'>	public void insert(String stringData, int intData, long longData,	Date dateData, Timestamp timestampData, byte[] byteDate, Serializable objectData, Object convertByteData) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>57</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l57s0'>		Sql sql = new Sql("INSERT INTO USERS VALUES(?, ?, ?, ?, ?, ?, ?, ?)");</pre></td>
+      <td class='line'>57</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		Sql sql = new Sql("INSERT INTO USERS VALUES(?, ?, ?, ?, ?, ?, ?, ?)");</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l58s0'>		sql.setParameter(stringData);</pre></td>
+      <td class='line'>58</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameter(stringData);</pre></td>
     </tr>
     <tr>
-      <td class='line'>59</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l59s0'>		sql.setParameter(intData);</pre></td>
+      <td class='line'>59</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameter(intData);</pre></td>
     </tr>
     <tr>
-      <td class='line'>60</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l60s0'>		sql.setParameter(longData);</pre></td>
+      <td class='line'>60</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameter(longData);</pre></td>
     </tr>
     <tr>
-      <td class='line'>61</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l61s0'>		sql.setParameter(dateData);</pre></td>
+      <td class='line'>61</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameter(dateData);</pre></td>
     </tr>
     <tr>
-      <td class='line'>62</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l62s0'>		sql.setParameter(timestampData);</pre></td>
+      <td class='line'>62</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameter(timestampData);</pre></td>
     </tr>
     <tr>
-      <td class='line'>63</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l63s0'>		sql.setParameter(byteDate);</pre></td>
+      <td class='line'>63</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameter(byteDate);</pre></td>
     </tr>
     <tr>
-      <td class='line'>64</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l64s0'>		sql.setParameter(objectData);</pre></td>
+      <td class='line'>64</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameter(objectData);</pre></td>
     </tr>
     <tr>
-      <td class='line'>65</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l65s0'>		sql.setParameterConvertToBytes(convertByteData);</pre></td>
+      <td class='line'>65</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameterConvertToBytes(convertByteData);</pre></td>
     </tr>
     <tr>
-      <td class='line'>66</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l66s0'>		insert(sql);</pre></td>
+      <td class='line'>66</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		insert(sql);</pre></td>
     </tr>
     <tr>
-      <td class='line'>67</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l67s0'>	}</pre></td>
+      <td class='line'>67</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -239,20 +239,20 @@ import jp.co.dk.datastoremanager.testdbaccessobjects.rdb.UsersRecord;
       <td><pre class='prettyprint'>	public int update(String stringData, int intData) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>71</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l71s0'>		Sql sql = new Sql("UPDATE USERS SET INT_DATA = ? WHERE STRING_DATA = ?");</pre></td>
+      <td class='line'>71</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		Sql sql = new Sql("UPDATE USERS SET INT_DATA = ? WHERE STRING_DATA = ?");</pre></td>
     </tr>
     <tr>
-      <td class='line'>72</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l72s0'>		sql.setParameter(stringData);</pre></td>
+      <td class='line'>72</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameter(stringData);</pre></td>
     </tr>
     <tr>
-      <td class='line'>73</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l73s0'>		sql.setParameter(intData);</pre></td>
+      <td class='line'>73</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameter(intData);</pre></td>
     </tr>
     <tr>
-      <td class='line'>74</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l74s0'>		return update(sql);</pre></td>
+      <td class='line'>74</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return update(sql);</pre></td>
     </tr>
     <tr>
       <td class='line'>75</td><td>&nbsp;</td>
@@ -268,16 +268,16 @@ import jp.co.dk.datastoremanager.testdbaccessobjects.rdb.UsersRecord;
       <td><pre class='prettyprint'>	public int delete(String stringData) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>79</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l79s0'>		Sql sql = new Sql("DELETE FROM USERS WHERE STRING_DATA = ?");</pre></td>
+      <td class='line'>79</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		Sql sql = new Sql("DELETE FROM USERS WHERE STRING_DATA = ?");</pre></td>
     </tr>
     <tr>
-      <td class='line'>80</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l80s0'>		sql.setParameter(stringData);</pre></td>
+      <td class='line'>80</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sql.setParameter(stringData);</pre></td>
     </tr>
     <tr>
-      <td class='line'>81</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l81s0'>		return delete(sql);</pre></td>
+      <td class='line'>81</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return delete(sql);</pre></td>
     </tr>
     <tr>
       <td class='line'>82</td><td>&nbsp;</td>

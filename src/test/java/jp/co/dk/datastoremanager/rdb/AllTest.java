@@ -15,11 +15,11 @@ import org.junit.runners.Suite.SuiteClasses;
 	
 	StringSqlParameterTest.class,
 	IntSqlParameterTest.class,
-	BytesSqlParameterTest.class,
+//	BytesSqlParameterTest.class,
 	DataBaseAccessParameterTest.class,
-	TimestampSqlParameterTest.class,
-	DateSqlParameterTest.class,
-	ObjectSqlParameterTest.class,
+//	TimestampSqlParameterTest.class,
+//	DateSqlParameterTest.class,
+//	ObjectSqlParameterTest.class,
 	
 })
 public class AllTest {}

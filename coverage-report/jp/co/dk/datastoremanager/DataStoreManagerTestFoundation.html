@@ -27,7 +27,7 @@ import jp.co.dk.test.template.TestCaseTemplate;
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>9</td><td class='count'>87</td>
+      <td class='line'>9</td><td class='count'>7</td>
       <td><pre class='prettyprint covered' id='l9s0'>public class DataStoreManagerTestFoundation extends TestCaseTemplate{</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
@@ -45,8 +45,8 @@ import jp.co.dk.test.template.TestCaseTemplate;
       <td><pre class='prettyprint'>	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessableDataBaseAccessParameterRDB() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>18</td><td class='count'>24</td>
-      <td><pre class='prettyprint covered' id='l18s0'>		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "192.168.11.104:3306", "test_db", "test_user", "123456");</pre></td>
+      <td class='line'>18</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l18s0'>		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "192.168.11.104:3306", "test_db", "test_user", "123456");</pre></td>
     </tr>
     <tr>
       <td class='line'>19</td><td>&nbsp;</td>
@@ -67,8 +67,8 @@ import jp.co.dk.test.template.TestCaseTemplate;
       <td><pre class='prettyprint'>	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessFaileDataBaseAccessParameterRDB() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l28s0'>		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "255.255.255.255:3306", "test_db", "test_user", "123456");</pre></td>
+      <td class='line'>28</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l28s0'>		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "255.255.255.255:3306", "test_db", "test_user", "123456");</pre></td>
     </tr>
     <tr>
       <td class='line'>29</td><td>&nbsp;</td>
@@ -89,8 +89,8 @@ import jp.co.dk.test.template.TestCaseTemplate;
       <td><pre class='prettyprint'>	protected jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter getAccessableDataBaseAccessParameterGDB() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td class='count'>23</td>
-      <td><pre class='prettyprint covered' id='l38s0'>		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "localhost:7474");</pre></td>
+      <td class='line'>38</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l38s0'>		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "localhost:7474");</pre></td>
     </tr>
     <tr>
       <td class='line'>39</td><td>&nbsp;</td>
@@ -111,8 +111,8 @@ import jp.co.dk.test.template.TestCaseTemplate;
       <td><pre class='prettyprint'>	protected jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter getAccessFaileDataBaseAccessParameterGDB() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>48</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l48s0'>		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "255.255.255.255:7474");</pre></td>
+      <td class='line'>48</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l48s0'>		return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, "255.255.255.255:7474");</pre></td>
     </tr>
     <tr>
       <td class='line'>49</td><td>&nbsp;</td>
@@ -124,8 +124,8 @@ import jp.co.dk.test.template.TestCaseTemplate;
       <td><pre class='prettyprint'>	public Sql createTableSql() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>53</td><td class='count'>4</td>
-      <td><pre class='prettyprint covered' id='l53s0'>		return new Sql("CREATE TABLE TEST_USERS( USERID VARCHAR(10) NOT NULL PRIMARY KEY, AGE INT(3), BIRTHDAY DATE );");</pre></td>
+      <td class='line'>53</td><td class='count'>0</td>
+      <td><pre class='prettyprint uncovered' id='l53s0'>		return new Sql("CREATE TABLE TEST_USERS( USERID VARCHAR(10) NOT NULL PRIMARY KEY, AGE INT(3), BIRTHDAY DATE );");</pre></td>
     </tr>
     <tr>
       <td class='line'>54</td><td>&nbsp;</td>

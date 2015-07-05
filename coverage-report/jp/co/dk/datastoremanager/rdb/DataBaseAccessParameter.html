@@ -106,52 +106,52 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public DataBaseAccessParameter(DataStoreKind dataStoreKind, DataBaseDriverConstants driver, String url, String sid, String user, String password) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>46</td><td class='count'>74</td>
-      <td><pre class='prettyprint covered' id='l46s0'>		super(dataStoreKind);</pre></td>
+      <td class='line'>46</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		super(dataStoreKind);</pre></td>
     </tr>
     <tr>
-      <td class='line'>47</td><td class='count'>73</td>
-      <td><pre class='prettyprint jmp'>		<span id='l47s0' title='Executions: 73' class='covered'>if (driver   == null)</span> <span id='l47s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(DRIVER_IS_NOT_SET);</span></pre></td>
+      <td class='line'>47</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (driver   == null) throw new DataStoreManagerException(DRIVER_IS_NOT_SET);</pre></td>
     </tr>
     <tr>
-      <td class='line'>48</td><td class='count'>72</td>
-      <td><pre class='prettyprint jmp'>		<span id='l48s0' title='Executions: 72' class='covered'>if (url      == null</span> || <span id='l48s1' title='Executions: 71' class='covered'>url.equals(""))</span> <span id='l48s2' title='Executions: 4' class='covered'>throw new DataStoreManagerException(URL_IS_NOT_SET);</span></pre></td>
+      <td class='line'>48</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (url      == null || url.equals("")) throw new DataStoreManagerException(URL_IS_NOT_SET);</pre></td>
     </tr>
     <tr>
-      <td class='line'>49</td><td class='count'>68</td>
-      <td><pre class='prettyprint jmp'>		<span id='l49s0' title='Executions: 68' class='covered'>if (sid      == null</span> || <span id='l49s1' title='Executions: 67' class='covered'>sid.equals(""))</span> <span id='l49s2' title='Executions: 4' class='covered'>throw new DataStoreManagerException(SID_IS_NOT_SET);</span></pre></td>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (sid      == null || sid.equals("")) throw new DataStoreManagerException(SID_IS_NOT_SET);</pre></td>
     </tr>
     <tr>
-      <td class='line'>50</td><td class='count'>64</td>
-      <td><pre class='prettyprint jmp'>		<span id='l50s0' title='Executions: 64' class='covered'>if (user     == null</span> || <span id='l50s1' title='Executions: 63' class='covered'>user.equals(""))</span> <span id='l50s2' title='Executions: 4' class='covered'>throw new DataStoreManagerException(USER_IS_NOT_SET);</span></pre></td>
+      <td class='line'>50</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (user     == null || user.equals("")) throw new DataStoreManagerException(USER_IS_NOT_SET);</pre></td>
     </tr>
     <tr>
-      <td class='line'>51</td><td class='count'>60</td>
-      <td><pre class='prettyprint jmp'>		<span id='l51s0' title='Executions: 60' class='covered'>if (password == null</span> || <span id='l51s1' title='Executions: 59' class='covered'>password.equals(""))</span> <span id='l51s2' title='Executions: 4' class='covered'>throw new DataStoreManagerException(PASSWORD_IS_NOT_SET);</span></pre></td>
+      <td class='line'>51</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (password == null || password.equals("")) throw new DataStoreManagerException(PASSWORD_IS_NOT_SET);</pre></td>
     </tr>
     <tr>
-      <td class='line'>52</td><td class='count'>56</td>
-      <td><pre class='prettyprint covered' id='l52s0'>		this.driver   = driver;</pre></td>
+      <td class='line'>52</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.driver   = driver;</pre></td>
     </tr>
     <tr>
-      <td class='line'>53</td><td class='count'>56</td>
-      <td><pre class='prettyprint covered' id='l53s0'>		this.url      = url;</pre></td>
+      <td class='line'>53</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.url      = url;</pre></td>
     </tr>
     <tr>
-      <td class='line'>54</td><td class='count'>56</td>
-      <td><pre class='prettyprint covered' id='l54s0'>		this.sid      = sid;</pre></td>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.sid      = sid;</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td class='count'>56</td>
-      <td><pre class='prettyprint covered' id='l55s0'>		this.user     = user;</pre></td>
+      <td class='line'>55</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.user     = user;</pre></td>
     </tr>
     <tr>
-      <td class='line'>56</td><td class='count'>56</td>
-      <td><pre class='prettyprint covered' id='l56s0'>		this.password = password;</pre></td>
+      <td class='line'>56</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.password = password;</pre></td>
     </tr>
     <tr>
-      <td class='line'>57</td><td class='count'>56</td>
-      <td><pre class='prettyprint covered' id='l57s0'>	}</pre></td>
+      <td class='line'>57</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -166,8 +166,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public DataBaseDriverConstants getDriver() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>64</td><td class='count'>29</td>
-      <td><pre class='prettyprint covered' id='l64s0'>		return driver;</pre></td>
+      <td class='line'>64</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return driver;</pre></td>
     </tr>
     <tr>
       <td class='line'>65</td><td>&nbsp;</td>
@@ -187,8 +187,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public String getUrl() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>73</td><td class='count'>36</td>
-      <td><pre class='prettyprint covered' id='l73s0'>		return url;</pre></td>
+      <td class='line'>73</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return url;</pre></td>
     </tr>
     <tr>
       <td class='line'>74</td><td>&nbsp;</td>
@@ -208,8 +208,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public String getSid() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>82</td><td class='count'>36</td>
-      <td><pre class='prettyprint covered' id='l82s0'>		return sid;</pre></td>
+      <td class='line'>82</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return sid;</pre></td>
     </tr>
     <tr>
       <td class='line'>83</td><td>&nbsp;</td>
@@ -229,8 +229,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public String getUser() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>91</td><td class='count'>36</td>
-      <td><pre class='prettyprint covered' id='l91s0'>		return user;</pre></td>
+      <td class='line'>91</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return user;</pre></td>
     </tr>
     <tr>
       <td class='line'>92</td><td>&nbsp;</td>
@@ -250,8 +250,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public String getPassword() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>100</td><td class='count'>36</td>
-      <td><pre class='prettyprint covered' id='l100s0'>		return password;</pre></td>
+      <td class='line'>100</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return password;</pre></td>
     </tr>
     <tr>
       <td class='line'>101</td><td>&nbsp;</td>
@@ -267,8 +267,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	protected DataStore createDataStore() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>105</td><td class='count'>10</td>
-      <td><pre class='prettyprint covered' id='l105s0'>		return new DataBaseDataStore(this);</pre></td>
+      <td class='line'>105</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return new DataBaseDataStore(this);</pre></td>
     </tr>
     <tr>
       <td class='line'>106</td><td>&nbsp;</td>
@@ -284,36 +284,36 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public int hashCode() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>110</td><td class='count'>1284</td>
-      <td><pre class='prettyprint covered' id='l110s0'>		int hashcode = super.hashCode() ;</pre></td>
+      <td class='line'>110</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		int hashcode = super.hashCode() ;</pre></td>
     </tr>
     <tr>
-      <td class='line'>111</td><td class='count'>1284</td>
-      <td><pre class='prettyprint covered' id='l111s0'>		hashcode *= this.driver.hashCode() ;</pre></td>
+      <td class='line'>111</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		hashcode *= this.driver.hashCode() ;</pre></td>
     </tr>
     <tr>
-      <td class='line'>112</td><td class='count'>1284</td>
-      <td><pre class='prettyprint covered' id='l112s0'>		hashcode *= this.url.hashCode() ;</pre></td>
+      <td class='line'>112</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		hashcode *= this.url.hashCode() ;</pre></td>
     </tr>
     <tr>
-      <td class='line'>113</td><td class='count'>1284</td>
-      <td><pre class='prettyprint covered' id='l113s0'>		hashcode *= this.sid.hashCode() ;</pre></td>
+      <td class='line'>113</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		hashcode *= this.sid.hashCode() ;</pre></td>
     </tr>
     <tr>
-      <td class='line'>114</td><td class='count'>1284</td>
-      <td><pre class='prettyprint covered' id='l114s0'>		hashcode *= this.user.hashCode() ;</pre></td>
+      <td class='line'>114</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		hashcode *= this.user.hashCode() ;</pre></td>
     </tr>
     <tr>
-      <td class='line'>115</td><td class='count'>1284</td>
-      <td><pre class='prettyprint covered' id='l115s0'>		hashcode *= this.password.hashCode() ;</pre></td>
+      <td class='line'>115</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		hashcode *= this.password.hashCode() ;</pre></td>
     </tr>
     <tr>
-      <td class='line'>116</td><td class='count'>1284</td>
-      <td><pre class='prettyprint covered' id='l116s0'>		hashcode *= 17;</pre></td>
+      <td class='line'>116</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		hashcode *= 17;</pre></td>
     </tr>
     <tr>
-      <td class='line'>117</td><td class='count'>1284</td>
-      <td><pre class='prettyprint covered' id='l117s0'>		return hashcode; </pre></td>
+      <td class='line'>117</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return hashcode; </pre></td>
     </tr>
     <tr>
       <td class='line'>118</td><td>&nbsp;</td>
@@ -329,28 +329,28 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public String toString() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>122</td><td class='count'>109</td>
-      <td><pre class='prettyprint covered' id='l122s0'>		StringBuilder sb = new StringBuilder("DATASTOREKIND=[").append(this.dataStoreKind.toString()).append(']').append(',');</pre></td>
+      <td class='line'>122</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		StringBuilder sb = new StringBuilder("DATASTOREKIND=[").append(this.dataStoreKind.toString()).append(']').append(',');</pre></td>
     </tr>
     <tr>
-      <td class='line'>123</td><td class='count'>109</td>
-      <td><pre class='prettyprint covered' id='l123s0'>		sb.append("DRIVER=[").append(this.driver.getDriverClass()).append(']').append(',');</pre></td>
+      <td class='line'>123</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("DRIVER=[").append(this.driver.getDriverClass()).append(']').append(',');</pre></td>
     </tr>
     <tr>
-      <td class='line'>124</td><td class='count'>109</td>
-      <td><pre class='prettyprint covered' id='l124s0'>		sb.append("URL=[").append(this.driver.getUrl(this.url, this.sid)).append(']').append(',');</pre></td>
+      <td class='line'>124</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("URL=[").append(this.driver.getUrl(this.url, this.sid)).append(']').append(',');</pre></td>
     </tr>
     <tr>
-      <td class='line'>125</td><td class='count'>109</td>
-      <td><pre class='prettyprint covered' id='l125s0'>		sb.append("USER=[").append(this.user).append(']').append(',');</pre></td>
+      <td class='line'>125</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("USER=[").append(this.user).append(']').append(',');</pre></td>
     </tr>
     <tr>
-      <td class='line'>126</td><td class='count'>109</td>
-      <td><pre class='prettyprint covered' id='l126s0'>		sb.append("PASSWORD=[").append(this.password).append(']');</pre></td>
+      <td class='line'>126</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append("PASSWORD=[").append(this.password).append(']');</pre></td>
     </tr>
     <tr>
-      <td class='line'>127</td><td class='count'>109</td>
-      <td><pre class='prettyprint covered' id='l127s0'>		return sb.toString();</pre></td>
+      <td class='line'>127</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return sb.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>128</td><td>&nbsp;</td>

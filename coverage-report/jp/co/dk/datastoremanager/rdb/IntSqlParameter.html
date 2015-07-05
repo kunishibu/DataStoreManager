@@ -38,16 +38,16 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
-      <td class='line'>14</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered' id='l14s0'>	IntSqlParameter(int parameter) {</pre></td>
+      <td class='line'>14</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	IntSqlParameter(int parameter) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>15</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered' id='l15s0'>		this.parameter = parameter;</pre></td>
+      <td class='line'>15</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.parameter = parameter;</pre></td>
     </tr>
     <tr>
-      <td class='line'>16</td><td class='count'>18</td>
-      <td><pre class='prettyprint covered' id='l16s0'>	}</pre></td>
+      <td class='line'>16</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -63,24 +63,24 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>21</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l21s0'>			statement.setInt(index, this.parameter);</pre></td>
+      <td class='line'>21</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			statement.setInt(index, this.parameter);</pre></td>
     </tr>
     <tr>
-      <td class='line'>22</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l22s0'>		} catch (SQLException e) {</pre></td>
+      <td class='line'>22</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} catch (SQLException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>23</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l23s0'>			throw new DataStoreManagerException(AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL, e);</pre></td>
+      <td class='line'>23</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			throw new DataStoreManagerException(AN_EXCEPTION_OCCURRED_WHEN_PERFORMING_THE_SET_PARAMETERS_TO_SQL, e);</pre></td>
     </tr>
     <tr>
       <td class='line'>24</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>25</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l25s0'>	}</pre></td>
+      <td class='line'>25</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -92,24 +92,24 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>	public boolean equals(Object object) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td class='count'>213</td>
-      <td><pre class='prettyprint jmp'>		<span id='l29s0' title='Executions: 213' class='covered'>if (object == null)</span> <span id='l29s1' title='Executions: 3' class='covered'>return false;</span></pre></td>
+      <td class='line'>29</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (object == null) return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>30</td><td class='count'>210</td>
-      <td><pre class='prettyprint jmp'>		<span id='l30s0' title='Executions: 210' class='covered'>if (!(object instanceof IntSqlParameter))</span> <span id='l30s1' title='Executions: 0' class='uncovered'>return false;</span></pre></td>
+      <td class='line'>30</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (!(object instanceof IntSqlParameter)) return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>31</td><td class='count'>210</td>
-      <td><pre class='prettyprint covered' id='l31s0'>		IntSqlParameter thisClassObj = (IntSqlParameter) object;</pre></td>
+      <td class='line'>31</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		IntSqlParameter thisClassObj = (IntSqlParameter) object;</pre></td>
     </tr>
     <tr>
-      <td class='line'>32</td><td class='count'>210</td>
-      <td><pre class='prettyprint jmp'>		<span id='l32s0' title='Executions: 210' class='covered'>if (thisClassObj.hashCode() == this.hashCode())</span> <span id='l32s1' title='Executions: 108' class='covered'>return true;</span></pre></td>
+      <td class='line'>32</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (thisClassObj.hashCode() == this.hashCode()) return true;</pre></td>
     </tr>
     <tr>
-      <td class='line'>33</td><td class='count'>102</td>
-      <td><pre class='prettyprint covered' id='l33s0'>		return false;</pre></td>
+      <td class='line'>33</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return false;</pre></td>
     </tr>
     <tr>
       <td class='line'>34</td><td>&nbsp;</td>
@@ -125,8 +125,8 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>	public int hashCode() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td class='count'>856</td>
-      <td><pre class='prettyprint covered' id='l38s0'>		return this.parameter * 17;</pre></td>
+      <td class='line'>38</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return this.parameter * 17;</pre></td>
     </tr>
     <tr>
       <td class='line'>39</td><td>&nbsp;</td>
@@ -142,16 +142,16 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
       <td><pre class='prettyprint'>	public String toString() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>43</td><td class='count'>17</td>
-      <td><pre class='prettyprint covered' id='l43s0'>		StringBuilder sb = new StringBuilder();</pre></td>
+      <td class='line'>43</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		StringBuilder sb = new StringBuilder();</pre></td>
     </tr>
     <tr>
-      <td class='line'>44</td><td class='count'>17</td>
-      <td><pre class='prettyprint covered' id='l44s0'>		sb.append(this.parameter).append("(int)");</pre></td>
+      <td class='line'>44</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		sb.append(this.parameter).append("(int)");</pre></td>
     </tr>
     <tr>
-      <td class='line'>45</td><td class='count'>17</td>
-      <td><pre class='prettyprint covered' id='l45s0'>		return sb.toString();</pre></td>
+      <td class='line'>45</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return sb.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>46</td><td>&nbsp;</td>

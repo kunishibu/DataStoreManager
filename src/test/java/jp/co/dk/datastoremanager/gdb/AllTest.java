@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	CypherTest.class,
 	BooleanCypherParameterTest.class,
 	NumericCypherParameterTest.class,
-	StringCypherParameterTest.class,
+//	StringCypherParameterTest.class,
 	DataBaseDataStoreTest.class,
 	TransactionTest.class,
 })

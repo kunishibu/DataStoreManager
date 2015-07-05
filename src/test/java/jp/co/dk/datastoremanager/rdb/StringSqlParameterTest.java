@@ -1,74 +1,71 @@
 package jp.co.dk.datastoremanager.rdb;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.PreparedStatement;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 
 import jp.co.dk.datastoremanager.DataStoreManagerTestFoundation;
-import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.rdb.StringSqlParameter;
+import mockit.Expectations;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.runners.Enclosed;
+import org.junit.runner.RunWith;
 
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 
-public class StringSqlParameterTest extends DataStoreManagerTestFoundation{
+@RunWith(Enclosed.class)
+public class StringSqlParameterTest {
 
-	@Test
-	public void constractor() throws ParseException {
-		// ==============================正常系==============================
-		// コンストラクタに文字列オブジェクトを設定した場合、正常に値が設定できること。
-		try {
-			StringSqlParameter parameter = new StringSqlParameter("1234567890");
-			assertEquals(parameter.parameter, "1234567890");
-		} catch (DataStoreManagerException e) {
-			fail(e);
-		}
-		
-		// ==============================異常系==============================
-		// コンストラクタに文字列オブジェクトを設定した場合、正常に値が設定できること。
-		try {
-			new StringSqlParameter(null);
-		} catch (DataStoreManagerException e) {
-			assertEquals(e.getMessageObj(), SQL_PARAMETER_IS_NOT_SET);
-		}
-		
-		// コンストラクタに文字列オブジェクトを設定した場合、正常に値が設定できること。
-		try {
-			new StringSqlParameter("");
-		} catch (DataStoreManagerException e) {
-			assertEquals(e.getMessageObj(), SQL_PARAMETER_IS_NOT_SET);
+	public static class コンストラクタ extends DataStoreManagerTestFoundation{
+		@Test
+		public void constractor() throws ParseException {
+			
 		}
 	}
 	
-	@Test
-	public void test_equals() throws ParseException {
-		// コンストラクタに文字列オブジェクトを設定した場合、正常に値が設定できること。
-		try {
-			StringSqlParameter parameter1 = new StringSqlParameter("1234567890");
-			StringSqlParameter parameter2 = new StringSqlParameter("1234567890");
-			StringSqlParameter parameter3 = new StringSqlParameter("1234567890");
+	public static class 引数がＮＵＬＬの場合 extends DataStoreManagerTestFoundation{
+		
+		protected StringSqlParameter sut;
+		
+		@Before
+		public void init() {
+			this.sut = new StringSqlParameter(null);
+			assertThat(this.sut.parameter, nullValue());
+		}
+		
+		@Test
+		public void set() {
 			
-			List<Object> faileList = new ArrayList<Object>();
-			StringSqlParameter faileParam01 = new StringSqlParameter("12345678900");
-			StringSqlParameter faileParam02 = new StringSqlParameter("123456789");
-			faileList.add(faileParam01);
-			faileList.add(faileParam02);
-			testEquals(parameter1, parameter2, parameter3, faileList);
+		}
+		@Test
+		public void equals() {
 			
-		} catch (DataStoreManagerException e) {
-			fail(e);
+		}
+		@Test
+		public void hashCodeTest() {
+			
+		}
+		@Test
+		public void toStringTest() {
+			
 		}
 	}
 	
-	@Test
-	public void test_toString() throws ParseException {
-		try {
-			StringSqlParameter parameter1 = new StringSqlParameter("1234567890");
-			assertEquals(parameter1.toString(), "1234567890(string" +
-					")");
-		} catch (DataStoreManagerException e) {
-			fail(e);
+	public static class 引数が文字列の場合 extends DataStoreManagerTestFoundation{
+		@Test
+		public void constractor() {
+			
 		}
 	}
+	
+	public static class 引数が空文字の場合 extends DataStoreManagerTestFoundation{
+		@Test
+		public void constractor() {
+			
+		}
+	}
+	
 }

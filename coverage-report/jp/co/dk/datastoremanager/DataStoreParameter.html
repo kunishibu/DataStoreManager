@@ -59,20 +59,20 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>26</td><td class='count'>111</td>
-      <td><pre class='prettyprint covered' id='l26s0'>	protected DataStoreParameter(DataStoreKind dataStoreKind) throws DataStoreManagerException {</pre></td>
+      <td class='line'>26</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected DataStoreParameter(DataStoreKind dataStoreKind) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>27</td><td class='count'>111</td>
-      <td><pre class='prettyprint jmp'>		<span id='l27s0' title='Executions: 111' class='covered'>if (dataStoreKind == null)</span> <span id='l27s1' title='Executions: 2' class='covered'>throw new DataStoreManagerException(DATA_STORE_KIND_IS_NOT_SET);</span></pre></td>
+      <td class='line'>27</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (dataStoreKind == null) throw new DataStoreManagerException(DATA_STORE_KIND_IS_NOT_SET);</pre></td>
     </tr>
     <tr>
-      <td class='line'>28</td><td class='count'>109</td>
-      <td><pre class='prettyprint covered' id='l28s0'>		this.dataStoreKind = dataStoreKind;</pre></td>
+      <td class='line'>28</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.dataStoreKind = dataStoreKind;</pre></td>
     </tr>
     <tr>
-      <td class='line'>29</td><td class='count'>109</td>
-      <td><pre class='prettyprint covered' id='l29s0'>	}</pre></td>
+      <td class='line'>29</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -88,8 +88,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public DataStoreKind getDataStoreKind() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>37</td><td class='count'>9</td>
-      <td><pre class='prettyprint covered' id='l37s0'>		return this.dataStoreKind;</pre></td>
+      <td class='line'>37</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return this.dataStoreKind;</pre></td>
     </tr>
     <tr>
       <td class='line'>38</td><td>&nbsp;</td>
@@ -118,8 +118,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public int hashCode() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>49</td><td class='count'>2564</td>
-      <td><pre class='prettyprint covered' id='l49s0'>		return this.dataStoreKind.hashCode() * 17;</pre></td>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return this.dataStoreKind.hashCode() * 17;</pre></td>
     </tr>
     <tr>
       <td class='line'>50</td><td>&nbsp;</td>
@@ -135,24 +135,24 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public boolean equals(Object object) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>54</td><td class='count'>430</td>
-      <td><pre class='prettyprint jmp'>		<span id='l54s0' title='Executions: 430' class='covered'>if (object == null)</span> <span id='l54s1' title='Executions: 6' class='covered'>return false;</span></pre></td>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (object == null) return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>55</td><td class='count'>424</td>
-      <td><pre class='prettyprint jmp'>		<span id='l55s0' title='Executions: 424' class='covered'>if (!(object instanceof DataStoreParameter))</span> <span id='l55s1' title='Executions: 0' class='uncovered'>return false;</span></pre></td>
+      <td class='line'>55</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (!(object instanceof DataStoreParameter)) return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>56</td><td class='count'>424</td>
-      <td><pre class='prettyprint covered' id='l56s0'>		DataStoreParameter thisClassObj = (DataStoreParameter) object;</pre></td>
+      <td class='line'>56</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		DataStoreParameter thisClassObj = (DataStoreParameter) object;</pre></td>
     </tr>
     <tr>
-      <td class='line'>57</td><td class='count'>424</td>
-      <td><pre class='prettyprint jmp'>		<span id='l57s0' title='Executions: 424' class='covered'>if (this.hashCode() == thisClassObj.hashCode())</span> <span id='l57s1' title='Executions: 216' class='covered'>return true;</span></pre></td>
+      <td class='line'>57</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (this.hashCode() == thisClassObj.hashCode()) return true;</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>208</td>
-      <td><pre class='prettyprint covered' id='l58s0'>		return false;</pre></td>
+      <td class='line'>58</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return false;</pre></td>
     </tr>
     <tr>
       <td class='line'>59</td><td>&nbsp;</td>

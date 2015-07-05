@@ -71,8 +71,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='comment'>	/** Cypherリスト */</pre></td>
     </tr>
     <tr>
-      <td class='line'>32</td><td class='count'>21</td>
-      <td><pre class='prettyprint covered' id='l32s0'>	protected List&lt;Cypher> cypherList = new ArrayList&lt;Cypher>();</pre></td>
+      <td class='line'>32</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected List&lt;Cypher> cypherList = new ArrayList&lt;Cypher>();</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -80,8 +80,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='comment'>	/** 発生例外一覧 */</pre></td>
     </tr>
     <tr>
-      <td class='line'>35</td><td class='count'>21</td>
-      <td><pre class='prettyprint covered' id='l35s0'>	protected List&lt;DataStoreManagerException> exceptionList = new ArrayList&lt;DataStoreManagerException>();</pre></td>
+      <td class='line'>35</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected List&lt;DataStoreManagerException> exceptionList = new ArrayList&lt;DataStoreManagerException>();</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -89,8 +89,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='comment'>	/** ロガーインスタンス */</pre></td>
     </tr>
     <tr>
-      <td class='line'>38</td><td class='count'>21</td>
-      <td><pre class='prettyprint covered' id='l38s0'>	protected Logger logger = LoggerFactory.getLogger(this.getClass());</pre></td>
+      <td class='line'>38</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	protected Logger logger = LoggerFactory.getLogger(this.getClass());</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -103,20 +103,20 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 	 */</div><span>	/*...*/</span></td>
     </tr>
     <tr>
-      <td class='line'>46</td><td class='count'>21</td>
-      <td><pre class='prettyprint covered' id='l46s0'>	DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {</pre></td>
+      <td class='line'>46</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>47</td><td class='count'>21</td>
-      <td><pre class='prettyprint covered' id='l47s0'>		this.logger.constractor(this.getClass(), dataBaseAccessParameter);</pre></td>
+      <td class='line'>47</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.logger.constractor(this.getClass(), dataBaseAccessParameter);</pre></td>
     </tr>
     <tr>
-      <td class='line'>48</td><td class='count'>21</td>
-      <td><pre class='prettyprint covered' id='l48s0'>		this.dataBaseAccessParameter = dataBaseAccessParameter;</pre></td>
+      <td class='line'>48</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.dataBaseAccessParameter = dataBaseAccessParameter;</pre></td>
     </tr>
     <tr>
-      <td class='line'>49</td><td class='count'>21</td>
-      <td><pre class='prettyprint covered' id='l49s0'>	}</pre></td>
+      <td class='line'>49</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -128,12 +128,12 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public void startTransaction() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>53</td><td class='count'>10</td>
-      <td><pre class='prettyprint covered' id='l53s0'>		this.transaction = new Transaction(dataBaseAccessParameter);</pre></td>
+      <td class='line'>53</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.transaction = new Transaction(dataBaseAccessParameter);</pre></td>
     </tr>
     <tr>
-      <td class='line'>54</td><td class='count'>9</td>
-      <td><pre class='prettyprint covered' id='l54s0'>	}</pre></td>
+      <td class='line'>54</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -145,16 +145,16 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public DataAccessObject getDataAccessObject(DaoConstants daoConstants) throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>58</td><td class='count'>1</td>
-      <td><pre class='prettyprint jmp'>		<span id='l58s0' title='Executions: 1' class='covered'>if (this.transaction == null)</span> <span id='l58s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</span></pre></td>
+      <td class='line'>58</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</pre></td>
     </tr>
     <tr>
-      <td class='line'>59</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l59s0'>		DataStoreKind dataStoreKind = this.dataBaseAccessParameter.getDataStoreKind();</pre></td>
+      <td class='line'>59</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		DataStoreKind dataStoreKind = this.dataBaseAccessParameter.getDataStoreKind();</pre></td>
     </tr>
     <tr>
-      <td class='line'>60</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l60s0'>		return daoConstants.getDataAccessObjectFactory().getDataAccessObject(dataStoreKind, this);</pre></td>
+      <td class='line'>60</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return daoConstants.getDataAccessObjectFactory().getDataAccessObject(dataStoreKind, this);</pre></td>
     </tr>
     <tr>
       <td class='line'>61</td><td>&nbsp;</td>
@@ -170,16 +170,16 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public void commit() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>66</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l66s0' title='Executions: 0' class='uncovered'>if (this.transaction == null)</span> <span id='l66s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</span></pre></td>
+      <td class='line'>66</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</pre></td>
     </tr>
     <tr>
-      <td class='line'>67</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l67s0'>		this.transaction.commit();</pre></td>
+      <td class='line'>67</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.transaction.commit();</pre></td>
     </tr>
     <tr>
-      <td class='line'>68</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l68s0'>	}</pre></td>
+      <td class='line'>68</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -191,16 +191,16 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public void rollback() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>72</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l72s0' title='Executions: 0' class='uncovered'>if (this.transaction == null)</span> <span id='l72s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</span></pre></td>
+      <td class='line'>72</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</pre></td>
     </tr>
     <tr>
-      <td class='line'>73</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l73s0'>		this.transaction.rollback();</pre></td>
+      <td class='line'>73</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.transaction.rollback();</pre></td>
     </tr>
     <tr>
-      <td class='line'>74</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l74s0'>	}</pre></td>
+      <td class='line'>74</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -212,20 +212,20 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public void finishTransaction() throws DataStoreManagerException {</pre></td>
     </tr>
     <tr>
-      <td class='line'>78</td><td class='count'>2</td>
-      <td><pre class='prettyprint jmp'>		<span id='l78s0' title='Executions: 2' class='covered'>if (this.transaction == null)</span> <span id='l78s1' title='Executions: 1' class='covered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</span></pre></td>
+      <td class='line'>78</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);</pre></td>
     </tr>
     <tr>
-      <td class='line'>79</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l79s0'>		this.transaction.close();</pre></td>
+      <td class='line'>79</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.transaction.close();</pre></td>
     </tr>
     <tr>
-      <td class='line'>80</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l80s0'>		this.transaction = null;</pre></td>
+      <td class='line'>80</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		this.transaction = null;</pre></td>
     </tr>
     <tr>
-      <td class='line'>81</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l81s0'>	}</pre></td>
+      <td class='line'>81</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>	}</pre></td>
     </tr>
     <tr><td class='line'></td><td colspan='2'>&nbsp;</td></tr>
     <tr>
@@ -237,12 +237,12 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public boolean isTransaction() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>85</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>		<span id='l85s0' title='Executions: 4' class='covered'>if (this.transaction != null)</span> <span id='l85s1' title='Executions: 2' class='covered'>return true;</span></pre></td>
+      <td class='line'>85</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (this.transaction != null) return true;</pre></td>
     </tr>
     <tr>
-      <td class='line'>86</td><td class='count'>2</td>
-      <td><pre class='prettyprint covered' id='l86s0'>		return false;</pre></td>
+      <td class='line'>86</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return false;</pre></td>
     </tr>
     <tr>
       <td class='line'>87</td><td>&nbsp;</td>
@@ -258,12 +258,12 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public boolean hasError() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>91</td><td class='count'>0</td>
-      <td><pre class='prettyprint jmp'>		<span id='l91s0' title='Executions: 0' class='uncovered'>if (this.exceptionList.size() != 0)</span> <span id='l91s1' title='Executions: 0' class='uncovered'>return true;</span></pre></td>
+      <td class='line'>91</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (this.exceptionList.size() != 0) return true;</pre></td>
     </tr>
     <tr>
-      <td class='line'>92</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l92s0'>		return false;</pre></td>
+      <td class='line'>92</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return false;</pre></td>
     </tr>
     <tr>
       <td class='line'>93</td><td>&nbsp;</td>
@@ -290,32 +290,32 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>		try {</pre></td>
     </tr>
     <tr>
-      <td class='line'>105</td><td class='count'>1</td>
-      <td><pre class='prettyprint jmp'>			<span id='l105s0' title='Executions: 1' class='covered'>if (this.transaction == null)</span> <span id='l105s1' title='Executions: 0' class='uncovered'>throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</span></pre></td>
+      <td class='line'>105</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_STARTED);</pre></td>
     </tr>
     <tr>
-      <td class='line'>106</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l106s0'>			ResultSet result = this.transaction.execute(cypher);</pre></td>
+      <td class='line'>106</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			ResultSet result = this.transaction.execute(cypher);</pre></td>
     </tr>
     <tr>
-      <td class='line'>107</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l107s0'>			this.cypherList.add(cypher);</pre></td>
+      <td class='line'>107</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			this.cypherList.add(cypher);</pre></td>
     </tr>
     <tr>
-      <td class='line'>108</td><td class='count'>0</td>
-      <td><pre class='prettyprint uncovered' id='l108s0'>			return result;</pre></td>
+      <td class='line'>108</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			return result;</pre></td>
     </tr>
     <tr>
-      <td class='line'>109</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l109s0'>		} catch (DataStoreManagerException e) {</pre></td>
+      <td class='line'>109</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} catch (DataStoreManagerException e) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>110</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l110s0'>			this.exceptionList.add(e);</pre></td>
+      <td class='line'>110</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			this.exceptionList.add(e);</pre></td>
     </tr>
     <tr>
-      <td class='line'>111</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l111s0'>			throw e;</pre></td>
+      <td class='line'>111</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			throw e;</pre></td>
     </tr>
     <tr>
       <td class='line'>112</td><td>&nbsp;</td>
@@ -335,12 +335,12 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public int hashCode() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>117</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l117s0'>		int hashcode = this.dataBaseAccessParameter.hashCode();</pre></td>
+      <td class='line'>117</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		int hashcode = this.dataBaseAccessParameter.hashCode();</pre></td>
     </tr>
     <tr>
-      <td class='line'>118</td><td class='count'>6</td>
-      <td><pre class='prettyprint covered' id='l118s0'>		return hashcode;</pre></td>
+      <td class='line'>118</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return hashcode;</pre></td>
     </tr>
     <tr>
       <td class='line'>119</td><td>&nbsp;</td>
@@ -356,56 +356,56 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public boolean equals(Object object) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>123</td><td class='count'>216</td>
-      <td><pre class='prettyprint jmp'>		<span id='l123s0' title='Executions: 216' class='covered'>if (object == null)</span> <span id='l123s1' title='Executions: 3' class='covered'>return false;</span></pre></td>
+      <td class='line'>123</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (object == null) return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>124</td><td class='count'>213</td>
-      <td><pre class='prettyprint jmp'>		<span id='l124s0' title='Executions: 213' class='covered'>if (!(object instanceof DataBaseDataStore))</span> <span id='l124s1' title='Executions: 0' class='uncovered'>return false;</span></pre></td>
+      <td class='line'>124</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (!(object instanceof DataBaseDataStore)) return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>125</td><td class='count'>213</td>
-      <td><pre class='prettyprint covered' id='l125s0'>		DataBaseDataStore thisClassObj = (DataBaseDataStore) object;</pre></td>
+      <td class='line'>125</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		DataBaseDataStore thisClassObj = (DataBaseDataStore) object;</pre></td>
     </tr>
     <tr>
-      <td class='line'>126</td><td class='count'>213</td>
-      <td><pre class='prettyprint jmp'>		<span id='l126s0' title='Executions: 213' class='covered'>if (this.transaction == null</span> && <span id='l126s1' title='Executions: 210' class='covered'>thisClassObj.transaction == null)</span> {</pre></td>
+      <td class='line'>126</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (this.transaction == null && thisClassObj.transaction == null) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>127</td><td class='count'>209</td>
-      <td><pre class='prettyprint jmp'>			<span id='l127s0' title='Executions: 209' class='covered'>if(thisClassObj.dataBaseAccessParameter.hashCode() == this.dataBaseAccessParameter .hashCode())</span> <span id='l127s1' title='Executions: 108' class='covered'>return true;</span></pre></td>
+      <td class='line'>127</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			if(thisClassObj.dataBaseAccessParameter.hashCode() == this.dataBaseAccessParameter .hashCode()) return true;</pre></td>
     </tr>
     <tr>
-      <td class='line'>128</td><td class='count'>4</td>
-      <td><pre class='prettyprint jmp'>		<span id='l128s0' title='Executions: 4' class='covered'>}</span> else <span id='l128s1' title='Executions: 1' class='covered'>if (this.transaction == null</span> && thisClassObj.transaction != null) {</pre></td>
+      <td class='line'>128</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else if (this.transaction == null && thisClassObj.transaction != null) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>129</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l129s0'>			return false;</pre></td>
+      <td class='line'>129</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			return false;</pre></td>
     </tr>
     <tr>
-      <td class='line'>130</td><td class='count'>3</td>
-      <td><pre class='prettyprint jmp'>		<span id='l130s0' title='Executions: 3' class='covered'>}</span> else <span id='l130s1' title='Executions: 3' class='covered'>if (this.transaction != null</span> && thisClassObj.transaction == null) {</pre></td>
+      <td class='line'>130</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		} else if (this.transaction != null && thisClassObj.transaction == null) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>131</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l131s0'>			return false;</pre></td>
+      <td class='line'>131</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			return false;</pre></td>
     </tr>
     <tr>
       <td class='line'>132</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		} else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>133</td><td class='count'>2</td>
-      <td><pre class='prettyprint jmp'>			<span id='l133s0' title='Executions: 2' class='covered'>if(thisClassObj.transaction.hashCode() == this.transaction.hashCode())</span> <span id='l133s1' title='Executions: 1' class='covered'>return true;</span></pre></td>
+      <td class='line'>133</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			if(thisClassObj.transaction.hashCode() == this.transaction.hashCode()) return true;</pre></td>
     </tr>
     <tr>
       <td class='line'>134</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		}</pre></td>
     </tr>
     <tr>
-      <td class='line'>135</td><td class='count'>102</td>
-      <td><pre class='prettyprint covered' id='l135s0'>		return false;</pre></td>
+      <td class='line'>135</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		return false;</pre></td>
     </tr>
     <tr>
       <td class='line'>136</td><td>&nbsp;</td>
@@ -421,32 +421,32 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
       <td><pre class='prettyprint'>	public String toString() {</pre></td>
     </tr>
     <tr>
-      <td class='line'>140</td><td class='count'>8</td>
-      <td><pre class='prettyprint jmp'>		<span id='l140s0' title='Executions: 8' class='covered'>if (this.transaction == null)</span> {</pre></td>
+      <td class='line'>140</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>		if (this.transaction == null) {</pre></td>
     </tr>
     <tr>
-      <td class='line'>141</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l141s0'>			StringBuilder sb = new StringBuilder();</pre></td>
+      <td class='line'>141</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			StringBuilder sb = new StringBuilder();</pre></td>
     </tr>
     <tr>
-      <td class='line'>142</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l142s0'>			sb.append("CONNECTION_HASH=[Transaction has not been started]").append(',');</pre></td>
+      <td class='line'>142</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			sb.append("CONNECTION_HASH=[Transaction has not been started]").append(',');</pre></td>
     </tr>
     <tr>
-      <td class='line'>143</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l143s0'>			sb.append(this.dataBaseAccessParameter.toString());</pre></td>
+      <td class='line'>143</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			sb.append(this.dataBaseAccessParameter.toString());</pre></td>
     </tr>
     <tr>
-      <td class='line'>144</td><td class='count'>7</td>
-      <td><pre class='prettyprint covered' id='l144s0'>			return sb.toString();</pre></td>
+      <td class='line'>144</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			return sb.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>145</td><td>&nbsp;</td>
       <td><pre class='prettyprint'>		} else {</pre></td>
     </tr>
     <tr>
-      <td class='line'>146</td><td class='count'>1</td>
-      <td><pre class='prettyprint covered' id='l146s0'>			return this.transaction.toString();</pre></td>
+      <td class='line'>146</td><td>&nbsp;</td>
+      <td><pre class='prettyprint'>			return this.transaction.toString();</pre></td>
     </tr>
     <tr>
       <td class='line'>147</td><td>&nbsp;</td>
