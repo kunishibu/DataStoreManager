@@ -5,6 +5,7 @@ import java.util.Map;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.property.DataStoreManagerProperty;
+import jp.co.dk.datastoremanager.rdb.AbstractDataBaseAccessObject;
 import jp.co.dk.logger.Logger;
 import jp.co.dk.logger.LoggerFactory;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
@@ -54,9 +55,7 @@ public class DataStoreManager {
 		this.dataStoreManagerProperty               = dataStoreManagerProperty;
 		this.defaultDataStore                       = dataStoreManagerProperty.getDefaultDataStoreParameter().createDataStore();
 		Map<String, DataStoreParameter> parameterMap = dataStoreManagerProperty.getDataStoreParameters();
-		for (String name : parameterMap.keySet()) {
-			this.dataStores.put(name, parameterMap.get(name).createDataStore());
-		}
+		for (String name : parameterMap.keySet()) this.dataStores.put(name, parameterMap.get(name).createDataStore());
 	}
 	
 	/**
@@ -80,10 +79,45 @@ public class DataStoreManager {
 	 */
 	public DataAccessObject getDataAccessObject(DaoConstants daoConstants) throws DataStoreManagerException {
 		DataStore dataStore = this.dataStores.get(daoConstants.getName());
-		if (dataStore != null) { 
-			return dataStore.getDataAccessObject(daoConstants);
-		}
+		if (dataStore != null) return dataStore.getDataAccessObject(daoConstants);
 		return this.defaultDataStore.getDataAccessObject(daoConstants);
+	}
+	
+	/**
+	 * 指定のDAO名称を元にデータアクセスオブジェクトを生成し、返却します。
+	 * @param name DAO名称
+	 * @return データアクセスオブジェクトのインスタンス
+	 * @throws DataStoreManagerException データアクセスオブジェクトの生成、または取得に失敗した場合
+	 */
+	public DataAccessObject getDataAccessObject(String name) throws DataStoreManagerException {
+		DataStore dataStore = this.dataStores.get(name);
+		DaoConstants dummyDaoConstants = new DaoConstants(){
+			@Override
+			public DataAccessObjectFactory getDataAccessObjectFactory() {
+				return new DataAccessObjectFactory() {
+					@Override
+					public DataAccessObject getDataAccessObject(DataStoreKind dataStoreKind, DataStore dataStore) throws DataStoreManagerException {
+						switch(dataStoreKind) {
+							case ORACLE:
+							case MYSQL:
+							case POSTGRESQL:
+								return new jp.co.dk.datastoremanager.rdb.AbstractDataBaseAccessObject(dataStore){};
+							case NEO4J:
+								return new jp.co.dk.datastoremanager.gdb.AbstractDataBaseAccessObject(dataStore){};
+							case CSV:
+						}
+						return null;
+					}
+					
+				};
+			}
+			@Override
+			public String getName() {
+				return name;
+			}
+		};
+		if (dataStore != null) return dataStore.getDataAccessObject(dummyDaoConstants);
+		return this.defaultDataStore.getDataAccessObject(dummyDaoConstants);
 	}
 	
 	/**
