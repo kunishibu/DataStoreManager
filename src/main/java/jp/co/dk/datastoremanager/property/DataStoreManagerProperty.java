@@ -91,11 +91,16 @@ public class DataStoreManagerProperty extends PropertiesFile {
 				String postgresqluser     = this.getString("datastore.postgresql.user"    );
 				String postgresqlpassword = this.getString("datastore.postgresql.password");
 				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.POSTGRESQL, DataBaseDriverConstants.POSTGRESSQL, postgresqlurl, postgresqlsid, postgresqluser, postgresqlpassword);
+			
 			case NEO4J:
-				String neo4jurl      = this.getString("datastore.postgresql.url"     );
-				String neo4juser     = this.getString("datastore.postgresql.user"    );
-				String neo4jpassword = this.getString("datastore.postgresql.password");
-				return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, neo4jurl, neo4juser, neo4jpassword);
+				String neo4jurl      = this.getString("datastore.neo4j.url"     );
+				String neo4juser     = this.getString("datastore.neo4j.user"    );
+				String neo4jpassword = this.getString("datastore.neo4j.password");
+				if (neo4juser == null || neo4juser.equals("")) {
+					return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, neo4jurl);
+				} else {
+					return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, neo4jurl, neo4juser, neo4jpassword);
+				}
 			default :
 				throw new DataStoreManagerException(NO_SUPPORT_DATA_STORE_KIND, dataStoreKind.toString());
 		}
@@ -159,11 +164,16 @@ public class DataStoreManagerProperty extends PropertiesFile {
 				String postgresqluser     = this.getStringWithName("datastore.postgresql.user"    , name);
 				String postgresqlpassword = this.getStringWithName("datastore.postgresql.password", name);
 				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.POSTGRESQL, DataBaseDriverConstants.POSTGRESSQL, postgresqlurl, postgresqlsid, postgresqluser, postgresqlpassword);
+			
 			case NEO4J:
-				String neo4jurl      = this.getString("datastore.postgresql.url"     , name);
-				String neo4juser     = this.getString("datastore.postgresql.user"    , name);
-				String neo4jpassword = this.getString("datastore.postgresql.password", name);
-				return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, neo4jurl, neo4juser, neo4jpassword);
+				String neo4jurl      = this.getString("datastore.neo4j.url"     , name);
+				String neo4juser     = this.getString("datastore.neo4j.user"    , name);
+				String neo4jpassword = this.getString("datastore.neo4j.password", name);
+				if (neo4juser == null || neo4juser.equals("")) {
+					return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, neo4jurl);
+				} else {
+					return new jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter(DataStoreKind.NEO4J, DataBaseDriverConstants.NEO4J, neo4jurl, neo4juser, neo4jpassword);
+				}
 			default :
 				throw new DataStoreManagerException(NO_SUPPORT_DATA_STORE_KIND, dataStoreKind.toString());
 		}

@@ -1165,79 +1165,83 @@ Starting audit...
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:91:106: ')' の前にホワイトスペースがあります。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:92: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:93: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:95: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:95:101: ')' の前にホワイトスペースがあります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:94: Line has trailing spaces.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:96: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:96:101: ')' の前にホワイトスペースがあります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:96:96: ')' の前にホワイトスペースがあります。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:97: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:97:96: ')' の前にホワイトスペースがあります。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:98: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:100: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:103: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:104: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:106: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:110: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:110:9: メソッド 'getDataStoreParameters' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:110:80: 'DataStoreManagerException' には @throws タグが必要です。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:110:80: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:111: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:114: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:118: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:120: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:122: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:134: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:135: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:102: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:105: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:108: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:109: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:111: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:115: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:115:9: メソッド 'getDataStoreParameters' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:115:80: 'DataStoreManagerException' には @throws タグが必要です。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:115:80: DataStoreManagerException のクラス情報が取得できません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:116: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:119: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:123: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:125: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:127: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:139: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:139:9: メソッド 'getDataStoreParameter' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:139:60: Parameter name should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:139:67: 'name' には @param タグが必要です。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:139:80: DataStoreManagerException のクラス情報が取得できません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:140: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:143: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:140: Line has trailing spaces.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:144: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:144:9: メソッド 'getDataStoreParameter' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:144:60: Parameter name should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:144:67: 'name' には @param タグが必要です。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:144:80: DataStoreManagerException のクラス情報が取得できません。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:145: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:146: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:147: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:148: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:148: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:149: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:150: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:151: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:152: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:153: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:154: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:155: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:153: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:155: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:156: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:157: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:158: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:159: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:160: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:161: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:160: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:162: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:163: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:164: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:165: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:166: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:168: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:171: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:172: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:186: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:190:9: メソッド 'getNameList' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:190:44: Parameter key should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:192: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:192: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:194:22: 'while' の後にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:196:66: '+' の前にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:196:67: '+' の後にホワイトスペースがありません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:197: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:197: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:197: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:201: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:202: 最初の一文はピリオドで終わらなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:208: Line has trailing spaces.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:213:9: メソッド 'getStringWithName' は拡張するように設計されていません - abstract か final か空である必要があります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:213:44: Parameter key should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:213:56: Parameter name should be final.
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:214: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:215: 行が 80 文字を超えています。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:216: 'if' 文では '{}' を使用しなければなりません。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:216:34: ')' の前にホワイトスペースがあります。
-/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:219: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:167: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:169: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:170: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:171: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:173: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:175: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:178: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:181: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:182: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:196: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:200:9: メソッド 'getNameList' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:200:44: Parameter key should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:202: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:202: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:204:22: 'while' の後にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:206:66: '+' の前にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:206:67: '+' の後にホワイトスペースがありません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:207: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:207: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:207: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:211: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:212: 最初の一文はピリオドで終わらなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:218: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:223:9: メソッド 'getStringWithName' は拡張するように設計されていません - abstract か final か空である必要があります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:223:44: Parameter key should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:223:56: Parameter name should be final.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:224: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:225: 行が 80 文字を超えています。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:226: 'if' 文では '{}' を使用しなければなりません。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:226:34: ')' の前にホワイトスペースがあります。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/property/DataStoreManagerProperty.java:229: Line has trailing spaces.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/rdb/AbstractDataBaseAccessObject.java:0: Missing package-info.java file.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/rdb/AbstractDataBaseAccessObject.java:14: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/rdb/AbstractDataBaseAccessObject.java:16: 最初の一文はピリオドで終わらなければなりません。
