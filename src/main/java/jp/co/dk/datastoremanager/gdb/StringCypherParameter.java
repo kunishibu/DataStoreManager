@@ -50,7 +50,11 @@ class StringCypherParameter extends CypherParameter{
 	public String toString() {
 		if (this.parameter != null) {
 			StringBuilder sb = new StringBuilder();
-			sb.append(this.parameter).append("(string)");
+			if (this.parameter.length() < 1000) {
+				sb.append(this.parameter).append("(string)");
+			} else {
+				sb.append("size:").append(this.parameter.length()).append("(string)");
+			}
 			return sb.toString();
 		} else {
 			return "null(string)";
