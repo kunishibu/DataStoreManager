@@ -32,6 +32,16 @@ public class Cypher {
 		if (cypher == null || cypher.equals("")) throw new DataStoreManagerException(FAILE_TO_CREATE_SQL_OBJECT); 
 		this.cypher.append(cypher);
 	}
+	/**
+	 * 指定のCypher言語の文字列を本クラスのCypherの末尾に追加します。
+	 * @param cypher Cypher文字列
+	 * @throws DataStoreManagerException 引数に指定されたCypherがnullまたは空文字の場合
+	 */
+	public Cypher append(String cypher) throws DataStoreManagerException {
+		if (cypher == null || cypher.equals("")) throw new DataStoreManagerException(FAILE_TO_CREATE_SQL_OBJECT); 
+		this.cypher.append(cypher);
+		return this;
+	}
 	
 	/**
 	 * 指定の文字列を元に、Cypherの{x}部分にあたる文字列を設定します。
