@@ -12,7 +12,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
  * @version 1.1
  * @author D.Kanno
  */
-public class Cypher {
+public class Cypher implements Cloneable {
 	
 	/** Cypher本文 */
 	private StringBuilder cypher = new StringBuilder();
@@ -116,6 +116,18 @@ public class Cypher {
 			sqlstr.delete(index-2, index);
 			sqlstr.append(']');
 			return sqlstr.toString();
+		}
+	}
+	
+	@Override
+	public Cypher clone() {
+		try {
+			Cypher cloneInstance          = (Cypher)super.clone();
+			cloneInstance.cypher          = new StringBuilder(this.cypher.toString());
+			cloneInstance.cypherParameter = new ArrayList<CypherParameter>(this.cypherParameter);
+			return cloneInstance;
+		} catch (CloneNotSupportedException e) {
+			throw new InternalError(e.toString());
 		}
 	}
 }

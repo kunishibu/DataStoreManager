@@ -926,6 +926,8 @@ Starting audit...
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/gdb/StringCypherParameter.java:39: Line has trailing spaces.
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/gdb/StringCypherParameter.java:43:60: '17' はマジックナンバーです。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/gdb/StringCypherParameter.java:48: Line has trailing spaces.
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/gdb/StringCypherParameter.java:53:55: '1000' はマジックナンバーです。
+/home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/gdb/StringCypherParameter.java:56: 行が 80 文字を超えています。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/gdb/Transaction.java:3:8: 使用されないインポートです - java.net.SocketException。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/gdb/Transaction.java:16: '.*' 形式のインポートの使用は避けるべきです - jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*。
 /home/dk/git/DataStoreManager/src/main/java/jp/co/dk/datastoremanager/gdb/Transaction.java:18: 最初の一文はピリオドで終わらなければなりません。
