@@ -32,6 +32,33 @@ public class Cypher implements Cloneable {
 		if (cypher == null || cypher.equals("")) throw new DataStoreManagerException(FAILE_TO_CREATE_SQL_OBJECT); 
 		this.cypher.append(cypher);
 	}
+	
+	/**
+	 * 指定のCypher言語の文字列を本クラスのCypherの最初に追加します。
+	 * @param cypher Cypher文字列
+	 * @throws DataStoreManagerException 引数に指定されたCypherがnullまたは空文字の場合
+	 */
+	public Cypher appendTop(String cypher) throws DataStoreManagerException {
+		if (cypher == null || cypher.equals("")) throw new DataStoreManagerException(FAILE_TO_CREATE_SQL_OBJECT);
+		this.cypher = new StringBuilder(cypher).append(this.cypher);
+		return this;
+	}
+	
+	/**
+	 * 指定のCypherオブジェクトを本クラスのCypherの最初に追加します。<p/>
+	 * 引数に指定されたCypherオブジェクトが持つCypherを表す文字列、パラメータともに最初に追加します。
+	 * @param cypher Cypherオブジェクト
+	 * @throws DataStoreManagerException 引数に指定されたCypherがnullまたは空文字の場合
+	 */
+	public Cypher appendTop(Cypher cypher) throws DataStoreManagerException {
+		if (cypher == null || cypher.equals("")) throw new DataStoreManagerException(FAILE_TO_CREATE_SQL_OBJECT);
+		this.cypher = new StringBuilder(cypher.cypher.toString()).append(this.cypher);
+		List<CypherParameter> newCypherParameter = new ArrayList<>(cypher.cypherParameter);
+		newCypherParameter.addAll(this.cypherParameter);
+		this.cypherParameter = newCypherParameter;
+		return this;
+	}
+	
 	/**
 	 * 指定のCypher言語の文字列を本クラスのCypherの末尾に追加します。
 	 * @param cypher Cypher文字列
@@ -40,6 +67,19 @@ public class Cypher implements Cloneable {
 	public Cypher append(String cypher) throws DataStoreManagerException {
 		if (cypher == null || cypher.equals("")) throw new DataStoreManagerException(FAILE_TO_CREATE_SQL_OBJECT); 
 		this.cypher.append(cypher);
+		return this;
+	}
+	
+	/**
+	 * 指定のCypherオブジェクトを本クラスのCypherの末尾に追加します。<p/>
+	 * 引数に指定されたCypherオブジェクトが持つCypherを表す文字列、パラメータともに末尾に追加します。
+	 * @param cypher Cypher文字列
+	 * @throws DataStoreManagerException 引数に指定されたCypherがnullまたは空文字の場合
+	 */
+	public Cypher append(Cypher cypher) throws DataStoreManagerException {
+		if (cypher == null) throw new DataStoreManagerException(FAILE_TO_CREATE_SQL_OBJECT); 
+		this.cypher.append(cypher.cypher.toString());
+		this.cypherParameter.addAll(cypher.cypherParameter);
 		return this;
 	}
 	
@@ -74,7 +114,13 @@ public class Cypher implements Cloneable {
 	}
 	
 	public String getCypher() {
-		return this.cypher.toString();
+		StringBuilder replacedCypher = new StringBuilder(this.cypher.toString());
+		for (int index=1; ; index++) {
+			int findIndex = replacedCypher.indexOf("?");
+			if (findIndex < 0) break;
+			replacedCypher.replace(findIndex, 1, "{" + index + "}");
+		}
+		return replacedCypher.toString();
 	}
 	
 	/**
