@@ -73,7 +73,7 @@ public class Cypher implements Cloneable {
 	/**
 	 * 指定のCypherオブジェクトを本クラスのCypherの末尾に追加します。<p/>
 	 * 引数に指定されたCypherオブジェクトが持つCypherを表す文字列、パラメータともに末尾に追加します。
-	 * @param cypher Cypher文字列
+	 * @param cypher Cypherオブジェクト
 	 * @throws DataStoreManagerException 引数に指定されたCypherがnullまたは空文字の場合
 	 */
 	public Cypher append(Cypher cypher) throws DataStoreManagerException {
@@ -118,7 +118,8 @@ public class Cypher implements Cloneable {
 		for (int index=1; ; index++) {
 			int findIndex = replacedCypher.indexOf("?");
 			if (findIndex < 0) break;
-			replacedCypher.replace(findIndex, 1, "{" + index + "}");
+			replacedCypher.delete(findIndex, findIndex + 1);
+			replacedCypher.insert(findIndex, "{" + index + "}");
 		}
 		return replacedCypher.toString();
 	}
