@@ -21,4 +21,14 @@ public interface DataConvertable extends jp.co.dk.datastoremanager.DataConvertab
 	public default DataConvertable convert(DataBaseRecord dataBaseRecord) throws DataStoreManagerException {
 		throw new DataStoreManagerException(METHOD_TO_CONVERT_A_RESULT_IS_UNDEFINED);
 	}
+	
+	/**
+	 * その他のレコードオブエジェクトから取得した単一のレコードを自身のクラスへ設定します。
+	 * 
+	 * @param record 単一のデータベースレコード
+	 * @throws DataStoreManagerException 変換に失敗した場合
+	 */
+	public default DataConvertable convert(Record record) throws DataStoreManagerException {
+		throw new DataStoreManagerException(METHOD_TO_CONVERT_A_RESULT_IS_UNDEFINED);
+	}
 }

@@ -79,7 +79,7 @@ public class DataStoreManagerTest extends DataStoreManagerTestFoundation{
 			target.startTrunsaction();
 			fail();
 		} catch (DataStoreManagerException e) {
-			if (e.getMessageObj() == FAILE_TO_CREATE_CONNECTION) ;
+			if (e.getMessageObj() != FAILE_TO_CREATE_CONNECTION) fail();
 		}
 		
 		// 接続先プロパティの設定がマスター、個別の接続先を指定している場合で、接続先が不正な場合、正常にエラーが発生すること。
@@ -88,7 +88,7 @@ public class DataStoreManagerTest extends DataStoreManagerTestFoundation{
 			target.startTrunsaction();
 			fail();
 		} catch (DataStoreManagerException e) {
-			if (e.getMessageObj() == FAILE_TO_CREATE_CONNECTION) ;
+			if (e.getMessageObj() == FAILE_TO_CREATE_CONNECTION) fail();
 		}
 	}
 }

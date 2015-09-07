@@ -181,7 +181,7 @@ public class DataBaseRecord implements Record {
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(GET_COLUMN_IS_FAILE_BY_INDEX, Integer.toString(index));
 		}
-	};
+	}
 	
 	@Override
 	public byte[] getBytes(int index) throws DataStoreManagerException {

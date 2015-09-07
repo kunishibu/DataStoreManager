@@ -77,7 +77,7 @@ class BytesSqlParameter extends SqlParameter{
 				sb.append(this.parameter[i]).append(',');
 			}
 			StringBuilder result = new StringBuilder(sb.substring(0, sb.length()-1));
-			result.append("(byte[])");;
+			result.append("(byte[])");
 			return result.toString();
 		} else {
 			return "null(byte[])";

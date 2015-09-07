@@ -29,7 +29,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
 			assertNotNull(target.dataBaseAccessParameter);
 		} catch (DataStoreManagerException e) {
 			fail(e);
-		};
+		}
 		
 		// ==============================異常系==============================
 		// 引数にNULLを指定した場合、例外が発生すること
@@ -38,7 +38,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
 			fail();
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), PARAMETER_IS_NOT_SET);
-		};
+		}
 		
 		// 引数に設定されたドライバークラスの読み込み出来なかった場合、例外が発生すること
 		try {
@@ -49,7 +49,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
             new Transaction(param);
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), FAILE_TO_READ_DRIVER);
-		};
+		}
 		
 		// 引数に設定された接続先に接続出来なかった場合、例外が発生すること
 		try {
@@ -57,7 +57,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
             new Transaction(param);
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), FAILE_TO_CREATE_CONNECTION);
-		};
+		}
 	}
 	
 	@Test
