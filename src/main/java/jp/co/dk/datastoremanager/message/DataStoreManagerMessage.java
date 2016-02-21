@@ -118,6 +118,9 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** データストアからの取得結果を変換するメソッドが未定義です。 */
 	public static final DataStoreManagerMessage METHOD_TO_CONVERT_A_RESULT_IS_UNDEFINED = new DataStoreManagerMessage("E036");
 	
+	/** カラム情報の取得に失敗しました。 */
+	public static final DataStoreManagerMessage FAILE_TO_GET_COLUMN_NAME = new DataStoreManagerMessage("E037");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}

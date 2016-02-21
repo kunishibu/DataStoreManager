@@ -4,8 +4,11 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
@@ -29,6 +32,30 @@ public class DataBaseRecord implements Record {
 	 */
 	DataBaseRecord(ResultSet resultSet) {
 		this.resultSet = resultSet;
+	}
+	
+	public List<String> getColumns() throws DataStoreManagerException {
+		try{
+			List<String> columnList = new ArrayList<>();
+			ResultSetMetaData rsmd= this.resultSet.getMetaData();
+			for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+				// System.out.println("getCatalogName       :" + rsmd.getCatalogName(i));
+				// System.out.println("getColumnClassName   :" + rsmd.getColumnClassName(i));
+				// System.out.println("getColumnDisplaySize :" + rsmd.getColumnDisplaySize(i));
+				// System.out.println("getColumnLabel       :" + rsmd.getColumnLabel(i));
+				// System.out.println("getColumnName        :" + rsmd.getColumnName(i));
+				// System.out.println("getColumnType        :" + rsmd.getColumnType(i));
+				// System.out.println("getColumnTypeName    :" + rsmd.getColumnTypeName(i));
+				// System.out.println("getPrecision         :" + rsmd.getPrecision(i));
+				// System.out.println("getScale             :" + rsmd.getScale(i));
+				// System.out.println("getSchemaName        :" + rsmd.getSchemaName(i));
+				// System.out.println("getTableName         :" + rsmd.getTableName(i));
+				columnList.add(rsmd.getColumnName(i));
+			}
+			return columnList;
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(FAILE_TO_GET_COLUMN_NAME);
+		}
 	}
 	
 	/**
