@@ -172,11 +172,9 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	@SuppressWarnings("unchecked")
 	public <E extends DataConvertable> List<E> selectMulti(Sql sql, E convertable) throws DataStoreManagerException{
 		List<E> resultList = new ArrayList<E>();
-		ResultSet result = this.dataStore.select(sql);
+		DataBaseRecord result = new DataBaseRecord(this.dataStore.select(sql));
 		try {
-			while (result.next()) {
-				resultList.add((E)convertable.convert(new DataBaseRecord(result)));
-			}
+			while (result.next()) resultList.add((E)convertable.convert(result));
 			result.close();
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(GET_RECORD_IS_FAILE, sql.toString(), e);

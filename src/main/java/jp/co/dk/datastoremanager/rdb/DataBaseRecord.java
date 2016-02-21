@@ -21,6 +21,9 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
  */
 public class DataBaseRecord implements Record {
 	
+	/** テーブル一覧 */
+	protected List<String> tableList = new ArrayList<String>();
+	
 	/** レコードオブジェクト */
 	protected ResultSet resultSet;
 	
@@ -32,6 +35,14 @@ public class DataBaseRecord implements Record {
 	 */
 	DataBaseRecord(ResultSet resultSet) {
 		this.resultSet = resultSet;
+	}
+	
+	boolean next() throws SQLException {
+		return this.resultSet.next();
+	}
+	
+	void close() throws SQLException {
+		this.resultSet.close();
 	}
 	
 	public List<String> getColumns() throws DataStoreManagerException {
