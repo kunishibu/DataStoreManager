@@ -21,8 +21,8 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
  */
 public class DataBaseRecord implements Record {
 	
-	/** テーブル一覧 */
-	protected List<String> tableList = new ArrayList<String>();
+	/** カラムメタデータ一覧 */
+	protected List<ColumnMetaData> columnMetaData;
 	
 	/** レコードオブジェクト */
 	protected ResultSet resultSet;
@@ -45,25 +45,19 @@ public class DataBaseRecord implements Record {
 		this.resultSet.close();
 	}
 	
-	public List<String> getColumns() throws DataStoreManagerException {
+	/**
+	 * カラムのメタデータ一覧を返却します。
+	 * @return カラムメタデータ一覧
+	 * @throws DataStoreManagerException カラムメタデータの取得に失敗した場合
+	 */
+	public List<ColumnMetaData> getColumns() throws DataStoreManagerException {
 		try{
-			List<String> columnList = new ArrayList<>();
-			ResultSetMetaData rsmd= this.resultSet.getMetaData();
-			for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-				// System.out.println("getCatalogName       :" + rsmd.getCatalogName(i));
-				// System.out.println("getColumnClassName   :" + rsmd.getColumnClassName(i));
-				// System.out.println("getColumnDisplaySize :" + rsmd.getColumnDisplaySize(i));
-				// System.out.println("getColumnLabel       :" + rsmd.getColumnLabel(i));
-				// System.out.println("getColumnName        :" + rsmd.getColumnName(i));
-				// System.out.println("getColumnType        :" + rsmd.getColumnType(i));
-				// System.out.println("getColumnTypeName    :" + rsmd.getColumnTypeName(i));
-				// System.out.println("getPrecision         :" + rsmd.getPrecision(i));
-				// System.out.println("getScale             :" + rsmd.getScale(i));
-				// System.out.println("getSchemaName        :" + rsmd.getSchemaName(i));
-				// System.out.println("getTableName         :" + rsmd.getTableName(i));
-				columnList.add(rsmd.getColumnName(i));
+			if (columnMetaData == null) {
+				this.columnMetaData = new ArrayList<>();
+				ResultSetMetaData metaData= this.resultSet.getMetaData();
+				for (int i = 1; i <= metaData.getColumnCount(); i++) this.columnMetaData.add(new ColumnMetaData(metaData, i));
 			}
-			return columnList;
+			return this.columnMetaData;
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_GET_COLUMN_NAME);
 		}
