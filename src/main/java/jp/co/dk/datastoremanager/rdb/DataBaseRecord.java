@@ -46,6 +46,19 @@ public class DataBaseRecord implements Record {
 	}
 	
 	/**
+	 * 現在参照している行番号を取得します。
+	 * @return 現在参照している行番号
+	 * @throws DataStoreManagerException 現在参照している行番号の取得に失敗した場合
+	 */
+	public int getRowIndex() throws DataStoreManagerException {
+		try {
+			return this.resultSet.getRow();
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(FAILE_TO_GET_COLUMN_NAME);
+		}
+	}
+	
+	/**
 	 * カラムのメタデータ一覧を返却します。
 	 * @return カラムメタデータ一覧
 	 * @throws DataStoreManagerException カラムメタデータの取得に失敗した場合

@@ -121,6 +121,9 @@ public class DataStoreManagerMessage extends AbstractMessage{
 	/** カラム情報の取得に失敗しました。 */
 	public static final DataStoreManagerMessage FAILE_TO_GET_COLUMN_NAME = new DataStoreManagerMessage("E037");
 	
+	/** 行番号の取得に失敗しました。 */
+	public static final DataStoreManagerMessage FAILE_TO_GET_ROWINDEX = new DataStoreManagerMessage("E038");
+	
 	protected DataStoreManagerMessage(String messageId) {
 		super(messageId);
 	}

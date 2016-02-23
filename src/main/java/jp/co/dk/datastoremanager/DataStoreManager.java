@@ -1,11 +1,12 @@
 package jp.co.dk.datastoremanager;
 
+import java.io.Closeable;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.property.DataStoreManagerProperty;
-import jp.co.dk.datastoremanager.rdb.AbstractDataBaseAccessObject;
 import jp.co.dk.logger.Logger;
 import jp.co.dk.logger.LoggerFactory;
 import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
@@ -28,7 +29,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
  * @version 1.0
  * @author D.Kanno
  */
-public class DataStoreManager {
+public class DataStoreManager implements Closeable {
 	
 	/** デフォルトのデータストア */
 	protected DataStore defaultDataStore;
@@ -178,6 +179,15 @@ public class DataStoreManager {
 		this.defaultDataStore.finishTransaction();
 		for (DataStore dataStore : dataStores.values()) {
 			dataStore.finishTransaction();
+		}
+	}
+
+	@Override
+	public void close() throws IOException {
+		try {
+			this.finishTrunsaction();
+		} catch (DataStoreManagerException e) {
+			throw new IOException(e);
 		}
 	}
 }
