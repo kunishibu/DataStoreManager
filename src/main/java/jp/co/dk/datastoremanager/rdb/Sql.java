@@ -18,10 +18,10 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
 public class Sql {
 	
 	/** SQL本文 */
-	private StringBuilder sql = new StringBuilder();
+	protected StringBuilder sql = new StringBuilder();
 	
 	/** パラメータ */
-	private List<SqlParameter> sqlParameter = new ArrayList<SqlParameter>();
+	protected List<SqlParameter> sqlParameter = new ArrayList<SqlParameter>();
 	
 	/**
 	 * コンストラクタ<p/>
