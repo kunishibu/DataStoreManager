@@ -12,7 +12,7 @@ public enum DataBaseDriverConstants {
 	/** ORACLE */
 	ORACLE("jdbc:oracle:thin:@servername:databasename", "oracle.jdbc.driver.OracleDriver", DataStoreKind.ORACLE),
 	/** MYSQL */
-	MYSQL("jdbc:mysql://servername/databasename", "com.mysql.jdbc.Driver", DataStoreKind.MYSQL),
+	MYSQL("jdbc:mysql://servername/databasename?useUnicode=true&characterEncoding=UTF-8", "com.mysql.jdbc.Driver", DataStoreKind.MYSQL),
 	/** POSTGRESSQL */
 	POSTGRESSQL("jdbc:postgresql://servername/databasename", "org.postgresql.Driver", DataStoreKind.POSTGRESQL),
 	/** NEO4J */
