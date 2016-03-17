@@ -57,7 +57,7 @@ class Transaction {
 		this.dataBaseAccessParameter = dataBaseAccessParameter;
 		DataBaseDriverConstants driverConstants = dataBaseAccessParameter.getDriver();
 		String driver   = driverConstants.getDriverClass();
-		String url      = driverConstants.getUrl(dataBaseAccessParameter.getUrl(), dataBaseAccessParameter.getSid());
+		String url      = dataBaseAccessParameter.getUrl();
 		String user     = dataBaseAccessParameter.getUser();
 		String password = dataBaseAccessParameter.getPassword();
 		try {

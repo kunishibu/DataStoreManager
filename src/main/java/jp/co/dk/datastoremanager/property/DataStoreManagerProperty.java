@@ -57,7 +57,6 @@ public class DataStoreManagerProperty extends PropertiesFile {
 	 * datastore.type=oracleの場合、<br/>
 	 * <br/>
 	 * ・"datastore.oracle.url"<br/>
-	 * ・"datastore.oracle.sid"<br/>
 	 * ・"datastore.oracle.user"<br/>
 	 * ・"datastore.oracle.password"<br/>
 	 * <br/>
@@ -73,24 +72,21 @@ public class DataStoreManagerProperty extends PropertiesFile {
 		switch (dataStoreKind) {
 			case ORACLE:
 				String oracleurl      = this.getString("datastore.oracle.url"     );
-				String oraclesid      = this.getString("datastore.oracle.sid"     );
 				String oracleuser     = this.getString("datastore.oracle.user"    );
 				String oraclepassword = this.getString("datastore.oracle.password");
-				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, oracleurl, oraclesid, oracleuser, oraclepassword);
+				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, oracleurl, oracleuser, oraclepassword);
 				
 			case MYSQL:
 				String mysqlurl      = this.getString("datastore.mysql.url"     );
-				String mysqlsid      = this.getString("datastore.mysql.sid"     );
 				String mysqluser     = this.getString("datastore.mysql.user"    );
 				String mysqlpassword = this.getString("datastore.mysql.password");
-				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, mysqlurl, mysqlsid, mysqluser, mysqlpassword);
+				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, mysqlurl, mysqluser, mysqlpassword);
 				
 			case POSTGRESQL:
 				String postgresqlurl      = this.getString("datastore.postgresql.url"     );
-				String postgresqlsid      = this.getString("datastore.postgresql.sid"     );
 				String postgresqluser     = this.getString("datastore.postgresql.user"    );
 				String postgresqlpassword = this.getString("datastore.postgresql.password");
-				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.POSTGRESQL, DataBaseDriverConstants.POSTGRESSQL, postgresqlurl, postgresqlsid, postgresqluser, postgresqlpassword);
+				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.POSTGRESQL, DataBaseDriverConstants.POSTGRESSQL, postgresqlurl, postgresqluser, postgresqlpassword);
 			
 			case NEO4J:
 				String neo4jurl      = this.getString("datastore.neo4j.url"     );
@@ -130,7 +126,6 @@ public class DataStoreManagerProperty extends PropertiesFile {
 	 * datastore.type.USERS=oracleの場合、<br/>
 	 * <br/>
 	 * ・"datastore.oracle.url.USERS"<br/>
-	 * ・"datastore.oracle.sid.USERS"<br/>
 	 * ・"datastore.oracle.user.USERS"<br/>
 	 * ・"datastore.oracle.password.USERS"<br/>
 	 * <br/>
@@ -146,24 +141,21 @@ public class DataStoreManagerProperty extends PropertiesFile {
 		switch (dataStoreKind) {
 			case ORACLE:
 				String oracleurl      = this.getStringWithName("datastore.oracle.url"     , name);
-				String oraclesid      = this.getStringWithName("datastore.oracle.sid"     , name);
 				String oracleuser     = this.getStringWithName("datastore.oracle.user"    , name);
 				String oraclepassword = this.getStringWithName("datastore.oracle.password", name);
-				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, oracleurl, oraclesid, oracleuser, oraclepassword);
+				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, oracleurl, oracleuser, oraclepassword);
 				
 			case MYSQL:
 				String mysqlurl      = this.getStringWithName("datastore.mysql.url"     , name);
-				String mysqlsid      = this.getStringWithName("datastore.mysql.sid"     , name);
 				String mysqluser     = this.getStringWithName("datastore.mysql.user"    , name);
 				String mysqlpassword = this.getStringWithName("datastore.mysql.password", name);
-				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, mysqlurl, mysqlsid, mysqluser, mysqlpassword);
+				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, mysqlurl, mysqluser, mysqlpassword);
 				
 			case POSTGRESQL:
 				String postgresqlurl      = this.getStringWithName("datastore.postgresql.url"     , name);
-				String postgresqlsid      = this.getStringWithName("datastore.postgresql.sid"     , name);
 				String postgresqluser     = this.getStringWithName("datastore.postgresql.user"    , name);
 				String postgresqlpassword = this.getStringWithName("datastore.postgresql.password", name);
-				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.POSTGRESQL, DataBaseDriverConstants.POSTGRESSQL, postgresqlurl, postgresqlsid, postgresqluser, postgresqlpassword);
+				return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.POSTGRESQL, DataBaseDriverConstants.POSTGRESSQL, postgresqlurl, postgresqluser, postgresqlpassword);
 			
 			case NEO4J:
 				String neo4jurl      = this.getString("datastore.neo4j.url"     , name);

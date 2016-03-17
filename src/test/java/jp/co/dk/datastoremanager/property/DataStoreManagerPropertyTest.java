@@ -29,7 +29,6 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
 			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.ORACLE);
 			assertEquals(dataBaseAccessParameter.getUrl()     , "default_db_server");
-			assertEquals(dataBaseAccessParameter.getSid()     , "default_sid");
 			assertEquals(dataBaseAccessParameter.getUser()    , "default_user");
 			assertEquals(dataBaseAccessParameter.getPassword(), "default_password");
 		} catch (DataStoreManagerException e) {
@@ -43,7 +42,6 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 			assertTrue  (dataStoreParameter instanceof DataBaseAccessParameter);
 			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
 			assertEquals(dataBaseAccessParameter.getUrl()     , "default_db_server");
-			assertEquals(dataBaseAccessParameter.getSid()     , "default_sid");
 			assertEquals(dataBaseAccessParameter.getUser()    , "default_user");
 			assertEquals(dataBaseAccessParameter.getPassword(), "default_password");
 		} catch (DataStoreManagerException e) {
@@ -58,7 +56,6 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
 			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.POSTGRESQL);
 			assertEquals(dataBaseAccessParameter.getUrl()     , "default_db_server");
-			assertEquals(dataBaseAccessParameter.getSid()     , "default_sid");
 			assertEquals(dataBaseAccessParameter.getUser()    , "default_user");
 			assertEquals(dataBaseAccessParameter.getPassword(), "default_password");
 		} catch (DataStoreManagerException e) {
@@ -131,7 +128,6 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
 			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.ORACLE);
 			assertEquals(dataBaseAccessParameter.getUrl()     , "users_db_server");
-			assertEquals(dataBaseAccessParameter.getSid()     , "users_sid");
 			assertEquals(dataBaseAccessParameter.getUser()    , "users_user");
 			assertEquals(dataBaseAccessParameter.getPassword(), "users_password");
 		} catch (DataStoreManagerException e) {
@@ -148,7 +144,6 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
 			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.MYSQL);
 			assertEquals(dataBaseAccessParameter.getUrl()     , "users_db_server");
-			assertEquals(dataBaseAccessParameter.getSid()     , "users_sid");
 			assertEquals(dataBaseAccessParameter.getUser()    , "users_user");
 			assertEquals(dataBaseAccessParameter.getPassword(), "users_password");
 		} catch (DataStoreManagerException e) {
@@ -165,7 +160,6 @@ public class DataStoreManagerPropertyTest extends DataStoreManagerTestFoundation
 			DataBaseAccessParameter dataBaseAccessParameter = (DataBaseAccessParameter)dataStoreParameter;
 			assertEquals(dataStoreParameter.getDataStoreKind(), DataStoreKind.POSTGRESQL);
 			assertEquals(dataBaseAccessParameter.getUrl()     , "users_db_server");
-			assertEquals(dataBaseAccessParameter.getSid()     , "users_sid");
 			assertEquals(dataBaseAccessParameter.getUser()    , "users_user");
 			assertEquals(dataBaseAccessParameter.getPassword(), "users_password");
 		} catch (DataStoreManagerException e) {

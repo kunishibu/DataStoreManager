@@ -21,9 +21,6 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	/** 接続先URL */
 	protected String url;
 	
-	/** 接続先SID */
-	protected String sid;
-	
 	/** ユーザ */
 	protected String user;
 	
@@ -38,20 +35,17 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	 * @param dataStoreKind データストア種別
 	 * @param driver        データベースドライバー
 	 * @param url           接続先URL
-	 * @param sid           接続先SID
 	 * @param user          ユーザ
 	 * @param password      パスワード
 	 */
-	public DataBaseAccessParameter(DataStoreKind dataStoreKind, DataBaseDriverConstants driver, String url, String sid, String user, String password) throws DataStoreManagerException {
+	public DataBaseAccessParameter(DataStoreKind dataStoreKind, DataBaseDriverConstants driver, String url, String user, String password) throws DataStoreManagerException {
 		super(dataStoreKind);
 		if (driver   == null) throw new DataStoreManagerException(DRIVER_IS_NOT_SET);
 		if (url      == null || url.equals("")) throw new DataStoreManagerException(URL_IS_NOT_SET);
-		if (sid      == null || sid.equals("")) throw new DataStoreManagerException(SID_IS_NOT_SET);
 		if (user     == null || user.equals("")) throw new DataStoreManagerException(USER_IS_NOT_SET);
 		if (password == null || password.equals("")) throw new DataStoreManagerException(PASSWORD_IS_NOT_SET);
 		this.driver   = driver;
 		this.url      = url;
-		this.sid      = sid;
 		this.user     = user;
 		this.password = password;
 	}
@@ -71,15 +65,6 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	 */
 	public String getUrl() {
 		return url;
-	}
-	
-	/**
-	 * データベース接続先のSIDを取得します。
-	 * 
-	 * @return データベース接続先のSID
-	 */
-	public String getSid() {
-		return sid;
 	}
 	
 	/**
@@ -110,7 +95,6 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 		int hashcode = super.hashCode() ;
 		hashcode *= this.driver.hashCode() ;
 		hashcode *= this.url.hashCode() ;
-		hashcode *= this.sid.hashCode() ;
 		hashcode *= this.user.hashCode() ;
 		hashcode *= this.password.hashCode() ;
 		hashcode *= 17;
@@ -121,7 +105,7 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	public String toString() {
 		StringBuilder sb = new StringBuilder("DATASTOREKIND=[").append(this.dataStoreKind.toString()).append(']').append(',');
 		sb.append("DRIVER=[").append(this.driver.getDriverClass()).append(']').append(',');
-		sb.append("URL=[").append(this.driver.getUrl(this.url, this.sid)).append(']').append(',');
+		sb.append("URL=[").append(this.url).append(']').append(',');
 		sb.append("USER=[").append(this.user).append(']').append(',');
 		sb.append("PASSWORD=[").append(this.password).append(']');
 		return sb.toString();

@@ -15,7 +15,7 @@ public class DataStoreManagerTestFoundation extends TestCaseTemplate{
 	 * @throws DataStoreManagerException 引数が不足していた場合
 	 */
 	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessableDataBaseAccessParameterRDB() throws DataStoreManagerException {
-		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "192.168.11.104:3306", "test_db", "test_user", "123456");
+		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=UTF-8", "test_user", "123456");
 	}
 	
 	/**
@@ -25,7 +25,7 @@ public class DataStoreManagerTestFoundation extends TestCaseTemplate{
 	 * @throws DataStoreManagerException 引数が不足していた場合
 	 */
 	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessFaileDataBaseAccessParameterRDB() throws DataStoreManagerException {
-		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "255.255.255.255:3306", "test_db", "test_user", "123456");
+		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "255.255.255.255:3306", "test_user", "123456");
 	}
 	
 	/**

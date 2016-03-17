@@ -1,6 +1,5 @@
 package jp.co.dk.datastoremanager.rdb;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,13 +44,12 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	 * 
 	 * @param driver   データベースドライバー
 	 * @param url      データベース接続先URLまたは、IPアドレス
-	 * @param sid      接続先データべース名称（ORACLEの場合、SID）
 	 * @param user     データベース接続先ユーザ
 	 * @param password データベース接続先パスワード
 	 * @throws DataStoreManagerException パラメータが不足している場合、またはトランザクション開始に失敗した場合
 	 */
-	protected AbstractDataBaseAccessObject(DataBaseDriverConstants driver, String url, String sid, String user, String password) throws DataStoreManagerException {
-		this(new DataBaseAccessParameter(driver.getDataStoreKind(), driver, url, sid, user, password));
+	protected AbstractDataBaseAccessObject(DataBaseDriverConstants driver, String url, String user, String password) throws DataStoreManagerException {
+		this(new DataBaseAccessParameter(driver.getDataStoreKind(), driver, url, user, password));
 	}
 	
 	/**
