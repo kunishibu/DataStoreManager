@@ -68,6 +68,9 @@ public class HtmlDBData {
 		Element dataTable = this.createNode("table");
 		dataTable.setAttribute("border", "1");
 		Element headerTr  = this.createNode("tr");
+		headerTr.setAttribute("class", "header");
+		
+		this.cssElement.setTextContent(".header{background-color: #e0e0e0;}");
 		
 		this.dao.selectMulti(sql, new DataConvertable() {
 			public DataConvertable convert(DataBaseRecord dataBaseRecord) throws DataStoreManagerException {
