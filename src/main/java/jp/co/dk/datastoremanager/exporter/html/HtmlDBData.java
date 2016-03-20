@@ -67,20 +67,28 @@ public class HtmlDBData {
 		
 		Element dataTable = this.createNode("table");
 		dataTable.setAttribute("border", "1");
-		Element headerTr  = this.createNode("tr");
+		Element headerTr      = this.createNode("tr");
+		Element headerTypeTr  = this.createNode("tr");
 		headerTr.setAttribute("class", "header");
+		headerTypeTr.setAttribute("class", "header");
 		
-		this.cssElement.setTextContent(".header{background-color: #e0e0e0;}");
+		this.cssElement.setTextContent(".header{background-color: #00bfff;}");
 		
 		this.dao.selectMulti(sql, new DataConvertable() {
 			public DataConvertable convert(DataBaseRecord dataBaseRecord) throws DataStoreManagerException {
 				if (dataBaseRecord.getRowIndex() == 1) {
 					for (ColumnMetaData columnMetaData : dataBaseRecord.getColumns()) {
-						Element headerTd = createNode("td");
+						Element headerTd     = createNode("td");
+						Element headerTypeTd = createNode("td");
+						
 						headerTd.setTextContent(columnMetaData.getColumnname());
+						headerTypeTd.setTextContent(columnMetaData.getColumnType());
+						
 						headerTr.appendChild(headerTd);
-						dataTable.appendChild(headerTr);
+						headerTypeTr.appendChild(headerTypeTd);
 					}
+					dataTable.appendChild(headerTr);
+					dataTable.appendChild(headerTypeTr);
 				}
 				Element dataTr = createNode("tr");
 				for (ColumnMetaData columnMetaData : dataBaseRecord.getColumns()) {
