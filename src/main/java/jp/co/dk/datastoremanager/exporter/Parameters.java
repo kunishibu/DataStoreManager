@@ -36,4 +36,9 @@ public class Parameters {
 	public Map<String, String> getParameter() {
 		return new HashMap<>(this.parameter);
 	}
+	
+	@Override
+	public String toString() {
+		return this.parameter.toString();
+	}
 }

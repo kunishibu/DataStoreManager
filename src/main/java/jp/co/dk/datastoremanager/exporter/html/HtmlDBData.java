@@ -1,30 +1,23 @@
 package jp.co.dk.datastoremanager.exporter.html;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import jp.co.dk.datastoremanager.exception.DataStoreExporterException;
-import jp.co.dk.datastoremanager.exception.DataStoreExporterFatalException;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 import jp.co.dk.datastoremanager.rdb.AbstractDataBaseAccessObject;
 import jp.co.dk.datastoremanager.rdb.ColumnMetaData;
 import jp.co.dk.datastoremanager.rdb.DataBaseRecord;
 import jp.co.dk.datastoremanager.rdb.DataConvertable;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import static jp.co.dk.datastoremanager.message.DataStoreExporterMessage.*;
 
@@ -36,18 +29,16 @@ public class HtmlDBData {
 	
 	protected Document document;
 	
-	protected Element htmlElement;
-	
 	protected Element headElement;
 	
 	protected Element metaElement;
 	
+	protected Element styleElement;
+	
 	protected Element bodyElement;
 	
-	protected NodeList dataList;
+	protected Element dataElement;
 	
-	protected Element cssElement;
-
 	public static HtmlDBData create(File outfile, AbstractDataBaseAccessObject dao) {
 		return new HtmlDBData(FileType.CREATE, outfile, dao);
 	}
@@ -56,103 +47,140 @@ public class HtmlDBData {
 		return new HtmlDBData(FileType.READ  , outfile, dao);
 	}
 	
-	protected HtmlDBData(FileType type, File outfile, AbstractDataBaseAccessObject dao) throws DataStoreExporterFatalException {
-		try {
+	public static HtmlDBData auto(File outfile, AbstractDataBaseAccessObject dao) {
+		if (outfile.exists() && outfile.isFile()) {
+			return new HtmlDBData(FileType.READ  , outfile, dao);
+		} else if (outfile.exists() && outfile.isDirectory()) {
+			// TODO 
+			return null;
+		} else {
+			return new HtmlDBData(FileType.CREATE  , outfile, dao);
+		}
+	}
+	
+	protected HtmlDBData(FileType type, File outfile, AbstractDataBaseAccessObject dao) {
 			this.file        = outfile;
 			this.dao         = dao;
 			
 			if (type == FileType.CREATE) {
-				DocumentBuilder docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-				this.document    = docBuilder.newDocument();
-				this.htmlElement = this.document.createElement("html");
-				this.headElement = this.document.createElement("head");
-				this.bodyElement = this.document.createElement("body");
-				this.cssElement  = this.document.createElement("style");
-				this.dataList    = this.bodyElement.getChildNodes();
+				this.document     = Jsoup.parse("<html></html>");
+				this.headElement  = this.document.head();
+				this.bodyElement  = this.document.body();
 				
-				this.htmlElement.appendChild(this.headElement);
-				this.htmlElement.appendChild(this.bodyElement);
-				this.htmlElement.appendChild(this.cssElement);
-				this.document.appendChild(this.htmlElement);
+				this.metaElement  = this.document.createElement("meta");
+				this.metaElement.attr("http-equiv", "Content-Type");
+				this.metaElement.attr("content"   , "text/html; charset=UTF-8");
+				this.headElement.appendChild(this.metaElement);
 				
-				this.cssElement.setTextContent(".header{background-color: #00bfff;}");
+				this.styleElement = this.document.createElement("style");
+				this.styleElement.appendText(".header_name{background-color: #4682B4;} ");
+				this.styleElement.appendText(".header_type{background-color: #B0C4DE;} ");
+				this.headElement.appendChild(this.styleElement);
+				
+				this.dataElement  = this.document.createElement("div");
+				this.dataElement.attr("id", "datalist");
+				this.bodyElement.appendChild(this.dataElement);
 				
 			} else {
-				DocumentBuilderFactory docBuilderFactory= DocumentBuilderFactory.newInstance();
-				docBuilderFactory.setValidating(false);
-				DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-				
-				this.document    = docBuilder.parse(this.file);
-				this.htmlElement = (Element) this.document.getDocumentElement();
-				this.headElement = (Element) this.htmlElement.getElementsByTagName("HEAD").item(0);
-				this.bodyElement = (Element) this.htmlElement.getElementsByTagName("body").item(0);
-				this.cssElement  = (Element) this.htmlElement.getElementsByTagName("style").item(0);
-				this.dataList    = this.bodyElement.getChildNodes();
+				try {
+					this.document     = Jsoup.parse(this.file, "UTF-8");
+					this.headElement  = this.document.head();
+					this.bodyElement  = this.document.body();
+					
+					this.metaElement  = this.document.getElementsByTag("meta").get(0);
+					this.styleElement = this.document.getElementsByTag("style").get(0);
+					
+					this.dataElement  = this.document.getElementById("datalist");
+				} catch (IOException e) {
+					// TODO 
+				}
 			}
-		} catch (ParserConfigurationException e) {
-			throw new DataStoreExporterFatalException(FAILED_TO_GENERATE_HTML);
-		} catch (SAXException e) {
-			throw new DataStoreExporterFatalException(FAILED_TO_GENERATE_HTML);
-		} catch (IOException e) {
-			throw new DataStoreExporterFatalException(FAILED_TO_GENERATE_HTML);
-		}
 	}
 	
-	public void write(jp.co.dk.datastoremanager.exporter.Sql sql) throws DataStoreManagerException {
+	public void write(jp.co.dk.datastoremanager.exporter.SqlFile sqlfile) throws DataStoreManagerException {
+		Element dataTable  = this.document.createElement("table");
 		
-		Element dataDiv  = this.createNode("div");
+		Element headerTr = this.document.createElement("tr");
+		dataTable.appendChild(headerTr);
 		
-		Element dataLabel = this.createNode("label");
-		dataLabel.setTextContent(sql.toString());
+		Element headerTh = this.document.createElement("th");
+		headerTr.appendChild(headerTh);
 		
-		Element dataTable = this.createNode("table");
-		dataTable.setAttribute("border", "1");
-		Element headerTr      = this.createNode("tr");
-		Element headerTypeTr  = this.createNode("tr");
-		headerTr.setAttribute("class", "header");
-		headerTypeTr.setAttribute("class", "header");
+		Element underbar = this.document.createElement("u");
+		underbar.appendText(sqlfile.toString() + "@" + new SimpleDateFormat("yyyy/MM/dd '-' HH:mm:ss z").format(new Date()));
+		headerTh.appendChild(underbar);
+	    
+		
+		for (jp.co.dk.datastoremanager.exporter.Sql sql : sqlfile.getSqlList()) {
+			Element oneSqlTr = this.document.createElement("tr");
+			dataTable.appendChild(oneSqlTr);
+			
+			Element oneSqlTd = this.document.createElement("td");
+			oneSqlTr.appendChild(oneSqlTd);
+			
+			Element oneSqlDiv   = this.document.createElement("div");
+			oneSqlDiv.addClass("onesqldata");
+			oneSqlTd.appendChild(oneSqlDiv);
+			
+			Element sqlStr      = this.document.createElement("label");
+			sqlStr.appendText(sql.toString());
+			oneSqlDiv.appendChild(sqlStr);
+			
+			Element oneSqlTable = this.getResult(sql);
+			oneSqlDiv.appendChild(oneSqlTable);
+			
+		}
+		
+		this.dataElement.appendChild(dataTable);
+	}
+	
+	protected Element getResult(jp.co.dk.datastoremanager.exporter.Sql sql) throws DataStoreManagerException {
+		
+		Element dataTable = this.document.createElement("table");
+		dataTable.attr("border", "1");
+		
+		Element headerTr      = this.document.createElement("tr");
+		headerTr.attr("class", "header_name");
+		
+		Element headerTypeTr  = this.document.createElement("tr");
+		headerTypeTr.attr("class", "header_type");
 		
 		this.dao.selectMulti(sql, new DataConvertable() {
 			public DataConvertable convert(DataBaseRecord dataBaseRecord) throws DataStoreManagerException {
 				if (dataBaseRecord.getRowIndex() == 1) {
 					for (ColumnMetaData columnMetaData : dataBaseRecord.getColumns()) {
-						Element headerTd     = createNode("td");
-						Element headerTypeTd = createNode("td");
-						
-						headerTd.setTextContent(columnMetaData.getColumnname());
-						headerTypeTd.setTextContent(columnMetaData.getColumnType());
-						
+						Element headerTd     = document.createElement("td");
+						headerTd.appendText(columnMetaData.getColumnname());
 						headerTr.appendChild(headerTd);
+						
+						Element headerTypeTd = document.createElement("td");
+						headerTypeTd.appendText(columnMetaData.getColumnType());
 						headerTypeTr.appendChild(headerTypeTd);
 					}
 					dataTable.appendChild(headerTr);
 					dataTable.appendChild(headerTypeTr);
 				}
-				Element dataTr = createNode("tr");
+				Element dataTr = document.createElement("tr");
 				for (ColumnMetaData columnMetaData : dataBaseRecord.getColumns()) {
-					Element dataTd = createNode("td");
-					dataTd.setTextContent(dataBaseRecord.getString(columnMetaData.getColumnname()));
+					Element dataTd = document.createElement("td");
+					dataTd.appendText(dataBaseRecord.getString(columnMetaData.getColumnname()));
 					dataTr.appendChild(dataTd);
 					dataTable.appendChild(dataTr);
 				}
 				return null;
 			}
 		});
-		dataDiv.appendChild(dataLabel);
-		dataDiv.appendChild(dataTable);
-		this.bodyElement.appendChild(dataDiv);		
-	}
-	
-	protected Element createNode(String tagName) {
-		return this.document.createElement(tagName);
+		
+		return dataTable;
 	}
 	
 	public void write() throws DataStoreExporterException {
-		try {
-			TransformerFactory tfactory = TransformerFactory.newInstance(); 
-	        Transformer transformer = tfactory.newTransformer();
-	        transformer.transform(new DOMSource(this.document), new StreamResult(this.file));
-		} catch (TransformerException e) {
+		System.out.println(this.document.html());
+		
+		try (PrintWriter writer = new PrintWriter(this.file, "UTF-8")) {
+			writer.write(this.document.html());
+			writer.flush();
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			throw new DataStoreExporterException(FAILED_TO_CREATE_HTML, this.file.toString());
 		}
 	}

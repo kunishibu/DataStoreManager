@@ -33,6 +33,9 @@ public class SqlFile {
 	/** 未入力フォーマット */
 	protected static Pattern nothingFormat = Pattern.compile("^ +$");
 	
+	/** SQLファイル */
+	protected File sqlFile;
+	
 	/** SQL一覧 */
 	protected List<Sql> sqlList = new ArrayList<>();
 	
@@ -52,6 +55,7 @@ public class SqlFile {
 	 * @throws DataStoreExporterException 不正な変数定義が存在した場合
 	 */
 	public SqlFile(File file) throws DataStoreManagerException, DataStoreExporterException {
+		this.sqlFile = file;
 		List<String> lines = new ArrayList<String>();
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader( new FileInputStream(file)))) {
 			String line ;
@@ -82,4 +86,9 @@ public class SqlFile {
 		for (Sql sql : this.sqlList) sql.setParameter(parameter);
 	}
 	
+	
+	@Override
+	public String toString() {
+		return this.sqlFile.toString();
+	}
 }
