@@ -1,6 +1,8 @@
 package jp.co.dk.datastoremanager.exporter.html;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,10 +23,14 @@ import jp.co.dk.datastoremanager.rdb.DataConvertable;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import static jp.co.dk.datastoremanager.message.DataStoreExporterMessage.*;
 
 public class HtmlDBData {
+	
+	protected File file;
 	
 	protected AbstractDataBaseAccessObject dao;
 	
@@ -34,33 +40,67 @@ public class HtmlDBData {
 	
 	protected Element headElement;
 	
+	protected Element metaElement;
+	
 	protected Element bodyElement;
 	
-	protected Element cssElement;
+	protected NodeList dataList;
 	
-	public HtmlDBData(AbstractDataBaseAccessObject dao) throws DataStoreExporterFatalException {
+	protected Element cssElement;
+
+	public static HtmlDBData create(File outfile, AbstractDataBaseAccessObject dao) {
+		return new HtmlDBData(FileType.CREATE, outfile, dao);
+	}
+	
+	public static HtmlDBData read(File outfile, AbstractDataBaseAccessObject dao) {
+		return new HtmlDBData(FileType.READ  , outfile, dao);
+	}
+	
+	protected HtmlDBData(FileType type, File outfile, AbstractDataBaseAccessObject dao) throws DataStoreExporterFatalException {
 		try {
+			this.file        = outfile;
 			this.dao         = dao;
 			
-			DocumentBuilder docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-			this.document    = docBuilder.newDocument();
-			
-			this.htmlElement = this.document.createElement("html");
-			this.headElement = this.document.createElement("head");
-			this.bodyElement = this.document.createElement("body");
-			this.cssElement  = this.document.createElement("style");
-			
-			this.htmlElement.appendChild(this.headElement);
-			this.htmlElement.appendChild(this.bodyElement);
-			this.htmlElement.appendChild(this.cssElement);
-			
-			this.document.appendChild(this.htmlElement);
+			if (type == FileType.CREATE) {
+				DocumentBuilder docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+				this.document    = docBuilder.newDocument();
+				this.htmlElement = this.document.createElement("html");
+				this.headElement = this.document.createElement("head");
+				this.bodyElement = this.document.createElement("body");
+				this.cssElement  = this.document.createElement("style");
+				this.dataList    = this.bodyElement.getChildNodes();
+				
+				this.htmlElement.appendChild(this.headElement);
+				this.htmlElement.appendChild(this.bodyElement);
+				this.htmlElement.appendChild(this.cssElement);
+				this.document.appendChild(this.htmlElement);
+				
+				this.cssElement.setTextContent(".header{background-color: #00bfff;}");
+				
+			} else {
+				DocumentBuilderFactory docBuilderFactory= DocumentBuilderFactory.newInstance();
+				docBuilderFactory.setValidating(false);
+				DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+				
+				this.document    = docBuilder.parse(this.file);
+				this.htmlElement = (Element) this.document.getDocumentElement();
+				this.headElement = (Element) this.htmlElement.getElementsByTagName("HEAD").item(0);
+				this.bodyElement = (Element) this.htmlElement.getElementsByTagName("body").item(0);
+				this.cssElement  = (Element) this.htmlElement.getElementsByTagName("style").item(0);
+				this.dataList    = this.bodyElement.getChildNodes();
+			}
 		} catch (ParserConfigurationException e) {
+			throw new DataStoreExporterFatalException(FAILED_TO_GENERATE_HTML);
+		} catch (SAXException e) {
+			throw new DataStoreExporterFatalException(FAILED_TO_GENERATE_HTML);
+		} catch (IOException e) {
 			throw new DataStoreExporterFatalException(FAILED_TO_GENERATE_HTML);
 		}
 	}
 	
 	public void write(jp.co.dk.datastoremanager.exporter.Sql sql) throws DataStoreManagerException {
+		
+		Element dataDiv  = this.createNode("div");
 		
 		Element dataLabel = this.createNode("label");
 		dataLabel.setTextContent(sql.toString());
@@ -71,8 +111,6 @@ public class HtmlDBData {
 		Element headerTypeTr  = this.createNode("tr");
 		headerTr.setAttribute("class", "header");
 		headerTypeTr.setAttribute("class", "header");
-		
-		this.cssElement.setTextContent(".header{background-color: #00bfff;}");
 		
 		this.dao.selectMulti(sql, new DataConvertable() {
 			public DataConvertable convert(DataBaseRecord dataBaseRecord) throws DataStoreManagerException {
@@ -100,22 +138,28 @@ public class HtmlDBData {
 				return null;
 			}
 		});
-		this.bodyElement.appendChild(dataLabel);
-		this.bodyElement.appendChild(dataTable);
+		dataDiv.appendChild(dataLabel);
+		dataDiv.appendChild(dataTable);
+		this.bodyElement.appendChild(dataDiv);		
 	}
 	
 	protected Element createNode(String tagName) {
 		return this.document.createElement(tagName);
 	}
 	
-	public void write(File outfile) throws DataStoreExporterException {
+	public void write() throws DataStoreExporterException {
 		try {
 			TransformerFactory tfactory = TransformerFactory.newInstance(); 
 	        Transformer transformer = tfactory.newTransformer();
-	        transformer.transform(new DOMSource(this.document), new StreamResult(outfile));
+	        transformer.transform(new DOMSource(this.document), new StreamResult(this.file));
 		} catch (TransformerException e) {
-			throw new DataStoreExporterException(FAILED_TO_CREATE_HTML, outfile.toString());
+			throw new DataStoreExporterException(FAILED_TO_CREATE_HTML, this.file.toString());
 		}
 	}
-	
+}
+
+enum FileType {
+	CREATE,
+	READ,
+	;
 }

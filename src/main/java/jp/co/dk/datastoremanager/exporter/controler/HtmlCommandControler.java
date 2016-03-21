@@ -32,9 +32,9 @@ public class HtmlCommandControler extends AbtractCommandControler {
 			SqlFile    sqlfile  = new SqlFile(sqlFile);
 			sqlfile.setParameter(parameter);
 			
-			HtmlDBData htmlDBData = new HtmlDBData(dao);
+			HtmlDBData htmlDBData = HtmlDBData.read(outputFile, dao);
 			for (jp.co.dk.datastoremanager.exporter.Sql sql : sqlfile.getSqlList()) htmlDBData.write(sql);
-			htmlDBData.write(outputFile);
+			htmlDBData.write();
 		} catch (DataStoreExporterException | DataStoreManagerException | PropertyException | IOException e) {
 			System.out.println(e.toString());
 			System.exit(1);
