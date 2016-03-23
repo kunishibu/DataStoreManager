@@ -160,6 +160,7 @@ public class HtmlDBData {
 					dataTable.appendChild(headerTr);
 					dataTable.appendChild(headerTypeTr);
 				}
+				
 				Element dataTr = document.createElement("tr");
 				for (ColumnMetaData columnMetaData : dataBaseRecord.getColumns()) {
 					Element dataTd = document.createElement("td");
@@ -167,6 +168,9 @@ public class HtmlDBData {
 					dataTr.appendChild(dataTd);
 					dataTable.appendChild(dataTr);
 				}
+				
+				dataTr.appendChild(document.createElement("td").attr("style", "display:none;").appendText(Integer.toString(dataTr.hashCode())));
+				
 				return null;
 			}
 		});
@@ -175,8 +179,6 @@ public class HtmlDBData {
 	}
 	
 	public void write() throws DataStoreExporterException {
-		System.out.println(this.document.html());
-		
 		try (PrintWriter writer = new PrintWriter(this.file, "UTF-8")) {
 			writer.write(this.document.html());
 			writer.flush();
