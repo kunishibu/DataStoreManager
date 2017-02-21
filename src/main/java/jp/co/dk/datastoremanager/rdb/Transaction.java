@@ -1,10 +1,12 @@
 package jp.co.dk.datastoremanager.rdb;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import jp.co.dk.datastoremanager.DataBaseDriverConstants;
@@ -279,6 +281,22 @@ class Transaction {
 			this.logger.info("rollback fin");
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_ROLLBACK, e);
+		}
+	}
+	
+	List<TableMetaData> getTables() throws DataStoreManagerException {
+		try {
+			List<TableMetaData> tables = new ArrayList<>();
+			DatabaseMetaData dbmd = this.connection.getMetaData();
+			String schema = this.dataBaseAccessParameter.getUser();
+			ResultSet rs = dbmd.getTables(null, schema, "%", new String[]{"TABLE"});
+			while (rs.next()) {
+			    String tableName = rs.getString("TABLE_NAME");
+			    tables.add(new TableMetaData(this, schema, tableName));
+			}
+			return tables;
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(FAILE_TO_CLOSE, e);
 		}
 	}
 	
