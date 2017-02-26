@@ -92,6 +92,10 @@ public class DataBaseDataStore implements DataStore {
 		return false;
 	}
 	
+	public List<TableMetaData> getTable() throws DataStoreManagerException {
+		return this.transaction.getTables();
+	}
+	
 	/**
 	 * 指定のSQLを実行し、テーブルを作成する。<p/>
 	 * テーブル作成に失敗した場合、例外を送出する。

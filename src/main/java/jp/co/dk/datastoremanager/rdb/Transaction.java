@@ -284,6 +284,13 @@ class Transaction {
 		}
 	}
 	
+	/**
+	 * このトランザクションが接続できるテーブルの一覧を取得する。<p/>
+	 * 取得できなかった場合、空のリストを返却する。
+	 * 
+	 * @return テーブル一覧 
+	 * @throws DataStoreManagerException テーブル情報の取得に失敗した場合
+	 */
 	List<TableMetaData> getTables() throws DataStoreManagerException {
 		try {
 			List<TableMetaData> tables = new ArrayList<>();
