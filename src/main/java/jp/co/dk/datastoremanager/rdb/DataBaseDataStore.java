@@ -43,7 +43,7 @@ public class DataBaseDataStore implements DataStore {
 	 * 
 	 * @param dataBaseAccessParameter データベースアクセスパラメータ
 	 */
-	DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
+	protected DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
 		this.logger.constractor(this.getClass(), dataBaseAccessParameter);
 		this.dataBaseAccessParameter = dataBaseAccessParameter;
 	}
@@ -90,6 +90,10 @@ public class DataBaseDataStore implements DataStore {
 	public boolean hasError() {
 		if (this.exceptionList.size() != 0) return true;
 		return false;
+	}
+	
+	public List<TableMetaData> getTable() throws DataStoreManagerException {
+		return this.transaction.getTables();
 	}
 	
 	/**

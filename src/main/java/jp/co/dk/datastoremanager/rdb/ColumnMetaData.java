@@ -1,5 +1,6 @@
 package jp.co.dk.datastoremanager.rdb;
 
+import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
@@ -11,9 +12,6 @@ import java.sql.SQLException;
  * @author D.Kanno
  */
 public class ColumnMetaData {
-	
-	/** メタデータオブジェクト */
-	protected ResultSetMetaData metadata;
 	
 	/** インデックス */
 	protected int index;
@@ -33,6 +31,9 @@ public class ColumnMetaData {
 	/** カラムタイプ */
 	protected String columnType;
 	
+	/** コメント */
+	protected String remarks;
+	
 	/**
 	 * <p>コンストラクタ</p>
 	 * ResultSetMetaDataと、インデックスを基にカラムメタデータオブジェクトを生成します。
@@ -42,13 +43,23 @@ public class ColumnMetaData {
 	 * @throws SQLException データベースアクセスエラーが発生した場合
 	 */
 	protected ColumnMetaData(ResultSetMetaData metaData, int index) throws SQLException {
-		this.metadata     = metaData;
 		this.index        = index;
 		this.databaseName = metaData.getCatalogName(index);
 		this.tableName    = metaData.getTableName(index);
 		this.columnname   = metaData.getColumnName(index);
+		this.remarks      = metaData.getColumnLabel(index);
 		this.size         = metaData.getColumnDisplaySize(index);
 		this.columnType   = metaData.getColumnTypeName(index);
+	}
+	
+	protected ColumnMetaData(ResultSet resultSet, int index) throws SQLException {
+		this.index        = index;
+		this.databaseName = resultSet.getString("TABLE_CAT");
+		this.tableName    = resultSet.getString("TABLE_NAME");
+		this.columnname   = resultSet.getString("COLUMN_NAME");
+		this.remarks      = resultSet.getString("REMARKS");
+		this.size         = resultSet.getInt("COLUMN_SIZE");
+		this.columnType   = resultSet.getString("TYPE_NAME");
 	}
 	
 	/**
@@ -89,35 +100,6 @@ public class ColumnMetaData {
 	 */
 	public String getColumnType() {
 		return columnType;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + index;
-		result = prime * result
-				+ ((metadata == null) ? 0 : metadata.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ColumnMetaData other = (ColumnMetaData) obj;
-		if (index != other.index)
-			return false;
-		if (metadata == null) {
-			if (other.metadata != null)
-				return false;
-		} else if (!metadata.equals(other.metadata))
-			return false;
-		return true;
 	}
 
 	@Override
