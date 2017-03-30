@@ -24,7 +24,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
 		// ==============================正常系==============================
 		// 引数に設定された接続先に接続出来た場合、インスタンス生成に成功し、フィールドに各値を保持していること
 		try {
-			Transaction target = new Transaction(this.getAccessableDataBaseAccessParameterRDB());
+			Transaction target = new Transaction(this.getAccessableDataBaseAccessParameterMYSQL());
 			assertNotNull(target.connection);
 			assertNotNull(target.dataBaseAccessParameter);
 		} catch (DataStoreManagerException e) {
@@ -42,7 +42,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
 		
 		// 引数に設定されたドライバークラスの読み込み出来なかった場合、例外が発生すること
 		try {
-			final DataBaseAccessParameter param = this.getAccessFaileDataBaseAccessParameterRDB();
+			final DataBaseAccessParameter param = this.getAccessFaileDataBaseAccessParameterMYSQL();
         	new Expectations(param) {{
         		param.getDriver(); result = DataBaseDriverConstants.POSTGRESSQL;
             }};
@@ -53,7 +53,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
 		
 		// 引数に設定された接続先に接続出来なかった場合、例外が発生すること
 		try {
-			final DataBaseAccessParameter param = this.getAccessFaileDataBaseAccessParameterRDB();
+			final DataBaseAccessParameter param = this.getAccessFaileDataBaseAccessParameterMYSQL();
             new Transaction(param);
 		} catch (DataStoreManagerException e) {
 			assertEquals(e.getMessageObj(), FAILE_TO_CREATE_CONNECTION);
@@ -63,7 +63,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
 	@Test
 	public void execute() throws DataStoreManagerException, ParseException {
 		
-		Transaction target = new Transaction(this.getAccessableDataBaseAccessParameterRDB());
+		Transaction target = new Transaction(this.getAccessableDataBaseAccessParameterMYSQL());
 		
 		// ＝＝＝＝＝＝＝＝テーブル作成＝＝＝＝＝＝＝＝
 		// テーブルを作成
@@ -146,7 +146,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
 	
 	@Test
 	public void getTables()throws DataStoreManagerException, ParseException, SQLException {
-		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameterRDB();
+		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameterMYSQL();
 		Transaction target = new Transaction(param);
 		List<TableMetaData> list = target.getTables();
 		List<ColumnMetaData> cplumns = list.get(0).getColumns();
@@ -157,7 +157,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
 	public void commit() throws DataStoreManagerException, ParseException, SQLException {
 		// ==============================正常系==============================
 		// ２つのトランザクションの間でSELECTを行った場合、コミットを行った場合に限り、他のトランザクションから参照可能になること
-		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameterRDB();
+		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameterMYSQL();
 		Transaction target_01 = new Transaction(param);
 		Transaction target_02 = new Transaction(param);
 		Transaction target_03 = new Transaction(param);
@@ -237,7 +237,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
 	@Test
 	public void rollback() throws DataStoreManagerException, ParseException, SQLException {
 		// ==============================正常系==============================
-		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameterRDB();
+		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameterMYSQL();
 		Transaction target_01 = new Transaction(param);
 		Transaction target_02 = new Transaction(param);
 		Transaction target_03 = new Transaction(param);
@@ -301,7 +301,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
 		
 		// ==============================異常系==============================
 		try {
-			DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameterRDB();
+			DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameterMYSQL();
 			Transaction target_01 = new Transaction(param);
 			target_01.close();
 			target_01.close();
@@ -312,7 +312,7 @@ public class TransactionTest extends DataStoreManagerTestFoundation{
 	
 	@Test
 	public void test_equals() throws DataStoreManagerException {
-		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameterRDB();
+		DataBaseAccessParameter param = this.getAccessableDataBaseAccessParameterMYSQL();
 		Transaction target_01 = new Transaction(param);
 		
 		List<Object> difflist = new ArrayList<Object>();

@@ -14,7 +14,27 @@ public class DataStoreManagerTestFoundation extends TestCaseTemplate{
 	 * @return DBアクセスパラメータ
 	 * @throws DataStoreManagerException 引数が不足していた場合
 	 */
-	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessableDataBaseAccessParameterRDB() throws DataStoreManagerException {
+	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessableDataBaseAccessParameterORACLE() throws DataStoreManagerException {
+		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, "jdbc:oracle:thin:@192.168.1.10:1521:XE", "usr01", "12345");
+	}
+	
+	/**
+	 * アクセス不可能なDBアクセスパラメータを設定したDataBaseAccessParameterを返却します。
+	 * 
+	 * @return DBアクセスパラメータ
+	 * @throws DataStoreManagerException 引数が不足していた場合
+	 */
+	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessFaileDataBaseAccessParameterORACLE() throws DataStoreManagerException {
+		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.ORACLE, DataBaseDriverConstants.ORACLE, "255.255.255.255:3306", "test_user", "123456");
+	}
+	
+	/**
+	 * アクセス可能なDBアクセスパラメータを設定したDataBaseAccessParameterを返却します。
+	 * 
+	 * @return DBアクセスパラメータ
+	 * @throws DataStoreManagerException 引数が不足していた場合
+	 */
+	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessableDataBaseAccessParameterMYSQL() throws DataStoreManagerException {
 		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=UTF-8", "test_user", "123456");
 	}
 	
@@ -24,7 +44,7 @@ public class DataStoreManagerTestFoundation extends TestCaseTemplate{
 	 * @return DBアクセスパラメータ
 	 * @throws DataStoreManagerException 引数が不足していた場合
 	 */
-	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessFaileDataBaseAccessParameterRDB() throws DataStoreManagerException {
+	protected jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter getAccessFaileDataBaseAccessParameterMYSQL() throws DataStoreManagerException {
 		return new jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter(DataStoreKind.MYSQL, DataBaseDriverConstants.MYSQL, "255.255.255.255:3306", "test_user", "123456");
 	}
 	

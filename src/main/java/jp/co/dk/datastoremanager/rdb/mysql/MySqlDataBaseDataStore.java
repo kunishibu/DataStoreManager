@@ -5,7 +5,9 @@ import jp.co.dk.datastoremanager.rdb.DataBaseDataStore;
 
 public class MySqlDataBaseDataStore extends DataBaseDataStore {
 
-	MySqlDataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
+	public MySqlDataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
 		super(dataBaseAccessParameter);
 	}
 }
+
+//  lk;++zxzzzzbvn yumlc                gf ,kn....... nm,. 

@@ -18,7 +18,7 @@ public class DataBaseAccessTest extends DataStoreManagerTestFoundation{
 	
 	@Test
 	public void access() throws DataStoreManagerException {
-		UserDaoImpl UserDaoImpl = new UserDaoImpl(super.getAccessableDataBaseAccessParameterRDB());
+		UserDaoImpl UserDaoImpl = new UserDaoImpl(super.getAccessableDataBaseAccessParameterMYSQL());
 		try {
 			//テーブルを作成 
 			UserDaoImpl.createTable();

@@ -64,7 +64,7 @@ public abstract class AbstractDataBaseAccessObject implements DataAccessObject{
 	protected AbstractDataBaseAccessObject(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {
 		this.logger.constractor(this.getClass(), dataBaseAccessParameter);
 		if (dataBaseAccessParameter == null) throw new DataStoreManagerException(DATA_ACCESS_OBJECT_IS_NOT_SET);
-		this.dataStore = new DataBaseDataStore(dataBaseAccessParameter);
+		this.dataStore = (DataBaseDataStore)dataBaseAccessParameter.createDataStore();
 		this.dataStore.startTransaction();
 	}
 	

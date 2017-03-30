@@ -43,14 +43,14 @@ public class DataBaseDataStore implements DataStore {
 	 * 
 	 * @param dataBaseAccessParameter データベースアクセスパラメータ
 	 */
-	protected DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
+	public DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
 		this.logger.constractor(this.getClass(), dataBaseAccessParameter);
 		this.dataBaseAccessParameter = dataBaseAccessParameter;
 	}
 	
 	@Override
 	public void startTransaction() throws DataStoreManagerException {
-		this.transaction = new Transaction(dataBaseAccessParameter);
+		this.transaction = this.createTransaction(dataBaseAccessParameter);
 	}
 
 	@Override
@@ -93,6 +93,7 @@ public class DataBaseDataStore implements DataStore {
 	}
 	
 	public List<TableMetaData> getTable() throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);
 		return this.transaction.getTables();
 	}
 	
@@ -208,6 +209,16 @@ public class DataBaseDataStore implements DataStore {
 			this.exceptionList.add(e);
 			throw e;
 		}
+	}
+	
+	/**
+	 * トランザクションを生成します</p>
+	 * 
+	 * @return トランザクション
+	 * @throws DataStoreManagerException トランザクション生成に失敗した場合
+	 */
+	protected Transaction createTransaction(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException {
+		return new Transaction(dataBaseAccessParameter);
 	}
 	
 	@Override

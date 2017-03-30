@@ -295,7 +295,7 @@ class Transaction {
 		try {
 			List<TableMetaData> tables = new ArrayList<>();
 			DatabaseMetaData dbmd = this.connection.getMetaData();
-			String schema = this.dataBaseAccessParameter.getUser();
+			String schema = this.dataBaseAccessParameter.getUser().toUpperCase();
 			ResultSet rs = dbmd.getTables(null, schema, "%", new String[]{"TABLE"});
 			while (rs.next()) {
 			    String tableName = rs.getString("TABLE_NAME");
