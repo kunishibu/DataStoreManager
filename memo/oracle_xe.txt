@@ -1,0 +1,101 @@
+# ファイル転送
+scp oracle-xe-11.2.0-1.0.x86_64.rpm.zip root@192.168.1.10:~
+
+# 必要なライブラリを取得
+sudo yum -y install glibc make gcc binutils libaio libaio-devel bc unzip
+
+# スワップ領域の拡張
+dd if=/dev/zero of=/swapfileadd bs=1024K count=2048
+chmod 600 /swapfileadd
+mkswap /swapfileadd
+swapon /swapfileadd
+free
+
+# Oracleのインストール
+unzip oracle-xe-11.2.0-1.0.x86_64.rpm.zip
+rpm -ivh Disk1/oracle-xe-11.2.0-1.0.x86_64.rpm
+
+# 各種パラメータを設定
+/etc/init.d/oracle-xe configure
+
+　・Oracle Application Express ポート（デフォルト：8080）
+　・Oracleリスナーポート（デフォルト：1521）
+　・Oracle ユーザ SYS と SYSTEM のパスワード（入力必須）
+　・システム起動時の自動実行の設定（デフォルト：y）
+
+# Oracle XE のインストールが終了すると Oracle ユーザが作成されているのでパスワードを変更すること。
+sudo passwd oracle
+
+# /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh に以下の文を追加します。
+# ※いらなかった・・・かも？
+# vi /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh
+# export ORACLE_BASE=/u01/app/oracle
+# export LD_LIBRARY_PATH=$ORACLE_HOME/lib/:/lib:/usr/lib
+# export NLS_LANG=Japanese_Japan.AL32UTF8
+# export NLS_DATE_FORMAT='YYYY/MM/DD HH24:MI:SS'
+
+# sqlplus を使用しデータベースに接続してみる
+su - oracle
+. /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh
+sqlplus /nolog
+conn system
+
+# ORA-01033: ORACLE initialization or shutdown in progressが出た時は・・・
+# sqlplus /nolog
+# connect sys/oracle as sysdba
+# shutdown normal
+# startup mount
+# recover database
+# alter database open;
+
+# 起動
+# /etc/init.d/oracle-xe stop
+# /etc/init.d/oracle-xe start
+
+
+
+# スキーマ作成
+create user usr01 identified by 12345;
+grant CONNECT,RESOURCE to usr01;
+quit
+
+# 作成したスキーマで接続
+sqlplus usr01/12345
+
+# テーブル作成
+create table emp
+(
+　　emp_id char(3) ,
+　　emp_name varchar2(10),
+　　primary key( emp_id )
+);
+
+
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+■CentOS6の場合は！！
+
+クライアントからCENTOS内のOracleにアクセスする際にポートに穴を開ける必要有り！！
+
+#iptablesの設定を編集
+$ vi /etc/sysconfig/iptables
+ 
+# SSH
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+# Oracle XE
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 1521 -j ACCEPT
+ 
+#iptablesの再起動
+$ /etc/rc.d/init.d/iptables restart
+
+
+■CentOS7の場合は！！
+firewallがデフォルトONになっているのでOFFにしないと接続出来ない！！
+# systemctl stop firewalld
+
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+
+### 参考
+http://qiita.com/murachi1208/items/36a226c40fdb8436ec7a
+
+## テーブルに関する便利コマンド達
+http://centromezzo.sakura.ne.jp/wiki/?ORACLE%2FTABLESPACE

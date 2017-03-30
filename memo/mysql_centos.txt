@@ -1,0 +1,81 @@
+# CentOS 7 には mariaDB という MySQL 互換のデータベースサーバーがデフォルトでインストールされている場合がありますので、
+# これからインストールする MySQL と競合を起こさないように削除しておきましょう。 つぎのコマンドのように mariaDB 本体とデータフォルダを削除しておきます。
+yum remove mariadb-libs
+rm -rf /var/lib/mysql/
+
+# MySQL 公式 yum リポジトリの追加
+yum localinstall http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm
+
+# インスコ
+yum -y install mysql-community-server
+
+# バージョン確認
+mysqld --version
+
+
+# 起動と停止
+# インストールが完了したら、まずはサーバーを起動したら自動的に MySQL Server が起動するように設定しましょう。 systemctl コマンドを利用します。
+systemctl enable mysqld.service
+
+# それでは MySQL Server を起動してみましょう。 systemctl start mysqld.service コマンドで起動できます。 
+# MySQL 5.7 では、管理者ユーザである root のパスワードはランダムな文字のものが初期状態で設定されます。 
+# パスワードはインストールの終了とともに /var/log/mysqld.log に出力されます。 
+# 初期パスワードは変更するのを忘れないようにしましょう。
+systemctl start mysqld.service
+
+# パスワードを覚えておく
+grep "temporary password" /var/log/mysqld.log
+
+# 接続
+mysql -u root -p
+
+# パスワード変更
+ALTER USER 'root'@'localhost' IDENTIFIED BY '!QAZ2wsx';
+
+#################################### 文字コードの確認
+show variables like 'character_set%';
+
+#################################### mysqlデータベース作成
+create database test_db;
+
+#################################### ユーザ作成
+grant all privileges on test_db.* to test_user@"%" identified by '!QAZ2wsx' with grant option;
+
+#################################### 作成したユーザにてMYSQLに再接続
+mysql -u test_user -h [host] [データベース名] -p
+例：mysql -u test_user -h 192.168.11.13 test_db -p
+
+#################################### テーブル作成
+create table USERS(
+  name varchar(10),
+  age  int(3)
+);
+
+#################################### レコード作成
+insert into USERS (name, age) values ('1234567890', 20);
+
+#################################### レコード取得
+select * from USERS;
+
+################################################################################################################################################
+#################################### 一般ユーザの作成
+ユーザー名： db_user　パスワード： 123456　
+
+構文
+GRANT権限 ON *.* TO ユーザ名 IDENTIFIED BY 'パスワード'　WITH GRANT OPTION;
+
+全ての権限を与えた場合
+ALL PRIVILEGES　　　　　　　　＝全ての権限を与える
+WITH GRANT OPTION　　　　 ＝権限の書き換えを許可する
+
+grant select,insert,delete,update,create,drop,file,alter,index on *.* to db_user identified by '123456';
+
+使用例
+mysql> GRANT ALL PRIVILEGES ON *.* TO dk IDENTIFIED BY 'aaa' WITH GRANT OPTION;
+
+
+# また、停止する時は systemctl stop mysqld.service コマンドです。
+systemctl stop mysqld.service
+
+# 参考
+http://weblabo.oscasierra.net/installing-mysql57-centos7-yum/
