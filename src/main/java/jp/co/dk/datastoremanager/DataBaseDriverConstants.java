@@ -1,6 +1,5 @@
 package jp.co.dk.datastoremanager;
 
-
 /**
  * DataBaseDriverConstantsは、各種データベースに接続する際のデータベースドライバー、接続先URLを定義する定数クラスです。
  * 
@@ -10,13 +9,33 @@ package jp.co.dk.datastoremanager;
 public enum DataBaseDriverConstants {
 	
 	/** ORACLE */
-	ORACLE("jdbc:oracle:thin:@servername:databasename", "oracle.jdbc.driver.OracleDriver", DataStoreKind.ORACLE),
+	ORACLE("jdbc:oracle:thin:@servername:databasename", "oracle.jdbc.driver.OracleDriver", DataStoreKind.ORACLE, new DataStoreFactory(){
+		@Override
+		public DataStore createDataStore(DataStoreParameter dataStoreParameter) {
+			return new jp.co.dk.datastoremanager.rdb.oracle.OracleDataBaseDataStore((jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter)dataStoreParameter);
+		}
+	}),
 	/** MYSQL */
-	MYSQL("jdbc:mysql://servername/databasename", "com.mysql.jdbc.Driver", DataStoreKind.MYSQL),
+	MYSQL("jdbc:mysql://servername/databasename", "com.mysql.jdbc.Driver", DataStoreKind.MYSQL, new DataStoreFactory(){
+		@Override
+		public DataStore createDataStore(DataStoreParameter dataStoreParameter) {
+			return new jp.co.dk.datastoremanager.rdb.mysql.MySqlDataBaseDataStore((jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter)dataStoreParameter);
+		}
+	}),
 	/** POSTGRESSQL */
-	POSTGRESSQL("jdbc:postgresql://servername/databasename", "org.postgresql.Driver", DataStoreKind.POSTGRESQL),
+	POSTGRESSQL("jdbc:postgresql://servername/databasename", "org.postgresql.Driver", DataStoreKind.POSTGRESQL, new DataStoreFactory(){
+		@Override
+		public DataStore createDataStore(DataStoreParameter dataStoreParameter) {
+			return new jp.co.dk.datastoremanager.rdb.postgressql.PostgresSqlDataBaseDataStore((jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter)dataStoreParameter);
+		}
+	}),
 	/** NEO4J */
-	NEO4J("jdbc:neo4j://servername", "org.neo4j.jdbc.Driver", DataStoreKind.NEO4J),
+	NEO4J("jdbc:neo4j://servername", "org.neo4j.jdbc.Driver", DataStoreKind.NEO4J, new DataStoreFactory(){
+		@Override
+		public DataStore createDataStore(DataStoreParameter dataStoreParameter) {
+			return new jp.co.dk.datastoremanager.gdb.DataBaseDataStore((jp.co.dk.datastoremanager.gdb.DataBaseAccessParameter)dataStoreParameter);
+		}
+	}),
 	;
 	
 	/** URL */
@@ -28,6 +47,9 @@ public enum DataBaseDriverConstants {
 	/** データストア種別 */
 	private DataStoreKind dataStoreKind;
 	
+	/** データストアファクトリー */
+	private DataStoreFactory dataStoreFactory;
+	
 	/**
 	 * コンストラクタ<p/>
 	 * 指定のデータベース接続時のURL固定部、ドライバークラス名、データストア種別を元に各種データベースに接続する際のデータベースドライバー定数クラスを生成する。
@@ -36,10 +58,11 @@ public enum DataBaseDriverConstants {
 	 * @param driverClass   ドライバークラス名
 	 * @param dataStoreKind データストア種別
 	 */
-	private DataBaseDriverConstants(String url, String driverClass, DataStoreKind dataStoreKind) {
-		this.url           = url;
-		this.driverClass   = driverClass;
-		this.dataStoreKind = dataStoreKind;
+	private DataBaseDriverConstants(String url, String driverClass, DataStoreKind dataStoreKind, DataStoreFactory dataStoreFactory) {
+		this.url              = url;
+		this.driverClass      = driverClass;
+		this.dataStoreKind    = dataStoreKind;
+		this.dataStoreFactory = dataStoreFactory;
 	}
 	
 	/**
@@ -73,6 +96,7 @@ public enum DataBaseDriverConstants {
 	public String getDriverClass() {
 		return this.driverClass;
 	}
+	
 	/**
 	 * データストア種別を取得する。
 	 * 
@@ -80,6 +104,15 @@ public enum DataBaseDriverConstants {
 	 */
 	public DataStoreKind getDataStoreKind() {
 		return this.dataStoreKind;
+	}
+	
+	/**
+	 * データストアファクトリを取得する。
+	 * 
+	 * @return データストアファクトリ
+	 */
+	public DataStoreFactory getDataStoreFactory() {
+		return this.dataStoreFactory;
 	}
 	
 }

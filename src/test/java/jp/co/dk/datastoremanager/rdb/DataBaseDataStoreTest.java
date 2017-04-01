@@ -22,7 +22,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 		// ==============================正常系==============================
 		// アクセス可能なデータアクセスパラメータを設定した場合、正常にインスタンス生成ができること
 		try {
-			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			assertNotNull(dataBaseDataStore.dataBaseAccessParameter);
 		} catch (DataStoreManagerException e) {
 			fail(e);
@@ -30,7 +30,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 		
 		// アクセス不可能なデータアクセスパラメータを設定した場合、正常にインスタンス生成ができること
 		try {
-			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessFaileDataBaseAccessParameterRDB());
+			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessFaileDataBaseAccessParameterMYSQL());
 			assertNotNull(dataBaseDataStore.dataBaseAccessParameter);
 		} catch (DataStoreManagerException e) {
 			fail(e);
@@ -42,7 +42,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 		// ==============================正常系==============================
 		// アクセス可能なデータアクセスパラメータを設定した場合、正常にインスタンス生成でき、トランザクションが開始できること
 		try {
-			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			dataBaseDataStore.startTransaction();
 			assertNotNull(dataBaseDataStore.transaction);
 		} catch (DataStoreManagerException e) {
@@ -52,7 +52,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 		// ==============================異常系==============================
 		// アクセス不可能なデータアクセスパラメータを設定した場合、正常にインスタンス生成ができ、トランザクション開始時に例外が発生すること
 		try {
-			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessFaileDataBaseAccessParameterRDB());
+			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessFaileDataBaseAccessParameterMYSQL());
 			dataBaseDataStore.startTransaction();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -66,7 +66,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 		// アクセス可能なデータアクセスパラメータを設定した場合、正常にインスタンス生成ができること
 		// トランザクション開始し、データアクセスオブジェクトを取得した場合、正常に取得できること。
 		try {
-			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			dataBaseDataStore.startTransaction();
 			UsersDao dao = (UsersDao)dataBaseDataStore.getDataAccessObject(DataStoreDaoConstantsTest.USERS);
 			assertTrue(dao instanceof UsersDao);
@@ -78,7 +78,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 		// アクセス可能なデータアクセスパラメータを設定した場合、正常にインスタンス生成ができること
 		// トランザクション開始せずに、データアクセスオブジェクトを取得した場合、例外が発生されること
 		try {
-			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			dataBaseDataStore.getDataAccessObject(DataStoreDaoConstantsTest.USERS);
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -92,7 +92,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 		// アクセス可能なデータアクセスパラメータを設定した場合、正常にインスタンス生成でき、トランザクションが開始されている場合、
 		// trueが返却されること。トランザクション終了後、トランザクション状態はfalseを返却されること。
 		try {
-			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			dataBaseDataStore.startTransaction();
 			assertTrue(dataBaseDataStore.isTransaction());
 			dataBaseDataStore.finishTransaction();
@@ -105,7 +105,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 		// アクセス可能なデータアクセスパラメータを設定した場合、正常にインスタンス生成でき、トランザクションが開始前に
 		// トランザクション終了が実行された場合、例外が送出されること。
 		try {
-			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			dataBaseDataStore.finishTransaction();
 			fail();
 		} catch (DataStoreManagerException e) {
@@ -119,7 +119,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 		// アクセス可能なデータアクセスパラメータを設定した場合、正常にインスタンス生成でき、トランザクションが開始されている場合、
 		// trueが返却されること
 		try {
-			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			dataBaseDataStore.startTransaction();
 			assertTrue(dataBaseDataStore.isTransaction());
 		} catch (DataStoreManagerException e) {
@@ -129,7 +129,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 		// アクセス可能なデータアクセスパラメータを設定した場合、正常にインスタンス生成でき、トランザクションが開始されていない場合、
 		// falseが返却されること
 		try {
-			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessFaileDataBaseAccessParameterRDB());
+			DataBaseDataStore dataBaseDataStore = new DataBaseDataStore(super.getAccessFaileDataBaseAccessParameterMYSQL());
 			assertFalse(dataBaseDataStore.isTransaction());
 		} catch (DataStoreManagerException e) {
 			fail(e);
@@ -139,7 +139,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 	@Test
 	public void test_executeSqls() throws DataStoreManagerException, ParseException {
 		// ==============================正常系==============================
-		DataBaseDataStore target01 = new DataBaseDataStore(this.getAccessableDataBaseAccessParameterRDB());
+		DataBaseDataStore target01 = new DataBaseDataStore(this.getAccessableDataBaseAccessParameterMYSQL());
 		target01.startTransaction();
 		// ＝＝＝＝＝＝＝＝テーブル作成＝＝＝＝＝＝＝＝
 		// テーブルを作成
@@ -219,7 +219,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 		target01.finishTransaction();
 		
 		// ==============================異常系==============================
-		DataBaseDataStore target02 = new DataBaseDataStore(this.getAccessableDataBaseAccessParameterRDB());
+		DataBaseDataStore target02 = new DataBaseDataStore(this.getAccessableDataBaseAccessParameterORACLE());
 		// ＝＝＝＝＝＝＝＝テーブル作成＝＝＝＝＝＝＝＝
 		try {
 			target02.createTable(createTableSql());
@@ -267,30 +267,42 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 	}
 	
 	@Test
+	public void getTable() {
+		try {
+			DataBaseDataStore target = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterORACLE());
+			target.startTransaction();
+			List<TableMetaData> tableList = target.getTable();
+			assertThat(tableList.size(), is(1));
+		} catch (DataStoreManagerException e) {
+			fail(e);
+		}
+	}
+	
+	@Test
 	public void test_equals() {
 		try {
 			// トランザクション開始前は同一のパラメータで有るため、hashcode、qualsは一致すること
-			DataBaseDataStore target_01_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
-			DataBaseDataStore target_01_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
-			DataBaseDataStore target_01_03 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore target_01_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
+			DataBaseDataStore target_01_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
+			DataBaseDataStore target_01_03 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			List<Object> faileList_01 = new ArrayList<Object>();
-			DataBaseDataStore fail_01_01 = new DataBaseDataStore(super.getAccessFaileDataBaseAccessParameterRDB());
+			DataBaseDataStore fail_01_01 = new DataBaseDataStore(super.getAccessFaileDataBaseAccessParameterMYSQL());
 			faileList_01.add(fail_01_01);
 			testEquals(target_01_01, target_01_02, target_01_03, faileList_01);
 			
-			DataBaseDataStore target_02_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
-			DataBaseDataStore target_02_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore target_02_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
+			DataBaseDataStore target_02_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			target_02_02.startTransaction();
 			assertFalse(target_02_01.equals(target_02_02));
 			
-			DataBaseDataStore target_03_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore target_03_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			target_03_01.startTransaction();
-			DataBaseDataStore target_03_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore target_03_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			assertFalse(target_03_01.equals(target_03_02));
 			
-			DataBaseDataStore target_04_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore target_04_01 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			target_04_01.startTransaction();
-			DataBaseDataStore target_04_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterRDB());
+			DataBaseDataStore target_04_02 = new DataBaseDataStore(super.getAccessableDataBaseAccessParameterMYSQL());
 			target_04_02.startTransaction();
 			assertTrue(target_04_01.equals(target_04_01));
 			assertFalse(target_04_01.equals(target_04_02));
@@ -303,7 +315,7 @@ public class DataBaseDataStoreTest extends DataStoreManagerTestFoundation{
 	@Test
 	public void test_tostring() {
 		try {
-			DataBaseAccessParameter param = super.getAccessableDataBaseAccessParameterRDB();
+			DataBaseAccessParameter param = super.getAccessableDataBaseAccessParameterMYSQL();
 			DataBaseDataStore target = new DataBaseDataStore(param);
 			assertEquals(target.toString(), "CONNECTION_HASH=[Transaction has not been started]," + param.toString());
 		} catch (DataStoreManagerException e) {

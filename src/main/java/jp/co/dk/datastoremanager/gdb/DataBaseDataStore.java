@@ -43,7 +43,7 @@ public class DataBaseDataStore implements DataStore {
 	 * 
 	 * @param dataBaseAccessParameter データベースアクセスパラメータ
 	 */
-	DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
+	public DataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
 		this.logger.constractor(this.getClass(), dataBaseAccessParameter);
 		this.dataBaseAccessParameter = dataBaseAccessParameter;
 	}

@@ -6,6 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+
+import static jp.co.dk.datastoremanager.message.DataStoreExporterMessage.*;
+
 public class TableMetaData {
 	
 	protected Transaction transaction;
@@ -20,7 +24,7 @@ public class TableMetaData {
 		this.tableName = tableName;
 	}
 
-	public List<ColumnMetaData> getColumns() {
+	public List<ColumnMetaData> getColumns() throws DataStoreManagerException {
 		try {
 			List<ColumnMetaData> columnMetaDataList = new ArrayList<>();
 			DatabaseMetaData dbmd = this.transaction.connection.getMetaData();
@@ -28,7 +32,7 @@ public class TableMetaData {
 			for (int i=0; rs.next(); i++) columnMetaDataList.add(new ColumnMetaData(rs, i));
 			return columnMetaDataList;
 		} catch (SQLException e) {
-			return null;
+			throw new DataStoreManagerException(FAILED_TO_ACQUIRE_COLUMN_INFO, e);
 		}
 
 	}

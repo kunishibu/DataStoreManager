@@ -1,11 +1,11 @@
-package jp.co.dk.datastoremanager.rdb.mysql;
+package jp.co.dk.datastoremanager.rdb.oracle;
 
 import jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter;
 import jp.co.dk.datastoremanager.rdb.DataBaseDataStore;
 
-public class MySqlDataBaseDataStore extends DataBaseDataStore {
+public class OracleDataBaseDataStore extends DataBaseDataStore {
 
-	public MySqlDataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
+	public OracleDataBaseDataStore(DataBaseAccessParameter dataBaseAccessParameter) {
 		super(dataBaseAccessParameter);
 	}
 }
