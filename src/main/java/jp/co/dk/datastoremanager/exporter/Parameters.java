@@ -8,15 +8,29 @@ import java.util.regex.Pattern;
 import jp.co.dk.datastoremanager.exception.DataStoreExporterException;
 import jp.co.dk.datastoremanager.message.DataStoreExporterMessage;
 
+/**
+ * <p>パラメータの一覧を表すクラスです。</p>
+ * 引数に指定された文字列の一覧を元にパラメータの一覧を保持する
+ * @version 1.2
+ * @author D.Kanno
+ */
 public class Parameters {
 	
 	/** バインド変数フォーマット */
 	protected static Pattern variableFormat = Pattern.compile("^(.+?)=(.+?)$");
 	
+	/** パラメータ一覧（「キー=値」形式の文字列を複数持つ配列） */
 	protected String[] parameterstr;
 	
+	/** パラメータ一覧をキーと値に分け、格納したマップオブジェクト */
 	protected Map<String, String> parameter = new HashMap<>();
 	
+	/**
+	 * <p>コンストラクタ</p>
+	 * パラメータ一覧（「キー=値」形式の文字列を複数持つ配列）を元に、パラメータ一覧を表すクラスのインスタンスを生成します。
+	 * @param parameters パラメータ一覧
+	 * @throws DataStoreExporterException　引数に指定された文字列に「キー=値」形式以外の文字列が含まれていた場合
+	 */
 	public Parameters(String[] parameters) throws DataStoreExporterException {
 		if (parameters != null) {
 			this.parameterstr = parameters;
@@ -33,6 +47,10 @@ public class Parameters {
 		}
 	}
 	
+	/**
+	 * パラメータ一覧を表すマップオプジェクトを返却します。
+	 * @return パラメータ一覧を表すマップオプジェクト
+	 */
 	public Map<String, String> getParameter() {
 		return new HashMap<>(this.parameter);
 	}
