@@ -10,7 +10,7 @@ import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
 
 import static jp.co.dk.datastoremanager.message.DataStoreExporterMessage.*;
 
-public class TableMetaData {
+public abstract class TableMetaData {
 	
 	protected Transaction transaction;
 	
@@ -18,7 +18,7 @@ public class TableMetaData {
 	
 	protected String tableName;
 	
-	TableMetaData(Transaction transaction, String schemaName, String tableName) {
+	protected TableMetaData(Transaction transaction, String schemaName, String tableName) {
 		this.transaction = transaction;
 		this.schemaName = schemaName;
 		this.tableName = tableName;
@@ -34,8 +34,19 @@ public class TableMetaData {
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILED_TO_ACQUIRE_COLUMN_INFO, e);
 		}
-
 	}
+	
+	protected abstract void createHistoryTable() throws DataStoreManagerException;
+	
+	protected abstract void createTrigerForHistoryTable() throws DataStoreManagerException;
+	
+	protected abstract void createInsertTrigerForHistoryTable() throws DataStoreManagerException;
+	
+	protected abstract void createUpdateTrigerForHistoryTable() throws DataStoreManagerException;
+	
+	protected abstract void createDeleteTrigerForHistoryTable() throws DataStoreManagerException;
+	
+	protected abstract void dropHistoryTable(String originTableName, String historyTableName) throws DataStoreManagerException;
 	
 	@Override
 	public String toString() {

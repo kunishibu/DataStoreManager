@@ -31,7 +31,7 @@ import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.*;
  * @version 1.0
  * @author D.Kanno
  */
-class Transaction {
+public class Transaction {
 	
 	/** コネクション */
 	protected Connection connection;
@@ -53,7 +53,7 @@ class Transaction {
 	 * @param dataBaseAccessParameter データベースアクセスパラメータ
 	 * @throws DataStoreManagerException トランザクションの開始に失敗した場合
 	 */
-	Transaction(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException{
+	protected Transaction(DataBaseAccessParameter dataBaseAccessParameter) throws DataStoreManagerException{
 		this.logger.constractor(this.getClass(), dataBaseAccessParameter);
 		if (dataBaseAccessParameter == null) throw new DataStoreManagerException(PARAMETER_IS_NOT_SET);
 		this.dataBaseAccessParameter = dataBaseAccessParameter;
@@ -82,7 +82,7 @@ class Transaction {
 	 * @param sql 実行対象のSQLオブジェクト
 	 * @throws DataStoreManagerException テーブル作成に失敗した場合
 	 */
-	void createTable(Sql sql) throws DataStoreManagerException {
+	public void createTable(Sql sql) throws DataStoreManagerException {
 		this.logger.info("create table " + sql.toString());
 		PreparedStatement statement = null;
 		try {
@@ -109,7 +109,7 @@ class Transaction {
 	 * @param sql 実行対象のSQLオブジェクト
 	 * @throws DataStoreManagerException レコード追加に失敗した場合
 	 */
-	void insert(Sql sql) throws DataStoreManagerException {
+	public void insert(Sql sql) throws DataStoreManagerException {
 		this.logger.info("insert " + sql.toString());
 		PreparedStatement statement = null;
 		try {
@@ -142,7 +142,7 @@ class Transaction {
 	 * @return 更新結果の件数
 	 * @throws DataStoreManagerException レコード更新に失敗した場合
 	 */
-	int update(Sql sql) throws DataStoreManagerException {
+	public int update(Sql sql) throws DataStoreManagerException {
 		this.logger.info("update " + sql.toString());
 		PreparedStatement statement = null;
 		try {
@@ -177,7 +177,7 @@ class Transaction {
 	 * @return 削除結果の件数
 	 * @throws DataStoreManagerException レコード削除に失敗した場合
 	 */
-	int delete(Sql sql) throws DataStoreManagerException {
+	public int delete(Sql sql) throws DataStoreManagerException {
 		this.logger.info("delete " + sql.toString());
 		PreparedStatement statement = null;
 		try {
@@ -212,7 +212,7 @@ class Transaction {
 	 * @return 実行結果
 	 * @throws DataStoreManagerException SQLの実行に失敗した場合
 	 */
-	ResultSet select(Sql sql) throws DataStoreManagerException {
+	public ResultSet select(Sql sql) throws DataStoreManagerException {
 		this.logger.info("select " + sql.toString());
 		PreparedStatement statement = null;
 		try {
@@ -235,7 +235,7 @@ class Transaction {
 	 * @param sql 実行対象のSQLオブジェクト
 	 * @throws DataStoreManagerException テーブル削除に失敗した場合
 	 */
-	void dropTable(Sql sql) throws DataStoreManagerException {
+	public void dropTable(Sql sql) throws DataStoreManagerException {
 		this.logger.info("drop table " + sql.toString());
 		PreparedStatement statement = null;
 		try {
@@ -299,12 +299,48 @@ class Transaction {
 			ResultSet rs = dbmd.getTables(null, schema, "%", new String[]{"TABLE"});
 			while (rs.next()) {
 			    String tableName = rs.getString("TABLE_NAME");
-			    tables.add(new TableMetaData(this, schema, tableName));
+			    tables.add(this.createTableMetaData(this, schema, tableName));
 			}
 			return tables;
 		} catch (SQLException e) {
 			throw new DataStoreManagerException(FAILE_TO_CLOSE, e);
 		}
+	}
+	
+	protected TableMetaData createTableMetaData(Transaction transaction, String schma, String tableName) {
+		return new TableMetaData(transaction, schma, tableName){
+
+			@Override
+			protected void createHistoryTable() throws DataStoreManagerException {
+				throw new DataStoreManagerException(NOT_SUPPORT);
+			}
+
+			@Override
+			protected void createTrigerForHistoryTable() throws DataStoreManagerException {
+				throw new DataStoreManagerException(NOT_SUPPORT);
+			}
+
+			@Override
+			protected void createInsertTrigerForHistoryTable() throws DataStoreManagerException {
+				throw new DataStoreManagerException(NOT_SUPPORT);
+			}
+
+			@Override
+			protected void createUpdateTrigerForHistoryTable() throws DataStoreManagerException {
+				throw new DataStoreManagerException(NOT_SUPPORT);
+			}
+
+			@Override
+			protected void createDeleteTrigerForHistoryTable() throws DataStoreManagerException {
+				throw new DataStoreManagerException(NOT_SUPPORT);
+			}
+
+			@Override
+			protected void dropHistoryTable(String originTableName,	String historyTableName) throws DataStoreManagerException {
+				throw new DataStoreManagerException(NOT_SUPPORT);
+			}
+			
+		};
 	}
 	
 	/**
