@@ -97,6 +97,15 @@ public class DataBaseDataStore implements DataStore {
 		return this.transaction.getTables();
 	}
 	
+	public TableMetaData getTable(String tableName) throws DataStoreManagerException {
+		if (this.transaction == null) throw new DataStoreManagerException(TRANSACTION_IS_NOT_START);
+		List<TableMetaData> tables = this.transaction.getTables();
+		for (TableMetaData table : tables) {
+			if (table.tableName.equals(tableName)) return table;
+		}
+		return null;
+	}
+	
 	/**
 	 * 指定のSQLを実行し、テーブルを作成する。<p/>
 	 * テーブル作成に失敗した場合、例外を送出する。

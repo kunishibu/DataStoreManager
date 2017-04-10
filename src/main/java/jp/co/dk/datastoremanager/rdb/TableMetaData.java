@@ -46,7 +46,7 @@ public abstract class TableMetaData {
 	
 	protected abstract void createDeleteTrigerForHistoryTable() throws DataStoreManagerException;
 	
-	protected abstract void dropHistoryTable(String originTableName, String historyTableName) throws DataStoreManagerException;
+	protected abstract void dropHistoryTable() throws DataStoreManagerException;
 	
 	@Override
 	public String toString() {

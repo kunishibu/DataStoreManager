@@ -44,7 +44,7 @@ class OracleTableMetaData extends TableMetaData {
 		sql.add("H$").add(this.tableName).add(" AS ");
 		sql.add("SELECT SYSDATE AS OPTM, '  ' AS OPTP, ");
 		sql.add(this.tableName).add(".*").add(" FROM ").add(this.tableName);
-		sql.add(" WHERE ").add("ROWNUM = 0;");
+		sql.add(" WHERE ").add("ROWNUM = 0");
 		this.transaction.createTable(sql);
 	}
 	
@@ -93,10 +93,8 @@ class OracleTableMetaData extends TableMetaData {
 	}
 	
 	@Override
-	protected void dropHistoryTable(String originTableName, String historyTableName) throws DataStoreManagerException {
-		StringBuilder createCloneTableSql = new StringBuilder();
-		createCloneTableSql.append("DROP TABLE ").append(historyTableName).append(";");
-		Sql sql = new Sql(createCloneTableSql.toString());
+	protected void dropHistoryTable() throws DataStoreManagerException {
+		Sql sql = new Sql("DROP TABLE ").add("H$").add(this.tableName);
 		this.transaction.dropTable(sql);
 	}
 }
