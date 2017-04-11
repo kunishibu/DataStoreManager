@@ -97,6 +97,27 @@ class OracleTableMetaData extends TableMetaData {
 		Sql sql = new Sql("DROP TABLE ").add("H$").add(this.tableName);
 		this.transaction.dropTable(sql);
 	}
+	
+	protected void dropHistoryTrigger() throws DataStoreManagerException {
+		this.dropInsertHistoryTrigger();
+		this.dropUpdateHistoryTrigger();
+		this.dropDeleteHistoryTrigger();
+	}
+	
+	protected void dropInsertHistoryTrigger() throws DataStoreManagerException {
+		Sql sql = new Sql("DROP TRIGGER ").add("H$").add(this.tableName).add("_INS_TRG");
+		this.transaction.dropTable(sql);
+	}
+	
+	protected void dropUpdateHistoryTrigger() throws DataStoreManagerException {
+		Sql sql = new Sql("DROP TRIGGER ").add("H$").add(this.tableName).add("_UPD_TRG");
+		this.transaction.dropTable(sql);
+	}
+	
+	protected void dropDeleteHistoryTrigger() throws DataStoreManagerException {
+		Sql sql = new Sql("DROP TRIGGER ").add("H$").add(this.tableName).add("_DEL_TRG");
+		this.transaction.dropTable(sql);
+	}
 }
 
 //  lk;++zxzzzzbvn yumlc                gf ,kn....... nm,. 
