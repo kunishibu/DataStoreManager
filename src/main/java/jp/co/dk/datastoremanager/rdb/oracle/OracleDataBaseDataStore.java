@@ -62,36 +62,40 @@ class OracleTableMetaData extends TableMetaData {
 	}
 	
 	protected void createInsertTrigerForHistoryTable() throws DataStoreManagerException {
-		Sql sql = new Sql("CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_INS_TRG").add(" ");
+		// 通常どおりCREATE TRIGGERでトリガーを作成した場合、:NEWのコロン部でエラー発生
+		// それを回避する為、CREATE TRIGGER文を文字列化し、その文をPLSQLにて実行することで回避する。
+		Sql sql = new Sql("BEGIN EXECUTE IMMEDIATE 'CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_INS_TRG").add(" ");
 		sql.add("AFTER INSERT ON ").add(this.tableName).add(" ").add("FOR EACH ROW ");
 		sql.add("BEGIN ");
-		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, 'IS'");
+		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, ''IS''");
 		for (ColumnMetaData column : this.getColumns()) sql.add(", ").add(":NEW.").add(column.getColumnname());
-		sql.add(");").add("END;");
+		sql.add(");");
+		sql.add("END;'; END;");
 		this.transaction.createTable(sql);
 	}
 	
 	protected void createUpdateTrigerForHistoryTable() throws DataStoreManagerException {
-		Sql sql = new Sql("CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_UPD_TRG").add(" ");
+		Sql sql = new Sql("BEGIN EXECUTE IMMEDIATE 'CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_UPD_TRG").add(" ");
 		sql.add("AFTER UPDATE ON ").add(this.tableName).add(" ").add("FOR EACH ROW ");
 		sql.add("BEGIN ");
-		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, 'UO'");
+		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, ''UO''");
 		for (ColumnMetaData column : this.getColumns()) sql.add(", ").add(":OLD.").add(column.getColumnname());
 		sql.add(");");
-		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, 'UN'");
+		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, ''UN''");
 		for (ColumnMetaData column : this.getColumns()) sql.add(", ").add(":NEW.").add(column.getColumnname());
 		sql.add(");");
-		sql.add("END;");
+		sql.add("END;'; END;");
 		this.transaction.createTable(sql);
 	}
 	
 	protected void createDeleteTrigerForHistoryTable() throws DataStoreManagerException {
-		Sql sql = new Sql("CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_DEL_TRG").add(" ");
+		Sql sql = new Sql("BEGIN EXECUTE IMMEDIATE 'CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_DEL_TRG").add(" ");
 		sql.add("AFTER DELETE ON ").add(this.tableName).add(" ").add("FOR EACH ROW ");
 		sql.add("BEGIN ");
-		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, 'DL'");
+		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, ''DL''");
 		for (ColumnMetaData column : this.getColumns()) sql.add(", ").add(":OLD.").add(column.getColumnname());
-		sql.add(");").add("END;");
+		sql.add(");");
+		sql.add("END;'; END;");
 		this.transaction.createTable(sql);
 	}
 	

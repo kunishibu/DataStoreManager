@@ -21,10 +21,24 @@ public class OracleTableMetaDataTest extends DataStoreManagerTestFoundation{
 	@Test
 	public void createTableMetaData() throws DataStoreManagerException {
 		this.target.createHistoryTable();
+		this.target.createTriggerHistoryTable();
+		this.target.dropHistoryTrigger();
+		this.target.dropHistoryTable();
 	}
 	
 	@Test
 	public void dropTableMetaData() throws DataStoreManagerException {
-		this.target.dropHistoryTable();
+		
 	}
+	
+	@Test
+	public void createTriggerHistoryTable() throws DataStoreManagerException {
+		
+	}
+	
+	@Test
+	public void dropHistoryTrigger() throws DataStoreManagerException {
+		
+	}
+	
 }
