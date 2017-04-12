@@ -49,13 +49,18 @@ class OracleTableMetaData extends TableMetaData {
 	}
 	
 	@Override
-	protected void createTrigerForHistoryTable() throws DataStoreManagerException {
+	protected void dropHistoryTable() throws DataStoreManagerException {
+		Sql sql = new Sql("DROP TABLE ").add("H$").add(this.tableName);
+		this.transaction.dropTable(sql);
+	}
+	
+	@Override
+	protected void createTriggerHistoryTable() throws DataStoreManagerException {
 		this.createInsertTrigerForHistoryTable();
 		this.createUpdateTrigerForHistoryTable();
 		this.createDeleteTrigerForHistoryTable();
 	}
 	
-	@Override
 	protected void createInsertTrigerForHistoryTable() throws DataStoreManagerException {
 		Sql sql = new Sql("CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_INS_TRG").add(" ");
 		sql.add("AFTER INSERT ON ").add(this.tableName).add(" ").add("FOR EACH ROW ");
@@ -66,7 +71,6 @@ class OracleTableMetaData extends TableMetaData {
 		this.transaction.createTable(sql);
 	}
 	
-	@Override
 	protected void createUpdateTrigerForHistoryTable() throws DataStoreManagerException {
 		Sql sql = new Sql("CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_UPD_TRG").add(" ");
 		sql.add("AFTER UPDATE ON ").add(this.tableName).add(" ").add("FOR EACH ROW ");
@@ -81,7 +85,6 @@ class OracleTableMetaData extends TableMetaData {
 		this.transaction.createTable(sql);
 	}
 	
-	@Override
 	protected void createDeleteTrigerForHistoryTable() throws DataStoreManagerException {
 		Sql sql = new Sql("CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_DEL_TRG").add(" ");
 		sql.add("AFTER DELETE ON ").add(this.tableName).add(" ").add("FOR EACH ROW ");
@@ -93,11 +96,6 @@ class OracleTableMetaData extends TableMetaData {
 	}
 	
 	@Override
-	protected void dropHistoryTable() throws DataStoreManagerException {
-		Sql sql = new Sql("DROP TABLE ").add("H$").add(this.tableName);
-		this.transaction.dropTable(sql);
-	}
-	
 	protected void dropHistoryTrigger() throws DataStoreManagerException {
 		this.dropInsertHistoryTrigger();
 		this.dropUpdateHistoryTrigger();

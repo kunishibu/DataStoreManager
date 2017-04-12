@@ -316,28 +316,18 @@ public class Transaction {
 			}
 
 			@Override
-			protected void createTrigerForHistoryTable() throws DataStoreManagerException {
+			protected void dropHistoryTable() throws DataStoreManagerException {
+				throw new DataStoreManagerException(NOT_SUPPORT);				
+			}
+
+			@Override
+			protected void createTriggerHistoryTable() throws DataStoreManagerException {
 				throw new DataStoreManagerException(NOT_SUPPORT);
 			}
 
 			@Override
-			protected void createInsertTrigerForHistoryTable() throws DataStoreManagerException {
-				throw new DataStoreManagerException(NOT_SUPPORT);
-			}
-
-			@Override
-			protected void createUpdateTrigerForHistoryTable() throws DataStoreManagerException {
-				throw new DataStoreManagerException(NOT_SUPPORT);
-			}
-
-			@Override
-			protected void createDeleteTrigerForHistoryTable() throws DataStoreManagerException {
-				throw new DataStoreManagerException(NOT_SUPPORT);
-			}
-
-			@Override
-			protected void dropHistoryTable(String originTableName,	String historyTableName) throws DataStoreManagerException {
-				throw new DataStoreManagerException(NOT_SUPPORT);
+			protected void dropHistoryTrigger() throws DataStoreManagerException {
+				throw new DataStoreManagerException(NOT_SUPPORT);				
 			}
 			
 		};

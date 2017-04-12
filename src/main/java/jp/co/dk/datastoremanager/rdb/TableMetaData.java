@@ -37,16 +37,12 @@ public abstract class TableMetaData {
 	}
 	
 	protected abstract void createHistoryTable() throws DataStoreManagerException;
-	
-	protected abstract void createTrigerForHistoryTable() throws DataStoreManagerException;
-	
-	protected abstract void createInsertTrigerForHistoryTable() throws DataStoreManagerException;
-	
-	protected abstract void createUpdateTrigerForHistoryTable() throws DataStoreManagerException;
-	
-	protected abstract void createDeleteTrigerForHistoryTable() throws DataStoreManagerException;
-	
+
 	protected abstract void dropHistoryTable() throws DataStoreManagerException;
+	
+	protected abstract void createTriggerHistoryTable() throws DataStoreManagerException;
+	
+	protected abstract void dropHistoryTrigger() throws DataStoreManagerException;
 	
 	@Override
 	public String toString() {
