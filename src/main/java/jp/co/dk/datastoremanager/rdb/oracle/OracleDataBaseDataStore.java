@@ -39,6 +39,12 @@ class OracleTableMetaData extends TableMetaData {
 	}
 
 	@Override
+	protected boolean isExistsHistoryTable() throws DataStoreManagerException {
+		
+		return false;
+	}
+	
+	@Override
 	protected void createHistoryTable() throws DataStoreManagerException {
 		Sql sql = new Sql("CREATE TABLE ");
 		sql.add("H$").add(this.tableName).add(" AS ");

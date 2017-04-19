@@ -291,15 +291,25 @@ public class Transaction {
 	 * @return テーブル一覧 
 	 * @throws DataStoreManagerException テーブル情報の取得に失敗した場合
 	 */
-	List<TableMetaData> getTables() throws DataStoreManagerException {
+	List<String> getAllTableName() throws DataStoreManagerException {
+		return this.getTableName("%");
+	}
+	
+	/**
+	 * このトランザクションが接続できるテーブルの一覧を取得する。<p/>
+	 * 取得できなかった場合、空のリストを返却する。
+	 * 
+	 * @return テーブル一覧 
+	 * @throws DataStoreManagerException テーブル情報の取得に失敗した場合
+	 */
+	List<String> getTableName(String tableName) throws DataStoreManagerException {
 		try {
-			List<TableMetaData> tables = new ArrayList<>();
+			List<String> tables = new ArrayList<>();
 			DatabaseMetaData dbmd = this.connection.getMetaData();
 			String schema = this.dataBaseAccessParameter.getUser().toUpperCase();
-			ResultSet rs = dbmd.getTables(null, schema, "%", new String[]{"TABLE"});
+			ResultSet rs = dbmd.getTables(null, schema, tableName, new String[]{"TABLE"});
 			while (rs.next()) {
-			    String tableName = rs.getString("TABLE_NAME");
-			    tables.add(this.createTableMetaData(this, schema, tableName));
+				tables.add(rs.getString("TABLE_NAME"));
 			}
 			return tables;
 		} catch (SQLException e) {
@@ -307,9 +317,31 @@ public class Transaction {
 		}
 	}
 	
+	/**
+	 * このトランザクションが接続できるテーブルの一覧を取得する。<p/>
+	 * 取得できなかった場合、空のリストを返却する。
+	 * 
+	 * @return テーブル一覧 
+	 * @throws DataStoreManagerException テーブル情報の取得に失敗した場合
+	 */
+	List<TableMetaData> getTables() throws DataStoreManagerException {
+		List<TableMetaData> tableMetaDataList = new ArrayList<>();
+		List<String> tableNames = getAllTableName();
+		String schema = this.dataBaseAccessParameter.getUser().toUpperCase();
+		for (String tableName : tableNames) {
+			tableMetaDataList.add(this.createTableMetaData(this, schema, tableName));
+		}
+		return tableMetaDataList;
+	}
+	
 	protected TableMetaData createTableMetaData(Transaction transaction, String schma, String tableName) {
 		return new TableMetaData(transaction, schma, tableName){
 
+			@Override
+			protected boolean isExistsHistoryTable() throws DataStoreManagerException {
+				throw new DataStoreManagerException(NOT_SUPPORT);
+			}
+			
 			@Override
 			protected void createHistoryTable() throws DataStoreManagerException {
 				throw new DataStoreManagerException(NOT_SUPPORT);

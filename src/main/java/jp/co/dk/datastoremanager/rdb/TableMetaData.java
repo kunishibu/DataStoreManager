@@ -36,6 +36,8 @@ public abstract class TableMetaData {
 		}
 	}
 	
+	protected abstract boolean isExistsHistoryTable() throws DataStoreManagerException;
+	
 	protected abstract void createHistoryTable() throws DataStoreManagerException;
 
 	protected abstract void dropHistoryTable() throws DataStoreManagerException;
