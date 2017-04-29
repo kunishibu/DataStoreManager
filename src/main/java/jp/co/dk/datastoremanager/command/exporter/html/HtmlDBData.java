@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager.exporter.html;
+package jp.co.dk.datastoremanager.command.exporter.html;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -97,7 +97,7 @@ public class HtmlDBData {
 			}
 	}
 	
-	public void write(jp.co.dk.datastoremanager.exporter.SqlFile sqlfile) throws DataStoreManagerException {
+	public void write(jp.co.dk.datastoremanager.command.exporter.SqlFile sqlfile) throws DataStoreManagerException {
 		Element dataTable  = this.document.createElement("table");
 		
 		Element headerTr = this.document.createElement("tr");
@@ -111,7 +111,7 @@ public class HtmlDBData {
 		headerTh.appendChild(underbar);
 	    
 		
-		for (jp.co.dk.datastoremanager.exporter.Sql sql : sqlfile.getSqlList()) {
+		for (jp.co.dk.datastoremanager.command.exporter.Sql sql : sqlfile.getSqlList()) {
 			Element oneSqlTr = this.document.createElement("tr");
 			dataTable.appendChild(oneSqlTr);
 			
@@ -134,7 +134,7 @@ public class HtmlDBData {
 		this.dataElement.appendChild(dataTable);
 	}
 	
-	protected Element getResult(jp.co.dk.datastoremanager.exporter.Sql sql) throws DataStoreManagerException {
+	protected Element getResult(jp.co.dk.datastoremanager.command.exporter.Sql sql) throws DataStoreManagerException {
 		
 		Element dataTable = this.document.createElement("table");
 		dataTable.attr("border", "1");

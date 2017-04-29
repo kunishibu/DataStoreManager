@@ -40,40 +40,45 @@ class OracleTableMetaData extends TableMetaData {
 
 	@Override
 	protected boolean isExistsHistoryTable() throws DataStoreManagerException {
-		
-		return false;
+		return this.transaction.isExistsTable(this.getHistoryTableName());
 	}
 	
 	@Override
-	protected void createHistoryTable() throws DataStoreManagerException {
+	protected boolean createHistoryTable() throws DataStoreManagerException {
+		if (this.isExistsHistoryTable()) return false;
 		Sql sql = new Sql("CREATE TABLE ");
-		sql.add("H$").add(this.tableName).add(" AS ");
+		sql.add(this.getHistoryTableName()).add(" AS ");
 		sql.add("SELECT SYSDATE AS OPTM, '  ' AS OPTP, ");
 		sql.add(this.tableName).add(".*").add(" FROM ").add(this.tableName);
 		sql.add(" WHERE ").add("ROWNUM = 0");
 		this.transaction.createTable(sql);
+		return true;
 	}
 	
 	@Override
-	protected void dropHistoryTable() throws DataStoreManagerException {
-		Sql sql = new Sql("DROP TABLE ").add("H$").add(this.tableName);
+	protected boolean dropHistoryTable() throws DataStoreManagerException {
+		if (this.isExistsHistoryTable()) return false;
+		Sql sql = new Sql("DROP TABLE ").add(this.getHistoryTableName());
 		this.transaction.dropTable(sql);
+		return true;
 	}
 	
 	@Override
-	protected void createTriggerHistoryTable() throws DataStoreManagerException {
+	protected boolean createTriggerHistoryTable() throws DataStoreManagerException {
+		if (!this.isExistsHistoryTable()) return false;
 		this.createInsertTrigerForHistoryTable();
 		this.createUpdateTrigerForHistoryTable();
 		this.createDeleteTrigerForHistoryTable();
+		return true;
 	}
 	
 	protected void createInsertTrigerForHistoryTable() throws DataStoreManagerException {
 		// 通常どおりCREATE TRIGGERでトリガーを作成した場合、:NEWのコロン部でエラー発生
 		// それを回避する為、CREATE TRIGGER文を文字列化し、その文をPLSQLにて実行することで回避する。
-		Sql sql = new Sql("BEGIN EXECUTE IMMEDIATE 'CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_INS_TRG").add(" ");
+		Sql sql = new Sql("BEGIN EXECUTE IMMEDIATE 'CREATE OR REPLACE TRIGGER ").add(this.getHistoryTableName()).add("_INS_TRG").add(" ");
 		sql.add("AFTER INSERT ON ").add(this.tableName).add(" ").add("FOR EACH ROW ");
 		sql.add("BEGIN ");
-		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, ''IS''");
+		sql.add("INSERT INTO ").add(this.getHistoryTableName()).add(" VALUES( SYSDATE, ''IS''");
 		for (ColumnMetaData column : this.getColumns()) sql.add(", ").add(":NEW.").add(column.getColumnname());
 		sql.add(");");
 		sql.add("END;'; END;");
@@ -81,13 +86,13 @@ class OracleTableMetaData extends TableMetaData {
 	}
 	
 	protected void createUpdateTrigerForHistoryTable() throws DataStoreManagerException {
-		Sql sql = new Sql("BEGIN EXECUTE IMMEDIATE 'CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_UPD_TRG").add(" ");
+		Sql sql = new Sql("BEGIN EXECUTE IMMEDIATE 'CREATE OR REPLACE TRIGGER ").add(this.getHistoryTableName()).add("_UPD_TRG").add(" ");
 		sql.add("AFTER UPDATE ON ").add(this.tableName).add(" ").add("FOR EACH ROW ");
 		sql.add("BEGIN ");
-		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, ''UO''");
+		sql.add("INSERT INTO ").add(this.getHistoryTableName()).add(" VALUES( SYSDATE, ''UO''");
 		for (ColumnMetaData column : this.getColumns()) sql.add(", ").add(":OLD.").add(column.getColumnname());
 		sql.add(");");
-		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, ''UN''");
+		sql.add("INSERT INTO ").add(this.getHistoryTableName()).add(" VALUES( SYSDATE, ''UN''");
 		for (ColumnMetaData column : this.getColumns()) sql.add(", ").add(":NEW.").add(column.getColumnname());
 		sql.add(");");
 		sql.add("END;'; END;");
@@ -95,10 +100,10 @@ class OracleTableMetaData extends TableMetaData {
 	}
 	
 	protected void createDeleteTrigerForHistoryTable() throws DataStoreManagerException {
-		Sql sql = new Sql("BEGIN EXECUTE IMMEDIATE 'CREATE OR REPLACE TRIGGER ").add("H$").add(this.tableName).add("_DEL_TRG").add(" ");
+		Sql sql = new Sql("BEGIN EXECUTE IMMEDIATE 'CREATE OR REPLACE TRIGGER ").add(this.getHistoryTableName()).add("_DEL_TRG").add(" ");
 		sql.add("AFTER DELETE ON ").add(this.tableName).add(" ").add("FOR EACH ROW ");
 		sql.add("BEGIN ");
-		sql.add("INSERT INTO ").add("H$").add(this.tableName).add(" VALUES( SYSDATE, ''DL''");
+		sql.add("INSERT INTO ").add(this.getHistoryTableName()).add(" VALUES( SYSDATE, ''DL''");
 		for (ColumnMetaData column : this.getColumns()) sql.add(", ").add(":OLD.").add(column.getColumnname());
 		sql.add(");");
 		sql.add("END;'; END;");
@@ -106,24 +111,26 @@ class OracleTableMetaData extends TableMetaData {
 	}
 	
 	@Override
-	protected void dropHistoryTrigger() throws DataStoreManagerException {
+	protected boolean dropHistoryTrigger() throws DataStoreManagerException {
+		if (!this.isExistsHistoryTable()) return false;
 		this.dropInsertHistoryTrigger();
 		this.dropUpdateHistoryTrigger();
 		this.dropDeleteHistoryTrigger();
+		return true;
 	}
 	
 	protected void dropInsertHistoryTrigger() throws DataStoreManagerException {
-		Sql sql = new Sql("DROP TRIGGER ").add("H$").add(this.tableName).add("_INS_TRG");
+		Sql sql = new Sql("DROP TRIGGER ").add(this.getHistoryTableName()).add("_INS_TRG");
 		this.transaction.dropTable(sql);
 	}
 	
 	protected void dropUpdateHistoryTrigger() throws DataStoreManagerException {
-		Sql sql = new Sql("DROP TRIGGER ").add("H$").add(this.tableName).add("_UPD_TRG");
+		Sql sql = new Sql("DROP TRIGGER ").add(this.getHistoryTableName()).add("_UPD_TRG");
 		this.transaction.dropTable(sql);
 	}
 	
 	protected void dropDeleteHistoryTrigger() throws DataStoreManagerException {
-		Sql sql = new Sql("DROP TRIGGER ").add("H$").add(this.tableName).add("_DEL_TRG");
+		Sql sql = new Sql("DROP TRIGGER ").add(this.getHistoryTableName()).add("_DEL_TRG");
 		this.transaction.dropTable(sql);
 	}
 }

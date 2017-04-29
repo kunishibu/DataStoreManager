@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager.exporter;
+package jp.co.dk.datastoremanager.command.exporter;
 
 import jp.co.dk.datastoremanager.exception.DataStoreExporterException;
 import static jp.co.dk.datastoremanager.message.DataStoreExporterMessage.*;

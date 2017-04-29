@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager.exporter;
+package jp.co.dk.datastoremanager.command.exporter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

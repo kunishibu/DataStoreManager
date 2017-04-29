@@ -26,19 +26,4 @@ public class OracleTableMetaDataTest extends DataStoreManagerTestFoundation{
 		this.target.dropHistoryTable();
 	}
 	
-	@Test
-	public void dropTableMetaData() throws DataStoreManagerException {
-		
-	}
-	
-	@Test
-	public void createTriggerHistoryTable() throws DataStoreManagerException {
-		
-	}
-	
-	@Test
-	public void dropHistoryTrigger() throws DataStoreManagerException {
-		
-	}
-	
 }

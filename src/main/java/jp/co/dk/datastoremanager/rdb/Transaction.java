@@ -283,6 +283,17 @@ public class Transaction {
 			throw new DataStoreManagerException(FAILE_TO_ROLLBACK, e);
 		}
 	}
+
+	/**
+	 * このトランザクションが接続しているデータベースに指定のテーブルが存在するか確認する。
+	 * 
+	 * @param tableName テーブル名
+	 * @return テーブル有無（true=テーブル有り、false=テーブル無し）
+	 * @throws DataStoreManagerException テーブル情報の取得に失敗した場合
+	 */
+	public boolean isExistsTable(String tableName) throws DataStoreManagerException {
+		return (this.getTableName(tableName).size() >= 1);
+	}
 	
 	/**
 	 * このトランザクションが接続できるテーブルの一覧を取得する。<p/>
@@ -291,34 +302,12 @@ public class Transaction {
 	 * @return テーブル一覧 
 	 * @throws DataStoreManagerException テーブル情報の取得に失敗した場合
 	 */
-	List<String> getAllTableName() throws DataStoreManagerException {
+	public List<String> getAllTableName() throws DataStoreManagerException {
 		return this.getTableName("%");
 	}
 	
 	/**
-	 * このトランザクションが接続できるテーブルの一覧を取得する。<p/>
-	 * 取得できなかった場合、空のリストを返却する。
-	 * 
-	 * @return テーブル一覧 
-	 * @throws DataStoreManagerException テーブル情報の取得に失敗した場合
-	 */
-	List<String> getTableName(String tableName) throws DataStoreManagerException {
-		try {
-			List<String> tables = new ArrayList<>();
-			DatabaseMetaData dbmd = this.connection.getMetaData();
-			String schema = this.dataBaseAccessParameter.getUser().toUpperCase();
-			ResultSet rs = dbmd.getTables(null, schema, tableName, new String[]{"TABLE"});
-			while (rs.next()) {
-				tables.add(rs.getString("TABLE_NAME"));
-			}
-			return tables;
-		} catch (SQLException e) {
-			throw new DataStoreManagerException(FAILE_TO_CLOSE, e);
-		}
-	}
-	
-	/**
-	 * このトランザクションが接続できるテーブルの一覧を取得する。<p/>
+	 * このトランザクションが接続できるテーブルの一覧をメタデータとして取得する。<p/>
 	 * 取得できなかった場合、空のリストを返却する。
 	 * 
 	 * @return テーブル一覧 
@@ -326,12 +315,25 @@ public class Transaction {
 	 */
 	List<TableMetaData> getTables() throws DataStoreManagerException {
 		List<TableMetaData> tableMetaDataList = new ArrayList<>();
-		List<String> tableNames = getAllTableName();
+		List<String> tableNames = this.getAllTableName();
 		String schema = this.dataBaseAccessParameter.getUser().toUpperCase();
 		for (String tableName : tableNames) {
 			tableMetaDataList.add(this.createTableMetaData(this, schema, tableName));
 		}
 		return tableMetaDataList;
+	}
+	
+	protected List<String> getTableName(String tableName) throws DataStoreManagerException {
+		try {
+			List<String> tables = new ArrayList<>();
+			DatabaseMetaData dbmd = this.connection.getMetaData();
+			String schema = this.dataBaseAccessParameter.getUser().toUpperCase();
+			ResultSet rs = dbmd.getTables(null, schema, tableName, new String[]{"TABLE"});
+			while (rs.next()) tables.add(rs.getString("TABLE_NAME"));
+			return tables;
+		} catch (SQLException e) {
+			throw new DataStoreManagerException(FAILE_TO_CLOSE, e);
+		}
 	}
 	
 	protected TableMetaData createTableMetaData(Transaction transaction, String schma, String tableName) {
@@ -343,22 +345,22 @@ public class Transaction {
 			}
 			
 			@Override
-			protected void createHistoryTable() throws DataStoreManagerException {
+			protected boolean createHistoryTable() throws DataStoreManagerException {
 				throw new DataStoreManagerException(NOT_SUPPORT);
 			}
 
 			@Override
-			protected void dropHistoryTable() throws DataStoreManagerException {
+			protected boolean dropHistoryTable() throws DataStoreManagerException {
 				throw new DataStoreManagerException(NOT_SUPPORT);				
 			}
 
 			@Override
-			protected void createTriggerHistoryTable() throws DataStoreManagerException {
+			protected boolean createTriggerHistoryTable() throws DataStoreManagerException {
 				throw new DataStoreManagerException(NOT_SUPPORT);
 			}
 
 			@Override
-			protected void dropHistoryTrigger() throws DataStoreManagerException {
+			protected boolean dropHistoryTrigger() throws DataStoreManagerException {
 				throw new DataStoreManagerException(NOT_SUPPORT);				
 			}
 			

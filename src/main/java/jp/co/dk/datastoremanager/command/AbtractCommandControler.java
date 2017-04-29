@@ -1,4 +1,4 @@
-package jp.co.dk.datastoremanager.exporter.controler;
+package jp.co.dk.datastoremanager.command;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.HelpFormatter;
