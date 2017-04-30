@@ -2,6 +2,7 @@ package jp.co.dk.datastoremanager.command.createhtab;
 
 import java.io.IOException;
 
+import jp.co.dk.datastoremanager.DataStoreKind;
 import jp.co.dk.datastoremanager.DataStoreManager;
 import jp.co.dk.datastoremanager.command.AbtractCommandControler;
 import jp.co.dk.datastoremanager.command.exporter.Parameters;
@@ -21,7 +22,21 @@ public class CreateHistoryTableControler extends AbtractCommandControler {
 	@Override
 	public void execute() {
 
+		try {
+			DataStoreKind dataStoreKind = DataStoreKind.convert(this.cmd.getOptionValue("db"));
+			String url = this.cmd.getOptionValue("url");
+			String user = this.cmd.getOptionValue("user");
+			String pass = this.cmd.getOptionValue("user");
+			DataS
+		} catch (DataStoreManagerException e) {
+			System.out.println(e.toString());
+			System.exit(1);
+		}
+		
+		
+		
 		try (DataStoreManager dataStoreManager = new DataStoreManager(new DataStoreManagerProperty())) {
+			
 			
 			java.io.File sqlFile    = new java.io.File(this.cmd.getOptionValue("f"));
 			java.io.File outputFile = new java.io.File(this.cmd.getOptionValue("o"));
