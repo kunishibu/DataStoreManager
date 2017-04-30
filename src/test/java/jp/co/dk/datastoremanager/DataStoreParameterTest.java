@@ -52,7 +52,7 @@ class FakeDataStoreParameter extends DataStoreParameter {
 	}
 
 	@Override
-	protected DataStore createDataStore() {
+	public DataStore createDataStore() {
 		return null;
 	}
 

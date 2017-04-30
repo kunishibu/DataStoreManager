@@ -340,27 +340,27 @@ public class Transaction {
 		return new TableMetaData(transaction, schma, tableName){
 
 			@Override
-			protected boolean isExistsHistoryTable() throws DataStoreManagerException {
+			public boolean isExistsHistoryTable() throws DataStoreManagerException {
 				throw new DataStoreManagerException(NOT_SUPPORT);
 			}
 			
 			@Override
-			protected boolean createHistoryTable() throws DataStoreManagerException {
+			public boolean createHistoryTable() throws DataStoreManagerException {
 				throw new DataStoreManagerException(NOT_SUPPORT);
 			}
 
 			@Override
-			protected boolean dropHistoryTable() throws DataStoreManagerException {
+			public boolean dropHistoryTable() throws DataStoreManagerException {
 				throw new DataStoreManagerException(NOT_SUPPORT);				
 			}
 
 			@Override
-			protected boolean createTriggerHistoryTable() throws DataStoreManagerException {
+			public boolean createTriggerHistoryTable() throws DataStoreManagerException {
 				throw new DataStoreManagerException(NOT_SUPPORT);
 			}
 
 			@Override
-			protected boolean dropHistoryTrigger() throws DataStoreManagerException {
+			public boolean dropHistoryTrigger() throws DataStoreManagerException {
 				throw new DataStoreManagerException(NOT_SUPPORT);				
 			}
 			

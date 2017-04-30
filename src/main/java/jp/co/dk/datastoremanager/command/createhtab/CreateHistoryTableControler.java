@@ -1,18 +1,13 @@
 package jp.co.dk.datastoremanager.command.createhtab;
 
-import java.io.IOException;
+import java.util.List;
 
-import jp.co.dk.datastoremanager.DataStoreKind;
-import jp.co.dk.datastoremanager.DataStoreManager;
+import jp.co.dk.datastoremanager.DataBaseDriverConstants;
 import jp.co.dk.datastoremanager.command.AbtractCommandControler;
-import jp.co.dk.datastoremanager.command.exporter.Parameters;
-import jp.co.dk.datastoremanager.command.exporter.SqlFile;
-import jp.co.dk.datastoremanager.command.exporter.html.HtmlDBData;
-import jp.co.dk.datastoremanager.exception.DataStoreExporterException;
 import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
-import jp.co.dk.datastoremanager.property.DataStoreManagerProperty;
-import jp.co.dk.datastoremanager.rdb.AbstractDataBaseAccessObject;
-import jp.co.dk.property.exception.PropertyException;
+import jp.co.dk.datastoremanager.rdb.DataBaseAccessParameter;
+import jp.co.dk.datastoremanager.rdb.DataBaseDataStore;
+import jp.co.dk.datastoremanager.rdb.TableMetaData;
 
 import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
@@ -23,38 +18,31 @@ public class CreateHistoryTableControler extends AbtractCommandControler {
 	public void execute() {
 
 		try {
-			DataStoreKind dataStoreKind = DataStoreKind.convert(this.cmd.getOptionValue("db"));
+			DataBaseDriverConstants driver = DataBaseDriverConstants.getDataBaseDriverConstants(this.cmd.getOptionValue("db"));
 			String url = this.cmd.getOptionValue("url");
 			String user = this.cmd.getOptionValue("user");
-			String pass = this.cmd.getOptionValue("user");
-			DataS
+			String pass = this.cmd.getOptionValue("pass");
+			DataBaseAccessParameter dataBaseAccessParameter = new DataBaseAccessParameter(driver.getDataStoreKind(), driver, url, user, pass);
+			DataBaseDataStore dataStore = (DataBaseDataStore)dataBaseAccessParameter.createDataStore();
+			dataStore.startTransaction();
+			List<TableMetaData> tableMetaDataList = dataStore.getTable();
+			
+			if (this.cmd.hasOption("i")) {
+				for (TableMetaData tableMetaData : tableMetaDataList) {
+					System.out.print(tableMetaData);
+					if (tableMetaData.isExistsHistoryTable()) {
+						System.out.println(" is exists.");
+					} else {
+						System.out.println(" is not exists.");
+					}
+				}
+			}
+			
 		} catch (DataStoreManagerException e) {
 			System.out.println(e.toString());
 			System.exit(1);
 		}
 		
-		
-		
-		try (DataStoreManager dataStoreManager = new DataStoreManager(new DataStoreManagerProperty())) {
-			
-			
-			java.io.File sqlFile    = new java.io.File(this.cmd.getOptionValue("f"));
-			java.io.File outputFile = new java.io.File(this.cmd.getOptionValue("o"));
-			Parameters   parameter  = new Parameters(this.cmd.getOptionValues("p"));
-			
-			dataStoreManager.startTrunsaction();
-			AbstractDataBaseAccessObject dao = (AbstractDataBaseAccessObject)dataStoreManager.getDataAccessObject("default");
-			
-			SqlFile    sqlfile  = new SqlFile(sqlFile);
-			sqlfile.setParameter(parameter);
-			
-			HtmlDBData htmlDBData = HtmlDBData.auto(outputFile, dao);
-			htmlDBData.write(sqlfile);
-			htmlDBData.write();
-		} catch (DataStoreExporterException | DataStoreManagerException | PropertyException | IOException e) {
-			System.out.println(e.toString());
-			System.exit(1);
-		}
 	}
 	
 	
@@ -66,9 +54,9 @@ public class CreateHistoryTableControler extends AbtractCommandControler {
 	@Override
 	protected void getOptions(Options options) {
 		options.addOption(OptionBuilder.isRequired(true ).hasArg(true ).withDescription("接続先データベース")	.withLongOpt("database").create("db"));
-		options.addOption(OptionBuilder.isRequired(true ).hasArg(true ).withDescription("接続先データベースURL").withLongOpt("url").create("u"));
-		options.addOption(OptionBuilder.isRequired(true ).hasArg(true ).withDescription("接続先データベースユーザ").withLongOpt("user").create("ur"));
-		options.addOption(OptionBuilder.isRequired(true ).hasArg(true ).withDescription("接続先データベースパスワード").withLongOpt("password").create("ps"));
+		options.addOption(OptionBuilder.isRequired(true ).hasArg(true ).withDescription("接続先データベースURL").withLongOpt("url").create("url"));
+		options.addOption(OptionBuilder.isRequired(true ).hasArg(true ).withDescription("接続先データベースユーザ").withLongOpt("user").create("user"));
+		options.addOption(OptionBuilder.isRequired(true ).hasArg(true ).withDescription("接続先データベースパスワード").withLongOpt("password").create("pass"));
 		
 		options.addOption(OptionBuilder.isRequired(false).hasArg(false).withDescription("ヒストリーテーブルの状態を確認する")	.withLongOpt("info" ).create("i"));
 		options.addOption(OptionBuilder.isRequired(false).hasArg(false).withDescription("ヒストリーテーブルを作成する").withLongOpt("create").create("o"));

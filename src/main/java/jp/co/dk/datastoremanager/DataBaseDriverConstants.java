@@ -1,5 +1,8 @@
 package jp.co.dk.datastoremanager;
 
+import static jp.co.dk.datastoremanager.message.DataStoreManagerMessage.DATASTORE_KIND_VALUE_IS_FAILE;
+import jp.co.dk.datastoremanager.exception.DataStoreManagerException;
+
 /**
  * DataBaseDriverConstantsは、各種データベースに接続する際のデータベースドライバー、接続先URLを定義する定数クラスです。
  * 
@@ -115,4 +118,20 @@ public enum DataBaseDriverConstants {
 		return this.dataStoreFactory;
 	}
 	
+	/**
+	 * 引数に指定されたデータベースに対応するドライバーの定数クラスを返却します。
+	 * @param databasename データベース名
+	 * @return ドライバーの定数クラス
+	 * @throws DataStoreManagerException 引数に指定されたデータベースに対応するドライバーが存在しない場合
+	 */
+	public static DataBaseDriverConstants getDataBaseDriverConstants(String databasename) throws DataStoreManagerException {
+		for (DataBaseDriverConstants driver : DataBaseDriverConstants.values()) {
+			if (driver.getDataStoreKind().toString().equals(databasename)) return driver;
+		}
+		if (databasename == null) {
+			throw new DataStoreManagerException(DATASTORE_KIND_VALUE_IS_FAILE, "null");
+		} else {
+			throw new DataStoreManagerException(DATASTORE_KIND_VALUE_IS_FAILE, databasename);
+		}
+	}
 }

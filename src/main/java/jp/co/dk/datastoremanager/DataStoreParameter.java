@@ -42,7 +42,7 @@ public abstract class DataStoreParameter {
 	 * 
 	 * @return データストアインスタンス
 	 */
-	protected abstract DataStore createDataStore();
+	public abstract DataStore createDataStore();
 	
 	@Override
 	public int hashCode() {

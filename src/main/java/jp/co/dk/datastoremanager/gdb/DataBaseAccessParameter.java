@@ -119,7 +119,7 @@ public class DataBaseAccessParameter extends DataStoreParameter{
 	}
 	
 	@Override
-	protected DataStore createDataStore() {
+	public DataStore createDataStore() {
 		return this.driver.getDataStoreFactory().createDataStore(this);
 	}
 	

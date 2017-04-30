@@ -40,15 +40,15 @@ public abstract class TableMetaData {
 		return "H$" + this.tableName;
 	}
 	
-	protected abstract boolean isExistsHistoryTable() throws DataStoreManagerException;
+	public abstract boolean isExistsHistoryTable() throws DataStoreManagerException;
 	
-	protected abstract boolean createHistoryTable() throws DataStoreManagerException;
+	public abstract boolean createHistoryTable() throws DataStoreManagerException;
 
-	protected abstract boolean dropHistoryTable() throws DataStoreManagerException;
+	public abstract boolean dropHistoryTable() throws DataStoreManagerException;
 	
-	protected abstract boolean createTriggerHistoryTable() throws DataStoreManagerException;
+	public abstract boolean createTriggerHistoryTable() throws DataStoreManagerException;
 	
-	protected abstract boolean dropHistoryTrigger() throws DataStoreManagerException;
+	public abstract boolean dropHistoryTrigger() throws DataStoreManagerException;
 	
 	@Override
 	public String toString() {

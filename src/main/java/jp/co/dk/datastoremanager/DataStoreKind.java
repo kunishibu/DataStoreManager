@@ -58,5 +58,10 @@ public enum DataStoreKind {
 			throw new DataStoreManagerException(DATASTORE_KIND_VALUE_IS_FAILE, kind);
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return this.kind;
+	}
 }
 

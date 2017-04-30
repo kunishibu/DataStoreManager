@@ -39,12 +39,12 @@ class OracleTableMetaData extends TableMetaData {
 	}
 
 	@Override
-	protected boolean isExistsHistoryTable() throws DataStoreManagerException {
+	public boolean isExistsHistoryTable() throws DataStoreManagerException {
 		return this.transaction.isExistsTable(this.getHistoryTableName());
 	}
 	
 	@Override
-	protected boolean createHistoryTable() throws DataStoreManagerException {
+	public boolean createHistoryTable() throws DataStoreManagerException {
 		if (this.isExistsHistoryTable()) return false;
 		Sql sql = new Sql("CREATE TABLE ");
 		sql.add(this.getHistoryTableName()).add(" AS ");
@@ -56,7 +56,7 @@ class OracleTableMetaData extends TableMetaData {
 	}
 	
 	@Override
-	protected boolean dropHistoryTable() throws DataStoreManagerException {
+	public boolean dropHistoryTable() throws DataStoreManagerException {
 		if (this.isExistsHistoryTable()) return false;
 		Sql sql = new Sql("DROP TABLE ").add(this.getHistoryTableName());
 		this.transaction.dropTable(sql);
@@ -64,7 +64,7 @@ class OracleTableMetaData extends TableMetaData {
 	}
 	
 	@Override
-	protected boolean createTriggerHistoryTable() throws DataStoreManagerException {
+	public boolean createTriggerHistoryTable() throws DataStoreManagerException {
 		if (!this.isExistsHistoryTable()) return false;
 		this.createInsertTrigerForHistoryTable();
 		this.createUpdateTrigerForHistoryTable();
@@ -111,7 +111,7 @@ class OracleTableMetaData extends TableMetaData {
 	}
 	
 	@Override
-	protected boolean dropHistoryTrigger() throws DataStoreManagerException {
+	public boolean dropHistoryTrigger() throws DataStoreManagerException {
 		if (!this.isExistsHistoryTable()) return false;
 		this.dropInsertHistoryTrigger();
 		this.dropUpdateHistoryTrigger();
