@@ -1,3 +1,6 @@
+<<<<<<< HEAD
 aaaaa
+=======
+>>>>>>> feature/Asia
 
 aiueo
