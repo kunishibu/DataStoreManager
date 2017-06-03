@@ -10,7 +10,7 @@ import jp.co.dk.message.AbstractMessage;
  */
 public class DataStoreExporterMessage extends AbstractMessage{
 	
-	/** ファイル読み込みに失敗しました。PATH=[{0}] */
+	/** ファイル読み込みに失敗しました。テヘペロPATH=[{0}] */
 	public static final DataStoreExporterMessage FAILED_TO_READ_FILE = new DataStoreExporterMessage("E001");
 	
 	/** 変数値が設定されていません。 */
