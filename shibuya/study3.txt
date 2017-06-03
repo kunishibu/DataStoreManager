@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 sssdoiadioaofjasfj;lj
 
 aaaaa
+=======
+aaadsdadasfvascZSCZCascasvagvdagaqegweqgsaeggsgegsegwsaaa
+>>>>>>> feature/Eu
 =======
 >>>>>>> feature/Asia
 
